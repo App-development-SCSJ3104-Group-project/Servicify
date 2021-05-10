@@ -1,0 +1,20 @@
+.custom-button {
+  border-radius: 6px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: auto;
+  height: 6rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.button-icon {
+  width: 3rem;
+  height: 3rem;
+  vertical-align: middle;
+  transform: translateX(-3rem);
+}
