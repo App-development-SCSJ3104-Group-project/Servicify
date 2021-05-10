@@ -91,7 +91,7 @@ class SignupForm extends React.Component{
         ]
         return <div className="signup-form">
 
-            <Form  {...imageAssets} formInputs={formInputs} formButtons={formButtons}></Form>
+            <Form  {...imageAssets} type="signup" formInputs={formInputs} formButtons={formButtons}></Form>
 
         </div>
     }
