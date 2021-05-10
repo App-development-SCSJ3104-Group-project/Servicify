@@ -21,6 +21,7 @@ class Form extends React.Component{
             const {mainImg,orangeDots,redCircles,quotation,whiteArrow,check}=this.props;
             const {formInputs}=this.props;
             const {formButtons}=this.props;
+            const{type}=this.props;
         const style={
            backgroundImage:`url(${mainImg})`,
         }
@@ -57,8 +58,9 @@ class Form extends React.Component{
                     </div>
                     <form className="form__right-side__innerForm">
                         <div className="form__right-side__innerForm__header">
-                            <div className="form__right-side__innerForm__header__primary">Register Individual Account!</div>
-                            <div className="form__right-side__innerForm__header__secondary">For the purpose of industry regulation, your details are required.</div>
+                            {type=="signup"?   <div><div className="form__right-side__innerForm__header__primary">Register Individual Account!</div>
+                            <div className="form__right-side__innerForm__header__secondary">For the purpose of industry regulation, your details are required.</div></div>:<div><div className="form__right-side__innerForm__header__primary">Login</div></div>}
+                         
                         </div>
                         <hr className="style-two"/>
 

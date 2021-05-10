@@ -85,7 +85,7 @@ class LoginForm extends React.Component{
         ]
         return <div className="login-form">
 
-            <Form  {...imageAssets} formInputs={formInputs} formButtons={formButtons}></Form>
+            <Form  {...imageAssets} type="login" formInputs={formInputs} formButtons={formButtons}></Form>
 
         </div>
     }
