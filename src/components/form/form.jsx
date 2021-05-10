@@ -62,7 +62,7 @@ class Form extends React.Component{
                         </div>
                         <hr className="style-two"/>
 
-
+                                       
                     {formInputs.map((formInput,index)=>{
 
                         // @ts-ignore
