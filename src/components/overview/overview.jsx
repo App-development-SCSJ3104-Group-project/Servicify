@@ -10,27 +10,31 @@ class Overview extends Component {
   render() {
     return (
       <div className="contained-section">
-        <div className="row description">
-          <p className="header">Get Started on our website with these tips</p>
+        <div className="section-headline">
+          <p>Get Started on our website with these tips</p>
         </div>
-        <div className="row content">
-          <CardInfo className="card"
+        <div className="row card-section">
+          <CardInfo
+            className="card"
             icon="pencil"
             description="write a post for the service to enable freelancer to see your requested
                          service"
           />
           <CardInfo
-            icon="email" className="card"
+            icon="email"
+            className="card"
             description="write a post for the service to enable freelancer to see your requested
                          service"
           />
           <CardInfo
-            icon="plus" className="card"
+            icon="plus"
+            className="card"
             description="write a post for the service to enable freelancer to see your requested
                          service"
           />
           <CardInfo
-            icon="send" className="card"
+            icon="send"
+            className="card"
             description="write a post for the service to enable freelancer to see your requested
                          service"
           />

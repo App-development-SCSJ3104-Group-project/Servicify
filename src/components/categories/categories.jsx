@@ -5,7 +5,7 @@ import "./categories.css";
 const Categories = () => {
   return (
     <div>
-      <div class="row description">
+      <div class="row section-headline">
         <p>
           <span class="starter-word">Hire</span> a pro for any service you want
         </p>

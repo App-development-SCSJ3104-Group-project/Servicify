@@ -5,20 +5,19 @@
 }
 
 .contained-section {
-  width: 100%;
-  height: 33rem;
+  width: 98.9%;
+  height: 37rem;
   padding: 3rem 2rem;
   background-color: #f2f6f9;
   border-radius: 15px;
-}
-.header{
+  margin: 12px 0px 30px 8px;
 }
 
-.description {
+.section-headline {
   font-size: 2rem;
   font-weight: 600;
   text-align: center;
-  margin-bottom: 50px;
+  margin: 20px 0px 40px 0px;
 }
 
 .col-md-3 {
@@ -36,10 +35,11 @@
   margin-bottom: 20px;
 }
 
-.custom-card{
+.custom-card {
   text-align: center;
   align-items: center;
 }
-.custom-card svg{
 
+.card-section {
+  margin: 0px 0px 20px 60px;
 }

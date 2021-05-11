@@ -25,6 +25,9 @@
 .search-input {
   width: 90%;
   height: 40px;
+  padding-left: 10px;
+  font-size: 13px;
+  border: none;
 }
 
 ::-webkit-input-placeholder {
@@ -40,9 +43,4 @@
   position: absolute;
   bottom: 0;
   left: 105px;
-}
-
-.overview {
-  border-radius: 4px;
-  border-bottom: 4px solid #ff835c;
 }
