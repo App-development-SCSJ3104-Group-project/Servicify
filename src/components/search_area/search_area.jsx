@@ -8,6 +8,8 @@ class SearchArea extends Component {
     this.state = {};
   }
   render() {
+    const { tabs } = this.props;
+
     return (
       <div className="browse-area">
         <div className="title-search"></div>
@@ -20,11 +22,13 @@ class SearchArea extends Component {
           />
         </div>
         <div className="navbar-search">
-          <NavigationTab
-            currentTab={true}
-            lastTab={false}
-            tabName={"overview"}
-          />
+          {tabs.map((tab) => (
+            <NavigationTab
+              currentTab={tab.isActive}
+              lastTab={tab.lastTab}
+              tabName={tab.name}
+            />
+          ))}
         </div>
       </div>
     );

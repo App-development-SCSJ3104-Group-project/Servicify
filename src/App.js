@@ -6,6 +6,7 @@ import LandingPage from "../src/pages/landing_page/landing_page";
 import MainPage from "../src/pages/mainpage/mainpage.jsx";
 
 import { Route } from "react-router-dom";
+import CustomerMain from "./pages/customer_main_screen/customer_main_screen";
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
       <Route path="/login" component={LoginForm}></Route>
       <Route exact path="/" component={LandingPage}></Route>
       <Route path="/main_page" component={MainPage}></Route>
+      <Route path="/customer_main_screen" component={CustomerMain}></Route>
     </div>
   );
 }
