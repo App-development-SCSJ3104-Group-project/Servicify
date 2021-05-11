@@ -1,23 +1,23 @@
 import React from 'react';
-
 import Navbar from "../../components/navbar/navbar";
 import "./mainpage.scss";
-class MainPage extends React.Component{
+class MainPage extends React.Component {
 
-    constructor(props){
+    constructor(props) {
 
         super(props);
-        this.state={
+        this.state = {
 
         }
     }
-    render(){
+    render() {
 
         return (
 
             <div className="main-page">
 
                 <Navbar></Navbar>
+                
             </div>
         )
     }
