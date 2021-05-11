@@ -10,7 +10,7 @@ const Categories = () => {
           <span class="starter-word">Hire</span> a pro for any service you want
         </p>
       </div>
-      <div className="row">
+      <div className="row pb-5">
         <div className="col-md-6">
           <div className="categories-section">
             <CategoryButton category="Farming & plantings" />

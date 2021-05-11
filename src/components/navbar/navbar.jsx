@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./navbar.css";
-
+import CustomButton from "../button/button";
+import {Router,Link} from "react-router-dom"
 class Navbar extends Component {
   constructor(props) {
     super(props);
@@ -10,10 +11,16 @@ class Navbar extends Component {
     return (
       <nav className="navbar-section">
         <div className="logo-section">
-          <p className="logoname">E-service Application</p>
+          <p className="logoname">Servicify</p>
         </div>
         <div className="access-management">
-          <button className="btnlogin">login</button>
+                   <Link to="/login" style={{textDecoration:"none"}}>
+          <CustomButton innerText="Login" margin="1rem" color="white" backGroundColor="#ff835c" width="10rem" height="4rem" borderRadius="10px" ></CustomButton>
+           </Link>
+          <Link to="/signup" style={{textDecoration:"none"}}>
+          <CustomButton innerText="Signup" color="white" backGroundColor="#313641" width="12rem" borderRadius="10px"  margin="1rem" height="4rem"></CustomButton>
+           </Link>
+
         </div>
       </nav>
     );

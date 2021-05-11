@@ -12,10 +12,9 @@
 }
 
 .divided-section {
-  display: grid;
-  grid-template-columns: 100px 50px;
+  width: 100%;
+  display: flex;
   align-items: center;
-  column-gap: 0.2rem;
   margin-left: 18px;
 }
 
@@ -82,4 +81,7 @@
   background-color: #ff9e00;
   border: none;
   margin-right: 5px;
+}
+.filter{
+  font-weight: bold;
 }

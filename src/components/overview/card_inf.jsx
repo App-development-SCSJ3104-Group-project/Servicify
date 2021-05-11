@@ -9,7 +9,7 @@ class CardInfo extends Component {
   render() {
     const { description, icon } = this.props;
     return (
-      <div className="col-md-2">
+      <div className="col-md-2 custom-card">
         {this.getIconType(icon)}
         <p>{description}</p>
       </div>

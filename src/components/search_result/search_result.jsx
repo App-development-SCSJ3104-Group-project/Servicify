@@ -10,10 +10,11 @@ const SearchResult = () => {
     <div className="row search-section">
       <div className="col-md-3 filter-section">
         <FilterIcon />
-        <span>Filters:</span>
+        <span className="filter">Filters</span>
         <hr />
         <div className="divided-section">
           <FilterForm type="Min:" placeholder="0.00$" />
+          <span className="to">To</span>
           <FilterForm type="Max:" placeholder="0.00$" />
         </div>
         <ul className="category-list">

@@ -14,23 +14,23 @@ class Overview extends Component {
           <p className="header">Get Started on our website with these tips</p>
         </div>
         <div className="row content">
-          <CardInfo
+          <CardInfo className="card"
             icon="pencil"
             description="write a post for the service to enable freelancer to see your requested
                          service"
           />
           <CardInfo
-            icon="email"
+            icon="email" className="card"
             description="write a post for the service to enable freelancer to see your requested
                          service"
           />
           <CardInfo
-            icon="plus"
+            icon="plus" className="card"
             description="write a post for the service to enable freelancer to see your requested
                          service"
           />
           <CardInfo
-            icon="send"
+            icon="send" className="card"
             description="write a post for the service to enable freelancer to see your requested
                          service"
           />
