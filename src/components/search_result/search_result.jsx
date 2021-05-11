@@ -1,6 +1,5 @@
 import React from "react";
 import "./search_result.css";
-import FilterIcon from "./filtericon";
 import FilterForm from "./form";
 import FilterCategory from "./filtercategory";
 import Card from "./card";
@@ -9,13 +8,13 @@ const SearchResult = () => {
   return (
     <div className="row search-section">
       <div className="col-md-3 filter-section">
-        <FilterIcon />
-        <span className="filter">Filters</span>
+        <p className="filter">Filters: </p>
         <hr />
-        <div className="divided-section">
-          <FilterForm type="Min:" placeholder="0.00$" />
-          <span className="to">To</span>
-          <FilterForm type="Max:" placeholder="0.00$" />
+        <p className="filter">Price: </p>
+        <div className="arranged-forms">
+          <FilterForm placeholder="Min" />
+          <p className="m-2">To</p>
+          <FilterForm placeholder="Max" />
         </div>
         <ul className="category-list">
           <FilterCategory categoryName="Plumbing" />
@@ -34,6 +33,8 @@ const SearchResult = () => {
             <p>1-20 page</p>
           </div>
         </div>
+        <hr />
+        <Card />
         <Card />
         <Card />
       </div>

@@ -12,7 +12,7 @@ const Card = () => {
       <div className="service-provider-card">
         <Avatar />
         <div className="item2">
-          <span>Johor Bahur, Kular, @John</span>
+          <span className="city-location">Johor Bahur, Kular, @John</span>
           <StarIcon color={true} />
           <StarIcon color={true} />
           <StarIcon color={true} />
@@ -31,7 +31,7 @@ const Card = () => {
                 to WordPress overhauls, logotypes and UX/UI - taking you from vision to
                 tangible results that deliver."
       />
-      <div classNameName="categories-displayed">
+      <div className="categories-displayed">
         <Tag tag="Mechnical" />
         <Tag tag="Plubming" />
         <Tag tag="Farming" />

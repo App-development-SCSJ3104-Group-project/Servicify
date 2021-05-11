@@ -10,7 +10,7 @@ const Tag = ({ tag }) => {
         width: "126px",
         backgroundColor: "rgba(255, 158, 0, 0.44)",
         border: "none",
-        marginRight: "5px",
+        margin: "0px 3px 0px 0px",
       }}
     >
       {tag}

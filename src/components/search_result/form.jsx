@@ -1,15 +1,14 @@
 import React from "react";
 
-const FilterForm = ({ type, placeholder }) => {
+const FilterForm = ({ placeholder }) => {
   return (
     <div className="max-section">
-      <p>{type}</p>
       <input
         style={{
           border: "none",
-          borderRadius: "8px",
-          width: "50px",
-          height: "25px",
+          borderRadius: "2px",
+          width: "70px",
+          height: "30px",
         }}
         type="text"
         placeholder={placeholder}

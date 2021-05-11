@@ -3,7 +3,7 @@ import profile from "../../images/landing_page/profile.jpeg";
 
 const Avatar = () => {
   return (
-    <div class="item">
+    <div class="cirular-avatar">
       <img
         src={profile}
         alt="circular avatar"
