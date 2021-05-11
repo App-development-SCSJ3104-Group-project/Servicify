@@ -8,7 +8,7 @@ const Tag = ({ tag }) => {
         borderRadius: "20px",
         height: "39px",
         width: "126px",
-        backgroundColor: "#ff9e00",
+        backgroundColor: "rgba(255, 158, 0, 0.44)",
         border: "none",
         marginRight: "5px",
       }}

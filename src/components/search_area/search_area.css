@@ -34,14 +34,21 @@
 }
 
 .navbar-search {
-  display: grid;
+  display: flex;
   grid-template-columns: auto auto auto auto;
-  gap: 2rem;
+  gap: 6rem;
   position: absolute;
   bottom: 0;
   left: 105px;
 }
 
 .overview {
+  border-radius: 4px;
   border-bottom: 4px solid #ff835c;
+}
+
+.last-tab {
+  position: absolute;
+  bottom: 0;
+  left: 1000px;
 }
