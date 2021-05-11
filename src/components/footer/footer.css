@@ -1,0 +1,33 @@
+.footer {
+    background-color: rgb(30, 40, 51);
+    height: 35rem;
+    width: 100%;
+    padding: 2rem;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+}
+
+.paragraph {
+    width: 25rem;
+    text-align: center;
+    color: white;
+}
+
+.bottom_navigation {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    text-align: center;
+    color: white;
+}
+
+.socialmedia {
+    display: flex;
+    width: 20%;
+    margin-top: 1rem;
+    justify-content: space-between;
+    text-align: center;
+    color: white;
+}
