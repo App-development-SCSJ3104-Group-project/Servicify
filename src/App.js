@@ -12,7 +12,6 @@ function App() {
       <Route path="/login" component={LoginForm}></Route>
       <Route path="/" component={LandingPage}></Route>
       <Route path="/main_page" component={MainPage}></Route>
-
     </div>
   );
 }
