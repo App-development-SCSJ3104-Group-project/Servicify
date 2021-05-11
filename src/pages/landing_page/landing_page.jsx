@@ -4,11 +4,11 @@ import SearchArea from "./../../components/search_area/search_area";
 import Overview from "./../../components/overview/overview";
 import Categories from "./../../components/categories/categories";
 import SearchResult from "./../../components/search_result/search_result";
-
+import "./landing_page.scss";
 class LandingPage extends Component {
   render() {
     return (
-      <div>
+      <div className="landing-page">
         <Navbar />
         <SearchArea />
         <Overview />
