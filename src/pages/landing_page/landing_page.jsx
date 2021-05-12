@@ -13,7 +13,7 @@ class LandingPage extends Component {
 
     return (
       <div className="landing-page">
-        <Navbar />
+        <Navbar isLogged={false} />
         <SearchArea tabs={tabs} />
         <Overview />
         <hr />

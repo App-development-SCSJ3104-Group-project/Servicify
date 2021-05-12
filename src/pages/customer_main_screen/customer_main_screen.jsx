@@ -21,7 +21,7 @@ class CustomerMain extends Component {
 
     return (
       <div className="landing-page">
-        <Navbar />
+        <Navbar isLogged={true} />
         <SearchArea tabs={tabs} />
         <Overview />
         <hr />

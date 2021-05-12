@@ -14,6 +14,29 @@ class Navbar extends Component {
           <p className="logoname">Servicify</p>
         </div>
         <div className="navigation-left-buttons">
+          {this.getNavigationButtons(this.props.isLogged)}
+        </div>
+      </nav>
+    );
+  }
+  getNavigationButtons = (isLogged) => {
+    if (isLogged) {
+      return (
+        <Link to="/login" style={{ textDecoration: "none" }}>
+          <CustomButton
+            innerText="Logout"
+            margin="1rem"
+            color="white"
+            backGroundColor="#ff835c"
+            width="12rem"
+            height="4rem"
+            borderRadius="10px"
+          ></CustomButton>
+        </Link>
+      );
+    } else {
+      return (
+        <React.Fragment>
           <Link to="/login" style={{ textDecoration: "none" }}>
             <CustomButton
               innerText="Login"
@@ -36,10 +59,10 @@ class Navbar extends Component {
               height="4rem"
             ></CustomButton>
           </Link>
-        </div>
-      </nav>
-    );
-  }
+        </React.Fragment>
+      );
+    }
+  };
 }
 
 export default Navbar;
