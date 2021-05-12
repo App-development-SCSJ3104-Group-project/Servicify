@@ -25,6 +25,9 @@
 .search-input {
   width: 90%;
   height: 40px;
+  padding-left: 10px;
+  font-size: 13px;
+  border: none;
 }
 
 ::-webkit-input-placeholder {
@@ -34,14 +37,10 @@
 }
 
 .navbar-search {
-  display: grid;
+  display: flex;
   grid-template-columns: auto auto auto auto;
-  gap: 2rem;
+  gap: 6rem;
   position: absolute;
   bottom: 0;
   left: 105px;
-}
-
-.overview {
-  border-bottom: 4px solid #ff835c;
 }

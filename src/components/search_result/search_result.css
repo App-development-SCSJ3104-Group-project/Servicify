@@ -1,21 +1,28 @@
 .search-section {
-  padding: 20px;
+  padding: 1.6rem;
   margin-left: 4rem;
 }
 
 .filter-section {
   background-color: #f2f6f9;
-  padding: 2rem;
+  padding: 10px 0px 0px 5px;
   height: 300px;
   border-radius: 10px;
-  margin-left: 80px;
+  margin-left: 4rem;
 }
 
-.divided-section {
-  width: 100%;
-  display: flex;
+.filter {
+  font-size: 14px;
+  margin: 7px 0px 14px 16px;
+  font-weight: 800;
+}
+
+.arranged-forms {
+  display: grid;
+  grid-template-columns: 70px 30px 70px;
+  column-gap: 0.2rem;
   align-items: center;
-  margin-left: 18px;
+  margin: 0px 0px 10px 16px;
 }
 
 .number-input {
@@ -35,32 +42,31 @@
 }
 
 .result-section {
-  margin-left: 1.3rem;
+  width: 300px;
+  margin-left: 1rem;
   background-color: #f2f6f9;
 }
 
 .search-result-top {
-  margin-top: 1rem;
-  display: grid;
-  grid-template-columns: 720px 100px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #000000;
-  margin-bottom: 0.5rem;
+  text-align: center;
+  padding: 8px 9px 0px 10px;
 }
 
 .result-title {
-  font-size: 16px;
+  font-weight: 800;
+  font-size: 1.7rem;
 }
 .page-number {
-  text-align: center;
   font-size: 14px;
 }
 
 .service-provider-card {
-  padding: 5px;
+  margin: 5px 5px 2px 13px;
   display: grid;
-  grid-template-columns: 70px 170px 500px 80px;
-  margin-top: 2rem;
+  grid-template-columns: 70px 170px 490px 80px;
   font-size: 14px;
 }
 
@@ -68,9 +74,8 @@
   color: red;
 }
 
-.profile-content {
-  font-size: 14px;
-  padding: 16px;
+.city-location {
+  margin-left: 2px;
 }
 
 .btncategorydisplayed {
@@ -80,8 +85,8 @@
   width: 126px;
   background-color: #ff9e00;
   border: none;
-  margin-right: 5px;
 }
-.filter{
-  font-weight: bold;
+
+.categories-displayed {
+  margin: 0px 0px 20px 15px;
 }

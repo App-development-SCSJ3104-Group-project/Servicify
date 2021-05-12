@@ -9,10 +9,12 @@ import Footer from "../../components/footer/footer";
 import "./landing_page.scss";
 class LandingPage extends Component {
   render() {
+    const tabs = [{ name: "overview", isActive: true }];
+
     return (
       <div className="landing-page">
-        <Navbar />
-        <SearchArea />
+        <Navbar isLogged={false} />
+        <SearchArea tabs={tabs} />
         <Overview />
         <hr />
         <Categories />

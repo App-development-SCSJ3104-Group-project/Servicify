@@ -1,0 +1,65 @@
+.order{
+    position: relative;
+background-color: #FFD980;
+margin: 2rem 0;
+min-height: 12rem;
+border-radius: 10px;
+width: 75%;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+
+&::after{
+
+    content:"";
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    position: absolute;
+    left:-7rem;
+    top:-2rem;
+    background-color: #FFD980;
+}
+&__info{
+
+    font-size: 1.6rem;
+    color:#1E2833;
+    font-weight: 600;
+    &__user{
+
+    }
+    &__order{
+
+    }
+}
+&__user-img{
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+   margin-left: 2rem;
+   z-index: 2;
+    background-image: url('./1-intro-photo-final\ 1\ \(1\).png');
+    background-position: center;
+    transform: translateX(-5rem);
+}
+&__buttons-container{
+    margin-left: 8rem;
+    &>*{
+        background-color: #1E2833;
+        color:white;
+        border: none;
+        margin: 0 .5rem;
+        font-size: 1.6rem;
+    }
+    &__replay,&__reciept{
+        border-radius: 50%;
+        padding: 1rem;
+    }
+    &__feedback{
+        padding: 1rem 2rem;
+        border-radius: 25px;
+    }
+    
+
+}
+}

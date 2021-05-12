@@ -4,7 +4,6 @@
   grid-template-rows: auto auto;
   justify-items: center;
   row-gap: 0.8rem;
-  column-gap: 0.2rem;
   margin-left: 6.5rem;
 }
 
@@ -14,16 +13,16 @@
 }
 
 .btncategory {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   border-radius: 20px;
-  height: 51px;
+  height: 56px;
   width: 235px;
   background-color: #f2f6f9;
   border: none;
 }
 
 .image-demo-section {
-  margin-left: 1rem;
+  margin-left: 8rem;
 }
 
 .demo-image {

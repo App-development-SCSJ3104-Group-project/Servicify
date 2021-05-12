@@ -5,13 +5,13 @@ import "./categories.css";
 const Categories = () => {
   return (
     <div>
-      <div class="row description">
+      <div class="section-headline">
         <p>
           <span class="starter-word">Hire</span> a pro for any service you want
         </p>
       </div>
       <div className="row pb-5">
-        <div className="col-md-6">
+        <div className="col-md-5">
           <div className="categories-section">
             <CategoryButton category="Farming & plantings" />
             <CategoryButton category="Electric Expert" />
@@ -27,13 +27,13 @@ const Categories = () => {
             <CategoryButton category="Farming & plantings" />
           </div>
         </div>
-        <div class="col-md-5 image-demo-section">
+        <div class="col-md-6 image-demo-section">
           <img
             class="demo-image"
             src="http://www.benjaminfranklinplumbing.com/images/blog/10-Reasons-Why-a-Professional-Plumber-Is-Better-Than-DIY-_-Katy-TX.jpg"
             alt="demo image"
-            width="550px"
-            height="344px"
+            width="620px"
+            height="375px"
           />
         </div>
       </div>
