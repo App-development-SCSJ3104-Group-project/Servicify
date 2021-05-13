@@ -28,6 +28,14 @@ class CustomerServiceMainPage extends Component {
             { name: "Reset", isActive: false, type: "reset", backgroundColor: "#FF835C", color: "white" },
         ];
         const categories = ['Tech', 'Tech', 'Tech', 'Tech', 'Tech', 'Tech', 'Tech', 'Tech', 'Tech', 'Tech'];
+        const mockUsers = [
+            { title: "John William", rate: 5, payment: 50.00, description: "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?" },
+            { title: "Ahmad Mousa", rate: 3, payment: 520.00, description: "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?" },
+            { title: "John William", rate: 5, payment: 52.00, description: "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?" },
+            { title: "William William", rate: 2, payment: 10.00, description: "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?" },
+            { title: "Kodo Mozo", rate: 4, payment: 54.00, description: "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?" },
+            { title: "Kodo Mozo", rate: 4, payment: 54.00, description: "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?" },
+        ];
 
         return (
             <div className="landing-page">
@@ -79,18 +87,7 @@ class CustomerServiceMainPage extends Component {
                     <div className="results">
                         <Divider width="100%" height="0.2rem" backgroundColor="grey" marginBottom="3rem" marginTop="3rem" />
 
-                        {/* profile will receive later a data of service providers */}
-                        <ProfileCard />
-                        <ProfileCard />
-                        <ProfileCard />
-                        <Divider width="100%" height="0.2rem" backgroundColor="grey" marginBottom="3rem" marginTop="3rem" />
-                        <ProfileCard />
-                        <ProfileCard />
-                        <ProfileCard />
-                        <Divider width="100%" height="0.2rem" backgroundColor="grey" marginBottom="3rem" marginTop="3rem" />
-                        <ProfileCard />
-                        <ProfileCard />
-                        <ProfileCard />
+                        <ProfileCard data={mockUsers} />
                     </div>
 
                 </div>

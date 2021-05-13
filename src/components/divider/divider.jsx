@@ -15,7 +15,7 @@ const divider = ({ width, backgroundColor, height, marginTop, marginBottom }) =>
 
     return (
 
-        <div class="divider" style={style}>
+        <div className="divider" style={style}>
 
         </div>
     );
