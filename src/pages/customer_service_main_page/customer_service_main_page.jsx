@@ -79,6 +79,7 @@ class CustomerServiceMainPage extends Component {
                     <div className="results">
                         <Divider width="100%" height="0.2rem" backgroundColor="grey" marginBottom="3rem" marginTop="3rem" />
 
+                        {/* profile will receive later a data of service providers */}
                         <ProfileCard />
                         <ProfileCard />
                         <ProfileCard />
