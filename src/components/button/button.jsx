@@ -2,26 +2,32 @@
 
 import React from "react";
 import "./button.scss"
-const CustomButton=({backGroundColor,innerText,color,boxShadow,type,displayType,width,height,margin,icon,borderRadius,onClick})=>{
+const CustomButton = ({ backGroundColor, innerText, color, boxShadow, type, displayType, width, height, margin, icon, borderRadius, onClick, iconPosition }) => {
 
 
-    const style={
+    const style = {
 
-        backgroundColor:backGroundColor,
-        color:color,
-        display:displayType,
+        backgroundColor: backGroundColor,
+        color: color,
+        display: displayType,
         width,
         height,
         margin,
-        boxShadow,borderRadius
+        boxShadow, borderRadius
+    }
+    const value1 = "translateX(1.6rem)";
+    const value2 = null;
+    const styleIcon = {
+        transform: iconPosition === 'false' ? value2 : value1
     }
 
 
-    return(
+    return (
 
         <button type={type} onClick={onClick} className="custom-button" style={style}  >
-        {icon?<img className="button-icon" src={icon}></img>:null}{innerText}
-        </button>
+            {innerText}{icon ? <img className="button-icon" src={icon} style={styleIcon} ></img> : null
+            }
+        </button >
     )
 }
 

@@ -1,0 +1,40 @@
+.card_view {
+    width: 90%;
+    margin: 4rem auto;
+    background-color: #F2F6F9;
+    border-color: transparent;
+    padding: 5.5rem;
+}
+
+.categories {
+    height: 15rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.top_result {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-self: center;
+    margin-top: 4rem;
+}
+
+.buttons {
+    display: flex;
+}
+
+.results {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
