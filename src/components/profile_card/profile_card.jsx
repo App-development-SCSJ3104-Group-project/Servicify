@@ -3,7 +3,6 @@ import "./profile_card.scss"
 import profileIcon from "./Ellipse (3).svg";
 import Icon from "../icon_component/icon";
 import star from "./Star.svg";
-import notification from "./outline_notification_important_black_48dp 1.svg";
 import favourite from "./icons8-heart-30 (1) 1.svg";
 import order from "./outline_book_white_24dp 1.svg";
 import Button from "../../components/button/button";
@@ -69,8 +68,8 @@ class ProfileCard extends Component {
                     </div>
                 </div>
             </div>
+        )
 
-        );
     }
 }
 

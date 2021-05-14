@@ -38,3 +38,12 @@
     justify-content: space-between;
 }
 
+.empty{
+
+    display: flex;
+    flex-direction: column;
+    height: 50rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
