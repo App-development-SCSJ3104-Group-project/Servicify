@@ -56,6 +56,7 @@ class CustomerServiceMainPage extends Component {
                             {
                                 categories.map(e => (
 
+                                    // @ts-ignore
                                     <Button innerText={"#" + e}
                                         margin="0.3rem"
                                         iconPosition='true'
@@ -77,6 +78,7 @@ class CustomerServiceMainPage extends Component {
                             {
                                 buttons.map(e => (
 
+                                    // @ts-ignore
                                     <Button innerText={e.name}
                                         margin="0.3rem"
                                         color={e.color}
