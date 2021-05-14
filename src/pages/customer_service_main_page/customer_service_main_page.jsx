@@ -35,8 +35,14 @@ class CustomerServiceMainPage extends Component {
             { title: "William William", rate: 2, payment: 10.00, description: "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?" },
             { title: "Kodo Mozo", rate: 4, payment: 54.00, description: "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?" },
             { title: "Kodo Mozo", rate: 4, payment: 54.00, description: "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?" },
+            { title: "Kodo Mozo", rate: 4, payment: 54.00, description: "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?" },
+            { title: "Kodo Mozo", rate: 4, payment: 54.00, description: "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?" },
+            { title: "Kodo Mozo", rate: 4, payment: 54.00, description: "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?" },
+            { title: "Kodo Mozo", rate: 4, payment: 54.00, description: "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?" },
+            { title: "Kodo Mozo", rate: 4, payment: 54.00, description: "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?" },
+            { title: "Kodo Mozo", rate: 4, payment: 54.00, description: "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?" },
         ];
-
+        const currentIndex = 2;
         return (
             <div className="landing-page">
                 <Navbar isLogged={true} />
@@ -89,14 +95,14 @@ class CustomerServiceMainPage extends Component {
 
                         {
                             mockUsers.map(e =>
+
                             (
-                                <ProfileCard data={e} />,
-
-                                mockUsers.indexOf(e) % 3 === 0 ?
+                                [<ProfileCard data={e} />
+                                    ,
+                                (mockUsers.indexOf(e) + 1) % 3 === 0 ?
                                     <Divider width="100%" height="0.2rem" backgroundColor="grey" marginBottom="3rem" marginTop="3rem" /> : null
+                                ])
 
-
-                            )
 
                             )
                         }
