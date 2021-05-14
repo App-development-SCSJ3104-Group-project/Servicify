@@ -87,7 +87,19 @@ class CustomerServiceMainPage extends Component {
                     <div className="results">
                         <Divider width="100%" height="0.2rem" backgroundColor="grey" marginBottom="3rem" marginTop="3rem" />
 
-                        <ProfileCard data={mockUsers} />
+                        {
+                            mockUsers.map(e =>
+                            (
+                                <ProfileCard data={e} />,
+
+                                mockUsers.indexOf(e) % 3 === 0 ?
+                                    <Divider width="100%" height="0.2rem" backgroundColor="grey" marginBottom="3rem" marginTop="3rem" /> : null
+
+
+                            )
+
+                            )
+                        }
                     </div>
 
                 </div>
