@@ -1,63 +1,11 @@
-.profile_card{
-
-    width: 23rem;
-    height: 25rem;
-    background-color: rgb(255, 217, 128);
-    position: relative;
-    border-radius: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 1rem;
-    justify-content: start;
-    margin: 1rem;
-}
-.card_header{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    width: 100%;
-    height: 5rem;
-    
-}
-
-.image_block{
-
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    left: -1.5rem;
-    top: -1.5rem;
-    width: 10rem;
-    height: 10rem;
-    border-radius: 50%;
-    background-color: rgb(255, 217, 128);
-}
-.image_block img{
-
-    width: 5rem;
-    height: 5rem;
-}
-
-.header{
-    width: 100%;
-    height: 5rem;
-    display: flex;
-    flex-direction: column;
-    padding-left: 30%;
-    z-index: 1;
-    justify-content: center;
-}
-
-.rate{
+.rate {
     display: flex;
     flex-direction: row;
     width: 75%;
     justify-content: space-between;
 }
 
-.card_title{
+.card_title {
     width: 100%;
     display: flex;
     margin-top: 2rem;
@@ -66,18 +14,17 @@
     z-index: 1;
     align-items: flex-start;
     color: red;
-
 }
-.card_description{
+.card_description {
     width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
     text-align: start;
-    color:black;
-
+    color: black;
+    margin-bottom: 5rem;
 }
 
-.action_buttons{
+.action_buttons {
     position: absolute;
     bottom: 0;
     padding: 0.5rem;
@@ -87,3 +34,10 @@
     justify-content: space-around;
 }
 
+.card_header {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    height: 5rem;
+}
