@@ -6,26 +6,25 @@ import star from "./Star.svg";
 import favourite from "./icons8-heart-30 (1) 1.svg";
 import order from "./outline_book_white_24dp 1.svg";
 import Button from "../../components/button/button";
+import Card from "../../components/card/card";
 
 class ProfileCard extends Component {
     constructor(props) {
         super(props);
         this.state = {};
     }
+
     render() {
         const { data } = this.props;
 
         return (
 
             <div>
-                <div className="profile_card">
 
-                    <div className="card_header">
-                        <div className="image_block">
-                            <img src={profileIcon} alt="" />
-                        </div>
-                        <div className="header">
+                <Card image_src={profileIcon} >
 
+                    <div className="header">
+                        <div className="card_header">
                             <h5>{data.title}</h5>
                             <div className="rate">
                                 <Icon width="1.6rem" height="1.6rem" src={star} />
@@ -35,7 +34,6 @@ class ProfileCard extends Component {
                                 <Icon width="1.6rem" height="1.6rem" src={star} />
 
                             </div>
-
                         </div>
                     </div>
                     <div className="card_title">
@@ -66,8 +64,9 @@ class ProfileCard extends Component {
 
 
                     </div>
-                </div>
-            </div>
+
+                </Card>
+            </div >
         )
 
     }

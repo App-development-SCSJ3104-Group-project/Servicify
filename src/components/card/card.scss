@@ -1,0 +1,39 @@
+.profile_card {
+    width: 23rem;
+    background-color: rgb(255, 217, 128);
+    position: relative;
+    border-radius: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 1rem;
+    justify-content: start;
+    margin: 2rem;
+}
+
+.image_block {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: -1.5rem;
+    top: -1.5rem;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background-color: rgb(255, 217, 128);
+}
+.image_block img {
+    width: 5rem;
+    height: 5rem;
+}
+
+.header {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30%;
+    z-index: 1;
+    justify-content: center;
+}

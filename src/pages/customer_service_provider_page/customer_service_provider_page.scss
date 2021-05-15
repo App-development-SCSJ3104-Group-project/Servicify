@@ -1,0 +1,82 @@
+.main_content {
+    width: 100%;
+}
+.profile_header {
+    position: relative;
+    width: 100%;
+    height: 25rem;
+    background-color: rgb(255, 217, 128);
+}
+.profile_buttons {
+    display: flex;
+    position: absolute;
+    bottom: 50%;
+    padding: 0.5rem;
+    right: 3rem;
+    display: flex;
+    width: 10rem;
+    justify-content: space-around;
+}
+
+.profile_image {
+    width: 20rem;
+    height: 20rem;
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+    bottom: -10rem;
+    color: white;
+    left: 40%;
+}
+
+.profile_image img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 1rem;
+}
+
+.profile_body {
+    background-color: #1e2833;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 17rem;
+    overflow: hidden;
+}
+
+.top_content {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    color: white;
+}
+
+.profile_body_content {
+    width: 90%;
+    display: flex;
+    margin: 5rem auto 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.card_body {
+    z-index: 1;
+    padding: 1rem;
+}
+
+.card_feedback_rate {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    width: 65%;
+}
+.card_feedback_rate img {
+    margin-right: 1rem;
+}
+
+.feedback_card {
+    display: inline-flex;
+    flex-direction: row;
+    overflow: hidden;
+    padding: 3rem;
+}
