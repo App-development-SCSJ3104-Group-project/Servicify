@@ -7,6 +7,7 @@ import CustomerOrderScreen from "../src/pages/customer_order/CustomerOrdersScree
 import { Route } from "react-router-dom";
 import CustomerMain from "./pages/customer_main_screen/customer_main_screen";
 import CustomerServiceMainPage from "./pages/customer_service_main_page/customer_service_main_page";
+import Test from "./pages/test/test";
 function App() {
   return (
     <div className="App">
@@ -14,8 +15,11 @@ function App() {
       <Route path="/login" component={LoginForm}></Route>
       <Route exact path="/" component={CustomerServiceMainPage}></Route>
       <Route path="/customer_main_screen" component={CustomerMain}></Route>
-      <Route path="/customer_orders_screen" component={CustomerOrderScreen}></Route>
-
+      <Route
+        path="/customer_orders_screen"
+        component={CustomerOrderScreen}
+      ></Route>
+      <Route exact path="/test" component={Test}></Route>
     </div>
   );
 }

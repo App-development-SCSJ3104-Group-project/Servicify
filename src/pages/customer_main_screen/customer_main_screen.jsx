@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Navbar from "../../components/navbar/navbar";
+import Nav from "../../components/navbar/navbar";
 import SearchArea from "../../components/search_area/search_area";
 import Overview from "../../components/overview/overview";
 import Categories from "../../components/categories/categories";
@@ -21,7 +21,7 @@ class CustomerMain extends Component {
 
     return (
       <div className="landing-page">
-        <Navbar isLogged={true} />
+        <Nav isLogged={true} />
         <SearchArea tabs={tabs} />
         <Overview />
         <hr />

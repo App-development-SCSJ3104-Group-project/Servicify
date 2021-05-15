@@ -1,68 +1,136 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./navbar.css";
-import CustomButton from "../button/button";
 import { Router, Link } from "react-router-dom";
-class Navbar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <nav className="navbar-section">
-        <div className="logo-section">
-          <p className="logoname">Servicify</p>
-        </div>
-        <div className="navigation-left-buttons">
-          {this.getNavigationButtons(this.props.isLogged)}
-        </div>
-      </nav>
-    );
-  }
-  getNavigationButtons = (isLogged) => {
-    if (isLogged) {
-      return (
-        <Link to="/login" style={{ textDecoration: "none" }}>
-          <CustomButton
-            innerText="Logout"
-            margin="1rem"
-            color="white"
-            backGroundColor="#ff835c"
-            width="12rem"
-            height="4rem"
-            borderRadius="10px"
-          ></CustomButton>
-        </Link>
-      );
-    } else {
-      return (
-        <React.Fragment>
-          <Link to="/login" style={{ textDecoration: "none" }}>
-            <CustomButton
-              innerText="Login"
-              margin="1rem"
-              color="white"
-              backGroundColor="#ff835c"
-              width="12rem"
-              height="4rem"
-              borderRadius="10px"
-            ></CustomButton>
-          </Link>
-          <Link to="/signup" style={{ textDecoration: "none" }}>
-            <CustomButton
-              innerText="Signup"
-              color="white"
-              backGroundColor="#313641"
-              width="12rem"
-              borderRadius="10px"
-              margin="1rem"
-              height="4rem"
-            ></CustomButton>
-          </Link>
-        </React.Fragment>
-      );
-    }
-  };
+import CustomButton from "./../button/button";
+import NotificationIcon from "./notification_icons";
+import Check_Icon from "./check_icon";
+
+function Nav({ isLogged }) {
+  return <Navbar>{isLogged ? <SignedInNav /> : <SignedOutNav />}</Navbar>;
 }
 
-export default Navbar;
+const SignedInNav = () => {
+  return (
+    <React.Fragment>
+      <NavItem icon={<NotificationIcon />}>
+        <DropdownMenu></DropdownMenu>
+      </NavItem>
+      <Link to="/login" style={{ textDecoration: "none" }}>
+        <CustomButton
+          innerText="Logout"
+          margin="1rem"
+          color="white"
+          backGroundColor="#ff835c"
+          width="12rem"
+          height="4rem"
+          borderRadius="10px"
+        ></CustomButton>
+      </Link>
+    </React.Fragment>
+  );
+};
+
+const SignedOutNav = () => {
+  return (
+    <React.Fragment>
+      <Link to="/login" style={{ textDecoration: "none" }}>
+        <CustomButton
+          innerText="login"
+          margin="1rem"
+          color="white"
+          backGroundColor="#ff835c"
+          width="12rem"
+          height="4rem"
+          borderRadius="10px"
+        ></CustomButton>
+      </Link>
+      <Link to="/signup" style={{ textDecoration: "none" }}>
+        <CustomButton
+          innerText="Sign up"
+          margin="1rem"
+          color="white"
+          backGroundColor="#ff835c"
+          width="12rem"
+          height="4rem"
+          borderRadius="10px"
+        ></CustomButton>
+      </Link>
+    </React.Fragment>
+  );
+};
+
+function Navbar(props) {
+  return (
+    <div className="navbar">
+      <div className="left-section-navbar-1">
+        <p className="logoname-service">Servicfy</p>
+      </div>
+      <div className="right-section-navbar-2">
+        <ul className="navbar-nav-2">{props.children}</ul>
+      </div>
+    </div>
+  );
+}
+
+function NavItem(props) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <li className="circled-button-box">
+      <a href="#" className="box-icon-button" onClick={() => setOpen(!open)}>
+        {props.icon}
+      </a>
+      {open && props.children}
+    </li>
+  );
+}
+
+function DropdownItem(props) {
+  return (
+    <div href="#" className="menu-item-styles">
+      {props.children}
+      <span className="box-icon-button  icon-right-positioned">
+        {props.rightIcon}
+      </span>
+      <p className="dropdown-item-header-timestamp">{props.notificationTime}</p>
+    </div>
+  );
+}
+
+function DropdownMenu() {
+  return (
+    <div className="dropdown-showup-area">
+      <div className="menu-1">
+        <DropdownItem
+          rightIcon={<Check_Icon />}
+          notificationTime="Friday, 12/05/2020, 9 a.m"
+        >
+          <p className="dropdown-item-header-title">
+            new proposal has been sent to your post
+          </p>
+          <span></span>
+        </DropdownItem>
+        <DropdownItem
+          rightIcon={<Check_Icon />}
+          notificationTime="Friday, 12/05/2020, 9 a.m"
+        >
+          <p className="dropdown-item-header-title">
+            new proposal has been sent to your post
+          </p>
+          <span></span>
+        </DropdownItem>
+        <DropdownItem
+          rightIcon={<Check_Icon />}
+          notificationTime="Friday, 12/05/2020, 9 a.m"
+        >
+          <p className="dropdown-item-header-title">
+            new proposal has been sent to your post
+          </p>
+          <span></span>
+        </DropdownItem>
+      </div>
+    </div>
+  );
+}
+
+export default Nav;
