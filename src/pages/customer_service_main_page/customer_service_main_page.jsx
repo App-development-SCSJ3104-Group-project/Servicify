@@ -13,15 +13,7 @@ import "../landing_page/landing_page.scss";
 import "./customer_service_main_page.scss";
 class CustomerServiceMainPage extends Component {
   render() {
-    const tabs = [
-      { name: "overview", isActive: false },
-      { name: "services", isActive: true },
-      { name: "posts", isActive: false },
-      { name: "orders", isActive: false },
-      { name: "favorites", isActive: false },
-      { name: "requests", isActive: false },
-      { name: "profile", isActive: false, lastTab: true },
-    ];
+
     const buttons = [
       {
         name: "Fees",
@@ -140,7 +132,7 @@ class CustomerServiceMainPage extends Component {
     return (
       <div className="landing-page">
         <Nav isLogged={true} />
-        <SearchArea tabs={tabs} />
+        <SearchArea route={"services"} />
 
         <div className="card_view">
           <div className="categories">

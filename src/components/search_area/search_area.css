@@ -38,9 +38,15 @@
 
 .navbar-search {
   display: flex;
-  grid-template-columns: auto auto auto auto;
-  gap: 6rem;
+  justify-self: start;
   position: absolute;
   bottom: 0;
-  left: 105px;
+  width: 85%;
+  left: 100px;
+}
+.navbar-search p  {
+  margin: 0rem;
+  text-align: center;
+  width: 10rem;
+  border-radius: 0;
 }

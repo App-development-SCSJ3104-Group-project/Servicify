@@ -7,8 +7,17 @@ class SearchArea extends Component {
     super(props);
     this.state = {};
   }
+  tabs = [
+    { name: "overview", isActive: false },
+    { name: "services", isActive: false },
+    { name: "posts", isActive: false },
+    { name: "orders", isActive: false },
+    { name: "favorites", isActive: false },
+    { name: "requests", isActive: false },
+    { name: "profile", isActive: false, lastTab: true },
+  ];
   render() {
-    const { tabs } = this.props;
+    this.tabs.find(e => e.name == this.props.route).isActive = true;
 
     return (
       <div className="browse-area">
@@ -22,13 +31,13 @@ class SearchArea extends Component {
           />
         </div>
         <div className="navbar-search">
-          {tabs?tabs.map((tab) => (
+          {this.tabs ? this.tabs.map((tab) => (
             <NavigationTab
               currentTab={tab.isActive}
               lastTab={tab.lastTab}
               tabName={tab.name}
             />
-          )):null}
+          )) : null}
         </div>
       </div>
     );
