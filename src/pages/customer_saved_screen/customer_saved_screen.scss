@@ -1,0 +1,34 @@
+.saved_body {
+    width: 90%;
+    margin: 4rem auto;
+    background-color: #f2f6f9;
+    border-color: transparent;
+    padding: 5.5rem;
+}
+
+.fav_categories {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.cat_spec {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    height: 10rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+.cat_spec h4 {
+    width: 10rem;
+}
+
+.button_ab {
+    position: absolute;
+    right: 0;
+}

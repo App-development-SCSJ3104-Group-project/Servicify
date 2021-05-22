@@ -17,10 +17,9 @@ function App() {
     <div className="App">
       <Route exact path="/signup" component={SignupForm}></Route>
       <Route path="/login" component={LoginForm}></Route>
-      <Route exact path="/" component={LandingPage}></Route>
+      <Route exact path="/" component={CustomerSavedScreen}></Route>
       <Route path="/customer_main_screen" component={CustomerMain}></Route>
       <Route path="/customer_orders_screen" component={CustomerOrderScreen}></Route>
-
     </div>
   );
 }
