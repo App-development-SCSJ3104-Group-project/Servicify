@@ -45,8 +45,9 @@
   left: 100px;
 }
 .navbar-search p  {
-  margin: 0rem;
+  margin: 0rem 1rem;
   text-align: center;
-  width: 10rem;
+  width: 15rem;
   border-radius: 0;
+  padding-bottom: 1rem;
 }

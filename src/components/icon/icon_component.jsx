@@ -6,8 +6,9 @@ const icon = (props) => {
     const style = {
         height: props.height,
         width: props.width,
+        innerText: props.innerText,
     }
-    
+
     const styleDiv = {
         height: props.heightDiv,
         width: props.widthDiv,
@@ -21,7 +22,8 @@ const icon = (props) => {
 
     return (
         <div style={styleDiv}>
-            <img src={props.src} alt="" style={style} />
+            {props.src !== null ? <img src={props.src} alt="" style={style} /> : <h4>{props.innerText}</h4>}
+
         </div>
 
     );

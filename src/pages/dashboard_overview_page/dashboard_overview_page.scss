@@ -1,0 +1,23 @@
+.dashboard_body {
+    width: 100%;
+}
+
+.dashboard_overview_cards_container {
+    height: 10rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    color: red;
+}
+.dashboard_overview_cards_container h4 {
+    color: black;
+}
+.overview_flex_card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
