@@ -1,0 +1,16 @@
+.dashboard_card {
+    width: 95%;
+    padding: 5rem;
+    background-color: #f2f6f9;
+    position: relative;
+    justify-self: center;
+    margin: 2rem auto;
+    border-radius: 1rem;
+}
+
+.card_label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: white;
+}

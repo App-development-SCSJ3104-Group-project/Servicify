@@ -9,20 +9,10 @@ import Footer from "../../components/footer/footer";
 import "./landing_page.scss";
 class CustomerMain extends Component {
   render() {
-    const tabs = [
-      { name: "overview", isActive: true },
-      { name: "services", isActive: false },
-      { name: "posts", isActive: false },
-      { name: "orders", isActive: false },
-      { name: "favorites", isActive: false },
-      { name: "requests", isActive: false },
-      { name: "profile", isActive: false, lastTab: true },
-    ];
-
     return (
       <div className="landing-page">
         <Nav isLogged={true} />
-        <SearchArea tabs={tabs} />
+        <SearchArea route={"services"} />
         <Overview />
         <hr />
         <Categories />

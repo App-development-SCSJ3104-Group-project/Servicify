@@ -1,0 +1,47 @@
+.overview_header {
+    width: 100%;
+    padding: 5rem;
+    background-color: #303036;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.overview_information {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: white;
+    align-items: center;
+}
+
+.left_info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.left_info img {
+    margin: 2rem;
+}
+
+.overview_tabs {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 7rem;
+    font-size: 1.8rem;
+}
+.overview_tabs p {
+    margin: 0rem 1rem;
+    text-align: center;
+    width: 15rem;
+    border-radius: 0;
+    padding-bottom: 1rem;
+}

@@ -4,13 +4,20 @@ import profileIcon from "../profile_card/Ellipse (3).svg";
 
 const card = (props) => {
 
+    const style = {
+        width: props.width
+    }
+    const imgStyle = {
+        height: props.imgHeight,
+        width: props.imgWidth
+    }
 
     return (
-        <div className="profile_card">
+        <div className="profile_card" style={style}>
 
 
-            <div className="image_block">
-                <img src={profileIcon} alt="" />
+            <div className="image_block" style={imgStyle}>
+                {props.src !== null ?? <img src={profileIcon} alt="" />}
             </div>
 
 

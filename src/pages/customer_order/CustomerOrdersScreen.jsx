@@ -33,15 +33,6 @@ class CustomerOrdersScreen extends React.Component {
           isActive: true,
         },
       ],
-      searchBarTabs: [
-        { name: "overview", isActive: false },
-        { name: "services", isActive: false },
-        { name: "posts", isActive: false },
-        { name: "orders", isActive: true },
-        { name: "favorites", isActive: false },
-        { name: "requests", isActive: false },
-        { name: "profile", isActive: false, lastTab: true },
-      ],
 
       OrdersList: [
         {
@@ -70,12 +61,12 @@ class CustomerOrdersScreen extends React.Component {
     });
   };
   render() {
-    const { innerTabs, searchBarTabs, activeTab, OrdersList } = this.state;
+    const { innerTabs, activeTab, OrdersList } = this.state;
     const { handleTabChanges } = this;
     return (
       <div className="customer-order">
         <Nav isLogged={true} />
-        <SearchArea tabs={searchBarTabs}></SearchArea>
+        <SearchArea route={"orders"}></SearchArea>
         <div className="order-list-section">
           <div className="orders-list-inner-section">
             <div className="orders-list-inner-section__content-container">
@@ -98,8 +89,8 @@ class CustomerOrdersScreen extends React.Component {
               <div className="orders-list-inner-section__content-container__orders">
                 {activeTab == "OrdersList"
                   ? OrdersList.map((order) => {
-                      return <Order {...order}></Order>;
-                    })
+                    return <Order {...order}></Order>;
+                  })
                   : null}
               </div>
             </div>
