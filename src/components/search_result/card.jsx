@@ -10,7 +10,11 @@ const Card = () => {
   return (
     <div>
       <div className="service-provider-card">
-        <Avatar />
+        <Avatar
+          source="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/04/a0004213/img/basic/a0004213_main.jpg?20200710184501&q=80&rw=750&rh=536"
+          width={"50px"}
+          height={"50px"}
+        />
         <div className="item2">
           <span className="city-location">Johor Bahur, Kular, @John</span>
           <StarIcon color={true} />
@@ -32,9 +36,9 @@ const Card = () => {
                 tangible results that deliver."
       />
       <div className="categories-displayed">
-        <Tag tag="Mechnical" />
-        <Tag tag="Plubming" />
-        <Tag tag="Farming" />
+        <Tag tag="Mechnical" color="rgba(255, 158, 0, 0.44)" />
+        <Tag tag="Plubming" color="rgba(255, 158, 0, 0.44)" />
+        <Tag tag="Farming" color="rgba(255, 158, 0, 0.44)" />
       </div>
     </div>
   );

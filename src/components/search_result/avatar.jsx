@@ -1,15 +1,14 @@
 import React from "react";
-import profile from "../../images/landing_page/profile.jpeg";
 
-const Avatar = () => {
+const Avatar = (props) => {
   return (
     <div class="cirular-avatar">
       <img
-        src={profile}
+        src={props.source}
         alt="circular avatar"
-        width="50px"
-        height="50px"
-        style={{ borderRadius: "50%" }}
+        width={props.width}
+        height={props.height}
+        style={{ borderRadius: "50%", objectFit: "cover" }}
       />
     </div>
   );
