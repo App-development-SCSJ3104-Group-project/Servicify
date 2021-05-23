@@ -19,6 +19,7 @@ class SearchArea extends Component {
   render() {
     if (this.props.route !== undefined)
       this.tabs.find(e => e.name == this.props.route).isActive = true;
+
     return (
       <div className="browse-area">
         <div className="title-search"></div>
@@ -31,13 +32,15 @@ class SearchArea extends Component {
           />
         </div>
         <div className="navbar-search">
-          {this.tabs ? this.tabs.map((tab) => (
-            <NavigationTab
-              currentTab={tab.isActive}
-              lastTab={tab.lastTab}
-              tabName={tab.name}
-            />
-          )) : null}
+          {this.tabs
+            ? this.tabs.map((tab) => (
+              <NavigationTab
+                currentTab={tab.isActive}
+                lastTab={tab.lastTab}
+                tabName={tab.name}
+              />
+            ))
+            : null}
         </div>
       </div>
     );
