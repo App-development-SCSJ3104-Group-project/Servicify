@@ -44,10 +44,21 @@
   width: 85%;
   left: 100px;
 }
-.navbar-search p  {
+.navbar-search p {
   margin: 0rem 1rem;
   text-align: center;
   width: 15rem;
   border-radius: 0;
   padding-bottom: 1rem;
+}
+
+@media (max-width: 1650px) {
+  .navbar-search p {
+    width: 10rem;
+  }
+}
+@media (max-width: 955px) {
+  .navbar-search p {
+    width: inherit;
+  }
 }

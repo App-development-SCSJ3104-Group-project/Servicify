@@ -4,9 +4,9 @@ const NavigationTab = ({ currentTab, lastTab, tabName }) => {
   return (
     <div
       className="tab"
-      style={
-        lastTab ? { position: "absolute", bottom: "0", right: "0" } : {}
-      }
+      // style={
+      //   lastTab ? { position: "absolute", bottom: "0", right: "0" } : {}
+      // }
     >
       <p
         style={

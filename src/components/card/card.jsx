@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import "./card.scss"
-import profileIcon from "../profile_card/Ellipse (3).svg";
 
 const card = (props) => {
 
@@ -17,7 +16,7 @@ const card = (props) => {
 
 
             <div className="image_block" style={imgStyle}>
-                {props.src !== null ?? <img src={profileIcon} alt="" />}
+                {props.image_src !== undefined ? <img src={props.image_src} alt="" /> : null}
             </div>
 
 

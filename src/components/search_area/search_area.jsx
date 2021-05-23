@@ -17,8 +17,8 @@ class SearchArea extends Component {
     { name: "profile", isActive: false, lastTab: true },
   ];
   render() {
-    this.tabs.find(e => e.name == this.props.route).isActive = true;
-
+    if (this.props.route !== undefined)
+      this.tabs.find(e => e.name == this.props.route).isActive = true;
     return (
       <div className="browse-area">
         <div className="title-search"></div>

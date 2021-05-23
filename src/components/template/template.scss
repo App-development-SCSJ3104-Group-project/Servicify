@@ -1,0 +1,16 @@
+.template {
+    width: 100%;
+}
+
+.spec_div {
+    width: 100%;
+    padding: 0 10%;
+    background-color: #F2F6F9;
+}
+
+@media (max-width: 1650px) {
+    .spec_div {
+        width: 100%;
+        padding: 0;
+    }
+}

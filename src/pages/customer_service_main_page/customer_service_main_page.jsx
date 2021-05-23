@@ -8,11 +8,23 @@ import Icon from "../../components/icon_component/icon";
 import ProfileCard from "../../components/profile_card/profile_card";
 import dropDownIcon from "./outline_arrow_back_ios_white_24dp 1.svg";
 import notification from "./outline_notification_important_black_48dp 1.svg";
-
-import "../landing_page/landing_page.scss";
+import Template from "../../components/template/template"
+// import "../landing_page/landing_page.scss";
 import "./customer_service_main_page.scss";
 class CustomerServiceMainPage extends Component {
+
+  constructor(props) {
+    super(props)
+    this.windowHeight = window.innerHeight
+    this.windowWidth = window.innerWidth
+  }
+  resize() {
+    this.windowHeight = window.innerHeight
+    this.windowWidth = window.innerWidth
+  }
   render() {
+
+    window.onresize = this.resize
 
     const buttons = [
       {
@@ -130,9 +142,8 @@ class CustomerServiceMainPage extends Component {
     ];
     const currentIndex = 2;
     return (
-      <div className="landing-page">
-        <Nav isLogged={true} />
-        <SearchArea route={"services"} />
+
+      <Template route={"services"}>
 
         <div className="card_view">
           <div className="categories">
@@ -184,7 +195,7 @@ class CustomerServiceMainPage extends Component {
             {mockUsers.length != 0 ? (
               mockUsers.map((e) => [
                 <ProfileCard data={e} />,
-                (mockUsers.indexOf(e) + 1) % 3 === 0 ? (
+                (mockUsers.indexOf(e) + 1) % (this.windowWidth <= 1300 ? 3 : 4) === 0 ? (
                   <Divider
                     width="100%"
                     height="0.2rem"
@@ -202,10 +213,10 @@ class CustomerServiceMainPage extends Component {
               </div>
             )}
           </div>
-        </div>
 
-        <Footer />
-      </div>
+        </div>
+      </Template>
+
     );
   }
 }

@@ -6,6 +6,7 @@ import Card from "../../components/card/card";
 import Divider from "../../components/divider/divider";
 import Button from "../../components/button/button";
 import ProfileCard from "../../components/profile_card/profile_card";
+import Template from "../../components/template/template";
 import Icon from "../../components/icon_component/icon";
 
 import notification from "../customer_service_main_page/outline_notification_important_black_48dp 1.svg";
@@ -67,10 +68,8 @@ class CustomerSavedScreen extends Component {
         ];
 
         return (
-            <div className="landing-page">
 
-                <Nav isLogged={true} />
-                <SearchArea route={"favorites"} />
+            <Template route="favorites">
 
                 <div className="saved_body">
 
@@ -130,9 +129,8 @@ class CustomerSavedScreen extends Component {
                         )}
                     </div>
                 </div>
-                <Footer />
 
-            </div >
+            </Template>
         )
     }
 
