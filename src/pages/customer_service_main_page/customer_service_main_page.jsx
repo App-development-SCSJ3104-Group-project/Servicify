@@ -18,6 +18,7 @@ class CustomerServiceMainPage extends Component {
     this.windowHeight = window.innerHeight
     this.windowWidth = window.innerWidth
   }
+  
   resize() {
     this.windowHeight = window.innerHeight
     this.windowWidth = window.innerWidth

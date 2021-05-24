@@ -13,9 +13,7 @@ import CustomerPostScreen from "./pages/customer_post_screen/customer_post_scree
 import CustomerSavedScreen from "./pages/customer_saved_screen/customer_saved_screen";
 import CustomerMakeRequestPage from "./pages/customer_make_request_page/customer_make_request_page";
 import DashboardOverviewPage from "./pages/dashboard_overview_page/dashboard_overview_page";
-import LandingPage from "./pages/landing_page/landing_page";
 
-import DashboardOverviewPage from "./pages/dashboard_overview_page/dashboard_overview_page";
 
 function App() {
   return (
