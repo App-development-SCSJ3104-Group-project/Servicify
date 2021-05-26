@@ -7,7 +7,7 @@ import CustomButton from "../../components/button/button";
 import Order from "../../components/order/order";
 import UserImg from "./1-intro-photo-final 1 (1).png";
 import StatusDone from "./svg/image 2.png"
-import StatusDoneSvg from "./svg/image 2.svg"
+
 
 import OrderStatus from "../../components/status/orderStatus";
 class CustomerOrdersScreen extends React.Component {
@@ -41,12 +41,15 @@ class CustomerOrdersScreen extends React.Component {
       OrdersList: [
         {
           userImg: UserImg,
+
         },
         {
           userImg: UserImg,
+
         },
         {
           userImg: UserImg,
+
         },
       ],
     };
@@ -94,6 +97,8 @@ class CustomerOrdersScreen extends React.Component {
                   // @ts-ignore
                   return (
                     <CustomButton
+// @ts-ignore
+                    CustomButton
                       {...formButton}
                       backGroundColor={
                         formButton.isActive ? "#57C4E5" : "#212738"
