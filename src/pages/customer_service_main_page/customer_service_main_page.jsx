@@ -15,8 +15,14 @@ class CustomerServiceMainPage extends Component {
 
   constructor(props) {
     super(props)
-    this.windowHeight = window.innerHeight
-    this.windowWidth = window.innerWidth
+    // this.windowHeight = window.innerHeight
+    // this.windowWidth = window.innerWidth
+
+    this.state = {
+
+      windowWidth: window.innerWidth,
+      windowHeight: window.innerHeight
+    }
   }
 
   resize = () => {
@@ -24,6 +30,7 @@ class CustomerServiceMainPage extends Component {
     this.windowWidth = window.innerWidth
     this.setState({})
   }
+
   render() {
 
     window.onresize = this.resize
@@ -197,7 +204,7 @@ class CustomerServiceMainPage extends Component {
             {mockUsers.length != 0 ? (
               mockUsers.map((e) => [
                 <ProfileCard data={e} />,
-                (mockUsers.indexOf(e) + 1) % (this.windowWidth <= 1300 ? 3 : 4) === 0 ? (
+                (mockUsers.indexOf(e) + 1) % (this.state.windowWidth <= 1300 ? 3 : 4) === 0 ? (
                   <Divider
                     width="100%"
                     height="0.2rem"

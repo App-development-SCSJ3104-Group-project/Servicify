@@ -6,11 +6,15 @@ import "./CustomerOrdersScreen.scss";
 import CustomButton from "../../components/button/button";
 import Order from "../../components/order/order";
 import UserImg from "./1-intro-photo-final 1 (1).png";
+import StatusDone from "./svg/image 2.png"
+
+
+import OrderStatus from "../../components/status/orderStatus";
 class CustomerOrdersScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeTab: null,
+      activeTab: "",
       innerTabs: [
         {
           type: "button",
@@ -37,12 +41,15 @@ class CustomerOrdersScreen extends React.Component {
       OrdersList: [
         {
           userImg: UserImg,
+
         },
         {
           userImg: UserImg,
+
         },
         {
           userImg: UserImg,
+
         },
       ],
     };
@@ -60,6 +67,21 @@ class CustomerOrdersScreen extends React.Component {
       activeTab: activeTab,
     });
   };
+  checkTab=()=>{
+
+    const currentOrder=this.state.OrdersList[0];
+    if(this.state.activeTab!="OrdersList"){
+
+      return (
+
+        <div className="orders-list-inner-section__content-container__status__inner">
+
+          <img src={StatusDone} alt="" className="orders-list-inner-section__content-container__status__img"/>
+          <Order {...currentOrder}></Order>
+        </div>
+      )
+    }
+  }
   render() {
     const { innerTabs, activeTab, OrdersList } = this.state;
     const { handleTabChanges } = this;
@@ -75,6 +97,8 @@ class CustomerOrdersScreen extends React.Component {
                   // @ts-ignore
                   return (
                     <CustomButton
+// @ts-ignore
+                    CustomButton
                       {...formButton}
                       backGroundColor={
                         formButton.isActive ? "#57C4E5" : "#212738"
@@ -92,6 +116,14 @@ class CustomerOrdersScreen extends React.Component {
                     return <Order {...order}></Order>;
                   })
                   : null}
+              </div>
+              <div className="orders-list-inner-section__content-container__status">
+                {
+                
+                 this.checkTab()
+                }
+                    
+
               </div>
             </div>
           </div>
