@@ -11,6 +11,7 @@ import CustomerSavedScreen from "./pages/customer_saved_screen/customer_saved_sc
 import CustomerMakeRequestPage from "./pages/customer_make_request_page/customer_make_request_page";
 import DashboardOverviewPage from "./pages/dashboard_overview_page/dashboard_overview_page";
 import DashboardManageOrders from "./pages/dashboard_manage_orders/dashboard_manage_orders";
+import DashboardManageRequests from "./pages/dashboard_manage_requests/dashboard_manage_requests";
 
 import LandingPage from "./pages/landing_page/landing_page";
 
@@ -30,6 +31,7 @@ function App() {
       <Route path="/customer_post_screen" component={CustomerPostScreen}></Route>
       <Route path="/dashboard" component={DashboardOverviewPage}></Route>
       <Route path="/dashboard_manage_orders" component={DashboardManageOrders}></Route>
+      <Route path="/dashboard_manage_requests" component={DashboardManageRequests}></Route>
       
     </div>
   );

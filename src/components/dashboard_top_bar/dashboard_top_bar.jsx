@@ -20,7 +20,7 @@ class DashboardTopBar extends Component {
     ];
 
     render() {
-        
+
         this.tabs.find(e => e.name == this.props.route).isActive = true;
         return (
             <div className="overview_header">
@@ -42,12 +42,10 @@ class DashboardTopBar extends Component {
 
                 <div className="overview_tabs">
                     {this.tabs ? this.tabs.map((tab) => (
-                        <div >
-                            <NavigationTab
-                                currentTab={tab.isActive}
-                                tabName={tab.name}
-                            />
-                        </div>
+                        <NavigationTab
+                            currentTab={tab.isActive}
+                            tabName={tab.name}
+                        />
                     )) : null}
                 </div>
             </div>

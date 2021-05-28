@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import Nav from "../../components/navbar/navbar";
-import SearchArea from "../../components/search_area/search_area";
-import Footer from "../../components/footer/footer";
 import Button from "../../components/button/button";
 import Divider from "../../components/divider/divider";
 import Icon from "../../components/icon_component/icon";
