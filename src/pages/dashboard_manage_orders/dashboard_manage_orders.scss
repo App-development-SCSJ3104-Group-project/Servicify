@@ -54,3 +54,75 @@
 .active_card {
     background-color: #ffd980;
 }
+
+.current_order_grid {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.current_order_grid_con {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 5rem;
+    text-align: start;
+}
+
+.flex_in {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 10rem 30rem;
+    color: black;
+    align-items: center;
+    margin: 1rem;
+}
+
+.btn-cancel {
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.list_of_cards {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.order_header_card {
+    width: 90%;
+    justify-self: flex-end;
+    align-self: flex-end;
+    padding: 2rem 3rem 2rem 5rem;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.order_header_card_left {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.rate_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 5rem;
+}
+.part_one {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+}

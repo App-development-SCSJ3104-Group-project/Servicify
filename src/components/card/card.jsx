@@ -4,11 +4,16 @@ import "./card.scss"
 const card = (props) => {
 
     const style = {
-        width: props.width
+        width: props.width,
+        height: props.height
     }
     const imgStyle = {
         height: props.imgHeight,
         width: props.imgWidth
+    }
+    const imgSize = {
+        height: props.imgHsize,
+        width: props.imgWsize
     }
 
     return (
@@ -16,7 +21,7 @@ const card = (props) => {
 
 
             <div className="image_block" style={imgStyle}>
-                {props.image_src !== undefined ? <img src={props.image_src} alt="" /> : null}
+                {props.image_src !== undefined ? <img src={props.image_src} style={imgSize} alt="" /> : null}
             </div>
 
 

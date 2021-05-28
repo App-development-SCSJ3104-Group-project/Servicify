@@ -30,6 +30,7 @@ function App() {
       <Route path="/customer_post_screen" component={CustomerPostScreen}></Route>
       <Route path="/dashboard" component={DashboardOverviewPage}></Route>
       <Route path="/dashboard_manage_orders" component={DashboardManageOrders}></Route>
+      
     </div>
   );
 }
