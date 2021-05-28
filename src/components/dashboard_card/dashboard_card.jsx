@@ -1,4 +1,3 @@
-import React, { Component } from "react"
 import CircularAvatar from "../icon/icon_component"
 
 import "./dashboard_card.scss"

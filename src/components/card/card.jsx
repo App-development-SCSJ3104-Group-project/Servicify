@@ -1,4 +1,3 @@
-import React, { Component } from "react"
 import "./card.scss"
 
 const card = (props) => {
@@ -17,7 +16,7 @@ const card = (props) => {
     }
 
     return (
-        <div className="profile_card" style={style}>
+        <div className="profile_card" style={style} onClick={props.callback} data-name={props.data}>
 
 
             <div className="image_block" style={imgStyle}>

@@ -1,21 +1,15 @@
 import React, { Component } from "react"
 import DashboardTopBar from "../../components/dashboard_top_bar/dashboard_top_bar"
 import ScreenTabs from "../../components/screen_tabs/screen_tabs"
-import DashboardCard from "../../components/dashboard_card/dashboard_card"
-import Button from "../../components/button/button"
-import Card from "../../components/card/card"
-import IconButton from "../../components/icon/icon_component"
 import "./dashboard_manage_orders.scss"
 import "../../components/screen_tabs/screen_tabs.scss"
-
-import profileIcon from "../../components/profile_card/Ellipse (3).svg";
-import star from "./outline_star_black_24dp 1.svg";
-import printIcon from "./outline_receipt_long_white_24dp 1.svg"
 import icon_1 from "../../icons/car-service 1.svg"
 import icon_2 from "../../icons/clipboard 1.svg"
 import icon_3 from "../../icons/mechanic 1.svg"
 import icon_4 from "../../icons/technical-support 1.svg"
 import icon_5 from "../../icons/wrench 1.svg"
+import CurrentOrder from "../current_order/current_order"
+import OrdersHistory from "../orders_history/orders_history"
 
 class DashboardManageOrders extends Component {
 
@@ -69,132 +63,11 @@ class DashboardManageOrders extends Component {
                     <ScreenTabs tabs={this.tabs} callback={this.onclickFun} />
                 </div>
 
-                {this.tabs[0].status ? this.currentOrder() : this.listOrders()}
+                {this.tabs[0].status ? <CurrentOrder orderStatus={this.orderStatus} callback={this.onOrderCardClicked} /> : <OrdersHistory />}
 
 
             </div>
         )
-    }
-
-
-    currentOrder = () => {
-
-        return (
-
-            <DashboardCard label={"current order"}>
-
-                <div className="current_order_body">
-
-                    <div className="current_order_status">
-                        {
-                            this.orderStatus.map(e => (
-
-                                <div className={e.status ? "current_order_status_card active_card" : "current_order_status_card"} data-name={e.name}>
-                                    <img src={e.icon} alt="" onClick={this.onOrderCardClicked} />
-                                    <br />
-                                    <h3>{e.name}</h3>
-                                </div>
-                            ))
-                        }
-                    </div>
-
-                    <div className="current_order_grid">
-
-                        <div className="current_order_grid_con">
-
-                            <div className="flex_in">
-                                <h3>Client:</h3>
-                                <input className="input" type="text" readOnly />
-                            </div>
-                            <div className="flex_in">
-                                <h3>Phone no:</h3>
-                                <input className="input" type="number" readOnly />
-                            </div>
-                            <div className="flex_in">
-                                <h3>Country:</h3>
-                                <input className="input" type="number" readOnly />
-                            </div>
-                            <div className="flex_in">
-                                <h3>City:</h3>
-                                <input className="input" type="number" readOnly />
-                            </div>
-                            <div className="flex_in">
-                                <h3>Day:</h3>
-                                <input className="input" type="number" readOnly />
-                            </div>
-
-                        </div>
-                        <div className="current_order_grid_con">
-                            <div className="flex_in">
-                                <h3>Payment method:</h3>
-                                <input className="input" type="text" readOnly />
-                            </div>
-                            <div className="flex_in">
-                                <h3>Site profit:</h3>
-                                <input className="input" type="number" readOnly />
-                            </div>
-                            <div className="flex_in">
-                                <h3>Time Range:</h3>
-                                <input className="input" type="date" readOnly />
-                            </div>
-                            <div className="flex_in">
-                                <h3>Diagnosing fees:</h3>
-                                <input className="input" type="number" readOnly />
-                            </div>
-                            <div className="flex_in">
-                                <h3>Total Payment:</h3>
-                                <input className="input" type="number" readOnly />
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className="btn-cancel">
-
-                        <Button innerText={"Cancel"}
-                            margin="0.3rem"
-                            color="white"
-                            iconPosition='false'
-                            backGroundColor="#1E2833"
-                            width="10rem"
-                            height="4rem"
-                            borderRadius="2rem" />
-                    </div>
-                </div>
-
-            </DashboardCard>
-
-
-        )
-    }
-
-    listOrders = () => {
-        return (
-            <DashboardCard label={"Orders history"}>
-
-                <div className="list_of_cards">
-                    <Card width="40%" imgHeight="15.0rem" imgWidth="15.0rem" image_src={profileIcon} imgHsize="8rem" imgWsize="8rem">
-
-                        <div className="order_header_card">
-                            <div className="order_header_card_left">
-                                <div className="part_one">
-                                    <h3>John Smith</h3>
-                                    <div className="rate_div">
-                                        <h3>4.5</h3>
-                                        <img src={star} alt="" />
-                                    </div>
-                                </div>
-                                <h3>27 minutes ago / Johor Bahru / Cash</h3>
-                            </div>
-                            <div className="right_float_button">
-                                <IconButton height="2.5rem" width="2.5rem" innerText={null} heightDiv="5.0rem" widthDiv="5.0rem"
-                                    borderRadius="50%" backgroundColor="#1E2833" src={printIcon} />
-                            </div>
-                        </div>
-                    </Card>
-                </div>
-
-
-            </DashboardCard>)
     }
 }
 export default DashboardManageOrders

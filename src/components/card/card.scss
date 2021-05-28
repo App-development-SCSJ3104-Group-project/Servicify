@@ -1,5 +1,5 @@
 .profile_card {
-    width: 23rem;
+    width: 50%;
     background-color: rgb(255, 217, 128);
     position: relative;
     border-radius: 2.5rem;
@@ -36,4 +36,23 @@
     padding-left: 30%;
     z-index: 1;
     justify-content: center;
+}
+
+@media (max-width: 1300px) {
+    .profile_card {
+        width: 90%;
+    }
+}
+
+@media (max-width: 1300px) {
+    .profile_card {
+        width: 90%;
+    }
+}
+
+@media (max-width: 750px) {
+    .image_block{
+        width: 16rem !important;
+        height: 16rem !important;
+    }
 }

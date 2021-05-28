@@ -1,4 +1,5 @@
 import React from "react";
+import "./search_area.css"
 
 const NavigationTab = ({ currentTab, lastTab, tabName }) => {
   return (
@@ -8,7 +9,7 @@ const NavigationTab = ({ currentTab, lastTab, tabName }) => {
       //   lastTab ? { position: "absolute", bottom: "0", right: "0" } : {}
       // }
     >
-      <p
+      <p className="tab_style"
         style={
           currentTab
             ? { borderBottom: "4px solid #ff835c", borderRadius: "0" }

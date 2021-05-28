@@ -1,0 +1,74 @@
+
+.current_order_body {
+    background-color: #f2f6f9;
+    width: 90%;
+    color: white;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    align-content: center;
+}
+
+.current_order_status {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    color: black;
+    align-content: center;
+    text-align: center;
+}
+
+.current_order_status img {
+    width: 10rem;
+    height: 10rem;
+}
+
+.current_order_status_card {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+
+.active_card {
+    background-color: #ffd980;
+}
+
+.current_order_grid {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.current_order_grid_con {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 5rem;
+    text-align: start;
+}
+
+.flex_in {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 15rem 30rem;
+    color: black;
+    align-items: center;
+    margin: 1rem;
+}
+
+.btn-cancel {
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    justify-content: flex-end;
+}

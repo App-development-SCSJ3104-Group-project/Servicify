@@ -62,3 +62,8 @@
     width: inherit;
   }
 }
+@media (max-width: 750px) {
+  .tab_style {
+    width: 100%;
+  }
+}
