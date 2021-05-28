@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "./../../components/navbar/navbar";
 import SearchArea from "./../../components/search_area/search_area";
 import "./customer_post_scree.css";
+import "./post_screen.scss";
 import PostCard from "./../../components/post_card/post_card";
 import Avatar from "./../../components/search_result/avatar";
 import OptionIcon from "./../../components/post_card/option_icon";
-import Tag from "./../../components/search_result/tag";
 
 const CustomerPostScreen = () => {
   return (
@@ -22,6 +22,25 @@ const CustomerPostScreen = () => {
 };
 
 const PostCardForm = () => {
+  // to hold the array of tags added by user
+  const [tags, setTags] = useState(["Nodejs", "MongoDB", "React"]);
+
+  // to handle the action of deleting a tag
+  const removeTags = (indexToRemove) => {
+    setTags([...tags.filter((_, index) => index !== indexToRemove)]);
+  };
+
+  // to handle the action of adding a tag into the list
+  const addTags = (event) => {
+    if (event.target.value !== "") {
+      setTags([...tags, event.target.value]);
+      event.target.value = "";
+    }
+  };
+
+  const locationOptions = ["Johor Bahru", "Kuala Lumper", "Penange", "Genting"];
+  const paymentOptions = ["cash", "online"];
+
   return (
     <div className="post__form_card___wrapper">
       <div className="post__form_card___header-section">
@@ -35,21 +54,9 @@ const PostCardForm = () => {
           />
           <div className="post__form_card__header-section-form-element">
             <div className="post__form_card_header_dropdowns-section">
-              <select className="post__form_card_header_location-dropdown">
-                <option disabled>Location</option>
-                <option value="Johor Bahru">Johor Bahru</option>
-                <option value="Kuala Lumper">Kuala Lumper</option>
-                <option value="Penange">Penange</option>
-                <option value="Genting">Genting</option>
-                <option value="Langkwai">Langkwai</option>
-                <option value="Sabah">Sabah</option>
-                <option value="Sarawk">Sarawk</option>
-              </select>
-              <select className="post__form_card_header_payment-dropdown">
-                <option disabled>Payment</option>
-                <option value="cash">Cash</option>
-                <option value="online">Online Payment</option>
-              </select>
+              <DropdownItems options={locationOptions} />
+              <DropdownItems options={paymentOptions} />
+
               <button className="post__form_card_header_submit__button">
                 upload file
               </button>
@@ -66,15 +73,38 @@ const PostCardForm = () => {
           className="post__form_card_header_description_field"
           placeholder="Describe your problem here"
         ></textarea>
-        <input type="text" className="post__form_card_header_postTags_field" />
-        <div className="tags__post_form">
-          <Tag tag={"#Electrical"} color="#57C4E5" />
-          <Tag tag={"#Job"} color="#57C4E5" />
-          <Tag tag={"#free"} color="#57C4E5" />
-          <Tag tag={"#people"} color="#57C4E5" />
+        <div className="tags-input">
+          <ul id="tags">
+            {tags.map((tag, index) => (
+              <li key={index} className="tag">
+                <span className="tag-title">{tag}</span>
+                <span
+                  className="tag-close-icon"
+                  onClick={() => removeTags(index)}
+                >
+                  x
+                </span>
+              </li>
+            ))}
+          </ul>
+          <input
+            type="text"
+            onKeyUp={(event) => (event.key === "Enter" ? addTags(event) : null)}
+            placeholder="Press enter to add tags"
+          />
         </div>
       </div>
     </div>
+  );
+};
+
+const DropdownItems = (props) => {
+  return (
+    <select className="post__form_card_header_location-dropdown">
+      {props.options.map((option) => (
+        <option value={option}>{option}</option>
+      ))}
+    </select>
   );
 };
 
