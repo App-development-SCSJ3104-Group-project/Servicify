@@ -1,60 +1,63 @@
-.customer-order{
+.customer-order {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
 }
-.orders-list-inner-section{
 
+.orders-list-inner-section {
     width: 85%;
     height: 100rem;
     background-color: #F2F6F9;
-    color:black;
+    color: black;
     position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
     overflow-y: scroll;
-   
-    &__content-container{
-
-     width: 85%;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-    
-    &__tabs{
-       width: 50%;
-       display: flex;
-       
-   }
-   &__orders{
-       margin-top: 2rem;
-      
-   }
-   &__orders,&__status{
-             width: 100%;
-              display: flex;
-    flex-direction: column;
-    align-items: center;
-
-   }
-   &__status{
-  &__inner{
-    width: 100%;
-     display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-    &__img{
-        width: 40rem;
-        height: 40rem;
-    }
-   }
+    &__content-container {
+        width: 85%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__tabs {
+            width: 50%;
+            display: flex;
+        }
+        &__orders {
+            margin-top: 2rem;
+        }
+        &__orders,
+        &__status {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__status {
+            &__inner {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                &__diagnosis-info {
+                    font-size: 2.25rem;
+                    margin-left: -4rem;
+                    margin-bottom: 3rem;
+                }
+            }
+            &__img {
+                width: 30rem;
+                height: 30rem;
+                margin-bottom: 3rem;
+            }
+        }
     }
 }
-.order-list-section{
+
+.order-list-section {
     position: relative;
     width: 100%;
     height: 100rem;

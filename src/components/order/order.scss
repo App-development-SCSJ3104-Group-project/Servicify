@@ -1,115 +1,157 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap');
-.order__extra-info__type>*{
+.order__extra-info__type>* {
     margin: 1rem 0;
 }
-.arrow{
+
+.arrow {
     width: 1.5rem;
     height: 1.5rem;
     position: absolute;
-    left:35rem;
-    bottom:1rem;
+    left: 42.5rem;
+    bottom: 1rem;
     z-index: 10;
     cursor: pointer;
-  
 }
-.order{
-    position: relative;
-background-color: #FFD980;
-margin: 2rem 0;
-height: 12rem;
-// height: 35rem;
-border-radius: 10px;
-transform: scaleY(70%);
-width: 87.5%;
-display: flex;
-justify-content: flex-start;
-align-items: flex-start;
-font-family: 'Mulish', sans-serif;
-font-weight: bold;
-transition: all .5s ease-in-out;
-&__extra-info__type{
- 
-    margin-top: 3rem;
-    width: 120%;
-  overflow: hidden;
-text-overflow: ellipsis;
-    word-break: break-all
-   
-}
-.filled-star{
-    font-size: 1.2rem;
-    width: 2rem;
-}
-.rate{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    &__text{
-        margin-right: 1rem;
+
+// text spacing in card info details
+.order__extra-info__type__details {
+    &>*:not(:first-of-type) {
+        margin: 0 .5rem;
     }
 }
-&::after{
 
-    content:"";
-    width: 15rem;
-    height: 15rem;
-    border-radius: 50%;
-    position: absolute;
-    left:-7rem;
-    top:-2rem;
+.order {
+    position: relative;
     background-color: #FFD980;
-}
-&__info{
-
-    font-size: 1.5rem;
-    color:#1E2833;
-    font-weight: 600;
-    margin-top: 1.5rem;
-    &__user{
+    margin: 2rem 0;
+    height: 12rem;
+    // height: 35rem;
+    border-radius: 10px;
+    transform: scaleY(70%);
+    width: 87.5%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-family: 'Mulish', sans-serif;
+    font-weight: bold;
+    transition: all .5s ease-in-out;
+    &__extra-info__type {
+        margin-top: 3rem;
+        width: 120%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all
+    }
+    .filled-star {
+        font-size: 1.2rem;
+        width: 2rem;
+    }
+    .rate {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        width: 17rem;
-        margin-bottom: 1rem;
+        justify-content: flex-start;
+        &__text {
+            margin-right: 1rem;
+        }
     }
-    &__order{
-        overflow: hidden;
-        height: 3rem;
-        transition-delay: 1s;
-    transition: all .5s ease-in-out;
-
-    }
-}
-&__user-img{
-    width: 7rem;
-    height: 7rem;
-    border-radius: 50%;
-    margin-left: 2rem;
-    margin-top: 1.5rem;
-   z-index: 2;
-    background-image: url('./1-intro-photo-final\ 1\ \(1\).png');
-    background-position: center;
-    transform: translateX(-5rem);
-}
-&__buttons-container{
-    margin-top: 1.5rem;
-    margin-left: 6rem;
-    &>*{
-        background-color: #1E2833;
-        color:white;
-        border: none;
-        margin: 0 .5rem;
-        font-size: 1.6rem;
-    }
-    &__replay,&__reciept{
+    &::after {
+        content: "";
+        width: 15rem;
+        height: 15rem;
         border-radius: 50%;
-        padding: 1rem;
+        position: absolute;
+        left: -7rem;
+        top: -2rem;
+        background-color: #FFD980;
     }
-    &__feedback{
-        padding: 1rem 2rem;
-        border-radius: 25px;
+    &__info {
+        font-size: 1.5rem;
+        color: #1E2833;
+        font-weight: 600;
+        margin-top: 1.5rem;
+        &__user {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 20rem;
+            margin-bottom: 1rem;
+            &__name {
+                width: 15rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+        &__rating {
+            display: flex;
+            align-items: center;
+        }
+        &__order {
+            overflow: hidden;
+            height: 3rem;
+        }
     }
-    
+    &__user-img {
+        width: 7rem;
+        height: 7rem;
+        border-radius: 50%;
+        margin-left: 2rem;
+        margin-top: 1.5rem;
+        z-index: 2;
+        background-image: url('./1-intro-photo-final\ 1\ \(1\).png');
+        background-position: center;
+        transform: translateX(-5rem);
+        background-size: cover;
+    }
+    &__buttons-container {
+        margin-top: 1.5rem;
+        margin-left: 6rem;
+        &>* {
+            background-color: #1E2833;
+            color: white;
+            border: none;
+            margin: 0 .5rem;
+            font-size: 1.6rem;
+        }
+        &__replay,
+        &__reciept {
+            border-radius: 50%;
+            padding: 1rem;
+        }
+        &__feedback {
+            padding: 1rem 2rem;
+            border-radius: 25px;
+        }
+    }
+}
 
+//util 
+.visible {
+    // transition: all .5s ease-in;
+    animation: fadeIn .7s ease-in-out;
+    // overflow: visible;
+    height: 28rem;
 }
+
+.hidden {
+    height: 3rem;
 }
+
+//animatations
+@keyframes fadeOut {
+    from {
+        height: 28rem;
+    }
+    to {
+        height: 3rem;
+    }
+}
+
+// @keyframes fadeIn {
+//     from {
+//         height: 3rem;
+//     }
+//     to {
+//         height: 28rem;
+//     }
+// }

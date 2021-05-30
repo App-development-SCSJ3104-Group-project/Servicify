@@ -6,7 +6,6 @@ import { ReactComponent as FilledStar } from './svg/star.svg';
 import { ReactComponent as BlackStar } from "./svg/blackstar.svg"
 import { ReactComponent as ArrowDown } from "./svg/arrow-down-sign-to-navigate.svg"
 import { ReactComponent as ArrowUp } from "./svg/arrowup.svg"
-import { render } from "@testing-library/react";
 
 
 class Order extends React.Component {
@@ -35,6 +34,7 @@ class Order extends React.Component {
             },
             toggled: true
         })
+     
     }
     shrinkCard = () => {
 
@@ -44,16 +44,20 @@ class Order extends React.Component {
             },
             toggled: false
         })
+
     }
 
 
     render() {
-        const { userImg } = this.props;
 
+        
+        const { userImg,rating,orderedSince,city,day,date,diagonsingFees,totalFees,paymentType,feedback,name } = this.props;
+        
         const style = {
             backgroundImage: `url(${userImg})`,
         }
         const { cardStyle, textStyle, toggled } = this.state;
+       
         return (
 
             <div className="order" style={cardStyle}>
@@ -62,19 +66,19 @@ class Order extends React.Component {
                 <div className="order__user-img" style={style}></div>
                 <div className="order__info">
                     <div className="order__info__user">
-                        <span>John Smith</span>
-                        <span> 4.5 <BlackStar></BlackStar>
+                        <span className="order__info__user__name"> {name}</span>
+                        <span className="order__info__rating"> {rating} <BlackStar style={{marginLeft:".5rem"}}></BlackStar>
                         </span>
-                    </div>
-                    <div className="order__info__order  " style={toggled ? textStyle : null}>
+                  </div>
+                    <div className={`order__info__order ${toggled?"visible":"hidden"}`} >
 
-                        27 minutes ago/Johor Bahru/Cash
+        {orderedSince}  ago / {city} / {paymentType}
                      <div className="order__extra-info__type">
-                            <div>Type: Mechanical / Name: Mototrs / Time: 12:00 - 15:00</div>
-                            <div>City: Johor Bahru / Day: Sunday / Date:15/05/2020 </div>
-                            <div>Diagonsing fees: 10.00$ / Total fees:30.00$</div>
-                            <div>Payment: Cash</div>
-                            <div>Feedback: dummy text of the printing and typesetting industry. </div>
+                            <div className="order__extra-info__type__details"> <span>Type:  Mechanical</span> <span>/</span> <span>Name: Mototrs</span> <span>/</span> <span>Time: 12:00 - 15:00</span></div>
+        <div className="order__extra-info__type__details"><span>City: {city}</span> <span>/</span> <span>Day: {day}</span> <span>/</span> <span>Date: {date}</span> </div>
+        <div className="order__extra-info__type__details"><span>Diagonsing fees: {diagonsingFees}$</span> <span>/</span> <span>Total fees: {totalFees}$</span></div>
+                            <div>Payment: {paymentType}</div>
+                            <div>Feedback: {feedback}. </div>
                             <div className="rate">
                                 <span className="rate__text">Rate: </span>  <FilledStar className="filled-star" /> <FilledStar className="filled-star" /> <FilledStar className="filled-star" /><FilledStar className="filled-star" /><FilledStar className="filled-star" />
                             </div>

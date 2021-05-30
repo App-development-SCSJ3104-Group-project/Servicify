@@ -5,16 +5,17 @@ import Footer from "../../components/footer/footer";
 import "./CustomerOrdersScreen.scss";
 import CustomButton from "../../components/button/button";
 import Order from "../../components/order/order";
-import UserImg from "./1-intro-photo-final 1 (1).png";
-import StatusDone from "./svg/image 2.png"
+import UserImg from "./svg/user1.jpg";
+import UserImg2 from "./svg/user2.png";
+import UserImg3 from "./svg/user3.png";
+import Diagnosing from "./svg/diagnosing.png"
 
 
-import OrderStatus from "../../components/status/orderStatus";
 class CustomerOrdersScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeTab: "",
+      activeTab: "OrdersList",
       innerTabs: [
         {
           type: "button",
@@ -40,15 +41,49 @@ class CustomerOrdersScreen extends React.Component {
 
       OrdersList: [
         {
+          name:"Marwan Mostafa",
+          rating:4.2,
+          orderedSince:"27 minutes",
+          city:"Istanbul",
+          day:"monday",
+          date:"15/05/2021",
+          diagonsingFees:10.00,
+          totalFees:30.00,
+          paymentType:"cash",
+          feedback:"dummy text of the priting and typesetting industry",
           userImg: UserImg,
+          ongoing:false,
 
         },
         {
-          userImg: UserImg,
+          name:"Jalal ajlan",
+          rating:4.8,
+          orderedSince:"1 hour",
+          city:"Johor",
+          day:"Friday",
+          date:"18/02/2021",
+          diagonsingFees:14.00,
+          totalFees:42.00,
+          paymentType:"cash",
+          feedback:"dummy text of the priting and typesetting industry",
+          userImg: UserImg2,
+          ongoing:false,
 
         },
         {
-          userImg: UserImg,
+          name:"Ahmed el raqab",
+          rating:4.6,
+          orderedSince:"2 hours",
+          city:"Mecca",
+          day:"Sunday",
+          date:"11/02/2021",
+          diagonsingFees:24.00,
+          totalFees:52.00,
+          paymentType:"cash",
+          feedback:"dummy text of the priting and typesetting industry",
+          userImg: UserImg3,
+          ongoing:true,
+
 
         },
       ],
@@ -69,14 +104,23 @@ class CustomerOrdersScreen extends React.Component {
   };
   checkTab=()=>{
 
-    const currentOrder=this.state.OrdersList[0];
+    //returning the first order within the ongoing orders
+    const currentOrder=this.state.OrdersList.filter((order)=>order.ongoing==true)[0];
+
+
+    //deciding on tabs content, if orders list , orderslist will get populated
     if(this.state.activeTab!="OrdersList"){
 
       return (
 
         <div className="orders-list-inner-section__content-container__status__inner">
 
-          <img src={StatusDone} alt="" className="orders-list-inner-section__content-container__status__img"/>
+          <img src={Diagnosing} alt="" className="orders-list-inner-section__content-container__status__img"/>
+
+          <div className="orders-list-inner-section__content-container__status__inner__diagnosis-info">
+            <div>Diagnosing the problem</div>
+            <div>#0156FD55DFF55</div>
+          </div>
           <Order {...currentOrder}></Order>
         </div>
       )
@@ -112,8 +156,8 @@ class CustomerOrdersScreen extends React.Component {
               </div>
               <div className="orders-list-inner-section__content-container__orders">
                 {activeTab == "OrdersList"
-                  ? OrdersList.map((order) => {
-                    return <Order {...order}></Order>;
+                  ? OrdersList.map((order,index) => {
+                    return <Order {...order} id={index}></Order>;
                   })
                   : null}
               </div>
