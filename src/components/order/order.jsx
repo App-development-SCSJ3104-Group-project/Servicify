@@ -47,11 +47,12 @@ class Order extends React.Component {
 
     }
 
+  
 
     render() {
 
         
-        const { userImg,rating,orderedSince,city,day,date,diagonsingFees,totalFees,paymentType,feedback,name } = this.props;
+        const { userImg,rating,orderedSince,city,day,date,diagonsingFees,totalFees,paymentType,feedback,name,giveFeedBackOnClick } = this.props;
         
         const style = {
             backgroundImage: `url(${userImg})`,
@@ -96,7 +97,7 @@ class Order extends React.Component {
                 </div>
                 <div className="order__buttons-container">
 
-                    <button className="order__buttons-container__feedback">Give FeedBack</button>
+                    <button className="order__buttons-container__feedback" onClick={()=>giveFeedBackOnClick()}>Give FeedBack</button>
 
                     <button className="order__buttons-container__reciept">
                         <img src={Reciept} alt="" />

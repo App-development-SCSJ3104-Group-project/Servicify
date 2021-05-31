@@ -9,13 +9,14 @@ import UserImg from "./svg/user1.jpg";
 import UserImg2 from "./svg/user2.png";
 import UserImg3 from "./svg/user3.png";
 import Diagnosing from "./svg/diagnosing.png"
-
+import FeedbackPopUp from "./InnerComponents/FeedbackPopUp/FeedbackPopUp"
 
 class CustomerOrdersScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       activeTab: "OrdersList",
+      popUpToggle:false,
       innerTabs: [
         {
           type: "button",
@@ -53,7 +54,7 @@ class CustomerOrdersScreen extends React.Component {
           feedback:"dummy text of the priting and typesetting industry",
           userImg: UserImg,
           ongoing:false,
-
+          giveFeedBackOnClick:this.openPopUp
         },
         {
           name:"Jalal ajlan",
@@ -68,7 +69,7 @@ class CustomerOrdersScreen extends React.Component {
           feedback:"dummy text of the priting and typesetting industry",
           userImg: UserImg2,
           ongoing:false,
-
+          giveFeedBackOnClick:this.openPopUp
         },
         {
           name:"Ahmed el raqab",
@@ -83,12 +84,12 @@ class CustomerOrdersScreen extends React.Component {
           feedback:"dummy text of the priting and typesetting industry",
           userImg: UserImg3,
           ongoing:true,
-
-
+          giveFeedBackOnClick:this.openPopUp
         },
       ],
     };
   }
+
   handleTabChanges = (buttonInnerText, tabsType) => {
     const newInnerTabs = this.state.innerTabs;
     let activeTab = buttonInnerText;
@@ -102,11 +103,25 @@ class CustomerOrdersScreen extends React.Component {
       activeTab: activeTab,
     });
   };
+
+  handlePopUpInput=(childData)=>{
+      console.log(`Text:${childData.text}| Rating: ${childData.rating}`);
+  }
+  closePopUp=()=>{
+    this.setState({
+      popUpToggle:false
+    })
+  }
+  openPopUp=()=>{
+    this.setState({
+      popUpToggle:true
+    })
+  }
+
   checkTab=()=>{
 
     //returning the first order within the ongoing orders
     const currentOrder=this.state.OrdersList.filter((order)=>order.ongoing==true)[0];
-
 
     //deciding on tabs content, if orders list , orderslist will get populated
     if(this.state.activeTab!="OrdersList"){
@@ -134,6 +149,9 @@ class CustomerOrdersScreen extends React.Component {
         <Nav isLogged={true} />
         <SearchArea route={"orders"}></SearchArea>
         <div className="order-list-section">
+    
+        {this.state.popUpToggle==true?<FeedbackPopUp popUpType="feedback" closeCallBack={this.closePopUp} submitCallBack={this.handlePopUpInput} Header="Description"></FeedbackPopUp>:null}
+
           <div className="orders-list-inner-section">
             <div className="orders-list-inner-section__content-container">
               <div className="orders-list-inner-section__content-container__tabs">

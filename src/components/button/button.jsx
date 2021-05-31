@@ -21,7 +21,6 @@ const CustomButton = ({ backGroundColor, innerText, color, boxShadow, type, disp
         transform: iconPosition === 'false' ? value2 : value1,
         width: iconWidth,
         height: iconHeight,
-
     }
 
 
