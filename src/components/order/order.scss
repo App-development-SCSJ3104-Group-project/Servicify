@@ -23,7 +23,7 @@
 .order {
     position: relative;
     background-color: #FFD980;
-    margin: 2rem 0;
+    margin: 3rem 0;
     height: 12rem;
     // height: 35rem;
     border-radius: 10px;
@@ -132,10 +132,6 @@
     height: 28rem;
 }
 
-.hidden {
-    height: 3rem;
-}
-
 //animatations
 @keyframes fadeIn {
     from {
@@ -145,12 +141,3 @@
         height: 28rem;
     }
 }
-
-// @keyframes fadeOut {
-//     from {
-//         height: 28rem;
-//     }
-//     to {
-//         height: 3rem;
-//     }
-// }

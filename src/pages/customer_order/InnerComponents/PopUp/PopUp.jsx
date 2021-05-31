@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./FeedbackPopUp.scss";
+import "./PopUp.scss";
 
 import { ReactComponent as Star } from "../../svg/star.svg";
 
@@ -8,7 +8,7 @@ import { ReactComponent as CloseIcon } from "../../svg/close.svg";
 
 
 import CustomButton from "../../../../components/button/button"
-class FeedbackPopUp extends React.Component{
+class PopUp extends React.Component{
 
     constructor(props){
 
@@ -79,7 +79,7 @@ class FeedbackPopUp extends React.Component{
     render(){
         
    const {popUpType,submitCallBack,Header,closeCallBack}=this.props;
-   const{textValue,starClickingInfo} =this.state;
+   const{textValue,starClickingInfo,} =this.state;
 
         return (
 
@@ -89,7 +89,7 @@ class FeedbackPopUp extends React.Component{
                     rating:(starClickingInfo.clickedIndex+1)
                 });
                 e.preventDefault()
-            }}>
+            }} style={popUpType=="status"?{height:"45rem"}:null}>
 
 
         <div className="feedbackPopUp__header">{Header}</div>
@@ -98,28 +98,27 @@ class FeedbackPopUp extends React.Component{
             <textarea value={this.state.textValue} onChange={this.handleTextChange} name="description" className="feedbackPopUp__textSection__input" placeholder="write the description here ..." ></textarea>
         </div>
 
-        {popUpType=="feedback"??<div>stars</div>}
 
             <div className="feedbackPopUp__buttons-group">
 <CustomButton
  innerText="x" backGroundColor="#1E2833" color="white" type="submit" width="4rem"
                 height="4rem" borderRadius="50%" displayType="inline-block" margin="0rem 1rem" onClick={()=>{
-
-                    this.state.textValue="";
                     closeCallBack()
                 }} ></CustomButton>
  <CustomButton
  innerText="Submit" backGroundColor="#1E2833" color="white" type="submit" width="10rem"
                 height="4rem" borderRadius="22px" displayType="inline-block"  ></CustomButton>
             </div>
-
+{
+    popUpType=="feedback"?
             <div className="feedbackPopUp__rate">
                
                {
                    this.getStars()
                }
                                 
-                            </div>
+                            </div>:null
+}
 
             </form>
 
@@ -129,7 +128,5 @@ class FeedbackPopUp extends React.Component{
 
 
 }
-               
 
-// const CustomButton = ({ backGroundColor, innerText, color, boxShadow, type, displayType, width, height, margin, icon, borderRadius, onClick, iconPosition, iconWidth = "1.6rem", iconHeight = "1.6rem" }) => {
-export default FeedbackPopUp;
+export default PopUp;

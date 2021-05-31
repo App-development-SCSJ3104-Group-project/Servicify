@@ -9,7 +9,7 @@ import UserImg from "./svg/user1.jpg";
 import UserImg2 from "./svg/user2.png";
 import UserImg3 from "./svg/user3.png";
 import Diagnosing from "./svg/diagnosing.png"
-import FeedbackPopUp from "./InnerComponents/FeedbackPopUp/FeedbackPopUp"
+import PopUp from "./InnerComponents/PopUp/PopUp"
 
 class CustomerOrdersScreen extends React.Component {
   constructor(props) {
@@ -17,6 +17,7 @@ class CustomerOrdersScreen extends React.Component {
     this.state = {
       activeTab: "OrdersList",
       popUpToggle:false,
+      popUpType:"feedback",
       innerTabs: [
         {
           type: "button",
@@ -54,7 +55,8 @@ class CustomerOrdersScreen extends React.Component {
           feedback:"dummy text of the priting and typesetting industry",
           userImg: UserImg,
           ongoing:false,
-          giveFeedBackOnClick:this.openPopUp
+          giveFeedBackOnClick:this.openPopUp,
+          cancelOnClick:this.openPopUp,
         },
         {
           name:"Jalal ajlan",
@@ -69,7 +71,9 @@ class CustomerOrdersScreen extends React.Component {
           feedback:"dummy text of the priting and typesetting industry",
           userImg: UserImg2,
           ongoing:false,
-          giveFeedBackOnClick:this.openPopUp
+          giveFeedBackOnClick:this.openPopUp,
+          cancelOnClick:this.openPopUp,
+
         },
         {
           name:"Ahmed el raqab",
@@ -84,7 +88,9 @@ class CustomerOrdersScreen extends React.Component {
           feedback:"dummy text of the priting and typesetting industry",
           userImg: UserImg3,
           ongoing:true,
-          giveFeedBackOnClick:this.openPopUp
+          giveFeedBackOnClick:this.openPopUp,
+         cancelOnClick:this.openPopUp,
+
         },
       ],
     };
@@ -107,15 +113,18 @@ class CustomerOrdersScreen extends React.Component {
   handlePopUpInput=(childData)=>{
       console.log(`Text:${childData.text}| Rating: ${childData.rating}`);
   }
-  closePopUp=()=>{
+  closePopUp=(popUpType)=>{
     this.setState({
-      popUpToggle:false
+      popUpToggle:false,
+      popUpType:popUpType
     })
   }
-  openPopUp=()=>{
+  openPopUp=(popUpType)=>{
     this.setState({
-      popUpToggle:true
+      popUpToggle:true,
+      popUpType:popUpType
     })
+    
   }
 
   checkTab=()=>{
@@ -136,7 +145,7 @@ class CustomerOrdersScreen extends React.Component {
             <div>Diagnosing the problem</div>
             <div>#0156FD55DFF55</div>
           </div>
-          <Order {...currentOrder}></Order>
+          <Order {...currentOrder} orderType="order-status"></Order>
         </div>
       )
     }
@@ -150,7 +159,7 @@ class CustomerOrdersScreen extends React.Component {
         <SearchArea route={"orders"}></SearchArea>
         <div className="order-list-section">
     
-        {this.state.popUpToggle==true?<FeedbackPopUp popUpType="feedback" closeCallBack={this.closePopUp} submitCallBack={this.handlePopUpInput} Header="Description"></FeedbackPopUp>:null}
+        {this.state.popUpToggle==true?<PopUp popUpType={this.state.popUpType} closeCallBack={this.closePopUp} submitCallBack={this.handlePopUpInput} Header={this.state.popUpType=="feedback"?"Description":"Reason"}></PopUp>:null}
 
           <div className="orders-list-inner-section">
             <div className="orders-list-inner-section__content-container">
