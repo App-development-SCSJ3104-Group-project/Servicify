@@ -127,9 +127,8 @@
 
 //util 
 .visible {
-    // transition: all .5s ease-in;
-    animation: fadeIn .7s ease-in-out;
-    // overflow: visible;
+    animation-delay: 1s;
+    animation: fadeIn .5s ease-in-out forwards;
     height: 28rem;
 }
 
@@ -138,20 +137,20 @@
 }
 
 //animatations
-@keyframes fadeOut {
+@keyframes fadeIn {
     from {
-        height: 28rem;
+        height: 3rem;
     }
     to {
-        height: 3rem;
+        height: 28rem;
     }
 }
 
-// @keyframes fadeIn {
+// @keyframes fadeOut {
 //     from {
-//         height: 3rem;
+//         height: 28rem;
 //     }
 //     to {
-//         height: 28rem;
+//         height: 3rem;
 //     }
 // }
