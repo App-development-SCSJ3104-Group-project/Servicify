@@ -1,7 +1,6 @@
 import React from "react";
 import "./PopUp.scss";
 
-import { ReactComponent as DividerLine } from "./svgs/Line 29.svg"
 
 const SearchPopUp=()=>{
 

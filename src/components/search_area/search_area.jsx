@@ -21,13 +21,14 @@ class SearchArea extends Component {
     { name: "profile", isActive: false, lastTab: true },
   ];
   render() {
+    const {popUpToggle}=this.state;
     if (this.props.route !== undefined)
       this.tabs.find(e => e.name == this.props.route).isActive = true;
 
     return (
       <div className="browse-area" >
 
-        <SearchPopUp></SearchPopUp>
+        {popUpToggle?<SearchPopUp></SearchPopUp>:null}
         <div className="title-search"></div>
         <div className="user-search">
           <p className="title">Browse</p>
@@ -35,6 +36,13 @@ class SearchArea extends Component {
             type="text"
             className="search-input"
             placeholder="search for a service provider now"
+            onClick={()=>{
+
+              this.setState({
+
+                popUpToggle:!popUpToggle
+              })
+            }}
           />
         </div>
         <div className="navbar-search">
