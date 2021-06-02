@@ -79,15 +79,18 @@ class PopUp extends React.Component{
     render(){
         
    const {popUpType,submitCallBack,Header,closeCallBack}=this.props;
-   const{textValue,starClickingInfo,} =this.state;
+   const{textValue,starClickingInfo} =this.state;
 
         return (
 
             <form className="feedbackPopUp animate__animated animate__fadeIn" onSubmit={(e)=>{
+                
                 submitCallBack({
                     text:textValue,
                     rating:(starClickingInfo.clickedIndex+1)
-                });
+                })
+             
+               
                 e.preventDefault()
             }} style={popUpType=="status"?{height:"45rem"}:null}>
 
@@ -116,7 +119,6 @@ class PopUp extends React.Component{
                {
                    this.getStars()
                }
-                                
                             </div>:null
 }
 
