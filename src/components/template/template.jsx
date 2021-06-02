@@ -18,6 +18,9 @@ class Template extends Component {
 
         return (
             <div className="template" >
+                <div className="demo">
+
+                </div>
                 <div className="spec_div" style={{ backgroundColor: "#F2F6F9" }}>
                     <Nav isLogged={true} />
                 </div>

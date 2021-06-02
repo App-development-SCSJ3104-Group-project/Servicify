@@ -12,19 +12,17 @@ class CustomerServiceMainPage extends Component {
 
   constructor(props) {
     super(props)
-    // this.windowHeight = window.innerHeight
-    // this.windowWidth = window.innerWidth
+  }
 
-    this.state = {
+  state = {
 
-      windowWidth: window.innerWidth,
-      windowHeight: window.innerHeight
-    }
+    windowWidth: window.innerWidth,
+    windowHeight: window.innerHeight
   }
 
   resize = () => {
-    this.windowHeight = window.innerHeight
-    this.windowWidth = window.innerWidth
+    this.state.windowHeight = window.innerHeight
+    this.state.windowWidth = window.innerWidth
     this.setState({})
   }
 
