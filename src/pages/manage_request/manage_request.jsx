@@ -42,7 +42,7 @@ class ManageRequests extends Component {
                     {
                         this.data.map(prop => (
                             [
-                                <Card imgHeight="15.0rem" imgWidth="15.0rem" image_src={profileIcon} imgHsize="8rem" imgWsize="8rem" data={prop.name} callback={this.onClickCard}>
+                                <Card imgHeight="15.0rem" imgWidth="15.0rem" width="50%" image_src={profileIcon} imgHsize="8rem" imgWsize="8rem" data={prop.name} callback={this.onClickCard}>
 
                                     <div className="order_header_card">
                                         <div className="order_header_card_left">
