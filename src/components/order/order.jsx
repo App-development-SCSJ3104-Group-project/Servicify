@@ -34,7 +34,7 @@ class Order extends React.Component {
             },
             toggled: true
         })
-     
+
     }
     shrinkCard = () => {
 
@@ -50,14 +50,14 @@ class Order extends React.Component {
 
     render() {
 
-        
-        const { userImg,rating,orderedSince,city,day,date,diagonsingFees,totalFees,paymentType,feedback,name } = this.props;
-        
+
+        const { userImg, rating, orderedSince, city, day, date, diagonsingFees, totalFees, paymentType, feedback, name } = this.props;
+
         const style = {
             backgroundImage: `url(${userImg})`,
         }
         const { cardStyle, textStyle, toggled } = this.state;
-       
+
         return (
 
             <div className="order" style={cardStyle}>
@@ -67,16 +67,16 @@ class Order extends React.Component {
                 <div className="order__info">
                     <div className="order__info__user">
                         <span className="order__info__user__name"> {name}</span>
-                        <span className="order__info__rating"> {rating} <BlackStar style={{marginLeft:".5rem"}}></BlackStar>
+                        <span className="order__info__rating"> {rating} <BlackStar style={{ marginLeft: ".5rem" }}></BlackStar>
                         </span>
-                  </div>
-                    <div className={`order__info__order ${toggled?"visible":"hidden"}`} >
+                    </div>
+                    <div className={`order__info__order ${toggled ? "visible" : "hidden"}`} >
 
-        {orderedSince}  ago / {city} / {paymentType}
-                     <div className="order__extra-info__type">
+                        {orderedSince}  ago / {city} / {paymentType}
+                        <div className="order__extra-info__type">
                             <div className="order__extra-info__type__details"> <span>Type:  Mechanical</span> <span>/</span> <span>Name: Mototrs</span> <span>/</span> <span>Time: 12:00 - 15:00</span></div>
-        <div className="order__extra-info__type__details"><span>City: {city}</span> <span>/</span> <span>Day: {day}</span> <span>/</span> <span>Date: {date}</span> </div>
-        <div className="order__extra-info__type__details"><span>Diagonsing fees: {diagonsingFees}$</span> <span>/</span> <span>Total fees: {totalFees}$</span></div>
+                            <div className="order__extra-info__type__details"><span>City: {city}</span> <span>/</span> <span>Day: {day}</span> <span>/</span> <span>Date: {date}</span> </div>
+                            <div className="order__extra-info__type__details"><span>Diagonsing fees: {diagonsingFees}$</span> <span>/</span> <span>Total fees: {totalFees}$</span></div>
                             <div>Payment: {paymentType}</div>
                             <div>Feedback: {feedback}. </div>
                             <div className="rate">
