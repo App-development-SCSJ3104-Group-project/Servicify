@@ -23,7 +23,7 @@
 .order {
     position: relative;
     background-color: #FFD980;
-    margin: 2rem 0;
+    margin: 3rem 0;
     height: 12rem;
     // height: 35rem;
     border-radius: 10px;
@@ -127,31 +127,17 @@
 
 //util 
 .visible {
-    // transition: all .5s ease-in;
-    animation: fadeIn .7s ease-in-out;
-    // overflow: visible;
+    animation-delay: 1s;
+    animation: fadeIn .5s ease-in-out forwards;
     height: 28rem;
 }
 
-.hidden {
-    height: 3rem;
-}
-
 //animatations
-@keyframes fadeOut {
+@keyframes fadeIn {
     from {
-        height: 28rem;
-    }
-    to {
         height: 3rem;
     }
+    to {
+        height: 28rem;
+    }
 }
-
-// @keyframes fadeIn {
-//     from {
-//         height: 3rem;
-//     }
-//     to {
-//         height: 28rem;
-//     }
-// }

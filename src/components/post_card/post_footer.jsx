@@ -2,13 +2,13 @@ import React from "react";
 import Tag from "./../search_result/tag";
 import Avatar from "./../search_result/avatar";
 
-const PostFooter = () => {
+const PostFooter = ({ tag, proposals }) => {
   return (
     <div className="post_footer__style">
-      <Tag tag={"#Electrical"} color="#57C4E5" />
-      <Tag tag={"#Job"} color="#57C4E5" />
-      <Tag tag={"#free"} color="#57C4E5" />
-      <Tag tag={"#people"} color="#57C4E5" />
+      {tag.map((name) => (
+        <Tag key={name} tag={name} color="#57C4E5" />
+      ))}
+
       <div className="service_provider__proposall_length">
         <div className="stack__avatars">
           <Avatar
@@ -32,7 +32,7 @@ const PostFooter = () => {
             height="30px"
           />
           <p style={{ fontSize: "14px", margin: "4px 0px 0px 8px" }}>
-            9 Proposals
+            {proposals} proposals
           </p>
         </div>
       </div>

@@ -1,11 +1,15 @@
 import React from "react";
 import "./order.scss";
 import Reciept from "./outline_receipt_long_white_24dp 1.png"
-import Replay from "./outline_replay_white_24dp 1.png"
+import Replay from "./outline_replay_white_24dp 1.png";
+import OrderStatus from "./orderStatus.png"
 import { ReactComponent as FilledStar } from './svg/star.svg';
 import { ReactComponent as BlackStar } from "./svg/blackstar.svg"
 import { ReactComponent as ArrowDown } from "./svg/arrow-down-sign-to-navigate.svg"
 import { ReactComponent as ArrowUp } from "./svg/arrowup.svg"
+
+// import { ReactComponent as ArrowUp } from "./svg/arrowup.svg"
+
 
 
 class Order extends React.Component {
@@ -48,10 +52,11 @@ class Order extends React.Component {
     }
 
 
+
     render() {
 
 
-        const { userImg, rating, orderedSince, city, day, date, diagonsingFees, totalFees, paymentType, feedback, name } = this.props;
+        const { userImg, rating, orderedSince, city, day, date, diagonsingFees, totalFees, paymentType, feedback, name, giveFeedBackOnClick, orderType, cancelOnClick } = this.props;
 
         const style = {
             backgroundImage: `url(${userImg})`,
@@ -70,7 +75,7 @@ class Order extends React.Component {
                         <span className="order__info__rating"> {rating} <BlackStar style={{ marginLeft: ".5rem" }}></BlackStar>
                         </span>
                     </div>
-                    <div className={`order__info__order ${toggled ? "visible" : "hidden"}`} >
+                    <div className={`order__info__order ${toggled ? "visible" : null}`} >
 
                         {orderedSince}  ago / {city} / {paymentType}
                         <div className="order__extra-info__type">
@@ -94,18 +99,32 @@ class Order extends React.Component {
 
                     </span>
                 </div>
-                <div className="order__buttons-container">
 
-                    <button className="order__buttons-container__feedback">Give FeedBack</button>
+                {
+                    orderType != "order-status" ? <div className="order__buttons-container">
 
-                    <button className="order__buttons-container__reciept">
-                        <img src={Reciept} alt="" />
-                    </button>
-                    <button className="order__buttons-container__replay">
-                        <img src={Replay} alt="" />
+                        <button className="order__buttons-container__feedback" onClick={() => giveFeedBackOnClick("feedback")}>Give FeedBack</button>
+                        <button className="order__buttons-container__reciept">
+                            <img src={Reciept} alt="" />
+                        </button>
+                        <button className="order__buttons-container__replay">
+                            <img src={Replay} alt="" />
 
-                    </button>
-                </div>
+                        </button>
+
+                    </div> : <div className="order__buttons-container">
+
+
+
+                        <button className="order__buttons-container__reciept" style={{ marginLeft: "10rem" }}>
+                            <img src={OrderStatus}></img>
+                        </button>
+                        <button className="order__buttons-container__feedback" onClick={() => cancelOnClick("status")}>Cancel</button>
+
+                    </div>
+
+                }
+
 
                 <div className="order__extra-info">
 

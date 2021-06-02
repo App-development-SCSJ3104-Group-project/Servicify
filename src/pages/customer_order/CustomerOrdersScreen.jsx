@@ -9,13 +9,15 @@ import UserImg from "./svg/user1.jpg";
 import UserImg2 from "./svg/user2.png";
 import UserImg3 from "./svg/user3.png";
 import Diagnosing from "./svg/diagnosing.png"
-
+import PopUp from "./InnerComponents/PopUp/PopUp"
 
 class CustomerOrdersScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       activeTab: "OrdersList",
+      popUpToggle:false,
+      popUpType:"feedback",
       innerTabs: [
         {
           type: "button",
@@ -53,7 +55,8 @@ class CustomerOrdersScreen extends React.Component {
           feedback:"dummy text of the priting and typesetting industry",
           userImg: UserImg,
           ongoing:false,
-
+          giveFeedBackOnClick:this.openPopUp,
+          cancelOnClick:this.openPopUp,
         },
         {
           name:"Jalal ajlan",
@@ -68,6 +71,8 @@ class CustomerOrdersScreen extends React.Component {
           feedback:"dummy text of the priting and typesetting industry",
           userImg: UserImg2,
           ongoing:false,
+          giveFeedBackOnClick:this.openPopUp,
+          cancelOnClick:this.openPopUp,
 
         },
         {
@@ -83,12 +88,14 @@ class CustomerOrdersScreen extends React.Component {
           feedback:"dummy text of the priting and typesetting industry",
           userImg: UserImg3,
           ongoing:true,
-
+          giveFeedBackOnClick:this.openPopUp,
+         cancelOnClick:this.openPopUp,
 
         },
       ],
     };
   }
+
   handleTabChanges = (buttonInnerText, tabsType) => {
     const newInnerTabs = this.state.innerTabs;
     let activeTab = buttonInnerText;
@@ -102,11 +109,28 @@ class CustomerOrdersScreen extends React.Component {
       activeTab: activeTab,
     });
   };
+
+  handlePopUpInput=(childData)=>{
+      console.log(`Text:${childData.text}| Rating: ${childData.rating}`);
+  }
+  closePopUp=(popUpType)=>{
+    this.setState({
+      popUpToggle:false,
+      popUpType:popUpType
+    })
+  }
+  openPopUp=(popUpType)=>{
+    this.setState({
+      popUpToggle:true,
+      popUpType:popUpType
+    })
+    
+  }
+
   checkTab=()=>{
 
     //returning the first order within the ongoing orders
     const currentOrder=this.state.OrdersList.filter((order)=>order.ongoing==true)[0];
-
 
     //deciding on tabs content, if orders list , orderslist will get populated
     if(this.state.activeTab!="OrdersList"){
@@ -121,7 +145,7 @@ class CustomerOrdersScreen extends React.Component {
             <div>Diagnosing the problem</div>
             <div>#0156FD55DFF55</div>
           </div>
-          <Order {...currentOrder}></Order>
+          <Order {...currentOrder} orderType="order-status"></Order>
         </div>
       )
     }
@@ -134,6 +158,9 @@ class CustomerOrdersScreen extends React.Component {
         <Nav isLogged={true} />
         <SearchArea route={"orders"}></SearchArea>
         <div className="order-list-section">
+    
+        {this.state.popUpToggle==true?<PopUp popUpType={this.state.popUpType} closeCallBack={this.closePopUp} submitCallBack={this.handlePopUpInput} Header={this.state.popUpType=="feedback"?"Description":"Reason"}></PopUp>:null}
+
           <div className="orders-list-inner-section">
             <div className="orders-list-inner-section__content-container">
               <div className="orders-list-inner-section__content-container__tabs">
