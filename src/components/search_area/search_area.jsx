@@ -23,10 +23,10 @@ class SearchArea extends Component {
   render() {
     const {popUpToggle}=this.state;
     if (this.props.route !== undefined)
-      this.tabs.find((e) => e.name == this.props.route).isActive = true;
+      this.tabs.find(e => e.name == this.props.route).isActive = true;
 
     return (
-      <div className="browse-area" >
+      <div className={`browse-area }`} >
 
         {popUpToggle?<SearchPopUp></SearchPopUp>:null}
         <div className="title-search"></div>
@@ -48,13 +48,12 @@ class SearchArea extends Component {
         <div className="navbar-search">
           {this.tabs
             ? this.tabs.map((tab) => (
-                <NavigationTab
-                  key={tab.name}
-                  currentTab={tab.isActive}
-                  lastTab={tab.lastTab}
-                  tabName={tab.name}
-                />
-              ))
+              <NavigationTab
+                currentTab={tab.isActive}
+                lastTab={tab.lastTab}
+                tabName={tab.name}
+              />
+            ))
             : null}
         </div>
       </div>

@@ -1,19 +1,31 @@
 .SearchPopUp {
-    border: 1px solid black;
-    width: 90rem;
-    height: 60rem;
+    border: none;
+    width: 110rem;
+    height: 55rem;
     position: absolute;
+    box-shadow: -.5rem -.25rem 4rem rgba(0, 0, 0, 0.5);
     top: 70%;
     left: 50%;
     transform: translate(-50%, 0%);
     background-color: white;
     color: black;
     z-index: 10000;
-    padding: 3rem;
+    padding: 3rem 6rem;
     font-family: 'Mulish', sans-serif;
+    border-radius: 10px;
     &__header {
         font-size: 2.5rem;
         padding-bottom: 2rem;
         border-bottom: 3px solid black;
+    }
+    &__results {
+        margin-top: 2rem;
+        width: 100%;
+        height: 35rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        overflow-y: scroll;
     }
 }

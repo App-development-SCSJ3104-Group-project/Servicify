@@ -17,7 +17,8 @@ class Template extends Component {
     render() {
 
         return (
-            <div className="template" >
+
+<div className="template " >
                 <div className="spec_div" style={{ backgroundColor: "#F2F6F9" }}>
                     <Nav isLogged={true} />
                 </div>

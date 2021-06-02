@@ -1,0 +1,47 @@
+.search-card {
+    height: 15rem;
+    width: 47.5%;
+    margin: 1rem 0;
+    background-color: #FFD980;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Mulish', sans-serif;
+    &__img {
+        width: 8.5rem;
+        height: 8.5rem;
+        margin-left: 3rem;
+        margin-right: 1.5rem;
+    }
+    &__text {
+        font-weight: bold;
+        font-size: 1.7rem;
+        &__name {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        &__rate {
+            display: flex;
+            align-items: center;
+            &__black-star {
+                margin-left: .5rem;
+                margin-top: -.5rem;
+            }
+        }
+    }
+    &__buttons-group {
+        &__button {
+            background-color: #1E2833;
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            color: white;
+            border: none;
+            outline: none;
+            margin: 0 .5rem;
+        }
+        margin-left: 9.5rem;
+    }
+}
