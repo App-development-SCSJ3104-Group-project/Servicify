@@ -21,8 +21,8 @@ class Template extends Component {
                 <div className="spec_div" style={{ backgroundColor: "#F2F6F9" }}>
                     <Nav isLogged={true} />
                 </div>
-                <div className="spec_div" style={{ backgroundColor: "#313641" }}>
-                    <SearchArea route={this.props.route} />
+                <div className="spec_div" style={{ backgroundColor: "#313641" }} >
+                    <SearchArea route={this.props.route}  />
                 </div>
 
                 <div className="spec_div">

@@ -1,0 +1,19 @@
+.SearchPopUp {
+    border: 1px solid black;
+    width: 90rem;
+    height: 60rem;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background-color: white;
+    color: black;
+    z-index: 10000;
+    padding: 3rem;
+    font-family: 'Mulish', sans-serif;
+    &__header {
+        font-size: 2.5rem;
+        padding-bottom: 2rem;
+        border-bottom: 3px solid black;
+    }
+}

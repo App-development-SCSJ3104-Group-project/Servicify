@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import "./search_area.css";
 import NavigationTab from "./tab";
+import SearchPopUp from "./components/innerPopUp/PopUp"
 
 class SearchArea extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+
+      popUpToggle:false
+    };
   }
   tabs = [
     { name: "overview", isActive: false },
@@ -21,7 +25,9 @@ class SearchArea extends Component {
       this.tabs.find(e => e.name == this.props.route).isActive = true;
 
     return (
-      <div className="browse-area">
+      <div className="browse-area" >
+
+        <SearchPopUp></SearchPopUp>
         <div className="title-search"></div>
         <div className="user-search">
           <p className="title">Browse</p>
