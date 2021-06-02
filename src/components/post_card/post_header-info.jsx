@@ -1,10 +1,10 @@
 import React from "react";
 
-const PostHeaderInfo = (props) => {
+const PostHeaderInfo = ({ description, icon }) => {
   return (
     <div className="service_provider__avatar__side__content-2">
-      {props.icon}
-      <span className="profile_infomration__side">{props.description}</span>
+      {icon}
+      <span className="profile_infomration__side">{description}</span>
     </div>
   );
 };
