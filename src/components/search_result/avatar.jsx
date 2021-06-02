@@ -2,7 +2,7 @@ import React from "react";
 
 const Avatar = (props) => {
   return (
-    <div class="cirular-avatar">
+    <div className="cirular-avatar">
       <img
         src={props.source}
         alt="circular avatar"

@@ -6,6 +6,7 @@ import "./post_screen.scss";
 import PostCard from "./../../components/post_card/post_card";
 import Avatar from "./../../components/search_result/avatar";
 import OptionIcon from "./../../components/post_card/option_icon";
+import posts from "./dummydate";
 
 const CustomerPostScreen = () => {
   return (
@@ -14,8 +15,9 @@ const CustomerPostScreen = () => {
       <SearchArea route={"posts"} />
       <div className="posts-wrappper-background">
         <PostCardForm></PostCardForm>
-        <PostCard />
-        <PostCard />
+        {posts.map((post) => (
+          <PostCard key={post.id} post={post} />
+        ))}
       </div>
     </div>
   );
@@ -23,7 +25,7 @@ const CustomerPostScreen = () => {
 
 const PostCardForm = () => {
   // to hold the array of tags added by user
-  const [tags, setTags] = useState(["Nodejs", "MongoDB", "React"]);
+  const [tags, setTags] = useState(["Nodejs", "MongoDB"]);
 
   // to handle the action of deleting a tag
   const removeTags = (indexToRemove) => {
@@ -102,7 +104,9 @@ const DropdownItems = (props) => {
   return (
     <select className="post__form_card_header_location-dropdown">
       {props.options.map((option) => (
-        <option value={option}>{option}</option>
+        <option key={option} value={option}>
+          {option}
+        </option>
       ))}
     </select>
   );
