@@ -111,7 +111,7 @@ class CustomerOrdersScreen extends React.Component {
   };
 
   handlePopUpInput=(childData)=>{
-      console.log(`Text:${childData.text}| Rating: ${childData.rating}`);
+      console.log(`Text:${childData.text}| ${childData.rating!=null?`Rating: ${childData.rating}`:null}`);
   }
   closePopUp=(popUpType)=>{
     this.setState({

@@ -1,13 +1,23 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+
+/* font settings */
+
+@font-face {
+    font-family: 'Mulish';
+    src: url("./assets/fonts/Mulish-VariableFont_wght.ttf") format('truetype');
+}
+
 html {
-  font-size: 10px;
-  height: 100%;
+    font-size: 10px;
+    height: 100%;
 }
+
 .App {
-  width: 100vw;
-  height: 100vh;
+    width: 100vw;
+    height: 100vh;
 }
