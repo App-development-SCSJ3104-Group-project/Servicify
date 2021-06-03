@@ -5,7 +5,7 @@ import PostCard from "./../../components/post_card/post_card";
 import "./customer_view_post_screen.css";
 import Avatar from "./../../components/search_result/avatar";
 import ProposalCardButton from "./compoents/button";
-import Template from "../../components/template/template"
+import Template from "../../components/template/template";
 
 const post = {
   id: 1,
@@ -39,8 +39,8 @@ class CustomerViewPost extends Component {
     return (
       <Template route="posts">
         <React.Fragment>
-
           <div className="posts-wrappper-background">
+            <PostCard post={post} />
             <div className="post-ur-1-3"></div>
             <div className="proposals__ar_annoated">
               <div className="seperate_line__post_of_proposal-section"></div>

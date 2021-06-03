@@ -14,6 +14,7 @@ import DashboardManageOrders from "./pages/dashboard_manage_orders/dashboard_man
 import DashboardManageRequests from "./pages/dashboard_manage_requests/dashboard_manage_requests";
 import LandingPage from "./pages/landing_page/landing_page";
 import CustomerViewPost from "./pages/customer_view_post_screen/customer_view_post_screen";
+import ProposalForm from "./pages/service_provider_make_proposal_screen/sp_make_proposal_form";
 
 function App() {
   return (
@@ -51,6 +52,10 @@ function App() {
       <Route
         path="/customer_view_post_screen"
         component={CustomerViewPost}
+      ></Route>
+      <Route
+        path="/service_provider_make_proposal_screen"
+        component={ProposalForm}
       ></Route>
 
       <Route path="/dashboard" component={DashboardOverviewPage}></Route>
