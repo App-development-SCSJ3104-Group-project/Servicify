@@ -42,6 +42,7 @@ class DashboardTopBar extends Component {
 
                 <div className="overview_tabs">
                     {this.tabs ? this.tabs.map((tab) => (
+                        // @ts-ignore
                         <NavigationTab
                             currentTab={tab.isActive}
                             tabName={tab.name}
