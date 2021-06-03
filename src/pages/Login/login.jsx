@@ -1,13 +1,13 @@
 import React from "react";
 import Form from "../../components/form/form";
 import "./login.scss"
-import mainImg from "../../images/form/form-img-1.png"
-import orangeDots from "../../images/form/form-orange-group.png";
-import  redCircles from "../../images/form/red-circle.png";
-import  quotation from "../../images/form/“.png";
-import  whiteArrow from "../../images/form/white-arrow.png";
-import  check from "../../images/form/check.png";
-import googleIcon from "../../images/icons/google.png"
+import mainImg from "../../icons/form-img-1.png"
+import orangeDots from "../../icons/form-orange-group.png";
+import  redCircles from "../../icons/red-circle.png";
+import  quotation from "../../icons/“.png";
+import  whiteArrow from "../../icons/white-arrow.png";
+import  check from "../../icons/check.png";
+import googleIcon from "../../icons/google.png"
 
 class LoginForm extends React.Component{
 

@@ -6,15 +6,15 @@ import Card from "../../components/card/card"
 import Template from "../../components/template/template"
 
 import "./customer_service_provider_page.scss"
-import image from "./Ellipse.svg";
-import favourite from "../../components/profile_card/icons8-heart-30 (1) 1.svg";
-import order from "../../components/profile_card/outline_book_white_24dp 1.svg";
-import icon_1 from "./outline_location_on_white_48dp 1.svg";
-import icon_2 from "./outline_monetization_on_white_48dp 1.svg";
-import icon_3 from "./outline_payments_white_48dp 1.svg";
-import icon_4 from "./outline_star_white_48dp 1.svg";
-import profileIcon from "../../components/profile_card/Ellipse (3).svg";
-import Star from "../../components/profile_card/Star.svg"
+import image from "../../icons/Ellipse.svg";
+import favourite from "../../icons/icons8-heart-30 (1) 1.svg";
+import order from "../../icons/outline_book_white_24dp 1.svg";
+import icon_1 from "../../icons/outline_location_on_white_48dp 1.svg";
+import icon_2 from "../../icons/outline_monetization_on_white_48dp 1.svg";
+import icon_3 from "../../icons/outline_payments_white_48dp 1.svg";
+import icon_4 from "../../icons/outline_star_white_48dp 1.svg";
+import profileIcon from "../../icons/Ellipse (3).svg";
+import Star from "../../icons/star.svg"
 
 
 class CustomerServiceProviderPage extends Component {

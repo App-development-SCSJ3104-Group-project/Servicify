@@ -1,8 +1,7 @@
-import React, { Component } from "react";
 import "./review.scss"
 import Icon from "../icon_component/icon"
 import RateRatio from "../rate_ratio/rate_ratio"
-import Star from "../profile_card/Star.svg"
+import Star from "../../icons/star.svg"
 
 const review = ({ }) => {
     return (

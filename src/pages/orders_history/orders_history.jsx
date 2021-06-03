@@ -2,9 +2,9 @@ import React, { Component } from "react"
 import DashboardCard from "../../components/dashboard_card/dashboard_card"
 import Card from "../../components/card/card"
 import IconButton from "../../components/icon/icon_component"
-import profileIcon from "../../components/profile_card/Ellipse (3).svg";
-import star from "./outline_star_black_24dp 1.svg";
-import printIcon from "./outline_receipt_long_white_24dp 1.svg"
+import profileIcon from "../../icons/Ellipse (3).svg";
+import star from "../../icons/outline_star_black_24dp 1.svg";
+import printIcon from "../../icons/outline_receipt_long_white_24dp 1.svg"
 
 import "./orders_history.scss"
 

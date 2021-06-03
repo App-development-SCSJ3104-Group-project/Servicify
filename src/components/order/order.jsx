@@ -1,15 +1,12 @@
 import React from "react";
 import "./order.scss";
-import Reciept from "./outline_receipt_long_white_24dp 1.png"
-import Replay from "./outline_replay_white_24dp 1.png";
-import OrderStatus from "./orderStatus.png"
-import { ReactComponent as FilledStar } from './svg/star.svg';
-import { ReactComponent as BlackStar } from "./svg/blackstar.svg"
-import { ReactComponent as ArrowDown } from "./svg/arrow-down-sign-to-navigate.svg"
-import { ReactComponent as ArrowUp } from "./svg/arrowup.svg"
-
-// import { ReactComponent as ArrowUp } from "./svg/arrowup.svg"
-
+import Reciept from "../../icons/outline_receipt_long_white_24dp 1.png"
+import Replay from "../../icons/outline_replay_white_24dp 1.png";
+import OrderStatus from "../../icons/orderStatus.png"
+import { ReactComponent as FilledStar } from '../../icons/star.svg';
+import { ReactComponent as BlackStar } from "../../icons/blackstar.svg"
+import { ReactComponent as ArrowDown } from "../../icons/arrow-down-sign-to-navigate.svg"
+import { ReactComponent as ArrowUp } from "../../icons/arrowup.svg"
 
 
 class Order extends React.Component {

@@ -1,10 +1,10 @@
 import React from "react";
 import "./footer.css";
 import Icon from "../icon_component/icon";
-import logo from "../../min_icons/Logo.svg";
-import logoF from "../../min_icons/001-facebook.svg";
-import logoI from "../../min_icons/004-instagram.svg";
-import logoT from "../../min_icons/003-twitter.svg";
+import logo from "../../icons/Logo.svg";
+import logoF from "../../icons/001-facebook.svg";
+import logoI from "../../icons/004-instagram.svg";
+import logoT from "../../icons/003-twitter.svg";
 
 const footer = () => {
     return (

@@ -2,9 +2,8 @@ import React from "react";
 
 import "./PopUp.scss";
 
-import { ReactComponent as Star } from "../../svg/star.svg";
+import { ReactComponent as Star } from "../../../../icons/star.svg";
 
-import { ReactComponent as CloseIcon } from "../../svg/close.svg";
 
 
 import CustomButton from "../../../../components/button/button"

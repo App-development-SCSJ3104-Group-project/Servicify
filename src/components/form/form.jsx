@@ -3,8 +3,8 @@ import React from "react";
 import "./form.scss";
 import FormInputGroup from "../formInput/formInput";
 import CustomButton from "../../components/button/button";
-import leftArrow from "../../images/icons/left-arrow.png";
-import { Route, Link } from "react-router-dom";
+import leftArrow from "../../icons/left-arrow.png";
+
 class Form extends React.Component {
   constructor(props) {
     super(props);

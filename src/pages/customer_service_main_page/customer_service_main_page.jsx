@@ -3,8 +3,8 @@ import Button from "../../components/button/button";
 import Divider from "../../components/divider/divider";
 import Icon from "../../components/icon_component/icon";
 import ProfileCard from "../../components/profile_card/profile_card";
-import dropDownIcon from "./outline_arrow_back_ios_white_24dp 1.svg";
-import notification from "./outline_notification_important_black_48dp 1.svg";
+import dropDownIcon from "../../icons/outline_arrow_back_ios_white_24dp 1.svg";
+import notification from "../../icons/outline_notification_important_black_48dp 1.svg";
 import Template from "../../components/template/template"
 // import "../landing_page/landing_page.scss";
 import "./customer_service_main_page.scss";

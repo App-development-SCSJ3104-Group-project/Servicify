@@ -1,6 +1,5 @@
-import React, { Component } from "react";
 import Icon from "../icon_component/icon"
-import Star from "../profile_card/Star.svg"
+import Star from "../../icons/star.svg"
 import "./rate_ratio.scss"
 
 const rate_ratio = ({ index, width }) => {

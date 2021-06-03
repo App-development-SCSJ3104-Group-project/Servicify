@@ -1,9 +1,9 @@
 import React from "react";
 import "./SearchCard.scss"
 import imgs from "./tradesman-insurance 2.png"
-import {ReactComponent as Heart} from "./svg/icons8-heart-30 (1) 1.svg";
-import  Save from "./svg/outline_book_white_24dp 1 (2).svg";
-import BlackStar from "./svg/outline_star_black_24dp 1 (1).svg"
+import {ReactComponent as Heart} from "../../../../../../icons/icons8-heart-30 (1) 1.svg";
+import  Save from "../../../../../../icons/outline_book_white_24dp 1 (2).svg";
+import BlackStar from "../../../../../../icons/outline_star_black_24dp 1 (1).svg"
 
 const SearchCard =()=>{
 

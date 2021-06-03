@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "./profile_card.scss"
-import profileIcon from "./Ellipse (3).svg";
+import profileIcon from "../../icons//Ellipse (3).svg";
 import Icon from "../icon_component/icon";
-import star from "./Star.svg";
-import favourite from "./icons8-heart-30 (1) 1.svg";
-import order from "./outline_book_white_24dp 1.svg";
+import star from "../../icons/star.svg";
+import favourite from "../../icons/icons8-heart-30 (1) 1.svg";
+import order from "../../icons/outline_book_white_24dp 1.svg";
 import Button from "../../components/button/button";
 import Card from "../../components/card/card";
 

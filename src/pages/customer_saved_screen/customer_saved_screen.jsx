@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import Nav from "../../components/navbar/navbar";
-import SearchArea from "../../components/search_area/search_area";
-import Footer from "../../components/footer/footer";
 import Card from "../../components/card/card";
 import Divider from "../../components/divider/divider";
 import Button from "../../components/button/button";
@@ -9,8 +6,8 @@ import ProfileCard from "../../components/profile_card/profile_card";
 import Template from "../../components/template/template";
 import Icon from "../../components/icon_component/icon";
 
-import notification from "../customer_service_main_page/outline_notification_important_black_48dp 1.svg";
-import favorite from "../../components/profile_card/icons8-heart-30 (1) 1.svg"
+import notification from "../../icons/outline_notification_important_black_48dp 1.svg";
+import favorite from "../../icons/icons8-heart-30 (1) 1.svg"
 
 import "../landing_page/landing_page.scss";
 import "./customer_saved_screen.scss";

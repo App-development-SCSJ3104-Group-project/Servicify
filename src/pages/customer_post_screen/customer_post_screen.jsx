@@ -1,25 +1,24 @@
 import React, { useState } from "react";
-import Nav from "./../../components/navbar/navbar";
-import SearchArea from "./../../components/search_area/search_area";
 import "./customer_post_scree.css";
 import "./post_screen.scss";
 import PostCard from "./../../components/post_card/post_card";
 import Avatar from "./../../components/search_result/avatar";
 import OptionIcon from "./../../components/post_card/option_icon";
 import posts from "./dummydate";
+import Template from "../../components/template/template"
 
 const CustomerPostScreen = () => {
   return (
-    <div>
-      <Nav isLogged={true} />
-      <SearchArea route={"posts"} />
-      <div className="posts-wrappper-background">
-        <PostCardForm></PostCardForm>
-        {posts.map((post) => (
-          <PostCard key={post.id} post={post} />
-        ))}
+    <Template route="posts">
+      <div>
+        <div className="posts-wrappper-background">
+          <PostCardForm></PostCardForm>
+          {posts.map((post) => (
+            <PostCard key={post.id} post={post} />
+          ))}
+        </div>
       </div>
-    </div>
+    </Template>
   );
 };
 

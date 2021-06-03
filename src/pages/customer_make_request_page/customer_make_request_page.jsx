@@ -3,7 +3,7 @@ import Button from "../../components/button/button"
 import Template from "../../components/template/template"
 
 import "./customer_make_request_page.scss"
-import cancel from "./outline_add_white_24dp 1.svg"
+import cancel from "../../icons/outline_add_white_24dp 1.svg"
 class CustomerMakeRequestScreen extends Component {
 
 
