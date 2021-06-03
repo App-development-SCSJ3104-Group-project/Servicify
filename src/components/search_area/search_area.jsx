@@ -26,7 +26,7 @@ class SearchArea extends Component {
       this.tabs.find(e => e.name == this.props.route).isActive = true;
 
     return (
-      <div className={`browse-area }`} >
+      <div className={`browse-area } `} >
 
         {popUpToggle?<SearchPopUp></SearchPopUp>:null}
         <div className="title-search"></div>
@@ -45,7 +45,7 @@ class SearchArea extends Component {
             }}
           />
         </div>
-        <div className="navbar-search">
+        <div className="navbar-search ">
           {this.tabs
             ? this.tabs.map((tab) => (
               <NavigationTab

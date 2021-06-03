@@ -139,11 +139,11 @@ class CustomerOrdersScreen extends React.Component {
 
       return (
 
-        <div className="orders-list-inner-section__content-container__status__inner  animate__animated animate__zoomIn">
+        <div className="orders-list-inner-section__content-container__status__inner  animate__animated animate__zoomInDown">
 
           <img src={Diagnosing} alt="" className="orders-list-inner-section__content-container__status__img " />
 
-          <div className="orders-list-inner-section__content-container__status__inner__diagnosis-info">
+          <div className="orders-list-inner-section__content-container__status__inner__diagnosis-info ">
             <div>Diagnosing the problem</div>
             <div>#0156FD55DFF55</div>
           </div>

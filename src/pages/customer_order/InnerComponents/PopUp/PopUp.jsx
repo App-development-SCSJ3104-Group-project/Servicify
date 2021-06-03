@@ -82,7 +82,7 @@ class PopUp extends React.Component{
 
         return (
 
-            <form className="feedbackPopUp animate__animated animate__fadeIn" onSubmit={(e)=>{
+            <form className="feedbackPopUp animate__animated animate__zoomIn" onSubmit={(e)=>{
                 submitCallBack({
                     text:textValue,
                     rating:(starClickingInfo.clickedIndex+1)

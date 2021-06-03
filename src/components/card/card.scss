@@ -3,7 +3,7 @@
     position: relative;
     border-radius: 2.5rem;
     min-width: 25rem;
-    max-width: 25rem;
+    max-width: 27.5rem;
     height: 27.5rem;
     padding: 1rem;
     margin: 2rem;
@@ -36,9 +36,9 @@
     height: 5rem;
 }
 
-h5 {
+.card_title {
     position: relative;
-    z-index: 3;
+    z-index: 10;
 }
 
 .header {

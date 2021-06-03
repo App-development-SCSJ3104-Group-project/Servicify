@@ -28,7 +28,7 @@ class Form extends React.Component {
     };
     return (
       <div className="form">
-        <div className="form__left-side" style={style}>
+        <div className="form__left-side " style={style}>
           <img
             src={OrangeDots}
             alt=""
@@ -70,7 +70,7 @@ class Form extends React.Component {
             />
           </div>
         </div>
-        <div className="form__right-side">
+        <div className="form__right-side ">
           <div className="form__right-side__back-btn">
             <img className="backArrow" src={leftArrow} alt="" />
             Back
@@ -89,7 +89,7 @@ class Form extends React.Component {
                 </div>
               ) : (
                 <div>
-                  <div className="form__right-side__innerForm__header__primary">
+                  <div className="form__right-side__innerForm__header__primary ">
                     Login
                   </div>
                 </div>
@@ -100,19 +100,24 @@ class Form extends React.Component {
             {formInputs.map((formInput, index) => {
               // @ts-ignore
               return (
-                <FormInputGroup
+                <div className=" animate__animated animate__zoomInDown" style={{animationDelay:`${index*0.5}s`}}>
+                  {<FormInputGroup
                   key={index}
                   type={formInput.type}
                   placeHolder={formInput.placeHolder}
                   className={formInput.className}
                   customLabel={formInput.customLabel}
                   displayType={formInput.displayType}
-                ></FormInputGroup>
+                ></FormInputGroup>}
+                </div>
               );
             })}
 
             {formButtons.map((formButton, index) => {
-              return <CustomButton {...formButton}></CustomButton>;
+             
+              return <div className=" animate__animated animate__zoomIn" style={{animationDelay:`${formButtons.length*1.1}s`}}>
+                {<CustomButton {...formButton}></CustomButton>}
+              </div>
             })}
           </form>
         </div>

@@ -70,7 +70,7 @@ class LoginForm extends React.Component{
                 
             }
         ]
-        return <div className="login-form">
+        return <div className="login-form ">
 
             <Form   type="login" formInputs={formInputs} formButtons={formButtons}></Form>
 
