@@ -1,12 +1,14 @@
 .main_content {
     width: 100%;
 }
+
 .profile_header {
     position: relative;
     width: 100%;
     height: 25rem;
     background-color: rgb(255, 217, 128);
 }
+
 .profile_buttons {
     display: flex;
     position: absolute;
@@ -68,13 +70,21 @@
     justify-content: flex-start;
     width: 65%;
 }
+
 .card_feedback_rate img {
     margin-right: 1rem;
 }
 
 .feedback_card {
-    display: inline-flex;
-    flex-direction: row;
-    overflow: hidden;
     padding: 3rem;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    width: 100%;
+}
+
+.feedback_card::-webkit-scrollbar {
+    display: none;
 }
