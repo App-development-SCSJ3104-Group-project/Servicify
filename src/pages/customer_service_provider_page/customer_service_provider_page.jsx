@@ -68,8 +68,8 @@ class CustomerServiceProviderPage extends Component {
 
 
         return (
-            <Template route={"profile"}>
 
+            <Template route={"profile"} padding="0rem">
                 <div className="main_content">
 
                     <div className="profile_header">
@@ -159,11 +159,6 @@ class CustomerServiceProviderPage extends Component {
                                     </div>
                                 </Card>
                             ))}
-
-
-                            <br />
-                            <br />
-                            <br />
 
                         </div>
 

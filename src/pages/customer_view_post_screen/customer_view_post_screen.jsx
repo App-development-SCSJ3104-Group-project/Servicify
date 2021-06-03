@@ -5,6 +5,7 @@ import PostCard from "./../../components/post_card/post_card";
 import "./customer_view_post_screen.css";
 import Avatar from "./../../components/search_result/avatar";
 import ProposalCardButton from "./compoents/button";
+import Template from "../../components/template/template"
 
 const post = {
   id: 1,
@@ -36,20 +37,20 @@ class CustomerViewPost extends Component {
   state = {};
   render() {
     return (
-      <React.Fragment>
-        <Nav isLogged={true} />
-        <SearchArea route={"posts"} />
-        <div className="posts-wrappper-background">
-          <PostCard post={post} />
-          <div className="post-ur-1-3"></div>
-          <div className="proposals__ar_annoated">
-            <div className="seperate_line__post_of_proposal-section"></div>
-            <h3>Proposals</h3>
+      <Template route="posts">
+        <React.Fragment>
+
+          <div className="posts-wrappper-background">
+            <div className="post-ur-1-3"></div>
+            <div className="proposals__ar_annoated">
+              <div className="seperate_line__post_of_proposal-section"></div>
+              <h3>Proposals</h3>
+            </div>
+            <ProposalCard {...proposalsInfo} />
+            <ProposalCard {...proposalsInfo} />
           </div>
-          <ProposalCard {...proposalsInfo} />
-          <ProposalCard {...proposalsInfo} />
-        </div>
-      </React.Fragment>
+        </React.Fragment>
+      </Template>
     );
   }
 }
