@@ -17,10 +17,11 @@
         background-position: center;
         background-size: cover;
         image-rendering: pixelated;
-        overflow: hidden;
-        h &__orange-dots {
+        overflow: visible;
+        background-color: #1E2833;
+        &__orange-dots {
             position: absolute;
-            top: 10rem;
+            top: 15rem;
             right: 15rem;
         }
         &__red-circles {
@@ -51,7 +52,9 @@
         }
         &__quotation {
             position: absolute;
-            top: -4rem;
+            width: 4rem;
+            height: 4rem;
+            top: -6rem;
             left: 0rem;
         }
     }

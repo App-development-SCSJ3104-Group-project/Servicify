@@ -1,13 +1,7 @@
 import React from "react";
 import Form from "../../components/form/form";
 import "./login.scss"
-import mainImg from "../../icons/form-img-1.png"
-import orangeDots from "../../icons/form-orange-group.png";
-import  redCircles from "../../icons/red-circle.png";
-import  quotation from "../../icons/“.png";
-import  whiteArrow from "../../icons/white-arrow.png";
-import  check from "../../icons/check.png";
-import googleIcon from "../../icons/google.png"
+import googleIcon from "../../icons/GoogleIcon.svg"
 
 class LoginForm extends React.Component{
 
@@ -24,14 +18,7 @@ class LoginForm extends React.Component{
 
     render(){
 
-        const imageAssets={
-            mainImg,
-            orangeDots,
-            redCircles,
-            quotation,
-            whiteArrow,
-            check
-        }
+      
         const formInputs=[
            
              {
@@ -85,7 +72,7 @@ class LoginForm extends React.Component{
         ]
         return <div className="login-form">
 
-            <Form  {...imageAssets} type="login" formInputs={formInputs} formButtons={formButtons}></Form>
+            <Form   type="login" formInputs={formInputs} formButtons={formButtons}></Form>
 
         </div>
     }

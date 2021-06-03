@@ -5,10 +5,10 @@ import Footer from "../../components/footer/footer";
 import "./CustomerOrdersScreen.scss";
 import CustomButton from "../../components/button/button";
 import Order from "../../components/order/order";
-import UserImg from "../../icons/user1.jpg";
-import UserImg2 from "../../icons/user2.png";
-import UserImg3 from "../../icons/user3.png";
-import Diagnosing from "../../icons/diagnosing.png"
+import UserImg from "../../icons/User1.svg";
+import UserImg2 from "../../icons/User2.svg";
+import UserImg3 from "../../icons/User3.svg";
+import Diagnosing from "../../icons/prescription.svg"
 import PopUp from "./InnerComponents/PopUp/PopUp"
 import Template from "../../components/template/template"
 

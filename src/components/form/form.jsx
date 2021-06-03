@@ -3,8 +3,12 @@ import React from "react";
 import "./form.scss";
 import FormInputGroup from "../formInput/formInput";
 import CustomButton from "../../components/button/button";
-import leftArrow from "../../icons/left-arrow.png";
-
+import leftArrow from "../../icons/left-arrow.svg";
+import OrangeDots from "../../icons/OrangeDots.svg";
+import RedCircles from "../../icons/RedCircles.svg";
+import Quotations from "../../icons/Quotations.svg";
+import WhiteArrow  from "../../icons/WhiteArrow.svg";
+import Check from "../../icons/Check.svg";
 class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -13,29 +17,25 @@ class Form extends React.Component {
 
   render() {
     const {
-      mainImg,
-      orangeDots,
-      redCircles,
-      quotation,
-      whiteArrow,
-      check,
+      leftSideBackgroundHeight
     } = this.props;
     const { formInputs } = this.props;
     const { formButtons } = this.props;
     const { type } = this.props;
     const style = {
-      backgroundImage: `url(${mainImg})`,
+      // backgroundImage: `url(${mainImg})`,
+      height:leftSideBackgroundHeight
     };
     return (
       <div className="form">
         <div className="form__left-side" style={style}>
           <img
-            src={orangeDots}
+            src={OrangeDots}
             alt=""
             className="form__left-side__orange-dots"
           />
           <img
-            src={redCircles}
+            src={RedCircles}
             alt=""
             className="form__left-side__red-circles"
           />
@@ -51,7 +51,7 @@ class Form extends React.Component {
               <div className="form__left-side__main-content__user-name">
                 Vincet Obi{" "}
                 <img
-                  src={check}
+                  src={Check}
                   alt=""
                   className="form__left-side__main-content__user-name__check"
                 />
@@ -59,12 +59,12 @@ class Form extends React.Component {
             </div>
 
             <img
-              src={whiteArrow}
+              src={WhiteArrow}
               alt=""
               className="form__left-side__white-arrow"
             />
             <img
-              src={quotation}
+              src={Quotations}
               alt=""
               className="form__left-side__quotation"
             />
