@@ -43,6 +43,7 @@ class PopUp extends React.Component{
     }
     //manage stars state
     manageStars=(clickedStarIndex)=>{
+        console.log("clicked")
 
         this.setState({
            starClickingInfo:{
@@ -89,7 +90,6 @@ class PopUp extends React.Component{
                     rating:(starClickingInfo.clickedIndex+1)
                 })
              
-               
                 e.preventDefault()
             }} style={popUpType=="status"?{height:"45rem"}:null}>
 

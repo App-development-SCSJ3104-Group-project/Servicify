@@ -139,9 +139,9 @@ class CustomerOrdersScreen extends React.Component {
 
       return (
 
-        <div className="orders-list-inner-section__content-container__status__inner">
+        <div className="orders-list-inner-section__content-container__status__inner  animate__animated animate__zoomIn">
 
-          <img src={Diagnosing} alt="" className="orders-list-inner-section__content-container__status__img" />
+          <img src={Diagnosing} alt="" className="orders-list-inner-section__content-container__status__img " />
 
           <div className="orders-list-inner-section__content-container__status__inner__diagnosis-info">
             <div>Diagnosing the problem</div>
@@ -151,6 +151,8 @@ class CustomerOrdersScreen extends React.Component {
         </div>
       )
     }
+    
+    
   }
   render() {
     const { innerTabs, activeTab, OrdersList } = this.state;
@@ -183,14 +185,20 @@ class CustomerOrdersScreen extends React.Component {
                     );
                   })}
                 </div>
-                <div className="orders-list-inner-section__content-container__orders">
-                  {activeTab == "OrdersList"
-                    ? OrdersList.map((order, index) => {
-                      return <Order {...order} id={index}></Order>;
-                    })
-                    : null}
+                <div className="orders-list-inner-section__content-container__orders ">
+                  {
+
+                      this.state.activeTab=="OrdersList"?
+
+                      <div className="orders-list-inner-section__content-container__orders__animation-container animate__animated animate__zoomIn">
+             {           this.state.OrdersList.map((order, index) => {
+  return <Order {...order} id={index} className=""></Order>;
+})}
+                      </div>
+                      :null
+                  }
                 </div>
-                <div className="orders-list-inner-section__content-container__status">
+                <div className="orders-list-inner-section__content-container__status ">
                   {
 
                     this.checkTab()

@@ -1,7 +1,7 @@
 //font settings
 .feedbackPopUp {
     width: 70rem;
-    height: 60rem;
+    height: 60rem !important;
     padding: 0 5rem;
     padding-top: 3rem;
     background-color: #F2F6F9;
@@ -47,6 +47,7 @@
             height: 4rem;
             width: 4rem;
             // fill: goldenrod;
+            fill: black;
         }
     }
     &__header {
