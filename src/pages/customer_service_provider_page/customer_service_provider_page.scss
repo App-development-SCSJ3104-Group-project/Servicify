@@ -6,6 +6,7 @@
     position: relative;
     width: 100%;
     height: 25rem;
+    padding: 0 20rem;
     background-color: rgb(255, 217, 128);
 }
 
@@ -28,7 +29,7 @@
     z-index: 1;
     bottom: -10rem;
     color: white;
-    left: 40%;
+    left: 45%;
 }
 
 .profile_image img {
@@ -40,6 +41,7 @@
 .profile_body {
     background-color: #1e2833;
     padding-top: 17rem;
+    padding: 20rem 20%;
     overflow: hidden;
 }
 
@@ -87,4 +89,20 @@
 
 .feedback_card::-webkit-scrollbar {
     display: none;
+}
+
+@media (max-width: 960px) {
+    .profile_header{
+        padding: 0;
+    }
+
+    .profile_body{
+        padding: 20rem 0;
+    }
+    .profile_image{
+        width: 15rem;
+        height: 15rem;
+        bottom: -8rem;
+        left: 45%;
+    }
 }
