@@ -14,21 +14,23 @@ class Template extends Component {
 
     }
 
+    style = {
+        padding: this.props.padding
+    }
+
     render() {
 
         return (
             <div className="template" >
-                <div className="demo">
 
-                </div>
                 <div className="spec_div" style={{ backgroundColor: "#F2F6F9" }}>
                     <Nav isLogged={true} />
                 </div>
                 <div className="spec_div" style={{ backgroundColor: "#313641" }} >
-                    <SearchArea route={this.props.route}  />
+                    <SearchArea route={this.props.route} />
                 </div>
 
-                <div className="spec_div">
+                <div className="spec_div" style={this.style}>
 
                     {this.props.children}
 

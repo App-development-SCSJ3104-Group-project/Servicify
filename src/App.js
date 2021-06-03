@@ -26,6 +26,7 @@ function App() {
         path="/customer_service_main_page"
         component={CustomerServiceMainPage}
       ></Route>
+      {/* this */}
       <Route
         path="/customer_service_provider_page"
         component={CustomerServiceProviderPage}
@@ -46,7 +47,7 @@ function App() {
         path="/customer_post_screen"
         component={CustomerPostScreen}
       ></Route>
-
+      {/* this */}
       <Route
         path="/customer_view_post_screen"
         component={CustomerViewPost}
