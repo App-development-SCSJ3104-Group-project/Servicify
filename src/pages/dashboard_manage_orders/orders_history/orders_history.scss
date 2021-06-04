@@ -15,7 +15,7 @@
     padding: 2rem 3rem 2rem 5rem;
     flex-direction: row;
     flex-wrap: wrap;
-    z-index: 1;
+    z-index: 2 !important;
     justify-content: space-between;
 }
 
@@ -42,7 +42,7 @@
 
 .toggle_card {
     display: none;
-    z-index: 1;
+    z-index: 1 !important;
 }
 
 .show_card {
