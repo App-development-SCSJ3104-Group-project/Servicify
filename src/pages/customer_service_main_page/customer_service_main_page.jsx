@@ -26,6 +26,11 @@ class CustomerServiceMainPage extends Component {
     this.setState({})
   }
 
+  onClick = (event) => {
+
+    console.log(event.target)
+    event.target.classList.toggle('active')
+  }
   render() {
 
     window.onresize = this.resize
@@ -164,6 +169,7 @@ class CustomerServiceMainPage extends Component {
                   width="10rem"
                   height="3rem"
                   borderRadius="10px"
+                  onClick={this.onClick}
                 />
               ))}
             </div>
@@ -226,3 +232,19 @@ class CustomerServiceMainPage extends Component {
 }
 
 export default CustomerServiceMainPage;
+
+// const mapStateToProps = (state) => {
+//   return {
+//     name: state.main.posts
+//   }
+// }
+
+// const mapDispatchToProps = (dispatch) => {
+
+//   return {
+//     // import action from //???? action file
+//     // addPost: (id) => { dispatch(addPost(id)) }
+
+//   }
+// }
+// export default connect(mapStateToProps)(CustomerMain)

@@ -210,3 +210,20 @@ class CustomerOrdersScreen extends React.Component {
 }
 
 export default CustomerOrdersScreen;
+
+
+// const mapStateToProps = (state) => {
+//   return {
+//     name: state.main.posts
+//   }
+// }
+
+// const mapDispatchToProps = (dispatch) => {
+
+//   return {
+//     // import action from //???? action file
+//     // addPost: (id) => { dispatch(addPost(id)) }
+
+//   }
+// }
+// export default connect(mapStateToProps)(CustomerMain)

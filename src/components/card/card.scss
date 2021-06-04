@@ -2,16 +2,12 @@
     background-color: rgb(255, 217, 128);
     position: relative;
     border-radius: 2.5rem;
-    min-width: 25rem;
-    max-width: 25rem;
-    height: 27.5rem;
     padding: 1rem;
     margin: 2rem;
 }
 
 .card_body {
     position: relative;
-    z-index: 4;
     width: 100%;
     text-overflow: ellipsis;
     white-space: wrap;

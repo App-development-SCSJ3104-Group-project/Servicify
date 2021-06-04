@@ -3,8 +3,8 @@ import DashboardTopBar from "../../components/dashboard_top_bar/dashboard_top_ba
 import ScreenTabs from "../../components/screen_tabs/screen_tabs"
 import "./dashboard_manage_requests.scss"
 import "../../components/screen_tabs/screen_tabs.scss"
-import Proposals from "../manage_proposals/manage_proposals"
-import Requests from "../manage_request/manage_request"
+import Proposals from "./manage_proposals/manage_proposals"
+import Requests from "./manage_request/manage_request"
 
 class DashboardManageRequests extends Component {
 
@@ -46,3 +46,19 @@ class DashboardManageRequests extends Component {
     }
 }
 export default DashboardManageRequests
+
+// const mapStateToProps = (state) => {
+//     return {
+//       name: state.main.posts
+//     }
+//   }
+  
+//   const mapDispatchToProps = (dispatch) => {
+  
+//     return {
+//       // import action from //???? action file
+//       // addPost: (id) => { dispatch(addPost(id)) }
+  
+//     }
+//   }
+//   export default connect(mapStateToProps)(CustomerMain)

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-import DashboardCard from "../../components/dashboard_card/dashboard_card"
-import Button from "../../components/button/button"
+import DashboardCard from "../../../components/dashboard_card/dashboard_card"
+import Button from "../../../components/button/button"
 
 import "./current_order.scss"
 

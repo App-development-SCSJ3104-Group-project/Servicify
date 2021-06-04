@@ -8,8 +8,8 @@ import icon_2 from "../../icons/clipboard 1.svg"
 import icon_3 from "../../icons/mechanic 1.svg"
 import icon_4 from "../../icons/technical-support 1.svg"
 import icon_5 from "../../icons/wrench 1.svg"
-import CurrentOrder from "../current_order/current_order"
-import OrdersHistory from "../orders_history/orders_history"
+import CurrentOrder from "./current_order/current_order"
+import OrdersHistory from "./orders_history/orders_history"
 
 class DashboardManageOrders extends Component {
 
@@ -71,3 +71,19 @@ class DashboardManageOrders extends Component {
     }
 }
 export default DashboardManageOrders
+
+// const mapStateToProps = (state) => {
+//     return {
+//       name: state.main.posts
+//     }
+//   }
+  
+//   const mapDispatchToProps = (dispatch) => {
+  
+//     return {
+//       // import action from //???? action file
+//       // addPost: (id) => { dispatch(addPost(id)) }
+  
+//     }
+//   }
+//   export default connect(mapStateToProps)(CustomerMain)
