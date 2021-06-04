@@ -12,13 +12,13 @@ class SearchArea extends Component {
     };
   }
   tabs = [
-    { name: "overview", isActive: false },
-    { name: "services", isActive: false },
+    { name: "overview", isActive: false,linkTo:"" },
+    { name: "services", isActive: false,linkTo:"/customer_service_main_page" },
     { name: "posts", isActive: false },
-    { name: "orders", isActive: false },
+    { name: "orders", isActive: false,linkTo:"/customer_orders_screen" },
     { name: "favorites", isActive: false },
-    { name: "requests", isActive: false },
-    { name: "profile", isActive: false, lastTab: true },
+    { name: "requests", isActive: false,linkTo:"/dashboard_manage_requests" },
+    { name: "profile", isActive: false,linkTo:"/dashboard", lastTab: true },
   ];
   render() {
     const {popUpToggle}=this.state;
@@ -52,6 +52,7 @@ class SearchArea extends Component {
                 currentTab={tab.isActive}
                 lastTab={tab.lastTab}
                 tabName={tab.name}
+                linkTo={tab.linkTo}
               />
             ))
             : null}

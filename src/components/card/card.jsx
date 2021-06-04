@@ -3,7 +3,7 @@ import "./card.scss"
 const card = (props) => {
 
     const style = {
-        width: ` ${props.width} !important`,
+        maxWidth: ` ${props.width} !important`,
         height: ` ${props.height} !important`
     }
     const imgStyle = {

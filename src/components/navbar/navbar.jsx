@@ -61,7 +61,7 @@ const SignedOutNav = () => {
 
 function Navbar(props) {
   return (
-    <div className="navbar animate__animated animate__zoomIn">
+    <div className="navbar">
       <div className="left-section-navbar-1">
         <p className="logoname-service">Servicfy</p>
       </div>
