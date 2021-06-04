@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <Route exact path="/signup" component={SignupForm}></Route>
       <Route path="/login" component={LoginForm}></Route>
-      <Route exact path="/" component={LandingPage}></Route>
+      <Route exact path={["/","/overview"]} component={LandingPage}></Route>
       <Route path="/customer_main_screen" component={CustomerMain}></Route>
       <Route
         path="/customer_service_main_page"
