@@ -12,13 +12,13 @@ class SearchArea extends Component {
     };
   }
   tabs = [
-    { name: "overview", isActive: false },
-    { name: "services", isActive: false },
+    { name: "overview", isActive: false,linkTo:"" },
+    { name: "services", isActive: false,linkTo:"/customer_service_main_page" },
     { name: "posts", isActive: false },
-    { name: "orders", isActive: false },
+    { name: "orders", isActive: false,linkTo:"/customer_orders_screen" },
     { name: "favorites", isActive: false },
-    { name: "requests", isActive: false },
-    { name: "profile", isActive: false, lastTab: true },
+    { name: "requests", isActive: false,linkTo:"/dashboard_manage_requests" },
+    { name: "profile", isActive: false,linkTo:"/dashboard", lastTab: true },
   ];
   render() {
     const {popUpToggle}=this.state;
@@ -26,7 +26,7 @@ class SearchArea extends Component {
       this.tabs.find(e => e.name == this.props.route).isActive = true;
 
     return (
-      <div className={`browse-area }`} >
+      <div className={`browse-area } `} >
 
         {popUpToggle?<SearchPopUp></SearchPopUp>:null}
         <div className="title-search"></div>
@@ -45,13 +45,14 @@ class SearchArea extends Component {
             }}
           />
         </div>
-        <div className="navbar-search">
+        <div className="navbar-search ">
           {this.tabs
             ? this.tabs.map((tab) => (
               <NavigationTab
                 currentTab={tab.isActive}
                 lastTab={tab.lastTab}
                 tabName={tab.name}
+                linkTo={tab.linkTo}
               />
             ))
             : null}

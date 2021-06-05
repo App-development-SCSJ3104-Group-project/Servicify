@@ -1,9 +1,18 @@
 import React from "react";
 import "./search_area.css"
+import { Router, Link } from "react-router-dom";
 
-const NavigationTab = ({ currentTab, lastTab, tabName }) => {
+{/* <Link to="/login" style={{ textDecoration: "none" }}>
+        
+        </Link> */}
+const NavigationTab = ({ currentTab, lastTab, tabName,linkTo }) => {
+
+  console.log(linkTo)
+  // link gets redirected to same page if the link to props is undefined
   return (
-    <div
+   <Link to={linkTo!==undefined?linkTo:window.location.href.split("/")[3]} style={{textDecoration:"none",color:"white"}}>
+   
+   <div
       className="tab"
       // style={
       //   lastTab ? { position: "absolute", bottom: "0", right: "0" } : {}
@@ -18,7 +27,7 @@ const NavigationTab = ({ currentTab, lastTab, tabName }) => {
       >
         {tabName}
       </p>
-    </div>
+    </div></Link>
   );
 };
 

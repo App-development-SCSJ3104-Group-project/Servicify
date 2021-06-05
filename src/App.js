@@ -14,6 +14,8 @@ import DashboardManageOrders from "./pages/dashboard_manage_orders/dashboard_man
 import DashboardManageRequests from "./pages/dashboard_manage_requests/dashboard_manage_requests";
 import LandingPage from "./pages/landing_page/landing_page";
 import CustomerViewPost from "./pages/customer_view_post_screen/customer_view_post_screen";
+import ProposalForm from "./pages/service_provider_make_proposal_screen/sp_make_proposal_form";
+import ServiceProivderPostScreen from "./pages/service_provider_post_screen/service_provider_post_screen";
 
 
 function App() {
@@ -21,7 +23,7 @@ function App() {
     <div className="App">
       <Route exact path="/signup" component={SignupForm}></Route>
       <Route path="/login" component={LoginForm}></Route>
-      <Route exact path="/" component={LandingPage}></Route>
+      <Route exact path={["/", "/overview"]} component={LandingPage}></Route>
       <Route path="/customer_main_screen" component={CustomerMain}></Route>
       <Route
         path="/customer_service_main_page"
@@ -52,6 +54,14 @@ function App() {
       <Route
         path="/customer_view_post_screen"
         component={CustomerViewPost}
+      ></Route>
+      <Route
+        path="/service_provider_make_proposal_screen"
+        component={ProposalForm}
+      ></Route>
+      <Route
+        path="/service_provider_post_screen"
+        component={ServiceProivderPostScreen}
       ></Route>
 
       <Route path="/dashboard" component={DashboardOverviewPage}></Route>

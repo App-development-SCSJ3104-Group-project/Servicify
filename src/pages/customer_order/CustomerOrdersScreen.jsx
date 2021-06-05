@@ -2,10 +2,10 @@ import React from "react";
 import "./CustomerOrdersScreen.scss";
 import CustomButton from "../../components/button/button";
 import Order from "../../components/order/order";
-import UserImg from "../../icons/user1.jpg";
-import UserImg2 from "../../icons/user2.png";
-import UserImg3 from "../../icons/user3.png";
-import Diagnosing from "../../icons/diagnosing.png"
+import UserImg from "../../icons/User1.svg";
+import UserImg2 from "../../icons/User2.svg";
+import UserImg3 from "../../icons/User3.svg";
+import Diagnosing from "../../icons/prescription.svg"
 import PopUp from "./InnerComponents/PopUp/PopUp"
 import Template from "../../components/template/template"
 
@@ -136,11 +136,11 @@ class CustomerOrdersScreen extends React.Component {
 
       return (
 
-        <div className="orders-list-inner-section__content-container__status__inner">
+        <div className="orders-list-inner-section__content-container__status__inner  animate__animated animate__zoomInDown">
 
-          <img src={Diagnosing} alt="" className="orders-list-inner-section__content-container__status__img" />
+          <img src={Diagnosing} alt="" className="orders-list-inner-section__content-container__status__img " />
 
-          <div className="orders-list-inner-section__content-container__status__inner__diagnosis-info">
+          <div className="orders-list-inner-section__content-container__status__inner__diagnosis-info ">
             <div>Diagnosing the problem</div>
             <div>#0156FD55DFF55</div>
           </div>
@@ -148,6 +148,8 @@ class CustomerOrdersScreen extends React.Component {
         </div>
       )
     }
+    
+    
   }
   render() {
     const { innerTabs, activeTab, OrdersList } = this.state;
@@ -180,14 +182,20 @@ class CustomerOrdersScreen extends React.Component {
                     );
                   })}
                 </div>
-                <div className="orders-list-inner-section__content-container__orders">
-                  {activeTab == "OrdersList"
-                    ? OrdersList.map((order, index) => {
-                      return <Order {...order} id={index}></Order>;
-                    })
-                    : null}
+                <div className="orders-list-inner-section__content-container__orders ">
+                  {
+
+                      this.state.activeTab=="OrdersList"?
+
+                      <div className="orders-list-inner-section__content-container__orders__animation-container animate__animated animate__zoomIn">
+             {           this.state.OrdersList.map((order, index) => {
+  return <Order {...order} id={index} className=""></Order>;
+})}
+                      </div>
+                      :null
+                  }
                 </div>
-                <div className="orders-list-inner-section__content-container__status">
+                <div className="orders-list-inner-section__content-container__status ">
                   {
 
                     this.checkTab()

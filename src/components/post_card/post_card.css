@@ -35,6 +35,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  margin-left: 10px;
 }
 
 .service_provider__avatar__side__content {
@@ -70,6 +71,11 @@
 
 .post_footer__style {
   margin: 30px 10px 5px 160px;
+}
+
+.post__header_optionMenu {
+  display: flex;
+  flex-direction: row;
 }
 
 .stack__avatars {

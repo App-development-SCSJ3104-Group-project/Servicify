@@ -1,57 +1,19 @@
 .custom-button {
-  border-radius: 6px;
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  line-height: auto;
-  height: 6rem;
-  border: none;
-  cursor: pointer;
-  display: inline-block;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-
-  &::after,
-  &::before {
-    content: "";
-    border-top: khaki solid 2px;
-    border-bottom: khaki solid 2px;
-    z-index: 1;
-    position: absolute;
-    display: block;
-    width: 0;
-    bottom: 0;
-    right: 0;
-    top: 0;
-  }
-
-  &::after {
-    left: 50%;
-    transition: ease-in-out 200ms;
-  }
-  &::before {
-    left: 50%;
-    transition: ease-in-out 200ms;
-  }
-  &:hover::after {
-    border-bottom-right-radius: 7px;
-    border-top-right-radius: 7px;
-    width: 50%;
-  }
-  &:hover::before {
-    transform: translateX(-50px);
-    width: 50%;
-    border-bottom-left-radius: 7px;
-    border-top-left-radius: 7px;
-  }
+    border-radius: 6px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: auto;
+    height: 6rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
+
 .button-icon {
-  width: 1.6rem;
-  height: 1.6rem;
-}
-
-.active {
-  background-color: rgb(255, 131, 92) !important;
+    width: 1.6rem;
+    height: 1.6rem;
 }

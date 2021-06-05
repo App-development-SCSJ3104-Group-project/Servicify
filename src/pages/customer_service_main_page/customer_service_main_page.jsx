@@ -154,10 +154,10 @@ class CustomerServiceMainPage extends Component {
 
       <Template route={"services"}>
 
-        <div className="card_view">
-          <div className="categories">
+        <div className="card_view ">
+          <div className="categories animate__animated animate__backInLeft" >
             <h4>Categories</h4>
-            <div className="items">
+            <div className="items  " >
               {categories.map((e) => (
                 // @ts-ignore
                 <Button
@@ -170,11 +170,12 @@ class CustomerServiceMainPage extends Component {
                   height="3rem"
                   borderRadius="10px"
                   onClick={this.onClick}
+                  animationClassName ="animate_animated animate__zoomIn"
                 />
               ))}
             </div>
           </div>
-          <div className="top_result">
+          <div className="top_result animate__animated animate__zoomIn">
             <h4>Top results</h4>
 
             <div className="buttons">
@@ -189,11 +190,13 @@ class CustomerServiceMainPage extends Component {
                   icon={e.type === "reset" ? null : dropDownIcon}
                   height="3rem"
                   borderRadius="10px"
+                  animationClassName="animate__animated animate__zoomIn"
+                  animationDelay="1s"
                 />
               ))}
             </div>
           </div>
-          <div className="results">
+          <div className="results animate__animated animate__zoomInLeft" style={{animationDelay:"1.5s"}}>
             <Divider
               width="100%"
               height="0.2rem"

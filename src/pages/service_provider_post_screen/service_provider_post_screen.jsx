@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import "./customer_post_scree.css";
-import "./post_screen.scss";
+import "../customer_post_screen/customer_post_scree.css";
+import "../customer_post_screen/post_screen.scss";
 import PostCard from "./../../components/post_card/post_card";
 import Avatar from "./../../components/search_result/avatar";
-import posts from "./dummydate";
+import posts from "./dummydata";
 import Template from "../../components/template/template";
-import AddIcon from "./svg/add_icon";
+import AddIcon from "../customer_post_screen/svg/add_icon";
 
-const CustomerPostScreen = () => {
+const ServiceProviderPostScreen = () => {
   return (
     <Template route="posts">
       <div>
@@ -48,7 +48,7 @@ const PostCardForm = () => {
         <div className="post_form_card__header__avatar_styles">
           <Avatar
             source={
-              "https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg"
+              "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
             }
             width={"100px"}
             height={"100px"}
@@ -108,20 +108,4 @@ const DropdownItems = (props) => {
   );
 };
 
-export default CustomerPostScreen;
-
-// const mapStateToProps = (state) => {
-//   return {
-//     name: state.main.posts
-//   }
-// }
-
-// const mapDispatchToProps = (dispatch) => {
-
-//   return {
-//     // import action from //???? action file
-//     // addPost: (id) => { dispatch(addPost(id)) }
-
-//   }
-// }
-// export default connect(mapStateToProps)(CustomerMain)
+export default ServiceProviderPostScreen;

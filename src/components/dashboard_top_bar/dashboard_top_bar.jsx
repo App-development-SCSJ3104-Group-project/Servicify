@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import NavigationTab from "../search_area/tab"
-import profileImg from "../../icons/0369a80c52889bec56ce0a5090a486f3 1.svg"
+import profileImg from "../../icons/User2.svg"
 import CircularAvatar from "../icon/icon_component"
 
 import "./dashboard_top_bar.scss"
@@ -42,6 +42,7 @@ class DashboardTopBar extends Component {
 
                 <div className="overview_tabs">
                     {this.tabs ? this.tabs.map((tab) => (
+                        // @ts-ignore
                         <NavigationTab
                             currentTab={tab.isActive}
                             tabName={tab.name}
