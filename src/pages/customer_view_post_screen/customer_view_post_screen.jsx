@@ -1,7 +1,4 @@
 import React, { Component, useState } from "react";
-import Nav from "./../../components/navbar/navbar";
-import SearchArea from "./../../components/search_area/search_area";
-import PostCard from "./../../components/post_card/post_card";
 import "./customer_view_post_screen.css";
 import Avatar from "./../../components/search_result/avatar";
 import ProposalCardButton from "./compoents/button";
