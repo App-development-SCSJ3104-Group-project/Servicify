@@ -4,3 +4,9 @@
 //         data
 //     }
 // }
+
+
+export const SubmitForm = () => ({
+    type: "SUBMIT_FORM",
+    payload: null,
+});

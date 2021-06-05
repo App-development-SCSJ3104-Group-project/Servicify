@@ -3,6 +3,10 @@ import Form from "../../components/form/form";
 import "./login.scss"
 import googleIcon from "../../icons/GoogleIcon.svg"
 
+// redux actions needs to be imported in an object destructruing way
+import {SubmitForm} from "../../redux/users/users_action"
+
+import {connect} from "react-redux";
 class LoginForm extends React.Component{
 
 
@@ -17,7 +21,8 @@ class LoginForm extends React.Component{
     }
 
     render(){
-
+            
+        const { SubmitForm } = this.props;
       
         const formInputs=[
            
@@ -70,14 +75,13 @@ class LoginForm extends React.Component{
                 
             }
         ]
-        return <div className="login-form ">
+        return <div className="login-form " onClick={()=>SubmitForm()}>
 
             <Form   type="login" formInputs={formInputs} formButtons={formButtons}></Form>
 
         </div>
     }
 }
-export default LoginForm;
 
 // const mapStateToProps = (state) => {
 //     return {
@@ -85,12 +89,13 @@ export default LoginForm;
 //     }
 //   }
   
-//   const mapDispatchToProps = (dispatch) => {
+  const mapDispatchToProps = (dispatch) => {
   
-//     return {
-//       // import action from //???? action file
-//       // addPost: (id) => { dispatch(addPost(id)) }
+    return {
+      // import action from //???? action file
+      // addPost: (id) => { dispatch(addPost(id)) }
+        SubmitForm:()=>{dispatch(SubmitForm())}
   
-//     }
-//   }
-//   export default connect(mapStateToProps)(CustomerMain)
+    }
+  }
+  export default connect(null,mapDispatchToProps)(LoginForm)
