@@ -1,12 +1,9 @@
 import React, { Component, useState } from "react";
-import Nav from "./../../components/navbar/navbar";
-import SearchArea from "./../../components/search_area/search_area";
-import PostCard from "./../../components/post_card/post_card";
 import "./customer_view_post_screen.css";
 import Avatar from "./../../components/search_result/avatar";
 import ProposalCardButton from "./compoents/button";
 import Template from "../../components/template/template";
-
+import PostCard from "../../components/post_card/post_card";
 const post = {
   id: 1,
   postTime: "30 minutes ago",
@@ -134,3 +131,19 @@ const ProposalSteps = ({ proposedSteps }) => {
 };
 
 export default CustomerViewPost;
+
+// const mapStateToProps = (state) => {
+//   return {
+//     name: state.main.posts
+//   }
+// }
+
+// const mapDispatchToProps = (dispatch) => {
+
+//   return {
+//     // import action from //???? action file
+//     // addPost: (id) => { dispatch(addPost(id)) }
+
+//   }
+// }
+// export default connect(mapStateToProps)(CustomerMain)

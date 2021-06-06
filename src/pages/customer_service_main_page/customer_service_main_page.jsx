@@ -26,6 +26,11 @@ class CustomerServiceMainPage extends Component {
     this.setState({})
   }
 
+  onClick = (event) => {
+
+    console.log(event.target)
+    event.target.classList.toggle('active')
+  }
   render() {
 
     window.onresize = this.resize
@@ -150,7 +155,7 @@ class CustomerServiceMainPage extends Component {
       <Template route={"services"}>
 
         <div className="card_view ">
-          <div className="categories animate__animated animate__backInLeft" >
+          <div className="categories animate__animated animate__zoomIn" >
             <h4>Categories</h4>
             <div className="items  " >
               {categories.map((e) => (
@@ -164,33 +169,14 @@ class CustomerServiceMainPage extends Component {
                   width="10rem"
                   height="3rem"
                   borderRadius="10px"
+                  onClick={this.onClick}
                   animationClassName ="animate_animated animate__zoomIn"
                 />
               ))}
             </div>
           </div>
-          <div className="top_result animate__animated animate__zoomIn">
-            <h4>Top results</h4>
-
-            <div className="buttons">
-              {buttons.map((e) => (
-                // @ts-ignore
-                <Button
-                  innerText={e.name}
-                  margin="0.3rem"
-                  color={e.color}
-                  backGroundColor={e.backgroundColor}
-                  width="12rem"
-                  icon={e.type === "reset" ? null : dropDownIcon}
-                  height="3rem"
-                  borderRadius="10px"
-                  animationClassName="animate__animated animate__zoomIn"
-                  animationDelay="1s"
-                />
-              ))}
-            </div>
-          </div>
-          <div className="results animate__animated animate__zoomInLeft" style={{animationDelay:"1.5s"}}>
+         
+          <div className="results animate__animated animate__zoomInLeft" style={{animationDelay:".75s"}}>
             <Divider
               width="100%"
               height="0.2rem"
@@ -229,3 +215,19 @@ class CustomerServiceMainPage extends Component {
 }
 
 export default CustomerServiceMainPage;
+
+// const mapStateToProps = (state) => {
+//   return {
+//     name: state.main.posts
+//   }
+// }
+
+// const mapDispatchToProps = (dispatch) => {
+
+//   return {
+//     // import action from //???? action file
+//     // addPost: (id) => { dispatch(addPost(id)) }
+
+//   }
+// }
+// export default connect(mapStateToProps)(CustomerMain)

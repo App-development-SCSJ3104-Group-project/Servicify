@@ -23,7 +23,7 @@ const Form =({formInputs,formButtons,type,leftSideBackgroundHeight})=>{
     history.goBack();
   }
   return(
-    <div className="form" onClick={()=>goBack()}>
+    <div className="form" >
     <div className="form__left-side " style={style}>
       <img
         src={OrangeDots}

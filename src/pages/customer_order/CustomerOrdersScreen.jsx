@@ -1,7 +1,4 @@
 import React from "react";
-import Nav from "../../components/navbar/navbar";
-import SearchArea from "../../components/search_area/search_area.jsx";
-import Footer from "../../components/footer/footer";
 import "./CustomerOrdersScreen.scss";
 import CustomButton from "../../components/button/button";
 import Order from "../../components/order/order";
@@ -218,3 +215,20 @@ class CustomerOrdersScreen extends React.Component {
 }
 
 export default CustomerOrdersScreen;
+
+
+// const mapStateToProps = (state) => {
+//   return {
+//     name: state.main.posts
+//   }
+// }
+
+// const mapDispatchToProps = (dispatch) => {
+
+//   return {
+//     // import action from //???? action file
+//     // addPost: (id) => { dispatch(addPost(id)) }
+
+//   }
+// }
+// export default connect(mapStateToProps)(CustomerMain)

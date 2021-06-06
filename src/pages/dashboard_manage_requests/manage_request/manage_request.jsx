@@ -1,9 +1,9 @@
 import React, { Component } from "react"
-import DashboardCard from "../../components/dashboard_card/dashboard_card"
-import Card from "../../components/card/card"
-import IconButton from "../../components/icon/icon_component"
-import profileIcon from "../../icons/Ellipse (3).svg";
-import star from "../../icons/outline_star_black_24dp 1.svg";
+import DashboardCard from "../../../components/dashboard_card/dashboard_card"
+import Card from "../../../components/card/card"
+import IconButton from "../../../components/icon/icon_component"
+import profileIcon from "../../../icons/Ellipse (3).svg";
+import star from "../../../icons/outline_star_black_24dp 1.svg";
 
 import "./manage_request.scss"
 
