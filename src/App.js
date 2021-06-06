@@ -16,8 +16,6 @@ import LandingPage from "./pages/landing_page/landing_page";
 import CustomerViewPost from "./pages/customer_view_post_screen/customer_view_post_screen";
 import ProposalForm from "./pages/service_provider_make_proposal_screen/sp_make_proposal_form";
 import ServiceProivderPostScreen from "./pages/service_provider_post_screen/service_provider_post_screen";
-import Test from "./pages/test/test";
-
 
 function App() {
   return (
