@@ -4,8 +4,18 @@ import "./login.scss"
 import googleIcon from "../../icons/GoogleIcon.svg"
 // redux actions needs to be imported in an object destructruing way
 import {fetchUsers, fetchUsersRequest, SubmitForm} from "../../redux/users/users_action"
+import { connect } from "react-redux";
 
-import {connect} from "react-redux";
+//using an action steps
+// 1- import{action name} from action directory
+// 2- const {action name }=this.props, destructing the action from props 
+// note actions are treated similary to state props IT NEEDS TO BE PASSED USING PROPS
+// 3-Add the imported action into the mapdispatchto props function
+// NOTE Action needs to be called inside a callback, it can not be called directly 
+// on a click function for example onclick={action.name()} is nto gonna work 
+// but onclick={()=>action.name()} is the way it works
+ 
+
 class LoginForm extends React.Component{
 
 
@@ -21,7 +31,7 @@ class LoginForm extends React.Component{
 
     render(){
             
-        const { SubmitForm,submitted,loading } = this.props;
+        const { SubmitForm,submitted,loading,fetchUsersRequest,fetchUsers} = this.props;
         
         console.log(this.props)
         const formInputs=[
@@ -75,10 +85,8 @@ class LoginForm extends React.Component{
                 
             }
         ]
-        return <div className="login-form " onClick={async() => {
-            await fetchUsersRequest();
-            setTimeout(()=>console.log(loading),3000)
-            
+        return <div className="login-form " onClick={() => {
+            fetchUsers();
         }}>
 
             <Form   type="login" formInputs={formInputs} formButtons={formButtons}></Form>
@@ -102,8 +110,8 @@ class LoginForm extends React.Component{
       // import action from //???? action file
       // addPost: (id) => { dispatch(addPost(id)) }
         SubmitForm: () => { dispatch(SubmitForm()) },
+        fetchUsersRequest:()=>{dispatch(fetchUsersRequest())},
         fetchUsers: () => { dispatch(fetchUsers()) },
-        fetchUsersRequest:()=>{dispatch(fetchUsersRequest())}
   
     }
   }

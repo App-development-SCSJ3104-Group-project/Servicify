@@ -30,17 +30,15 @@ export const fetchUsersFailed = (err) => ({
 // thunk middleware action
 export const fetchUsers = () => {
 
-    alert("fetch")
 
     return (dispatch) => {
 
         dispatch(fetchUsersRequest);
         axios.get("http://localhost:3000/users").then(res => {
-            alert("sucess")
             const users = res.data;
+            console.log(users);
             dispatch(fetchUserSucess(users))
         }).catch(err => {
-            alert("failed")
             const errorMsg = err.message;
             dispatch(fetchUsersFailed(errorMsg))
         })

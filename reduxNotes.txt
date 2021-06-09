@@ -1,0 +1,8 @@
+using an action steps
+ 1- import{action name} from action directory
+ 2- const {action name }=this.props, destructing the action from props 
+ note actions are treated similary to state props IT NEEDS TO BE PASSED USING PROPS
+ 3-Add the imported action into the mapdispatchto props function
+ NOTE Action needs to be called inside a callback, it can not be called directly 
+ on a click function for example onclick={action.name()} is nto gonna work 
+ but onclick={()=>action.name()} is the way it works

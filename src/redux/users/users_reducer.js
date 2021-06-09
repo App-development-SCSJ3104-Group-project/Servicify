@@ -33,7 +33,8 @@ const usersReducer = (state = initState, action) => {
 
                 return {
                     ...state,
-                    users: action.payload
+                    users: action.payload,
+                    loading: false,
                 }
             }
         case UserActionTypes.FETCH_USERS_FAILED:
