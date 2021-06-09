@@ -2,9 +2,8 @@ import React from "react";
 import Form from "../../components/form/form";
 import "./login.scss"
 import googleIcon from "../../icons/GoogleIcon.svg"
-
 // redux actions needs to be imported in an object destructruing way
-import {SubmitForm} from "../../redux/users/users_action"
+import {fetchUsers, fetchUsersRequest, SubmitForm} from "../../redux/users/users_action"
 
 import {connect} from "react-redux";
 class LoginForm extends React.Component{
@@ -22,8 +21,9 @@ class LoginForm extends React.Component{
 
     render(){
             
-        const { SubmitForm } = this.props;
-      
+        const { SubmitForm,submitted,loading } = this.props;
+        
+        console.log(this.props)
         const formInputs=[
            
              {
@@ -75,7 +75,11 @@ class LoginForm extends React.Component{
                 
             }
         ]
-        return <div className="login-form " onClick={()=>SubmitForm()}>
+        return <div className="login-form " onClick={async() => {
+            await fetchUsersRequest();
+            setTimeout(()=>console.log(loading),3000)
+            
+        }}>
 
             <Form   type="login" formInputs={formInputs} formButtons={formButtons}></Form>
 
@@ -83,19 +87,24 @@ class LoginForm extends React.Component{
     }
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-//       name: state.main.posts
-//     }
-//   }
-  
+ 
+   //userReducer is the name of the reducer that we want access its inner state
+//    you need to specify the reducer in order to acess its inner state
+  const mapStateToProps=({usersReducer})=>({
+    loading:usersReducer.loading,
+      submitted: usersReducer.submitted,
+        users:usersReducer.users
+    
+});
   const mapDispatchToProps = (dispatch) => {
   
     return {
       // import action from //???? action file
       // addPost: (id) => { dispatch(addPost(id)) }
-        SubmitForm:()=>{dispatch(SubmitForm())}
+        SubmitForm: () => { dispatch(SubmitForm()) },
+        fetchUsers: () => { dispatch(fetchUsers()) },
+        fetchUsersRequest:()=>{dispatch(fetchUsersRequest())}
   
     }
   }
-  export default connect(null,mapDispatchToProps)(LoginForm)
+  export default connect(mapStateToProps,mapDispatchToProps)(LoginForm)
