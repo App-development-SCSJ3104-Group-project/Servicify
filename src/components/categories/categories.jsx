@@ -1,17 +1,18 @@
 import React from "react";
-import CategoryButton from "./category_button";
 import "./categories.css";
+import DemoImage from "../../icons/selfworker.jpg";
 
 const Categories = () => {
   return (
-    <div>
-      <div class="section-headline">
+    <div className="categories__section_container">
+      <div className="categories_section-headline">
         <p>
-          <span class="starter-word">Hire</span> a pro for any service you want
+          <span className="starter-word">Hire</span> a pro for any service you
+          want
         </p>
       </div>
-      <div className="row pb-5">
-        <div className="col-md-5">
+      <div className="row">
+        <div className="col-md-4">
           <div className="categories-section">
             <CategoryButton category="Farming & plantings" />
             <CategoryButton category="Electric Expert" />
@@ -27,16 +28,18 @@ const Categories = () => {
             <CategoryButton category="Farming & plantings" />
           </div>
         </div>
-        <div class="col-md-6 image-demo-section">
-          <img
-            class="demo-image"
-            src="http://www.benjaminfranklinplumbing.com/images/blog/10-Reasons-Why-a-Professional-Plumber-Is-Better-Than-DIY-_-Katy-TX.jpg"
-            alt="demo image"
-            width="620px"
-            height="375px"
-          />
+        <div className="col-md-7">
+          <img className="demo-image" src={DemoImage} alt="demo image" />
         </div>
       </div>
+    </div>
+  );
+};
+
+const CategoryButton = ({ category }) => {
+  return (
+    <div className="item1">
+      <button className="btncategory">{category}</button>
     </div>
   );
 };

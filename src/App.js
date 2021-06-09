@@ -17,7 +17,6 @@ import CustomerViewPost from "./pages/customer_view_post_screen/customer_view_po
 import ProposalForm from "./pages/service_provider_make_proposal_screen/sp_make_proposal_form";
 import ServiceProivderPostScreen from "./pages/service_provider_post_screen/service_provider_post_screen";
 
-
 function App() {
   return (
     <div className="App">
