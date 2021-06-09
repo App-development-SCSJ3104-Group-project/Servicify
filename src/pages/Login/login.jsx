@@ -28,7 +28,7 @@ class LoginForm extends React.Component{
 
         }
     }
-
+    
     render(){
             
         const { SubmitForm,submitted,loading,fetchUsersRequest,fetchUsers} = this.props;
@@ -85,23 +85,23 @@ class LoginForm extends React.Component{
                 
             }
         ]
-        return <div className="login-form " onClick={() => {
-            fetchUsers();
+        return <div className="login-form " onClick={ () => {
+            fetchUsersRequest();
         }}>
 
-            <Form   type="login" formInputs={formInputs} formButtons={formButtons}></Form>
+            <Form   type="login" formInputs={formInputs} formButtons={formButtons} ></Form>
 
         </div>
     }
 }
 
  
-   //userReducer is the name of the reducer that we want access its inner state
-//    you need to specify the reducer in order to acess its inner state
+
+
   const mapStateToProps=({usersReducer})=>({
     loading:usersReducer.loading,
-      submitted: usersReducer.submitted,
-        users:usersReducer.users
+    submitted: usersReducer.submitted,
+    users:usersReducer.users
     
 });
   const mapDispatchToProps = (dispatch) => {
@@ -115,4 +115,5 @@ class LoginForm extends React.Component{
   
     }
   }
-  export default connect(mapStateToProps,mapDispatchToProps)(LoginForm)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
+  

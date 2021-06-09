@@ -33,7 +33,7 @@ const usersReducer = (state = initState, action) => {
 
                 return {
                     ...state,
-                    users: action.payload,
+                    users: action.users,
                     loading: false,
                 }
             }

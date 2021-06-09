@@ -1,3 +1,21 @@
+
+ redux connection notes
+connect(1stargument, 2ndarugment)(componentName)
+1st argument is not optional which is mapstatetoprops
+2nd argument is optional which is map dispatch to props
+incase you dont have mapdispatch to props you can directly use connect(mapStateToProps)(componentName)
+but if youu dont have mapStateToProps and have mapDispatchToProps you need to set the first argument to be null so it will be connect(null,mapDispatchToProps)(componentNAME)
+
+
+userReducer is the name of the reducer that we want access its inner state
+    you need to specify the reducer in order to acess its inner state
+  mapstate to props notes
+    const mapStateToProps=({reducerName eg:userReducer})=>({
+   statePropertyNameThatIsUsedByComponent:statePropertyNameThatIsUsedAtReducer,
+    note its better to name both side similary so confusin is avoided
+ });
+
+
 using an action steps
  1- import{action name} from action directory
  2- const {action name }=this.props, destructing the action from props 
@@ -6,3 +24,7 @@ using an action steps
  NOTE Action needs to be called inside a callback, it can not be called directly 
  on a click function for example onclick={action.name()} is nto gonna work 
  but onclick={()=>action.name()} is the way it works
+
+  
+
+

@@ -4,6 +4,8 @@ import { UserActionTypes } from "./users_types"
 export const SubmitForm = () => ({
     type: "SUBMIT_FORM",
     payload: null,
+
+
 });
 
 export const fetchUsersRequest = () => ({
@@ -17,7 +19,7 @@ export const fetchUsersRequest = () => ({
 export const fetchUserSucess = (users) => ({
 
     type: UserActionTypes.FETCH_USERS_SUCESS,
-    payload: users
+    users: users,
 })
 
 
@@ -27,7 +29,11 @@ export const fetchUsersFailed = (err) => ({
     payload: err
 })
 
-// thunk middleware action
+export const validateUser = async() => {
+
+        const userArray = await fetchUsers();
+    }
+    // thunk middleware action
 export const fetchUsers = () => {
 
 
