@@ -3,7 +3,7 @@ import Form from "../../components/form/form";
 import "./login.scss"
 import googleIcon from "../../icons/GoogleIcon.svg"
 // redux actions needs to be imported in an object destructruing way
-import {fetchUsers, fetchUsersRequest, SubmitForm} from "../../redux/users/users_action"
+import {fetchUsers, fetchUsersRequest, SubmitForm,validateUser} from "../../redux/users/users_action"
 import { connect } from "react-redux";
 
 //using an action steps
@@ -28,10 +28,10 @@ class LoginForm extends React.Component{
 
         }
     }
-    
+
     render(){
             
-        const { SubmitForm,submitted,loading,fetchUsersRequest,fetchUsers} = this.props;
+        const { SubmitForm,submitted,loading,fetchUsersRequest,fetchUsers,validateUser} = this.props;
         
         console.log(this.props)
         const formInputs=[
@@ -86,7 +86,7 @@ class LoginForm extends React.Component{
             }
         ]
         return <div className="login-form " onClick={ () => {
-            fetchUsersRequest();
+            validateUser({email:"Sincere@april.biz",password:"1234"});
         }}>
 
             <Form   type="login" formInputs={formInputs} formButtons={formButtons} ></Form>
@@ -111,7 +111,8 @@ class LoginForm extends React.Component{
       // addPost: (id) => { dispatch(addPost(id)) }
         SubmitForm: () => { dispatch(SubmitForm()) },
         fetchUsersRequest:()=>{dispatch(fetchUsersRequest())},
-        fetchUsers: () => { dispatch(fetchUsers()) },
+        fetchUsers: (url) => { dispatch(fetchUsers(url)) },
+        validateUser:(user)=>{dispatch(validateUser(user))}
   
     }
   }
