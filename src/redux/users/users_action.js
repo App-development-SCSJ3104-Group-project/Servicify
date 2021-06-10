@@ -27,6 +27,12 @@ export const validatingUserSucess = (user) => ({
     user
 })
 
+export const emailAvailabilitySucess = () => ({
+    type: UserActionTypes.EMAIL_Availability_SUCESS,
+})
+export const emailAvailabilityFailure = () => ({
+    type: UserActionTypes.EMAIL_Availability_FAILURE,
+})
 export const checkEmailAvailability = ({ email }) => {
 
     return (dispatch) => {
@@ -42,25 +48,17 @@ export const validateUser = (userInfo) => {
         console.log(userInfo)
         return (dispatch) => {
 
-            const url = `http://localhost:3000/users/auth?email=${userInfo.email}&password=${userInfo.password}`;
-            dispatch(fetchUsers(url, "validateUser"))
+            const url = `https://service-backend-web.herokuapp.com/users/login/auth`;
+            dispatch(fetchUsers(url, "validateUser", userInfo))
         }
     }
     // thunk middleware action
-export const fetchUsers = (url, fetchingMode) => {
+export const fetchUsers = (url, fetchingMode, userInfo) => {
 
     return (dispatch) => {
 
         dispatch(fetchUsersRequest());
-        axios({
-            method: 'GET', //you can set what request you want to be
-            url: url,
-            data: null,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-            }
-        }).then(res => {
+        axios.get(url, userInfo).then(res => {
             const users = res.data;
             switch (fetchingMode) {
 

@@ -54,7 +54,7 @@ class LoginForm extends React.Component{
    
     render(){
          
-        const { loading,validateUser,IsUserInfoValid,history} = this.props;
+        const { loading,validateUser,IsUserInfoValid,history,userInAuth} = this.props;
         
         console.log(this.props)
         const formInputs=[
@@ -108,9 +108,7 @@ class LoginForm extends React.Component{
                 
             }
         ]
-        return <div className={`login-form  `} onClick={() => {
-            
-        }}> 
+        return <div className={`login-form  `} > 
             {
                 loading?<div className="loading-div">
                 <div className="loader">Loading...</div>
@@ -131,12 +129,9 @@ class LoginForm extends React.Component{
     }
 }
 
- 
-
-
   const mapStateToProps=({usersReducer})=>({
     loading:usersReducer.loading,
-      users: usersReducer.users,
+      userInAuth: usersReducer.userInAuth,
     IsUserInfoValid:usersReducer.IsUserInfoValid
 });
   const mapDispatchToProps = (dispatch) => {

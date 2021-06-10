@@ -4,7 +4,7 @@ const initState = {
     submitted: false,
     loading: false,
     users: [],
-    duplicateUserEmail: false,
+    duplicateUserEmail: null,
     IsUserInfoValid: null,
     userInAuth: null
 
@@ -15,7 +15,7 @@ const usersReducer = (state = initState, action) => {
 
 
 
-
+        // fetching
         case UserActionTypes.FETCH_USERS_REQUEST:
             {
 
@@ -31,10 +31,20 @@ const usersReducer = (state = initState, action) => {
 
                 return {
                     ...state,
-                    users: action.users,
+                    userInAuth: action.users[0],
                     loading: false,
                 }
             }
+        case UserActionTypes.FETCH_USERS_FAILED:
+            {
+
+                return {
+
+                    ...state,
+                    loading: false
+                }
+            }
+            //validation
         case UserActionTypes.VALID_USER_SUCESS:
             {
 
@@ -57,13 +67,14 @@ const usersReducer = (state = initState, action) => {
 
                 }
             }
-        case UserActionTypes.FETCH_USERS_FAILED:
-            {
 
+            //duplication
+        case UserActionTypes.EMAIL_Availability_SUCESS:
+            {
                 return {
 
                     ...state,
-                    loading: false
+
                 }
             }
 

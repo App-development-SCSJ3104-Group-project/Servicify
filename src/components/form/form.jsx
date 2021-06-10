@@ -9,60 +9,48 @@ import RedCircles from "../../icons/RedCircles.svg";
 import Quotations from "../../icons/Quotations.svg";
 import WhiteArrow  from "../../icons/WhiteArrow.svg";
 import Check from "../../icons/Check.svg";
-import { useHistory } from "react-router-dom";
-
-class Form extends React.Component{
+import {useHistory, Redirect } from 'react-router-dom';
 
 
-  constructor (props) {
-    
-    super(props);
+const Form = ({ formInputs, formButtons, type, leftSideBackgroundHeight, SubmitFormCallback }) => {
 
-    this.state = {
 
-      userInfo:{}
-      
-    }
-  }
-  validateEmailFormat = (email) => {
+  let userInfo={}
+const validateEmailFormat = (email) => {
     
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
 
-  handleFormSubmission = (formInputs,SubmitFormCallback) => {
+ const handleFormSubmission = (formInputs,SubmitFormCallback) => {
               let missingField,isEmailValid = false;
               formInputs.forEach((formInput) => {
                 let elementIdentifer = formInput.className.split(" ")[0];
-                const { userInfo } = this.state;
+                
                 if (userInfo[elementIdentifer] && userInfo[elementIdentifer] != "") {
                   
                   if (elementIdentifer == "email") {
-                    isEmailValid=this.validateEmailFormat(userInfo[elementIdentifer])
+                    isEmailValid=validateEmailFormat(userInfo[elementIdentifer])
                   }
                 } else {
                  missingField = true;
                 }
               })
-              !missingField? isEmailValid?SubmitFormCallback(this.state.userInfo):alert("please fill a valid email"):alert("please fill in all input field")
+              !missingField? isEmailValid?SubmitFormCallback(userInfo):alert("please fill a valid email"):alert("please fill in all input field")
               
   }
-  render() {
-      
-    const { formInputs, formButtons, type, leftSideBackgroundHeight, SubmitFormCallback } = this.props;
 
-// let history = useHistory();
   const style = {
     // backgroundImage: `url(${mainImg})`,
     height:leftSideBackgroundHeight
   };
+    let history = useHistory();
 
-  // const goBack=()=>{
-  //   history.goBack();
-  //   }
-    
-    return (
-      <div className="form" >
+  const goBack=()=>{
+    history.goBack();
+    }
+  return (
+    <div className="form" >
     <div className="form__left-side " style={style}>
       <img
         src={OrangeDots}
@@ -106,7 +94,7 @@ class Form extends React.Component{
       </div>
     </div>
     <div className="form__right-side ">
-      <div className="form__right-side__back-btn" onClick={()=>{}}>
+      <div className="form__right-side__back-btn" onClick={()=>goBack()}>
         <img className="backArrow" src={leftArrow} alt="" />
         Back
       </div>
@@ -148,15 +136,10 @@ class Form extends React.Component{
               className={formInput.className}
               customLabel={formInput.customLabel}
                 displayType={formInput.displayType}
-                missing={this.state[formInputIdentfier]?this.state[formInputIdentfier].missing:true}
+              
                 onChange={(value) => {
                   //nested object set state way
-                  var userInfo = { ...this.state.userInfo }
                   userInfo[formInputIdentfier]=value
-                  this.setState({
-                    // creating new state attribute within each change
-                    userInfo
-                  },()=>console.log(this.state))
                 }}
             ></FormInputGroup>}
             </div>
@@ -166,8 +149,8 @@ class Form extends React.Component{
         {formButtons.map((formButton, index) => {
          
           return <div className=" animate__animated animate__zoomIn" style={{animationDelay:`${formButtons.length*1.1}s`}}>
-            {<CustomButton {...formButton} onClick={index == 0 ? () => {
-              this.handleFormSubmission(formInputs,SubmitFormCallback)
+            {<CustomButton key={index} {...formButton} onClick={index == 0 ? () => {
+              handleFormSubmission(formInputs,SubmitFormCallback)
             }:null}></CustomButton>}
           </div>
         })}
@@ -175,8 +158,8 @@ class Form extends React.Component{
     </div>
   </div>
     )
-  }
   
 }
+
 
 export default Form;
