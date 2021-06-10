@@ -3,21 +3,19 @@ const initState = {
 
     submitted: false,
     loading: false,
-    users: []
+    users: [],
+    duplicateUserEmail: null,
+    IsUserInfoValid: null,
+    userInAuth: null
 
 }
 const usersReducer = (state = initState, action) => {
 
     switch (action.type) {
 
-        case "SUBMIT_FORM":
-
-            return {
-                ...state,
-                submitted: !initState.submitted
-            }
 
 
+        // fetching
         case UserActionTypes.FETCH_USERS_REQUEST:
             {
 
@@ -33,7 +31,7 @@ const usersReducer = (state = initState, action) => {
 
                 return {
                     ...state,
-                    users: action.users,
+                    userInAuth: action.users[0],
                     loading: false,
                 }
             }
@@ -44,6 +42,39 @@ const usersReducer = (state = initState, action) => {
 
                     ...state,
                     loading: false
+                }
+            }
+            //validation
+        case UserActionTypes.VALID_USER_SUCESS:
+            {
+
+                return {
+
+                    ...state,
+                    userInAuth: action.user,
+                    IsUserInfoValid: true,
+                    loading: false
+
+                }
+            }
+        case UserActionTypes.VALID_USER_FAILED:
+            {
+
+                return {
+                    ...state,
+                    IsUserInfoValid: false,
+                    loading: false
+
+                }
+            }
+
+            //duplication
+        case UserActionTypes.EMAIL_Availability_SUCESS:
+            {
+                return {
+
+                    ...state,
+
                 }
             }
 
