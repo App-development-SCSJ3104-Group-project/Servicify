@@ -3,7 +3,7 @@ import Form from "../../components/form/form";
 import "./login.scss"
 import googleIcon from "../../icons/GoogleIcon.svg"
 // redux actions needs to be imported in an object destructruing way
-import {fetchUsers, fetchUsersRequest, SubmitForm,validateUser} from "../../redux/users/users_action"
+import {validateUser} from "../../redux/users/users_action"
 import { connect } from "react-redux";
 
 //using an action steps
@@ -15,7 +15,7 @@ import { connect } from "react-redux";
 // on a click function for example onclick={action.name()} is nto gonna work 
 // but onclick={()=>action.name()} is the way it works
  
-
+import {Redirect} from 'react-router-dom';
 class LoginForm extends React.Component{
 
 
@@ -29,9 +29,32 @@ class LoginForm extends React.Component{
         }
     }
 
+    handleAuthState = (IsUserInfoValid) => {
+
+        if (IsUserInfoValid == true) {
+
+            setTimeout(() => { 
+            this.props.history.push('/');
+        }, 2250)
+            return <div>
+    
+                <div className="login-alert login-sucess-alert animate__animated animate__bounceInRight">Login Sucess</div>
+                
+</div>
+        }
+        else {
+
+            if (IsUserInfoValid != null) {
+                
+                return <div className="login-alert login-failed-alert animate__animated animate__bounceInRight">Login Failed</div>
+            }
+        }
+        
+    }
+   
     render(){
-            
-        const { SubmitForm,submitted,loading,fetchUsersRequest,fetchUsers,validateUser} = this.props;
+         
+        const { loading,validateUser,IsUserInfoValid,history} = this.props;
         
         console.log(this.props)
         const formInputs=[
@@ -41,21 +64,21 @@ class LoginForm extends React.Component{
                 placeHolder:"Enter Email Address",
                 displayType:"block",
                 customLabel:"Email Address*",
-                className:"form__right-side__innerForm__input-group"
+                className:"email form__right-side__innerForm__input-group"
             },
              {
                 type:"password",
                 placeHolder:"Enter Password",
                 displayType:"block",
                 customLabel:"Password*",
-                className:"form__right-side__innerForm__input-group"
+                className:"password form__right-side__innerForm__input-group"
             },
              {
                 type:"checkbox",
                 placeHolder:null,
                 displayType:"inline-block",
                 customLabel:"I agree to terms & conditions",
-                className:"form__right-side__innerForm__input-group"
+                className:"checkbox form__right-side__innerForm__input-group"
             }
         ]
            const formButtons=[
@@ -85,11 +108,24 @@ class LoginForm extends React.Component{
                 
             }
         ]
-        return <div className="login-form " onClick={ () => {
-            validateUser({email:"Sincere@april.biz",password:"1234"});
-        }}>
+        return <div className={`login-form  `} onClick={() => {
+            
+        }}> 
+            {
+                loading?<div className="loading-div">
+                <div className="loader">Loading...</div>
+            </div>:null
+            }
+            {
+                this.handleAuthState(IsUserInfoValid)
+               
+            }
+           
+                
 
-            <Form   type="login" formInputs={formInputs} formButtons={formButtons} ></Form>
+            <Form type="login" formInputs={formInputs} formButtons={formButtons} SubmitFormCallback={(userInfo) => {
+                validateUser(userInfo)
+            }} ></Form>
 
         </div>
     }
@@ -100,20 +136,13 @@ class LoginForm extends React.Component{
 
   const mapStateToProps=({usersReducer})=>({
     loading:usersReducer.loading,
-    submitted: usersReducer.submitted,
-    users:usersReducer.users
-    
+      users: usersReducer.users,
+    IsUserInfoValid:usersReducer.IsUserInfoValid
 });
   const mapDispatchToProps = (dispatch) => {
   
     return {
-      // import action from //???? action file
-      // addPost: (id) => { dispatch(addPost(id)) }
-        SubmitForm: () => { dispatch(SubmitForm()) },
-        fetchUsersRequest:()=>{dispatch(fetchUsersRequest())},
-        fetchUsers: (url) => { dispatch(fetchUsers(url)) },
         validateUser:(user)=>{dispatch(validateUser(user))}
-  
     }
   }
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
