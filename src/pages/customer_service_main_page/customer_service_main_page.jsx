@@ -28,7 +28,7 @@ class CustomerServiceMainPage extends Component {
 
   onClick = (event) => {
 
-    console.log(event.target)
+    // console.log(event.target)
     event.target.classList.toggle('active')
   }
   render() {

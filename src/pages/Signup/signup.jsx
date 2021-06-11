@@ -2,51 +2,40 @@ import React from "react";
 import Form from "../../components/form/form";
 import "./signup.scss"
 import googleIcon from "../../icons/GoogleIcon.svg"
-
-class SignupForm extends React.Component {
-
-
-    constructor(props) {
-
-        super(props);
-
-        this.state = {
+import { connect } from "react-redux";
+import {checkEmailAvailability} from "../../redux/users/users_action.js"
 
 
-        }
-    }
-
-    render() {
-
-        
-        const formInputs=[
+const SignupForm = ({checkEmailAvailability,duplicateUserEmail,users,loading}) => {
+    
+const formInputs=[
             {
                 type: "text",
                 placeHolder: "Enter Full Name",
                 displayType: "block",
                 customLabel: "Full Name*",
-                className: "form__right-side__innerForm__input-group"
+                className: "name form__right-side__innerForm__input-group"
             },
             {
                 type: "text",
                 placeHolder: "Enter Email Address",
                 displayType: "block",
                 customLabel: "Email Address*",
-                className: "form__right-side__innerForm__input-group"
+                className: "email form__right-side__innerForm__input-group"
             },
             {
                 type: "password",
                 placeHolder: "Enter Password",
                 displayType: "block",
                 customLabel: "Password*",
-                className: "form__right-side__innerForm__input-group"
+                className: "password form__right-side__innerForm__input-group"
             },
             {
                 type: "checkbox",
                 placeHolder: null,
                 displayType: "inline-block",
                 customLabel: "I agree to terms & conditions",
-                className: "form__right-side__innerForm__input-group"
+                className: "checkbox form__right-side__innerForm__input-group"
             }
         ]
         const formButtons = [
@@ -76,28 +65,29 @@ class SignupForm extends React.Component {
 
             }
         ]
-        return <div className="signup-form">
+    return (
+        <div className="signup-form">
 
-            <Form  type="signup" leftSideBackgroundHeight="130%" formInputs={formInputs} formButtons={formButtons}></Form>
+            <Form
+             type="signup" leftSideBackgroundHeight="130%" formInputs={formInputs} formButtons={formButtons} SubmitFormCallback={(userInfo) => {
+                checkEmailAvailability(userInfo)
+            }}></Form>
 
         </div>
+    )
+} 
+
+const mapStateToProps=({usersReducer})=>({
+  loading:usersReducer.loading,
+  users: usersReducer.users,
+  duplicateUserEmail:usersReducer.duplicateUserEmail
+});
+  const mapDispatchToProps = (dispatch) => {
+  
+    return {
+        checkEmailAvailability:(user)=>{dispatch(checkEmailAvailability(user))}
     }
-}
-export default SignupForm;
+  }
+export default connect(mapStateToProps, mapDispatchToProps)(SignupForm)
 
 
-// const mapStateToProps = (state) => {
-//     return {
-//       name: state.main.posts
-//     }
-//   }
-
-//   const mapDispatchToProps = (dispatch) => {
-
-//     return {
-//       // import action from //???? action file
-//       // addPost: (id) => { dispatch(addPost(id)) }
-
-//     }
-//   }
-//   export default connect(mapStateToProps)(CustomerMain)

@@ -7,7 +7,9 @@ import UserImg2 from "../../icons/User2.svg";
 import UserImg3 from "../../icons/User3.svg";
 import Diagnosing from "../../icons/prescription.svg"
 import PopUp from "./InnerComponents/PopUp/PopUp"
+import { loadData } from "../../redux/orders/orders_action"
 import Template from "../../components/template/template"
+import { connect } from "react-redux";
 
 
 class CustomerOrdersScreen extends React.Component {
@@ -39,6 +41,8 @@ class CustomerOrdersScreen extends React.Component {
           isActive: true,
         },
       ],
+
+
 
       OrdersList: [
         {
@@ -110,7 +114,7 @@ class CustomerOrdersScreen extends React.Component {
   };
 
   handlePopUpInput = (childData) => {
-    console.log(`Text:${childData.text}| ${childData.rating != null ? `Rating: ${childData.rating}` : null}`);
+    // console.log(`Text:${childData.text}| ${childData.rating != null ? `Rating: ${childData.rating}` : null}`);
   }
   closePopUp = (popUpType) => {
     this.setState({
@@ -148,12 +152,16 @@ class CustomerOrdersScreen extends React.Component {
         </div>
       )
     }
-    
-    
+  }
+  componentDidMount() {
+    const { loadData } = this.props;
+    loadData("asdlkjfhldsk")
+    // console.log(this.props.ordersList)
   }
   render() {
     const { innerTabs, activeTab, OrdersList } = this.state;
     const { handleTabChanges } = this;
+
     return (
       <Template route="orders">
 
@@ -185,14 +193,14 @@ class CustomerOrdersScreen extends React.Component {
                 <div className="orders-list-inner-section__content-container__orders ">
                   {
 
-                      this.state.activeTab=="OrdersList"?
+                    this.state.activeTab == "OrdersList" ?
 
                       <div className="orders-list-inner-section__content-container__orders__animation-container animate__animated animate__zoomIn">
-             {           this.state.OrdersList.map((order, index) => {
-  return <Order {...order} id={index} className=""></Order>;
-})}
+                        {this.state.OrdersList.map((order, index) => {
+                          return <Order {...order} id={index} className=""></Order>;
+                        })}
                       </div>
-                      :null
+                      : null
                   }
                 </div>
                 <div className="orders-list-inner-section__content-container__status ">
@@ -214,21 +222,19 @@ class CustomerOrdersScreen extends React.Component {
   }
 }
 
-export default CustomerOrdersScreen;
 
+const mapStateToProps = ({ ordersReducer }) => {
+  return {
+    ordersList: ordersReducer.ordersList
+  }
+}
 
-// const mapStateToProps = (state) => {
-//   return {
-//     name: state.main.posts
-//   }
-// }
+const mapDispatchToProps = (dispatch) => {
 
-// const mapDispatchToProps = (dispatch) => {
+  return {
+    // import action from //???? action file
+    loadData: (userId) => { dispatch(loadData(userId)) }
 
-//   return {
-//     // import action from //???? action file
-//     // addPost: (id) => { dispatch(addPost(id)) }
-
-//   }
-// }
-// export default connect(mapStateToProps)(CustomerMain)
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(CustomerOrdersScreen)

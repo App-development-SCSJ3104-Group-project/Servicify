@@ -1,10 +1,6 @@
 import axios from "axios"
 import { UserActionTypes } from "./users_types"
 
-export const SubmitForm = () => ({
-    type: "SUBMIT_FORM",
-    payload: null,
-});
 
 export const fetchUsersRequest = () => ({
     type: UserActionTypes.FETCH_USERS_REQUEST,
@@ -22,30 +18,81 @@ export const fetchUsersFailed = (err) => ({
     type: UserActionTypes.FETCH_USERS_FAILED,
     payload: err
 })
+export const validatingUserFailed = () => ({
+    type: UserActionTypes.VALID_USER_FAILED
+})
+export const validatingUserSucess = (user) => ({
 
-export const validateUser = ({ email, password }) => {
+    type: UserActionTypes.VALID_USER_SUCESS,
+    user
+})
 
-        return (dispatch) => {
-            const url = `https://jsonplaceholder.typicode.com/users?email=${email}`;
-            dispatch(fetchUsers(url))
-        }
-
-    }
-    // thunk middleware action
-export const fetchUsers = (url) => {
+export const emailAvailabilitySucess = () => ({
+    type: UserActionTypes.EMAIL_Availability_SUCESS,
+})
+export const emailAvailabilityFailure = () => ({
+    type: UserActionTypes.EMAIL_Availability_FAILURE,
+})
+export const checkEmailAvailability = ({ email }) => {
 
     return (dispatch) => {
 
-        dispatch(fetchUsersRequest);
-        axios.get(url).then(res => {
-            const users = res.data;
-            console.log(users);
-            dispatch(fetchUserSucess(users))
-        }).catch(err => {
-            const errorMsg = err.message;
-            dispatch(fetchUsersFailed(errorMsg))
-        })
+        const url = `http://localhost:3000/users/auth?email=${email}`;
 
     }
 
+}
+
+export const validateUser = (userInfo) => {
+
+    // console.log(userInfo)
+    return (dispatch) => {
+
+        const url = `https://service-backend-web.herokuapp.com/users/login/auth`;
+        dispatch(fetchUsers(url, "validateUser", userInfo))
+    }
+}
+// thunk middleware action
+export const fetchUsers = (url, fetchingMode, userInfo) => {
+
+    return (dispatch) => {
+
+        dispatch(fetchUsersRequest());
+
+        console.log(userInfo);
+        axios.post("http://localhost:3000/users/login/auth", userInfo).then(res => {
+
+            const users = res.data;
+
+            switch (fetchingMode) {
+
+                case "validateUser":
+                    if (users.length != 0) {
+                        dispatch(validatingUserSucess(users))
+                    } else {
+                        dispatch(validatingUserFailed())
+                    }
+                    break;
+
+                default:
+                    dispatch(fetchUserSucess(users))
+                    break;
+            }
+
+        }).catch(err => {
+            const errorMsg = err.message;
+
+            switch (fetchingMode) {
+
+                case "validateUser":
+                    dispatch(validatingUserFailed())
+                    break;
+
+                default:
+                    dispatch(fetchUsersFailed(errorMsg))
+                    break;
+            }
+        })
+        // 
+    }
 }
