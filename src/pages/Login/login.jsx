@@ -3,7 +3,7 @@ import Form from "../../components/form/form";
 import "./login.scss"
 import googleIcon from "../../icons/GoogleIcon.svg"
 // redux actions needs to be imported in an object destructruing way
-import {validateUser} from "../../redux/users/users_action"
+import {validateUser,resetLoginState} from "../../redux/users/users_action"
 import { connect } from "react-redux";
 
 //using an action steps
@@ -29,15 +29,16 @@ class LoginForm extends React.Component{
         }
     }
 
-    handleAuthState = (IsUserInfoValid) => {
+    handleAuthState = (IsUserInfoValid,resetCallBack) => {
 
         if (IsUserInfoValid == true) {
 
             setTimeout(() => { 
+            resetCallBack()
             this.props.history.push('/');
         }, 2250)
             return <div>
-    
+                
                 <div className="login-alert login-sucess-alert animate__animated animate__bounceInRight">Login Sucess</div>
                 
 </div>
@@ -54,7 +55,7 @@ class LoginForm extends React.Component{
    
     render(){
          
-        const { loading,validateUser,IsUserInfoValid,history,userInAuth} = this.props;
+        const { loading,validateUser,IsUserInfoValid,history,userInAuth,resetLoginState} = this.props;
         
         // console.log(this.props)
         const formInputs=[
@@ -115,7 +116,7 @@ class LoginForm extends React.Component{
             </div>:null
             }
             {
-                this.handleAuthState(IsUserInfoValid)
+                this.handleAuthState(IsUserInfoValid,resetLoginState)
                
             }
            
@@ -137,7 +138,8 @@ class LoginForm extends React.Component{
   const mapDispatchToProps = (dispatch) => {
   
     return {
-        validateUser:(user)=>{dispatch(validateUser(user))}
+        validateUser: (user) => { dispatch(validateUser(user)) },
+        resetLoginState:()=>{dispatch(resetLoginState())}
     }
   }
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)

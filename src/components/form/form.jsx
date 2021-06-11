@@ -22,7 +22,7 @@ const validateEmailFormat = (email) => {
     return re.test(String(email).toLowerCase());
   }
 
- const handleFormSubmission = (formInputs,SubmitFormCallback) => {
+  const handleFormSubmission = (formInputs, SubmitFormCallback) => {
               let missingField,isEmailValid = false;
               formInputs.forEach((formInput) => {
                 let elementIdentifer = formInput.className.split(" ")[0];
@@ -36,7 +36,8 @@ const validateEmailFormat = (email) => {
                  missingField = true;
                 }
               })
-              !missingField? isEmailValid?SubmitFormCallback(userInfo):alert("please fill a valid email"):alert("please fill in all input field")
+    !missingField ? isEmailValid ? SubmitFormCallback(userInfo) : alert("please fill a valid email") : alert("please fill in all input field")
+    
               
   }
 
