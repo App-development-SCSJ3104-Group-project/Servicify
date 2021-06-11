@@ -16,14 +16,14 @@ export const loadData = (userId = "dsfhjkgkjhsdfiljq") => {
         axios.get("https://service-backend-web.herokuapp.com/orders", { userId: userId }).then(res => {
 
             const data = res.data;
-            console.log("orders data");
-            console.log(data);
+            // console.log("orders data");
+            // console.log(data);
 
             return dispatch(storeData(data))
 
         }).catch(err => {
             const errorMsg = err.message;
-            console.log(errorMsg)
+            // console.log(errorMsg)
         })
 
 

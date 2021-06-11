@@ -45,21 +45,25 @@ export const checkEmailAvailability = ({ email }) => {
 
 export const validateUser = (userInfo) => {
 
-        console.log(userInfo)
-        return (dispatch) => {
+    // console.log(userInfo)
+    return (dispatch) => {
 
-            const url = `https://service-backend-web.herokuapp.com/users/login/auth`;
-            dispatch(fetchUsers(url, "validateUser", userInfo))
-        }
+        const url = `https://service-backend-web.herokuapp.com/users/login/auth`;
+        dispatch(fetchUsers(url, "validateUser", userInfo))
     }
-    // thunk middleware action
+}
+// thunk middleware action
 export const fetchUsers = (url, fetchingMode, userInfo) => {
 
     return (dispatch) => {
 
         dispatch(fetchUsersRequest());
-        axios.get(url, userInfo).then(res => {
+
+        console.log(userInfo);
+        axios.post("http://localhost:3000/users/login/auth", userInfo).then(res => {
+
             const users = res.data;
+
             switch (fetchingMode) {
 
                 case "validateUser":
@@ -74,6 +78,7 @@ export const fetchUsers = (url, fetchingMode, userInfo) => {
                     dispatch(fetchUserSucess(users))
                     break;
             }
+
         }).catch(err => {
             const errorMsg = err.message;
 
@@ -88,7 +93,6 @@ export const fetchUsers = (url, fetchingMode, userInfo) => {
                     break;
             }
         })
-
+        // 
     }
-
 }

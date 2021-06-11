@@ -56,7 +56,7 @@ class LoginForm extends React.Component{
          
         const { loading,validateUser,IsUserInfoValid,history,userInAuth} = this.props;
         
-        console.log(this.props)
+        // console.log(this.props)
         const formInputs=[
            
              {
