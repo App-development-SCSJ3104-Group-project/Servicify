@@ -8,7 +8,7 @@ import Template from "../../components/template/template";
 import AddIcon from "./svg/add_icon";
 import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "../../redux/posts/posts_action";
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 
 const CustomerPostScreen = () => {
   const dispatch = useDispatch();
