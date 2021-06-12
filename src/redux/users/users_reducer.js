@@ -87,7 +87,6 @@ const usersReducer = (state = initState, action) => {
                     ...state,
                     loading: false,
                     IsUserInfoValid: null,
-                    userInAuth: null
                 }
             }
         case UserActionTypes.RESET_SIGNUP_STATE:

@@ -155,13 +155,17 @@ class CustomerOrdersScreen extends React.Component {
   }
   componentDidMount() {
     const { loadData } = this.props;
-    loadData()
+    
+    if (this.props.userInAuth != undefined) {
+      loadData(this.props.userInAuth[0])
+    }
+    
   }
   render() {
     const { innerTabs, activeTab, OrdersList } = this.state;
     const { handleTabChanges } = this;
-    console.log(this.props.ordersList)
-
+     
+    
     return (
       <Template route="orders">
 
@@ -196,9 +200,11 @@ class CustomerOrdersScreen extends React.Component {
                     this.state.activeTab == "OrdersList" ?
 
                       <div className="orders-list-inner-section__content-container__orders__animation-container animate__animated animate__zoomIn">
-                        {this.props.ordersList.map((order, index) => {
-                          return <Order {...order} id={index} className=""></Order>;
-                        })}
+                        {
+                          this.props.ordersList!=undefined&&this.props.ordersList.length!=0?this.props.ordersList.map((order, index) => {
+                          return <Order {...order} id={index} className="" giveFeedBackOnClick={this.openPopUp } cancelOnClick={ this.openPopUp}></Order>
+                        }):<div className="orders-list-inner-section__content-container__orders__no-orders">No Orders History</div>
+                        }
                       </div>
                       : null
                   }
@@ -223,9 +229,10 @@ class CustomerOrdersScreen extends React.Component {
 }
 
 
-const mapStateToProps = ({ ordersReducer }) => {
+const mapStateToProps = ({ ordersReducer,usersReducer }) => {
   return {
-    ordersList: ordersReducer.ordersList
+    ordersList: ordersReducer.ordersList,
+    userInAuth:usersReducer.userInAuth
   }
 }
 
@@ -233,7 +240,7 @@ const mapDispatchToProps = (dispatch) => {
 
   return {
     // import action from //???? action file
-    loadData: () => { dispatch(loadData()) }
+    loadData: (userInAuth) => { dispatch(loadData(userInAuth)) }
 
   }
 }

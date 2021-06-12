@@ -37,7 +37,7 @@ export const checkEmailAvailability = (userInfo) => {
 
     return (dispatch) => {
 
-        const url = `http://localhost:3000/users/signup/auth`;
+        const url = `https://service-backend-web.herokuapp.com/users/signup/auth`;
         dispatch(fetchUsers(url, "checkDuplication", userInfo))
     }
 

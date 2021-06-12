@@ -9,11 +9,11 @@ export const storeData = (data) => ({
 
 })
 
-export const loadData = () => {
+export const loadData = (userInfo) => {
 
     return (dispatch) => {
 
-        axios.post("https://service-backend-web.herokuapp.com/orders", { customerId: "60bf941924cd961a00a3a942" }).then(res => {
+        axios.post("https://service-backend-web.herokuapp.com/orders", { customerId: userInfo._id }).then(res => {
 
             const data = res.data;
             // console.log("orders data");

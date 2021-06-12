@@ -32,9 +32,8 @@ class LoginForm extends React.Component{
     handleAuthState = (IsUserInfoValid,resetCallBack) => {
 
         if (IsUserInfoValid == true) {
-
             setTimeout(() => { 
-            resetCallBack()
+                resetCallBack()
             this.props.history.push('/');
         }, 2250)
             return <div>
