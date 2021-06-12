@@ -1,9 +1,11 @@
-const initState =
-{
-
-}
-
-const postsReducer = (state = initState, action) => {
-    return state;
-}
-export default postsReducer
+const postsReducer = (posts = [], action) => {
+  switch (action.type) {
+    case "FETCH_ALL_POSTS":
+      return action.payload;
+    case "CREATE_POST":
+      return [...posts, action.payload];
+    default:
+      return posts;
+  }
+};
+export default postsReducer;

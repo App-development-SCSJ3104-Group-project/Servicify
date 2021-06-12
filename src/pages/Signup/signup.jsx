@@ -3,12 +3,40 @@ import Form from "../../components/form/form";
 import "./signup.scss"
 import googleIcon from "../../icons/GoogleIcon.svg"
 import { connect } from "react-redux";
-import {checkEmailAvailability} from "../../redux/users/users_action.js"
+import {checkEmailAvailability,resetSignupState} from "../../redux/users/users_action.js"
 
 
-const SignupForm = ({checkEmailAvailability,duplicateUserEmail,users,loading}) => {
+class SignupForm extends React.Component{
+
+    constructor (props) {
+        
+        super(props);
+        this.state={}
+    }
+    handleAuthState = (duplicateUserEmail,resetCallBack) => {
     
-const formInputs=[
+        if (duplicateUserEmail == false) {
+            setTimeout(() => { 
+            resetCallBack()
+                this.props.history.push('/login');
+        }, 2450)
+            return <div>
+                <div className="login-alert login-sucess-alert animate__animated animate__bounceInRight">Signup Sucess</div>
+                
+</div>
+        }
+        else {
+
+            if (duplicateUserEmail != null) {
+                
+                return <div className="login-alert login-failed-alert animate__animated animate__bounceInRight">Login Failed</div>
+            }
+        }
+        
+    }
+    render() {
+        const { checkEmailAvailability, duplicateUserEmail, users, loading, history,resetSignupState } = this.props;
+        const formInputs=[
             {
                 type: "text",
                 placeHolder: "Enter Full Name",
@@ -65,17 +93,63 @@ const formInputs=[
 
             }
         ]
-    return (
-        <div className="signup-form">
+        return (
 
+            <div className="signup-form">
+ {
+                loading?<div className="loading-div">
+                <div className="loader">Loading...</div>
+            </div>:null
+                }
+                {this.handleAuthState(duplicateUserEmail,resetSignupState)}
             <Form
-             type="signup" leftSideBackgroundHeight="130%" formInputs={formInputs} formButtons={formButtons} SubmitFormCallback={(userInfo) => {
+                    type="signup" leftSideBackgroundHeight="130%" formInputs={formInputs} formButtons={formButtons} SubmitFormCallback={(userInfo) => {
+
+                        console.log(userInfo)
                 checkEmailAvailability(userInfo)
             }}></Form>
 
         </div>
-    )
-} 
+        )
+    }
+}
+// const SignupForm = ({checkEmailAvailability,duplicateUserEmail,users,loading,history}) => {
+//     const handleAuthState = (duplicateUserEmail) => {
+
+//         if (duplicateUserEmail == true) {
+//             setTimeout(() => { 
+//            history.push('/');
+//         }, 2250)
+//             return <div>
+//                 <div className="login-alert login-sucess-alert animate__animated animate__bounceInRight">Login Sucess</div>
+                
+// </div>
+//         }
+//         else {
+
+//             if (duplicateUserEmail != null) {
+                
+//                 return <div className="login-alert login-failed-alert animate__animated animate__bounceInRight">Login Failed</div>
+//             }
+//         }
+        
+//     }
+
+//     return (
+//         <div className="signup-form">
+//  {
+//                 loading?<div className="loading-div">
+//                 <div className="loader">Loading...</div>
+//             </div>:null
+//             }
+//             <Form
+//              type="signup" leftSideBackgroundHeight="130%" formInputs={formInputs} formButtons={formButtons} SubmitFormCallback={(userInfo) => {
+//                 checkEmailAvailability(userInfo)
+//             }}></Form>
+
+//         </div>
+//     )
+// } 
 
 const mapStateToProps=({usersReducer})=>({
   loading:usersReducer.loading,
@@ -85,7 +159,9 @@ const mapStateToProps=({usersReducer})=>({
   const mapDispatchToProps = (dispatch) => {
   
     return {
-        checkEmailAvailability:(user)=>{dispatch(checkEmailAvailability(user))}
+        checkEmailAvailability: (user) => { dispatch(checkEmailAvailability(user)) },
+        resetSignupState:()=>{dispatch(resetSignupState())}
+        
     }
   }
 export default connect(mapStateToProps, mapDispatchToProps)(SignupForm)

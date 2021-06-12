@@ -2,9 +2,9 @@ import { UserActionTypes } from "./users_types";
 const initState = {
 
     submitted: false,
-    loading: false,
     users: [],
     duplicateUserEmail: null,
+    loading: false,
     IsUserInfoValid: null,
     userInAuth: null
 
@@ -74,7 +74,40 @@ const usersReducer = (state = initState, action) => {
                 return {
 
                     ...state,
+                    duplicateUserEmail: false,
+                    loading: false
 
+                }
+            }
+        case UserActionTypes.RESET_LOGIN_STATE:
+            {
+
+                return {
+
+                    ...state,
+                    loading: false,
+                    IsUserInfoValid: null,
+                    userInAuth: null
+                }
+            }
+        case UserActionTypes.RESET_SIGNUP_STATE:
+            {
+                return {
+
+                    ...state,
+                    loading: false,
+                    duplicateUserEmail: null,
+
+                }
+            }
+        case UserActionTypes.EMAIL_Availability_FAILURE:
+            {
+
+
+                return {
+                    ...state,
+                    duplicateUserEmail: true,
+                    loading: false
                 }
             }
 
