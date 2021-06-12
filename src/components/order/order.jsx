@@ -53,10 +53,10 @@ class Order extends React.Component {
     render() {
 
 
-        const { userImg, rating, orderedSince, city, day, date, diagonsingFees, totalFees, paymentType, feedback, name, giveFeedBackOnClick, orderType, cancelOnClick } = this.props;
+        const { profileImgSrc, rating, provisionDate, city, day, date, diagonsingFees, totalFees, paymentType, feedback, name, giveFeedBackOnClick, orderType, cancelOnClick } = this.props;
 
         const style = {
-            backgroundImage: `url(${userImg})`,
+            backgroundImage: `url(${profileImgSrc})`,
         }
         const { cardStyle, textStyle, toggled } = this.state;
 
@@ -74,7 +74,7 @@ class Order extends React.Component {
                     </div>
                     <div className={`order__info__order ${toggled ? "visible" : null}`} >
 
-                        {orderedSince}  ago / {city} / {paymentType}
+                        {provisionDate}  ago / {city} / {paymentType}
                         <div className="order__extra-info__type">
                             <div className="order__extra-info__type__details"> <span>Type:  Mechanical</span> <span>/</span> <span>Name: Mototrs</span> <span>/</span> <span>Time: 12:00 - 15:00</span></div>
                             <div className="order__extra-info__type__details"><span>City: {city}</span> <span>/</span> <span>Day: {day}</span> <span>/</span> <span>Date: {date}</span> </div>

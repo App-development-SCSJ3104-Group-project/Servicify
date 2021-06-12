@@ -60,7 +60,7 @@ export const fetchUsers = (url, fetchingMode, userInfo) => {
         dispatch(fetchUsersRequest());
 
         console.log(userInfo);
-        axios.post("http://localhost:3000/users/login/auth", userInfo).then(res => {
+        axios.post("https://service-backend-web.herokuapp.com/users/login/auth", userInfo).then(res => {
 
             const users = res.data;
 

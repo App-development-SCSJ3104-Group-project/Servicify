@@ -114,7 +114,7 @@ class CustomerOrdersScreen extends React.Component {
   };
 
   handlePopUpInput = (childData) => {
-    // console.log(`Text:${childData.text}| ${childData.rating != null ? `Rating: ${childData.rating}` : null}`);
+    console.log(`Text:${childData.text}| ${childData.rating != null ? `Rating: ${childData.rating}` : null}`);
   }
   closePopUp = (popUpType) => {
     this.setState({
@@ -155,12 +155,12 @@ class CustomerOrdersScreen extends React.Component {
   }
   componentDidMount() {
     const { loadData } = this.props;
-    loadData("asdlkjfhldsk")
-    // console.log(this.props.ordersList)
+    loadData()
   }
   render() {
     const { innerTabs, activeTab, OrdersList } = this.state;
     const { handleTabChanges } = this;
+    console.log(this.props.ordersList)
 
     return (
       <Template route="orders">
@@ -196,7 +196,7 @@ class CustomerOrdersScreen extends React.Component {
                     this.state.activeTab == "OrdersList" ?
 
                       <div className="orders-list-inner-section__content-container__orders__animation-container animate__animated animate__zoomIn">
-                        {this.state.OrdersList.map((order, index) => {
+                        {this.props.ordersList.map((order, index) => {
                           return <Order {...order} id={index} className=""></Order>;
                         })}
                       </div>
@@ -233,7 +233,7 @@ const mapDispatchToProps = (dispatch) => {
 
   return {
     // import action from //???? action file
-    loadData: (userId) => { dispatch(loadData(userId)) }
+    loadData: () => { dispatch(loadData()) }
 
   }
 }
