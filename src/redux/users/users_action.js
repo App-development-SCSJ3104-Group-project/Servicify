@@ -41,7 +41,14 @@ export const checkEmailAvailability = (userInfo) => {
         dispatch(fetchUsers(url, "checkDuplication", userInfo))
     }
 
+
 }
+
+export const userLogout = () => ({
+
+    type: UserActionTypes.USER_LOGUT
+
+})
 export const resetLoginState = () => ({
 
     type: UserActionTypes.RESET_LOGIN_STATE

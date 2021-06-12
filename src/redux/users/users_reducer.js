@@ -89,6 +89,15 @@ const usersReducer = (state = initState, action) => {
                     IsUserInfoValid: null,
                 }
             }
+        case UserActionTypes.USER_LOGUT:
+            {
+
+                return {
+
+                    ...state,
+                    userInAuth: null
+                }
+            }
         case UserActionTypes.RESET_SIGNUP_STATE:
             {
                 return {

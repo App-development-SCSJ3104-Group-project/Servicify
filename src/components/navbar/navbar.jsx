@@ -4,11 +4,13 @@ import { Router, Link } from "react-router-dom";
 import CustomButton from "./../button/button";
 import NotificationIcon from "./notification_icons";
 import Check_Icon from "./check_icon";
+import { userLogout } from "../../redux/users/users_action";
 
-function Nav({ isLogged }) {
-  return <Navbar>{isLogged ? <SignedInNav /> : <SignedOutNav />}</Navbar>;
+import { connect } from "react-redux";
+
+function Nav({userInAuth,userLogout}) {
+  return <Navbar>{userInAuth ?<SignedInNav  /> : <SignedOutNav logout={userLogout} />}</Navbar>;
 }
-
 const SignedInNav = () => {
   return (
     <React.Fragment>
@@ -30,7 +32,7 @@ const SignedInNav = () => {
   );
 };
 
-const SignedOutNav = () => {
+const SignedOutNav = ({logout}) => {
   return (
     <React.Fragment>
       <Link to="/login" style={{ textDecoration: "none" }}>
@@ -133,4 +135,18 @@ function DropdownMenu() {
   );
 }
 
-export default Nav;
+const mapStateToProps = ({usersReducer})=>{
+
+  return {
+    userInAuth:usersReducer.userInAuth
+  }
+
+}
+const mapDispatchToProps = (dispatch) => {
+
+  return {
+    userLogout:()=>dispatch((userLogout))
+  }
+
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Nav);

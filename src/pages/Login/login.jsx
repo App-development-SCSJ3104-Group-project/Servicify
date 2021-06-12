@@ -131,7 +131,7 @@ class LoginForm extends React.Component{
 
   const mapStateToProps=({usersReducer})=>({
     loading:usersReducer.loading,
-      userInAuth: usersReducer.userInAuth,
+     userInAuth: usersReducer.userInAuth,
     IsUserInfoValid:usersReducer.IsUserInfoValid
 });
   const mapDispatchToProps = (dispatch) => {

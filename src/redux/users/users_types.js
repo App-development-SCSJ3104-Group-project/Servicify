@@ -9,6 +9,8 @@ export const UserActionTypes = {
     EMAIL_Availability_SUCESS: "EMAIL_Availability_SUCESS",
     EMAIL_Availability_FAILURE: "EMAIL_Availability_FAILURE",
     RESET_LOGIN_STATE: "RESET_LOGIN_STATE",
-    RESET_SIGNUP_STATE: "RESET_SIGNUP_STATE"
+    RESET_SIGNUP_STATE: "RESET_SIGNUP_STATE",
+    USER_LOGUT: "USER_LOGUT",
+
 
 }
