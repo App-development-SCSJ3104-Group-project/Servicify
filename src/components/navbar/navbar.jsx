@@ -6,6 +6,7 @@ import NotificationIcon from "./notification_icons";
 import Check_Icon from "./check_icon";
 import { userLogout } from "../../redux/users/users_action";
 import LogoTransparent from "../../icons/Brand/logo.png"
+import Zoom from 'react-reveal/Zoom'
 
 import { connect } from "react-redux";
 
@@ -72,7 +73,7 @@ function Navbar(props) {
   return (
     <div className="navbar ">
       <div className="left-section-navbar-1">
-        <p className="logoname-service " > <span className="logo-name animate__animated animate__zoomInDown" style={{animationDelay:".5s"}}>Servicify</span>  <img src={LogoTransparent}  className="logo-image animate__animated animate__zoomIn"></img></p>
+        <p className="logoname-service " > <span className="logo-name" > <Zoom right cascade>Servicify</Zoom> </span>  <img src={LogoTransparent}  className="logo-image animate__animated animate__zoomIn"></img></p>
       </div>
       <div className="right-section-navbar-2">
         <ul className="navbar-nav-2">{props.children}</ul>

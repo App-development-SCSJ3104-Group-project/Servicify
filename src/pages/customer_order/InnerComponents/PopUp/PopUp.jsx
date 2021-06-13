@@ -4,6 +4,7 @@ import "./PopUp.scss";
 
 import { ReactComponent as Star } from "../../../../icons/star.svg";
 
+import Zoom from 'react-reveal/Zoom'
 
 
 import CustomButton from "../../../../components/button/button"
@@ -112,9 +113,7 @@ class PopUp extends React.Component{
     popUpType=="feedback"?
             <div className="feedbackPopUp__rate">
                
-               {
-                   this.getStars()
-               }
+                            <Zoom  cascade>{this.getStars()}</Zoom>
                                 
                             </div>:null
 }

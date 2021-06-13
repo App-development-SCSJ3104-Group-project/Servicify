@@ -22,6 +22,15 @@
     overflow: hidden;
 }
 
+.search-nav-tab {
+    font-size: 1.8rem;
+    margin: 0 1rem;
+}
+
+.search-nav-tab::first-letter {
+    text-transform: uppercase;
+}
+
 .title {
     font-weight: 600;
     font-size: 4rem;

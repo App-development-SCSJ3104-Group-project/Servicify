@@ -7,6 +7,7 @@ import favourite from "../../icons/icons8-heart-30 (1) 1.svg";
 import order from "../../icons/outline_book_white_24dp 1.svg";
 import Button from "../../components/button/button";
 import Card from "../../components/card/card";
+import Zoom from 'react-reveal/Zoom';
 
 class ProfileCard extends Component {
     constructor(props) {
@@ -19,7 +20,9 @@ class ProfileCard extends Component {
 
         return (
 
-            <div>
+            <Zoom>
+
+                <div>
 
                 <Card image_src={profileIcon} >
 
@@ -67,6 +70,7 @@ class ProfileCard extends Component {
 
                 </Card>
             </div >
+            </Zoom>
         )
 
     }

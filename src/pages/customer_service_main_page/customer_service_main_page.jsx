@@ -7,6 +7,12 @@ import dropDownIcon from "../../icons/outline_arrow_back_ios_white_24dp 1.svg";
 import notification from "../../icons/outline_notification_important_black_48dp 1.svg";
 import Template from "../../components/template/template"
 // import "../landing_page/landing_page.scss";
+import Zoom from 'react-reveal/Zoom'
+import LightSpeed from 'react-reveal/LightSpeed'
+import Fade from 'react-reveal/Fade'
+
+
+
 import "./customer_service_main_page.scss";
 class CustomerServiceMainPage extends Component {
 
@@ -155,12 +161,14 @@ class CustomerServiceMainPage extends Component {
       <Template route={"services"}>
 
         <div className="card_view ">
-          <div className="categories animate__animated animate__zoomIn" >
+          <div className="categories " >
             <h4>Categories</h4>
-            <div className="items  " >
+              <div className="items  " >
               {categories.map((e) => (
                 // @ts-ignore
-                <Button
+              <Zoom left >
+
+                    <Button
                   innerText={"#" + e}
                   margin="0.3rem"
                   iconPosition="true"
@@ -170,13 +178,14 @@ class CustomerServiceMainPage extends Component {
                   height="3rem"
                   borderRadius="10px"
                   onClick={this.onClick}
-                  animationClassName ="animate_animated animate__zoomIn"
-                />
+                  />
+              </Zoom>
+                  
               ))}
-            </div>
+              </div>
           </div>
          
-          <div className="results animate__animated animate__zoomInLeft" style={{animationDelay:".75s"}}>
+          <div className="results" style={{animationDelay:".75s"}}>
             <Divider
               width="100%"
               height="0.2rem"

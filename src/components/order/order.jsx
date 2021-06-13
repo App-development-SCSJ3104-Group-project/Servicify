@@ -7,6 +7,7 @@ import { ReactComponent as FilledStar } from '../../icons/star.svg';
 import { ReactComponent as BlackStar } from "../../icons/blackstar.svg"
 import { ReactComponent as ArrowDown } from "../../icons/arrow-down-sign-to-navigate.svg"
 import { ReactComponent as ArrowUp } from "../../icons/arrowup.svg"
+import Zoom from 'react-reveal/Zoom';
 
 
 class Order extends React.Component {
@@ -62,7 +63,9 @@ class Order extends React.Component {
 
         return (
 
-            <div className="order" style={cardStyle}>
+            <Zoom>
+                
+                 <div className="order" style={cardStyle}>
 
                 {/* image is done using css now, needs to be converted to js */}
                 <div className="order__user-img" style={style}></div>
@@ -131,6 +134,7 @@ class Order extends React.Component {
 
 
             </div>
+           </Zoom>
         )
     }
 }

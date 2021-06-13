@@ -10,11 +10,16 @@ import image from "../../icons/Ellipse.svg";
 import favourite from "../../icons/icons8-heart-30 (1) 1.svg";
 import order from "../../icons/outline_book_white_24dp 1.svg";
 import icon_1 from "../../icons/outline_location_on_white_48dp 1.svg";
-import icon_2 from "../../icons/outline_monetization_on_white_48dp 1.svg";
-import icon_3 from "../../icons/outline_payments_white_48dp 1.svg";
+import cashIcon from "../../icons/cash.svg";
+import paymentIcon from "../../icons/payment-method.svg";
 import icon_4 from "../../icons/outline_star_white_48dp 1.svg";
 import profileIcon from "../../icons/Ellipse (3).svg";
 import Star from "../../icons/star.svg"
+
+import Zoom from 'react-reveal/Zoom'
+import LightSpeed from 'react-reveal/LightSpeed'
+import Fade from 'react-reveal/Fade'
+import Bounce from 'react-reveal/Bounce'
 
 
 class CustomerServiceProviderPage extends Component {
@@ -96,15 +101,19 @@ class CustomerServiceProviderPage extends Component {
 
                         </div>
 
-                        <div className="profile_image">
+                        <Zoom>
+                            <div className="profile_image">
                             <img src={image} alt="" />
                             <h3>John Smith</h3>
                         </div>
+                        </Zoom>
+
                     </div>
 
                     <div className="profile_body">
 
-                        <div className="top_content">
+                        <Zoom right cascade>
+                            <div className="top_content">
                             <div className="">
                                 <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={icon_1} backgroundColor="#57C4E5" />
                                 <br />
@@ -116,18 +125,19 @@ class CustomerServiceProviderPage extends Component {
                                 <h3>4.5</h3>
                             </div>
                             <div className="">
-                                <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={icon_3} backgroundColor="#57C4E5" />
+                                <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={paymentIcon} backgroundColor="#57C4E5" />
                                 <br />
                                 <h3>10.00</h3>
                             </div>
                             <div className="">
-                                <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={icon_2} backgroundColor="#57C4E5" />
+                                <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={cashIcon} backgroundColor="#57C4E5" />
                                 <br />
                                 <h3>Cash</h3>
                             </div>
                         </div>
+                        </Zoom>
 
-                        <div className="profile_body_content">
+                            <div className="profile_body_content">
                             <h2>Information</h2>
                             <br />
                             <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ad vero sequi impedit dolor. Excepturi, alias modi totam esse aut fuga repudiandae non officia libero. Dicta ullam beatae deleniti. Impedit, sequi repellendus magni ullam nam rem soluta dignissimos officia, nisi saepe similique! Perspiciatis provident illum necessitatibus non! Excepturi, reprehenderit ipsum. Praesentium quas provident culpa numquam, minus quia at dignissimos explicabo possimus, soluta optio accusamus omnis. Esse, recusandae nihil explicabo modi repellat voluptatibus illum suscipit consequuntur minus obcaecati ducimus necessitatibus deleniti doloribus quisquam porro id, dolor temporibus expedita nostrum! Nostrum, vel! Totam saepe rerum sit nihil aspernatur aliquam laborum maiores corporis!</h5>
@@ -136,11 +146,12 @@ class CustomerServiceProviderPage extends Component {
                         <Review />
                         <div className="feedback_card">
 
+                                <Zoom>
 
                             {this.mockUsers.map(e => (
 
 
-                                <Card image_src={profileIcon}>
+                                     <Card image_src={profileIcon}>
                                     <div className="header">
                                         <div className="card_header">
                                             <h5>{e.name}</h5>
@@ -159,6 +170,7 @@ class CustomerServiceProviderPage extends Component {
                                     </div>
                                 </Card>
                             ))}
+                               </Zoom>
 
                         </div>
 

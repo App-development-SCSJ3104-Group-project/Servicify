@@ -18,6 +18,7 @@ const icon = (props) => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        fill:"white"
     }
 
     return (

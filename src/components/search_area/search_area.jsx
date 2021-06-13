@@ -60,6 +60,7 @@ return tab
           {tabsToBeRendered
             ? tabsToBeRendered.map((tab) =>  (
               <NavigationTab
+              
                 currentTab={tab.isActive}
                 lastTab={tab.lastTab}
                 tabName={tab.name}

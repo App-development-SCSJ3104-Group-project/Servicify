@@ -13,7 +13,7 @@ const NavigationTab = ({ currentTab, lastTab, tabName,linkTo }) => {
    <Link to={linkTo!==undefined?linkTo:window.location.href.split("/")[3]} style={{textDecoration:"none",color:"white"}}>
    
    <div
-      className="tab"
+      className="tab search-nav-tab"
       // style={
       //   lastTab ? { position: "absolute", bottom: "0", right: "0" } : {}
       // }
