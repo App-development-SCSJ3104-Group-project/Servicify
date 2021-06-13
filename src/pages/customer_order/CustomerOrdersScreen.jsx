@@ -133,12 +133,25 @@ class CustomerOrdersScreen extends React.Component {
   checkTab = () => {
 
     //returning the first order within the ongoing orders
-    const currentOrder = this.state.OrdersList.filter((order) => order.ongoing == true)[0];
-
+    const currentOrder = this.props.ordersList.filter((order) => order.ongoing == true)[0];
+    
     //deciding on tabs content, if orders list , orderslist will get populated
     if (this.state.activeTab != "OrdersList") {
 
-      return (
+      if (currentOrder == null || currentOrder == undefined || currentOrder == []) {
+        
+        return <div className="orders-list-inner-section__content-container__status__inner  animate__animated animate__zoomInDown">
+
+          <img src={Diagnosing} alt="" className="orders-list-inner-section__content-container__status__img " />
+
+          <div className="orders-list-inner-section__content-container__status__inner__diagnosis-info ">
+            <div>No ongoing Orders</div>
+            <div></div>
+          </div>
+        </div>
+
+      } else {
+        return (
 
         <div className="orders-list-inner-section__content-container__status__inner  animate__animated animate__zoomInDown">
 
@@ -151,6 +164,9 @@ class CustomerOrdersScreen extends React.Component {
           <Order {...currentOrder} orderType="order-status"></Order>
         </div>
       )
+
+      }
+      
     }
   }
   componentDidMount() {

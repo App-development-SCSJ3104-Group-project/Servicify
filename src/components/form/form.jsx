@@ -155,6 +155,15 @@ const validateEmailFormat = (email) => {
             }:null}></CustomButton>}
           </div>
         })}
+
+          {/* <div className="extra-feature">
+              or
+            {type == "login" ?
+            
+            <button className="extra-feature__btn" onClick={()=>history.push("/signup")}>SignUp</button>:<button className="extra-feature__btn" onClick={()=>history.push("/login")}>login</button>
+          
+          }
+          </div> */}
       </form>
     </div>
   </div>

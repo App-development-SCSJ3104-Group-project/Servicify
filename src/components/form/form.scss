@@ -8,6 +8,7 @@
     flex-grow: 1;
     font-family: "Inter", sans-serif;
     z-index: 1;
+    font-size: 1.7rem;
     &__left-side,
     &__right-side {
         width: 50%;
@@ -131,4 +132,30 @@ hr.style-eight:after {
     font-size: 1.5em;
     padding: 0 0.25em;
     background: white;
+}
+
+.extra-feature {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &__btn {
+        position: relative;
+        border: none;
+        color: black;
+        background-color: white;
+        cursor: pointer;
+        padding-bottom: .5rem;
+    }
+    &__btn::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: #1E2833;
+        width: 6rem;
+        height: 1px;
+        border-radius: 5px;
+    }
 }

@@ -119,7 +119,7 @@ class LoginForm extends React.Component{
                
             }
            
-                
+         
 
             <Form type="login" formInputs={formInputs} formButtons={formButtons} SubmitFormCallback={(userInfo) => {
                 validateUser(userInfo)
@@ -133,7 +133,8 @@ class LoginForm extends React.Component{
     loading:usersReducer.loading,
      userInAuth: usersReducer.userInAuth,
     IsUserInfoValid:usersReducer.IsUserInfoValid
-});
+    });
+
   const mapDispatchToProps = (dispatch) => {
   
     return {
