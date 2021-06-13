@@ -48,7 +48,7 @@ const PostHeader = ({
   return (
     <div className="post-header__content_styles">
       <div className="post-header__res">
-        <Avatar source={profileAvatar} width={"100px"} height={"100px"} />
+        <Avatar source="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg" width={"100px"} height={"100px"} />
         <div className="service_provider__avatar__side__content">
           <PostHeaderInfo description={postTime} icon={<TimeIcon />} />
           <PostHeaderInfo description={postLocation} icon={<LocationIcon />} />

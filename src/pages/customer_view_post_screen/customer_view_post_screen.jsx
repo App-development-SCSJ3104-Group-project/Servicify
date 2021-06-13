@@ -1,9 +1,9 @@
 import React, { Component, useState } from "react";
 import "./customer_view_post_screen.css";
 import Avatar from "../../components/search_result/inner_components/avatar";
-import ProposalCardButton from "./compoents/button";
 import Template from "../../components/template/template";
 import PostCard from "../../components/post_card/post_card";
+import ProposalCard from "./compoents/proposalCard/proposalCard"
 const post = {
   id: 1,
   postTime: "30 minutes ago",
@@ -43,8 +43,8 @@ class CustomerViewPost extends Component {
               <div className="seperate_line__post_of_proposal-section"></div>
               <h3>Proposals</h3>
             </div>
-            <ProposalCard {...proposalsInfo} />
-            <ProposalCard {...proposalsInfo} />
+            <ProposalCard {...proposalsInfo} useState={useState} proposalsInfo={proposalsInfo}/>
+            <ProposalCard {...proposalsInfo}  useState={useState} proposalsInfo={proposalsInfo}/>
           </div>
         </React.Fragment>
       </Template>
@@ -52,83 +52,9 @@ class CustomerViewPost extends Component {
   }
 }
 
-const ProposalCard = ({
-  sericeProviderUsername,
-  proposalDay,
-  proposalDate,
-  propsalTime,
-  proposalFess,
-  proposalDescription,
-}) => {
-  const [open, setOpen] = useState(false);
 
-  return (
-    <div className="proposal__card__information_1">
-      <div className="proposal__header_background_box"></div>
-      <div className="proposal__header_area">
-        <div className="proposal__avatar_profileinfo">
-          <Avatar
-            source="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg"
-            width={"100px"}
-            height={"100px"}
-          />
-          <div className="proposal__profile_info">
-            <p>{sericeProviderUsername}</p>
-            <p>
-              {proposalDay}, {proposalDate}, {propsalTime}
-            </p>
-          </div>
-        </div>
-        <div className="proposal__controlled_buttons">
-          <ProposalCardButton
-            isOpened={false}
-            buttonName={"Accept"}
-            onClick={() => setOpen(false)}
-          />
-          <ProposalCardButton
-            isOpened={false}
-            buttonName={"Reject"}
-            onClick={() => setOpen(false)}
-          />
-          <ProposalCardButton
-            buttonName={"Show steps"}
-            onClick={() => setOpen(!open)}
-            isOpened={open}
-          />
-        </div>
-      </div>
-      <div className="proposal__body_content">
-        <p>
-          <b>Fees: {proposalFess}</b>
-        </p>
-        <p>
-          <b>Description: </b>
-        </p>
-        <p>{proposalDescription}</p>
-        {open ? <ProposalSteps {...proposalsInfo} /> : ""}
-      </div>
-    </div>
-  );
-};
 
-const ProposalSteps = ({ proposedSteps }) => {
-  if (proposedSteps.length === 0) {
-    return <h3>steps is not available from the service provider</h3>;
-  }
 
-  return (
-    <div className="proposal__description_steps">
-      {proposedSteps.map((value, index) => (
-        <div key={index}>
-          <p>
-            <b>Step: {index + 1}</b>
-          </p>
-          <p className="proposal__step_paragraph_Style">{value}</p>
-        </div>
-      ))}
-    </div>
-  );
-};
 
 export default CustomerViewPost;
 
