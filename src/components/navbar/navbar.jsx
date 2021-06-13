@@ -46,6 +46,8 @@ const SignedOutNav = () => {
           width="12rem"
           height="4rem"
           borderRadius="10px"
+          animationClassName="animate__animated animate__zoomInLeft"
+          animationDelay=".75s"
         ></CustomButton>
       </Link>
       <Link to="/signup" style={{ textDecoration: "none" }}>
@@ -57,6 +59,9 @@ const SignedOutNav = () => {
           width="12rem"
           height="4rem"
           borderRadius="10px"
+          animationClassName="animate__animated animate__zoomInRight"
+          animationDelay=".75s"
+
         ></CustomButton>
       </Link>
     </React.Fragment>
@@ -65,9 +70,9 @@ const SignedOutNav = () => {
 
 function Navbar(props) {
   return (
-    <div className="navbar">
+    <div className="navbar ">
       <div className="left-section-navbar-1">
-        <p className="logoname-service" > <span className="logo-name">Servicify</span>  <img src={LogoTransparent} className="logo-image"></img></p>
+        <p className="logoname-service " > <span className="logo-name animate__animated animate__zoomInDown" style={{animationDelay:".5s"}}>Servicify</span>  <img src={LogoTransparent}  className="logo-image animate__animated animate__zoomIn"></img></p>
       </div>
       <div className="right-section-navbar-2">
         <ul className="navbar-nav-2">{props.children}</ul>
