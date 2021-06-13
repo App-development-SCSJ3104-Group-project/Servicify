@@ -10,14 +10,17 @@ import TimeIcon from "./icons/time_icon";
 import LocationIcon from "./icons/location_icon";
 import OptionIcon from "./icons/option_icon";
 import ShareIcon from "./icons/share_icon";
+import Zoom from 'react-reveal/Zoom'
 
 const PostCard = (props) => {
   return (
-    <div className="post-wrapper">
+    <Zoom>
+      <div className="post-wrapper">
       <PostHeader {...props.post} />
       <PostContent {...props.post} />
       <PostFooter {...props.post} />
     </div>
+    </Zoom>
   );
 };
 

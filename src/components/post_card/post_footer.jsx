@@ -1,6 +1,7 @@
 import React from "react";
 import Tag from "../search_result/inner_components/tag";
 import Avatar from "../search_result/inner_components/avatar";
+import Zoom from 'react-reveal/Zoom'
 
 const PostFooter = ({ tag, proposals }) => {
   return (
@@ -9,7 +10,7 @@ const PostFooter = ({ tag, proposals }) => {
         <Tag key={name} tag={name} color="#57C4E5" />
       ))}
 
-      <div className="service_provider__proposall_length">
+        <div className="service_provider__proposall_length" style={{marginTop:"1rem"}}>
         <div className="stack__avatars">
           <Avatar
             source="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg"
@@ -36,6 +37,7 @@ const PostFooter = ({ tag, proposals }) => {
           </p>
         </div>
       </div>
+      
     </div>
   );
 };

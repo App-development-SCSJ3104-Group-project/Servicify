@@ -3,13 +3,17 @@ import Nav from "./../../components/navbar/navbar";
 import "./service_provider_make_proposal.css";
 import PostCard from "./../../components/post_card/post_card";
 import ProposalCardButton from "./../customer_view_post_screen/compoents/button";
+import Zoom from 'react-reveal/Zoom'
 
 const ProposalForm = () => {
   return (
     <React.Fragment>
       <Nav isLogged={true} />
 
+        
       <div className="posts-wrappper-background">
+      <Zoom>
+        
         <ProposalFormHeader></ProposalFormHeader>
         <ManageProposalForm></ManageProposalForm>
         <ProposalFormPostArea />
@@ -21,7 +25,9 @@ const ProposalForm = () => {
             buttonName="Submit"
           />
         </div>
-        <span></span>
+          <span></span>
+    </Zoom>
+          
       </div>
     </React.Fragment>
   );
@@ -147,7 +153,7 @@ const ManageProposalForm = () => {
         </div>
         <br />
         {stepsInputFieldsNo.map((i, index) => (
-          <div key={index}>
+             <div key={index}>
             <input
               className="proposal__form_body_section-input_field-4"
               name="stepDescription"

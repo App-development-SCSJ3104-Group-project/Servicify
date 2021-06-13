@@ -5,6 +5,7 @@ import "./dashboard_manage_requests.scss"
 import "../../components/screen_tabs/screen_tabs.scss"
 import Proposals from "./manage_proposals/manage_proposals"
 import Requests from "./manage_request/manage_request"
+import Zoom from 'react-reveal/Zoom'
 
 class DashboardManageRequests extends Component {
 
@@ -39,7 +40,7 @@ class DashboardManageRequests extends Component {
                     <ScreenTabs tabs={this.tabs} callback={this.onclickFun} />
                 </div>
 
-                {this.tabs[0].status ? <Proposals /> : <Requests />}
+                {this.tabs[0].status ? <Proposals  /> : <Requests />}
 
 
             </div>
