@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "../search_result/avatar";
+import Avatar from "../search_result/inner_components/avatar";
 import "./post_card.css";
 import PostContent from "./post_content";
 import PostFooter from "./post_footer";

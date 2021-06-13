@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../customer_post_screen/customer_post_scree.css";
 import "../customer_post_screen/post_screen.scss";
 import PostCard from "./../../components/post_card/post_card";
-import Avatar from "./../../components/search_result/avatar";
+import Avatar from "../../components/search_result/inner_components/avatar";
 import posts from "./dummydata";
 import Template from "../../components/template/template";
 import AddIcon from "../customer_post_screen/svg/add_icon";

@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import "./customer_view_post_screen.css";
-import Avatar from "./../../components/search_result/avatar";
+import Avatar from "../../components/search_result/inner_components/avatar";
 import ProposalCardButton from "./compoents/button";
 import Template from "../../components/template/template";
 import PostCard from "../../components/post_card/post_card";

@@ -39,7 +39,7 @@ const Overview = () => {
           Get Started on our website with these tips
         </p>
       </div>
-      <div className="Overview__section_cards_information_container">
+         <div className="Overview__section_cards_information_container">
 
         {
           overViewCards.map((card,index)=><OverviewCard desc={card.card_Description} logo={card.logo} index={index} />)

@@ -18,7 +18,7 @@ const SignedInNav = ({userLogout}) => {
       <NavItem icon={<NotificationIcon />}>
         <DropdownMenu></DropdownMenu>
       </NavItem>
-      <Link to="/">
+    <Link to="/" style={{textDecoration:"none"}}>
        <CustomButton
           innerText="Logout"
           margin="1rem"

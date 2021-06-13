@@ -6,10 +6,15 @@ import logoF from "../../icons/001-facebook.svg";
 import logoI from "../../icons/004-instagram.svg";
 import logoT from "../../icons/003-twitter.svg";
 
+import Zoom from 'react-reveal/Zoom'
+import Bounce from 'react-reveal/Bounce';
+import Reveal from 'react-reveal/Reveal';
+import Slide from 'react-reveal/Slide';
 const footer = () => {
     return (
 
-        <div className="footer">
+        <Slide up>
+ <div className="footer">
             <Icon src={logo} />
             <div className="paragraph">
                 <p></p>
@@ -30,6 +35,8 @@ const footer = () => {
             </div>
 
         </div>
+        </Slide>
+       
 
     );
 };

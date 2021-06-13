@@ -104,8 +104,6 @@ class SignupForm extends React.Component{
                 {this.handleAuthState(duplicateUserEmail,resetSignupState)}
             <Form
                     type="signup" leftSideBackgroundHeight="130%" formInputs={formInputs} formButtons={formButtons} SubmitFormCallback={(userInfo) => {
-
-                        console.log(userInfo)
                 checkEmailAvailability(userInfo)
             }}></Form>
 

@@ -1,6 +1,6 @@
 import React from "react";
-import Tag from "./../search_result/tag";
-import Avatar from "./../search_result/avatar";
+import Tag from "../search_result/inner_components/tag";
+import Avatar from "../search_result/inner_components/avatar";
 
 const PostFooter = ({ tag, proposals }) => {
   return (

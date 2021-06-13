@@ -1,10 +1,16 @@
 import React from "react";
-import "./categories.css";
-import DemoImage from "../../icons/selfworker.jpg";
+import "./categories.scss";
+import CategoryButton from "./components/categoryButton/categoryButton"
+
+import Slide from 'react-reveal/Slide';
 
 const Categories = () => {
+
+  let categories = ["Farming & plantings","Electric Expert","Pet Care","Plumbing work","Mechnical guy" ,"Barbershop","Cleaning Houses","Electronics","Construction","Maintaince","wedding food","Farming & plantings"]
   return (
-    <div className="categories__section_container">
+    
+       <div className="categories__section_container">
+
       <div className="categories_section-headline">
         <p>
           <span className="starter-word">Hire</span> a pro for any service you
@@ -12,36 +18,33 @@ const Categories = () => {
         </p>
       </div>
       <div className="row">
+
         <div className="col-md-4">
-          <div className="categories-section">
-            <CategoryButton category="Farming & plantings" />
-            <CategoryButton category="Electric Expert" />
-            <CategoryButton category="Pet Care" />
-            <CategoryButton category="Plumbing work" />
-            <CategoryButton category="Barbershop" />
-            <CategoryButton category="Mechnical guy" />
-            <CategoryButton category="Cleaning Houses" />
-            <CategoryButton category="Electronics" />
-            <CategoryButton category="Construction" />
-            <CategoryButton category="Maintaince" />
-            <CategoryButton category="wedding food" />
-            <CategoryButton category="Farming & plantings" />
+
+    <Slide left>
+             
+              <div className="categories-section">
+
+            {
+              categories.map((category,index)=><CategoryButton category={category} ></CategoryButton>)
+            }
+            
           </div>
+   </Slide>
+          
         </div>
-        <div className="col-md-7">
-          <img className="demo-image" src={DemoImage} alt="demo image" />
-        </div>
+        <Slide right>
+        <div className="col-md-7 ">
+          <div className="demo-image"></div>
+          </div>
+          </Slide>
       </div>
-    </div>
+
+      </div>
+      
   );
 };
 
-const CategoryButton = ({ category }) => {
-  return (
-    <div className="item1">
-      <button className="btncategory">{category}</button>
-    </div>
-  );
-};
+
 
 export default Categories;
