@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import Button from "../../components/button/button"
 import Template from "../../components/template/template"
+import Zoom from 'react-reveal/Zoom'
 
 import "./customer_make_request_page.scss"
 import cancel from "../../icons/outline_add_white_24dp 1.svg"
@@ -18,7 +19,8 @@ class CustomerMakeRequestScreen extends Component {
                     {/* <div className="request_header">
 
                     </div> */}
-                    <div className="request_body">
+                    <Zoom>
+                        <div className="request_body">
                         <h3>Send a request</h3>
                         <div className="input_fields">
                             <div className="flex-div">
@@ -38,10 +40,12 @@ class CustomerMakeRequestScreen extends Component {
                         </div>
 
                         <textarea name="Text1" cols="40" rows="5" placeholder="Problem description" className="input description_input"></textarea>
+                                <Zoom left >
 
                         <div className="input_fields">
                             <input className="input" type="number" placeholder="To: John Smith" readOnly />
-                            <div className="flex-div">
+                                    
+                                     <div className="flex-div">
 
                                 <Button innerText={null}
                                     margin="0.3rem"
@@ -64,9 +68,12 @@ class CustomerMakeRequestScreen extends Component {
                                     borderRadius="2rem" />
                             </div>
 
-                        </div>
+                                </div>
+                           </Zoom>
+                                
 
                     </div>
+                    </Zoom>
 
 
                 </div>
