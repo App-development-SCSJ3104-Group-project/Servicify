@@ -178,10 +178,13 @@ class CustomerOrdersScreen extends React.Component {
     
   }
   render() {
-    const { innerTabs, activeTab, OrdersList } = this.state;
+
+  
+    const { innerTabs, activeTab} = this.state;
     const { handleTabChanges } = this;
      
-    
+   
+
     return (
       <Template route="orders">
 

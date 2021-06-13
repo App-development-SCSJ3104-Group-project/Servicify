@@ -12,7 +12,7 @@ const footer = () => {
         <div className="footer">
             <Icon src={logo} />
             <div className="paragraph">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quod voluptates sint mollitia, ipsa laboriosam cum tenetur natus perspiciatis amet.</p>
+                <p></p>
             </div>
             <div className="bottom_navigation">
                 <h6>About</h6>

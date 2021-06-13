@@ -9,16 +9,16 @@ import { userLogout } from "../../redux/users/users_action";
 import { connect } from "react-redux";
 
 function Nav({userInAuth,userLogout}) {
-  return <Navbar>{userInAuth ?<SignedInNav  /> : <SignedOutNav logout={userLogout} />}</Navbar>;
+  return <Navbar>{userInAuth ?<SignedInNav userLogout={userLogout}  /> : <SignedOutNav  />}</Navbar>;
 }
-const SignedInNav = () => {
+const SignedInNav = ({userLogout}) => {
   return (
     <React.Fragment>
       <NavItem icon={<NotificationIcon />}>
         <DropdownMenu></DropdownMenu>
       </NavItem>
-      <Link to="/login" style={{ textDecoration: "none" }}>
-        <CustomButton
+      <Link to="/">
+       <CustomButton
           innerText="Logout"
           margin="1rem"
           color="white"
@@ -26,13 +26,14 @@ const SignedInNav = () => {
           width="12rem"
           height="4rem"
           borderRadius="10px"
+          onClick={()=> userLogout() }
         ></CustomButton>
       </Link>
     </React.Fragment>
   );
 };
 
-const SignedOutNav = ({logout}) => {
+const SignedOutNav = () => {
   return (
     <React.Fragment>
       <Link to="/login" style={{ textDecoration: "none" }}>
@@ -145,7 +146,7 @@ const mapStateToProps = ({usersReducer})=>{
 const mapDispatchToProps = (dispatch) => {
 
   return {
-    userLogout:()=>dispatch((userLogout))
+    userLogout:()=>dispatch((userLogout()))
   }
 
 }
