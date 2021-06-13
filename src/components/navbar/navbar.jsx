@@ -5,6 +5,7 @@ import CustomButton from "./../button/button";
 import NotificationIcon from "./notification_icons";
 import Check_Icon from "./check_icon";
 import { userLogout } from "../../redux/users/users_action";
+import LogoTransparent from "../../icons/Brand/logo.png"
 
 import { connect } from "react-redux";
 
@@ -66,7 +67,7 @@ function Navbar(props) {
   return (
     <div className="navbar">
       <div className="left-section-navbar-1">
-        <p className="logoname-service">Servicfy</p>
+        <p className="logoname-service" > <span className="logo-name">Servicify</span>  <img src={LogoTransparent} className="logo-image"></img></p>
       </div>
       <div className="right-section-navbar-2">
         <ul className="navbar-nav-2">{props.children}</ul>
