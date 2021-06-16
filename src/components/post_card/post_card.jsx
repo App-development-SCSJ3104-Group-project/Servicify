@@ -10,6 +10,7 @@ import TimeIcon from "./icons/time_icon";
 import LocationIcon from "./icons/location_icon";
 import OptionIcon from "./icons/option_icon";
 import ShareIcon from "./icons/share_icon";
+const moment = require("moment");
 
 const PostCard = (props) => {
   return (
@@ -23,9 +24,9 @@ const PostCard = (props) => {
 
 const PostHeader = ({
   profileAvatar,
-  postTime,
-  postLocation,
-  cancelllationFee,
+  timestamp,
+  location,
+  cancelationFee,
   postAuthor,
 }) => {
   const proposalShareOptioneMenu = [
@@ -48,11 +49,21 @@ const PostHeader = ({
   return (
     <div className="post-header__content_styles">
       <div className="post-header__res">
-        <Avatar source="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg" width={"100px"} height={"100px"} />
+        <Avatar
+          source="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg"
+          width={"100px"}
+          height={"100px"}
+        />
         <div className="service_provider__avatar__side__content">
-          <PostHeaderInfo description={postTime} icon={<TimeIcon />} />
-          <PostHeaderInfo description={postLocation} icon={<LocationIcon />} />
-          <PostHeaderInfo description={cancelllationFee} icon={<FeeIcon />} />
+          <PostHeaderInfo
+            description={moment(timestamp).fromNow()}
+            icon={<TimeIcon />}
+          />
+          <PostHeaderInfo description={location} icon={<LocationIcon />} />
+          <PostHeaderInfo
+            description={cancelationFee + " RM cancellation fee"}
+            icon={<FeeIcon />}
+          />
         </div>
       </div>
       <div className="post__header_optionMenu">

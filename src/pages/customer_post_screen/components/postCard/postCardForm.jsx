@@ -1,13 +1,24 @@
-
 import React from "react";
 import Avatar from "../../../../components/search_result/inner_components/avatar";
-import AddIcon from "../../svg/add_icon";
-const PostCardForm = ({useState}) => {
-  const [tags, setTags] = useState(["Electical"]);
+// import AddIcon from "../../svg/add_icon";
+import { useDispatch, useSelector } from "react-redux";
+import { createNewPost } from "../../../../redux/posts/posts_action";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const PostCardForm = ({ useState }) => {
+  //
+  const [tags, setTags] = useState([]);
   const [location, setLocation] = useState("");
   const [paymentMethod, setPayementMethod] = useState("");
-  const [cancelationFee, setCancelationFee] = useState(3.0);
+  const [cancelationFee, setCancelationFee] = useState();
   const [description, setDescription] = useState("");
+  const [errorMessage, setErrorMessage] = useState(false);
+  // const userObject = useSelector((state) => state.usersReducer);
+  // console.log(userObject);
+
+  // dispatch
+  const dispatch = useDispatch();
 
   // to handle the action of deleting a tag
   const removeTags = (indexToRemove) => {
@@ -22,23 +33,44 @@ const PostCardForm = ({useState}) => {
     }
   };
 
+  // post Data in on Object
+  const postData = {};
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(
-      tags +
-        " " +
-        description +
-        " " +
-        paymentMethod +
-        " " +
-        location +
-        " " +
-        cancelationFee
-    );
+
+    postData["customerId"] = "A18CS4042"; // default value
+    postData["location"] = location;
+    postData["paymentMethod"] = paymentMethod;
+    postData["cancelationFee"] = cancelationFee;
+    postData["tags"] = tags;
+    postData["description"] = description;
+
+    if (
+      cancelationFee === "" ||
+      location === "" ||
+      description === "" ||
+      paymentMethod === ""
+    ) {
+      alert("please fill all required inputs");
+    } else {
+      dispatch(createNewPost(postData));
+
+      setCancelationFee("");
+      setDescription("");
+      setTags([]);
+
+      setErrorMessage(true);
+      showMessage();
+    }
+  };
+
+  const showMessage = () => {
+    toast.success("post was successfully added");
   };
 
   return (
     <form onSubmit={handleSubmit}>
+      {errorMessage ? <ToastContainer /> : ""}
       <div className="post__form_card___wrapper">
         <div className="post__form_card___header-section">
           <div className="post_form_card__header__avatar_styles">
@@ -60,9 +92,11 @@ const PostCardForm = ({useState}) => {
                   <option value disabled>
                     Location
                   </option>
-                  <option value="Johor">Johor</option>
-                  <option value="Kuala">Kuala</option>
+                  <option value="Johor">Johor Bahru</option>
+                  <option value="Kuala">Kuala Lumper</option>
                   <option value="Penange">Penang</option>
+                  <option value="Penange">Selangor</option>
+                  <option value="Penange">Klentan</option>
                 </select>
                 <select
                   className="post__form_card_header_location-dropdown"
@@ -77,7 +111,7 @@ const PostCardForm = ({useState}) => {
               </div>
             </div>
           </div>
-          <div className="post__header__left__button">{<AddIcon />}</div>
+          {/* <div className="post__header__left__button">{<AddIcon />}</div> */}
         </div>
         <div className="post__form_card_header_text-section">
           <textarea
@@ -88,6 +122,13 @@ const PostCardForm = ({useState}) => {
             name="description"
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
+          <div className="tags-input" style={{ marginBottom: 10 }}>
+            <input
+              type="text"
+              placeholder="Enter cancelation Fee"
+              onChange={(e) => setCancelationFee(e.target.value)}
+            />
+          </div>
           <div className="tags-input">
             <ul id="tags">
               {tags.map((tag, index) => (
@@ -97,7 +138,7 @@ const PostCardForm = ({useState}) => {
                     className="tag-close-icon"
                     onClick={() => removeTags(index)}
                   >
-                    x
+                    X
                   </span>
                 </li>
               ))}
@@ -105,15 +146,16 @@ const PostCardForm = ({useState}) => {
             <input
               type="text"
               onKeyUp={(event) =>
-                event.key === "Enter" ? addTags(event) : null
+                event.key === "Shift" ? addTags(event) : null
               }
-              placeholder="Press enter to add tags"
+              placeholder="Press shift to add tags"
             />
           </div>
           <input
             className="submit__form_button__postForm"
             type="submit"
             name="submit"
+            style={{ borderRadius: 20 }}
           />
         </div>
       </div>
