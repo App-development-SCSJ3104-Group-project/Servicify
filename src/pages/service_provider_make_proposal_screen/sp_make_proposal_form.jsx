@@ -3,31 +3,28 @@ import Nav from "./../../components/navbar/navbar";
 import "./service_provider_make_proposal.css";
 import PostCard from "./../../components/post_card/post_card";
 import ProposalCardButton from "./../customer_view_post_screen/compoents/button";
-import Zoom from 'react-reveal/Zoom'
+import Zoom from "react-reveal/Zoom";
 
 const ProposalForm = () => {
   return (
     <React.Fragment>
       <Nav isLogged={true} />
 
-        
       <div className="posts-wrappper-background">
-      <Zoom>
-        
-        <ProposalFormHeader></ProposalFormHeader>
-        <ManageProposalForm></ManageProposalForm>
-        <ProposalFormPostArea />
-        <div className="footer__area__proposal_form">
-          <div className="cancel__proposal_form">X</div>
-          <ProposalCardButton
-            onClick={false}
-            isOpened={false}
-            buttonName="Submit"
-          />
-        </div>
+        <Zoom>
+          <ProposalFormHeader></ProposalFormHeader>
+          <ManageProposalForm></ManageProposalForm>
+          <ProposalFormPostArea />
+          <div className="footer__area__proposal_form">
+            <div className="cancel__proposal_form">X</div>
+            <ProposalCardButton
+              onClick={false}
+              isOpened={false}
+              buttonName="Submit"
+            />
+          </div>
           <span></span>
-    </Zoom>
-          
+        </Zoom>
       </div>
     </React.Fragment>
   );
@@ -35,12 +32,12 @@ const ProposalForm = () => {
 
 const post = {
   id: 1,
-  postTime: "30 minutes ago",
-  postLocation: "Johor Bahru",
-  cancelllationFee: "Free cancellation",
-  postDesc:
+  timestamp: "30 minutes ago",
+  location: "Johor Bahru",
+  cancelationFee: "Free cancellation",
+  description:
     "dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into",
-  tag: ["#Electrical", "#Job", "#Free", "#People"],
+  tags: ["#Electrical", "#Job", "#Free", "#People"],
   proposals: 6,
 };
 
@@ -153,7 +150,7 @@ const ManageProposalForm = () => {
         </div>
         <br />
         {stepsInputFieldsNo.map((i, index) => (
-             <div key={index}>
+          <div key={index}>
             <input
               className="proposal__form_body_section-input_field-4"
               name="stepDescription"
