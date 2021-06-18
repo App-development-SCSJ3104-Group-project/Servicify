@@ -1,9 +1,9 @@
 import React from "react";
 
-const PostContent = ({ postDesc }) => {
+const PostContent = ({ description }) => {
   return (
     <div className="post-content__description_box">
-      <p>{postDesc}</p>
+      <p>{description}</p>
     </div>
   );
 };

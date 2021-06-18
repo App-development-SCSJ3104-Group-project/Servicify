@@ -3,7 +3,7 @@ const posts = [
     id: 1,
     profileAvatar:
       "https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg",
-    postTime: "30 minutes ago",
+    postTime: "2021-06-16T19:00:19.433+00:00",
     postLocation: "Johor Bahru",
     cancelllationFee: "Free cancellation",
     postDesc:
@@ -16,7 +16,7 @@ const posts = [
     id: 2,
     profileAvatar:
       "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    postTime: "40 minutes ago",
+    postTime: "2021-06-16T18:06:50.059+00:00",
     postLocation: "Johor Bahru",
     cancelllationFee: "Free cancellation",
     postDesc:
@@ -29,7 +29,7 @@ const posts = [
     id: 3,
     profileAvatar:
       "https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg",
-    postTime: "1 hour ago",
+    postTime: "2021-06-16T18:06:50.059+00:00",
     postLocation: "Kuala Lumper",
     cancelllationFee: "Free cancellation",
     postDesc:

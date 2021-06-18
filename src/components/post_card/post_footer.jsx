@@ -3,10 +3,10 @@ import Tag from "../search_result/inner_components/tag";
 import Avatar from "../search_result/inner_components/avatar";
 import Zoom from 'react-reveal/Zoom'
 
-const PostFooter = ({ tag, proposals }) => {
+const PostFooter = ({ tags, proposals }) => {
   return (
     <div className="post_footer__style">
-      {tag.map((name) => (
+      {tags.map((name) => (
         <Tag key={name} tag={name} color="#57C4E5" />
       ))}
 
@@ -33,7 +33,8 @@ const PostFooter = ({ tag, proposals }) => {
             height="30px"
           />
           <p style={{ fontSize: "14px", margin: "4px 0px 0px 8px" }}>
-            {proposals} proposals
+            {/* {proposals.length == 0 ? "No Proposals Yet" : proposals.length}{" "} */}
+            proposals
           </p>
         </div>
       </div>

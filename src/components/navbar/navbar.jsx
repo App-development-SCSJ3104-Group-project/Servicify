@@ -10,7 +10,7 @@ import Zoom from 'react-reveal/Zoom'
 
 import { connect } from "react-redux";
 
-function Nav({userInAuth,userLogout}) {
+function Nav({userInAuth,userLogout,isLogged}) {
   return <Navbar>{userInAuth ?<SignedInNav userLogout={userLogout}  /> : <SignedOutNav  />}</Navbar>;
 }
 const SignedInNav = ({userLogout}) => {
