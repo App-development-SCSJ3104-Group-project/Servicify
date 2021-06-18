@@ -20,67 +20,58 @@ import ServiceProivderPostScreen from "./pages/service_provider_post_screen/serv
 function App() {
   return (
     <div className="App">
-      <Route exact path="/signup" component={SignupForm}>
-        {" "}
-      </Route>{" "}
-      <Route path="/login" component={LoginForm}>
-        {" "}
-      </Route>{" "}
-      <Route exact path={["/", "/overview"]} component={LandingPage}>
-        {" "}
-      </Route>{" "}
-      <Route path="/customer_main_screen" component={CustomerMain}>
-        {" "}
-      </Route>{" "}
+      <Route exact path="/signup" component={SignupForm}></Route>
+      <Route path="/login" component={LoginForm}></Route>
+      <Route exact path={["/", "/overview"]} component={LandingPage}></Route>
+      <Route path="/customer_main_screen" component={CustomerMain}></Route>
       <Route
         path="/customer_service_main_page"
         component={CustomerServiceMainPage}
-      ></Route>{" "}
-      {/* this */}{" "}
+      ></Route>
+      {/* this */}
       <Route
         path="/customer_service_provider_page"
         component={CustomerServiceProviderPage}
-      ></Route>{" "}
+      ></Route>
       <Route
         path="/customer_saved_page"
         component={CustomerSavedScreen}
-      ></Route>{" "}
+      ></Route>
       <Route
         path="/customer_request_page"
         component={CustomerMakeRequestPage}
-      ></Route>{" "}
+      ></Route>
       <Route
         path="/customer_orders_screen"
         component={CustomerOrderScreen}
-      ></Route>{" "}
+      ></Route>
       <Route
         path="/customer_post_screen"
         component={CustomerPostScreen}
-      ></Route>{" "}
-      {/* this */}{" "}
+      ></Route>
+      {/* this */}
       <Route
         path="/customer_view_post_screen"
         component={CustomerViewPost}
-      ></Route>{" "}
+      ></Route>
       <Route
         path="/service_provider_make_proposal_screen"
         component={ProposalForm}
-      ></Route>{" "}
+      ></Route>
       <Route
         path="/service_provider_post_screen"
         component={ServiceProivderPostScreen}
       ></Route>
-      <Route path="/dashboard" component={DashboardOverviewPage}>
-        {" "}
-      </Route>{" "}
+
+      <Route path="/dashboard" component={DashboardOverviewPage}></Route>
       <Route
         path="/dashboard_manage_orders"
         component={DashboardManageOrders}
-      ></Route>{" "}
+      ></Route>
       <Route
         path="/dashboard_manage_requests"
         component={DashboardManageRequests}
-      ></Route>{" "}
+      ></Route>
     </div>
   );
 }

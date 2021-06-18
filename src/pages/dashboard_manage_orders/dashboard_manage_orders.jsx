@@ -10,7 +10,6 @@ import icon_4 from "../../icons/technical-support 1.svg"
 import icon_5 from "../../icons/wrench 1.svg"
 import CurrentOrder from "./current_order/current_order"
 import OrdersHistory from "./orders_history/orders_history"
-import Zoom from 'react-reveal/Zoom'
 
 class DashboardManageOrders extends Component {
 

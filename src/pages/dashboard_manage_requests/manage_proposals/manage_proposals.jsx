@@ -4,7 +4,6 @@ import Card from "../../../components/card/card"
 import IconButton from "../../../components/icon/icon_component"
 import profileIcon from "../../../icons/Ellipse (3).svg";
 import star from "../../../icons/outline_star_black_24dp 1.svg";
-import Zoom from 'react-reveal/Zoom'
 
 import "./manage_proposals.scss"
 
@@ -43,8 +42,7 @@ class ManageProposals extends Component {
                     {
                         this.data.map(prop => (
                             [
-                                <Zoom>
-                                    <Card imgHeight="15.0rem" imgWidth="15.0rem" width="45rem" image_src={profileIcon} imgHsize="8rem" imgWsize="8rem" data={prop.name} callback={this.onClickCard} screenType="manageRequests">
+                                <Card imgHeight="15.0rem" imgWidth="15.0rem" width="50%" image_src={profileIcon} imgHsize="8rem" imgWsize="8rem" data={prop.name} callback={this.onClickCard}>
 
                                     <div className="order_header_card">
                                         <div className="order_header_card_left">
@@ -61,8 +59,8 @@ class ManageProposals extends Component {
                                             <IconButton innerText={"Cancel"} heightDiv="4.0rem" widthDiv="15.0rem"
                                                 borderRadius="5rem" backgroundColor="#1E2833" src={null} />
                                         </div>
-                                        <div className="proposal_status" style={{textDecoration:"none",borderBottom:"none"}}>
-                                            <h3 >Pending</h3>
+                                        <div className="proposal_status">
+                                            <h3>Pendding</h3>
                                         </div>
                                     </div>
                                     <div className="toggle_card">
@@ -73,8 +71,7 @@ class ManageProposals extends Component {
                                         <h3>Feedback: Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse mollitia officiis ipsum. Praesentium, consequuntur. Mollitia aspernatur quibusdam cupiditate laboriosam quis?</h3>
                                         <h3>Rate: 3</h3>
                                     </div>
-                                </Card>
-                                </Zoom>,
+                                </Card>,
                                 <br />
                             ]))
                     }

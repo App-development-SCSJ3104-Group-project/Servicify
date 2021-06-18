@@ -1,6 +1,6 @@
 import "./card.scss"
 
-const card = (props,{screenType}) => {
+const card = (props) => {
 
     const style = {
         maxWidth: ` ${props.width} !important`,
@@ -14,11 +14,12 @@ const card = (props,{screenType}) => {
         height: props.imgHsize,
         width: props.imgWsize
     }
+
     return (
-        <div className={`profile_card ${props.screenType=="manageRequests"?'managaRequestCard':null}`} style={style} onClick={props.callback} data-name={props.data}>
+        <div className="profile_card" style={style} onClick={props.callback} data-name={props.data}>
 
 
-            <div className={`image_block ${props.screenType=="manageRequests"?'image-block-manage-requsts':null}`} style={imgStyle}>
+            <div className="image_block" style={imgStyle}>
                 {props.image_src !== undefined ? <img src={props.image_src} style={imgSize} alt="" /> : null}
             </div>
 

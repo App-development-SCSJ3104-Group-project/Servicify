@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import DashboardCard from "../../../components/dashboard_card/dashboard_card"
 import Button from "../../../components/button/button"
-import Zoom from 'react-reveal/Zoom'
 
 import "./current_order.scss"
 
@@ -24,23 +23,23 @@ class CurrentOrder extends Component {
                         {
                             this.props.orderStatus.map(e => (
 
-                                <Zoom bottom>
-                                      <div className={e.status ? "current_order_status_card active_card" : "current_order_status_card"} data-name={e.name}>
+                                <div className={e.status ? "current_order_status_card active_card" : "current_order_status_card"} data-name={e.name}>
                                     <img src={e.icon} alt="" onClick={this.props.callback} />
                                     <br />
                                     <h3>{e.name}</h3>
                                 </div>
-                              </Zoom>
                             ))
                         }
                     </div>
 
                     <div className="current_order_grid">
 
-                        <Zoom right cascade>
-                            <div className="current_order_grid_con">
+                        <div className="current_order_grid_con">
 
-                            
+                            <div className="flex_in">
+                                <h3>Client:</h3>
+                                <input className="input" type="text" readOnly />
+                            </div>
                             <div className="flex_in">
                                 <h3>Phone no:</h3>
                                 <input className="input" type="number" readOnly />
@@ -59,9 +58,7 @@ class CurrentOrder extends Component {
                             </div>
 
                         </div>
-                        </Zoom>
-                        <Zoom right cascade>
-                               <div className="current_order_grid_con">
+                        <div className="current_order_grid_con">
                             <div className="flex_in">
                                 <h3>Payment method:</h3>
                                 <input className="input" type="text" readOnly />
@@ -83,7 +80,6 @@ class CurrentOrder extends Component {
                                 <input className="input" type="number" readOnly />
                             </div>
                         </div>
-                     </Zoom>
 
                     </div>
                     <div className="btn-cancel">
