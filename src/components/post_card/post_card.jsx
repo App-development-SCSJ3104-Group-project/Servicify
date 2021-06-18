@@ -10,11 +10,9 @@ import TimeIcon from "./icons/time_icon";
 import LocationIcon from "./icons/location_icon";
 import OptionIcon from "./icons/option_icon";
 import ShareIcon from "./icons/share_icon";
-<<<<<<< HEAD
 import Zoom from 'react-reveal/Zoom'
-=======
+
 const moment = require("moment");
->>>>>>> 689858b549352b01c7006c394fa4c28a0410820c
 
 const PostCard = (props) => {
   return (
