@@ -3,15 +3,16 @@ import "./customer_view_post_screen.css";
 import Avatar from "../../components/search_result/inner_components/avatar";
 import Template from "../../components/template/template";
 import PostCard from "../../components/post_card/post_card";
-import ProposalCard from "./compoents/proposalCard/proposalCard"
+import ProposalCard from "./compoents/proposalCard/proposalCard";
+
 const post = {
   id: 1,
-  postTime: "30 minutes ago",
-  postLocation: "Johor Bahru",
-  cancelllationFee: "Free cancellation",
-  postDesc:
+  timestamp: "30 minutes ago",
+  location: "Johor Bahru",
+  cancelationFee: "Free cancellation",
+  description:
     "dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into",
-  tag: ["#Electrical", "#Job", "#Free", "#People"],
+  tags: ["#Electrical", "#Job", "#Free", "#People"],
   proposals: 6,
 };
 
@@ -43,18 +44,22 @@ class CustomerViewPost extends Component {
               <div className="seperate_line__post_of_proposal-section"></div>
               <h3>Proposals</h3>
             </div>
-            <ProposalCard {...proposalsInfo} useState={useState} proposalsInfo={proposalsInfo}/>
-            <ProposalCard {...proposalsInfo}  useState={useState} proposalsInfo={proposalsInfo}/>
+            <ProposalCard
+              {...proposalsInfo}
+              useState={useState}
+              proposalsInfo={proposalsInfo}
+            />
+            <ProposalCard
+              {...proposalsInfo}
+              useState={useState}
+              proposalsInfo={proposalsInfo}
+            />
           </div>
         </React.Fragment>
       </Template>
     );
   }
 }
-
-
-
-
 
 export default CustomerViewPost;
 
