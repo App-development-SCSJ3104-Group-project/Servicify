@@ -25,6 +25,7 @@ class LoginForm extends React.Component{
 
         this.state={
 
+            resetFormFields:false,
 
         }
     }
@@ -45,7 +46,6 @@ class LoginForm extends React.Component{
         else {
 
             if (IsUserInfoValid != null) {
-                
                 return <div className="login-alert login-failed-alert animate__animated animate__bounceInRight">Login Failed</div>
             }
         }
@@ -121,8 +121,9 @@ class LoginForm extends React.Component{
            
          
 
-            <Form type="login" formInputs={formInputs} formButtons={formButtons} SubmitFormCallback={(userInfo) => {
+            <Form type="login" formInputs={formInputs} resetFormFields={this.state.resetFormFields} formButtons={formButtons} SubmitFormCallback={(userInfo) => {
                 validateUser(userInfo)
+                    this.setState({resetFormFields:true})
             }} ></Form>
 
         </div>
