@@ -42,7 +42,7 @@ class ManageProposals extends Component {
                     {
                         this.data.map(prop => (
                             [
-                                <Card imgHeight="15.0rem" imgWidth="15.0rem" width="50%" image_src={profileIcon} imgHsize="8rem" imgWsize="8rem" data={prop.name} callback={this.onClickCard}>
+                                <Card imgHeight="15.0rem" scaleUp={true} imgWidth="15.0rem" width="50%" image_src={profileIcon} imgHsize="8rem" imgWsize="8rem" data={prop.name} callback={this.onClickCard}>
 
                                     <div className="order_header_card">
                                         <div className="order_header_card_left">
@@ -59,8 +59,8 @@ class ManageProposals extends Component {
                                             <IconButton innerText={"Cancel"} heightDiv="4.0rem" widthDiv="15.0rem"
                                                 borderRadius="5rem" backgroundColor="#1E2833" src={null} />
                                         </div>
-                                        <div className="proposal_status">
-                                            <h3>Pendding</h3>
+                                        <div className="proposal_status" style={{cursor:`pointer`}}>
+                                            <h3>Pending</h3>
                                         </div>
                                     </div>
                                     <div className="toggle_card">

@@ -2,9 +2,11 @@ import "./card.scss"
 
 const card = (props) => {
 
+    const { scaleUp } = props;
+
+    
     const style = {
-        maxWidth: ` ${props.width} !important`,
-        height: ` ${props.height} !important`
+        width: ` 70rem`,
     }
     const imgStyle = {
         height: props.imgHeight,
@@ -14,9 +16,11 @@ const card = (props) => {
         height: props.imgHsize,
         width: props.imgWsize
     }
-
+    
+    if (scaleUp) { imgStyle.left = "-10rem" }
+    
     return (
-        <div className="profile_card" style={style} onClick={props.callback} data-name={props.data}>
+        <div className="profile_card" style={scaleUp==true?style:null} onClick={props.callback} data-name={props.data}>
 
 
             <div className="image_block" style={imgStyle}>
