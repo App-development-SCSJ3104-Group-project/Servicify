@@ -6,36 +6,24 @@ import googleIcon from "../../icons/GoogleIcon.svg"
 import {validateUser,resetLoginState} from "../../redux/users/users_action"
 import { connect } from "react-redux";
 
-//using an action steps
-// 1- import{action name} from action directory
-// 2- const {action name }=this.props, destructing the action from props 
-// note actions are treated similary to state props IT NEEDS TO BE PASSED USING PROPS
-// 3-Add the imported action into the mapdispatchto props function
-// NOTE Action needs to be called inside a callback, it can not be called directly 
-// on a click function for example onclick={action.name()} is nto gonna work 
-// but onclick={()=>action.name()} is the way it works
+import { useHistory } from "react-router-dom";
+
+
+
  
-import {Redirect} from 'react-router-dom';
-class LoginForm extends React.Component{
 
 
-    constructor(props){
 
-        super(props);
+const LoginFrom = ({ loading, validateUser, IsUserInfoValid,  userInAuth, resetLoginState }) => {
+    
+let history = useHistory();
 
-        this.state={
-
-            resetFormFields:false,
-
-        }
-    }
-
-    handleAuthState = (IsUserInfoValid,resetCallBack) => {
+    const  handleAuthState = (IsUserInfoValid,resetCallBack) => {
 
         if (IsUserInfoValid == true) {
             setTimeout(() => { 
                 resetCallBack()
-            this.props.history.push('/');
+            history.push('/');
         }, 2250)
             return <div>
                 
@@ -51,13 +39,10 @@ class LoginForm extends React.Component{
         }
         
     }
-   
-    render(){
-         
-        const { loading,validateUser,IsUserInfoValid,history,userInAuth,resetLoginState} = this.props;
-        
-        // console.log(this.props)
-        const formInputs=[
+
+
+
+      const formInputs=[
            
              {
                 type:"text",
@@ -107,41 +92,45 @@ class LoginForm extends React.Component{
                 icon:googleIcon
                 
             }
-        ]
-        return <div className={`login-form  `} > 
+    ]
+    
+    return <div className={`login-form  `} > 
+            
             {
                 loading?<div className="loading-div">
                 <div className="loader">Loading...</div>
             </div>:null
             }
+
             {
-                this.handleAuthState(IsUserInfoValid,resetLoginState)
+                handleAuthState(IsUserInfoValid,resetLoginState)
                
             }
            
-         
-
-            <Form type="login" formInputs={formInputs} resetFormFields={this.state.resetFormFields} formButtons={formButtons} SubmitFormCallback={(userInfo) => {
+            <Form type="login" formInputs={formInputs}  formButtons={formButtons} goBackCallBack={()=>history.goBack()} SubmitFormCallback={(userInfo) => {
                 validateUser(userInfo)
-                    this.setState({resetFormFields:true})
+                   
             }} ></Form>
 
         </div>
-    }
+
 }
 
-  const mapStateToProps=({usersReducer})=>({
+
+
+const mapStateToProps=({usersReducer})=>({
     loading:usersReducer.loading,
      userInAuth: usersReducer.userInAuth,
     IsUserInfoValid:usersReducer.IsUserInfoValid
-    });
-
-  const mapDispatchToProps = (dispatch) => {
+});
+    
+const mapDispatchToProps = (dispatch) => {
   
     return {
         validateUser: (user) => { dispatch(validateUser(user)) },
         resetLoginState:()=>{dispatch(resetLoginState())}
     }
-  }
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
+}
+  
+export default connect(mapStateToProps, mapDispatchToProps)(LoginFrom)
   
