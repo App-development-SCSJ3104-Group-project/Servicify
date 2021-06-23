@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./navbar.css";
-import { Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CustomButton from "./../button/button";
 import NotificationIcon from "./notification_icons";
 import Check_Icon from "./check_icon";

@@ -12,11 +12,12 @@ class DashboardTopBar extends Component {
         this.state = props
     }
 
+   
     tabs = [
-        { name: "overview", isActive: false },
+        { name: "overview", isActive: false, },
         { name: "manage services", isActive: false },
-        { name: "manage orders", isActive: false },
-        { name: "manage requests", isActive: false, },
+        { name: "manage orders", isActive: false,redirectTo:"/dashboard_manage_orders" },
+        { name: "manage requests", isActive: false,redirectTo:"/dashboard_manage_requests" },
     ];
 
     render() {
@@ -46,6 +47,7 @@ class DashboardTopBar extends Component {
                         <NavigationTab
                             currentTab={tab.isActive}
                             tabName={tab.name}
+                            linkTo={tab.redirectTo}
                         />
                     )) : null}
                 </div>

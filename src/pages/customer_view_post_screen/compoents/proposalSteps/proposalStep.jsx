@@ -1,4 +1,6 @@
 import React from "react"
+
+
 const ProposalSteps = ({ proposedSteps }) => {
   if (proposedSteps.length === 0) {
     return <h3>steps is not available from the service provider</h3>;

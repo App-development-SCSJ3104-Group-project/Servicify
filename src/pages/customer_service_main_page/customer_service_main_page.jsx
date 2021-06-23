@@ -6,10 +6,7 @@ import ProfileCard from "../../components/profile_card/profile_card";
 import dropDownIcon from "../../icons/outline_arrow_back_ios_white_24dp 1.svg";
 import notification from "../../icons/outline_notification_important_black_48dp 1.svg";
 import Template from "../../components/template/template"
-// import "../landing_page/landing_page.scss";
 import Zoom from 'react-reveal/Zoom'
-import LightSpeed from 'react-reveal/LightSpeed'
-import Fade from 'react-reveal/Fade'
 
 
 
