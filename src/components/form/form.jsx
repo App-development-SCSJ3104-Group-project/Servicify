@@ -105,7 +105,7 @@ const style = {
         <img className="backArrow" src={leftArrow} alt="" />
         Back
       </div>
-      <form className="form__right-side__innerForm">
+      <form className="form__right-side__innerForm" autoComplete="true">
         <div className="form__right-side__innerForm__header">
           {type == "signup" ? (
             <div>

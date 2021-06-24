@@ -14,7 +14,7 @@ class DashboardTopBar extends Component {
 
    
     tabs = [
-        { name: "overview", isActive: false, },
+        { name: "overview", isActive: false,redirectTo:"/dashboard" },
         { name: "manage services", isActive: false },
         { name: "manage orders", isActive: false,redirectTo:"/dashboard_manage_orders" },
         { name: "manage requests", isActive: false,redirectTo:"/dashboard_manage_requests" },

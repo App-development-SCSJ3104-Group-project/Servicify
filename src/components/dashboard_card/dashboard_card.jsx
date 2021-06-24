@@ -5,6 +5,7 @@ import "./dashboard_card.scss"
 const dashboardCard = (props) => {
 
 
+    console.log(props)
     return (
 
         <div className="dashboard_card">
