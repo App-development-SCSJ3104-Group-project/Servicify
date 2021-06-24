@@ -24,11 +24,12 @@
     justify-content: space-between;
     text-align: center;
     color: white;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .bottom_navigation>* {
     cursor: pointer;
+    font-size: inherit;
 }
 
 .socialmedia {

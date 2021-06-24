@@ -4,9 +4,6 @@
     box-sizing: border-box;
 }
 
-
-/* font settings */
-
 @font-face {
     font-family: 'Mulish';
     src: url("./assets/fonts/Mulish-VariableFont_wght.ttf") format('truetype');
@@ -22,6 +19,28 @@ html {
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
+}
+
+*::-webkit-scrollbar {
+    top: 12rem;
+    width: 11px;
+    height: 11px;
+    margin-top: 2em;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-image: linear-gradient( 171.8deg, rgba(5, 111, 146, 1) 13.5%, rgba(6, 57, 84, 1) 78.6%) !important;
+    border-radius: 7px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: #5ece7b;
+}
+
+*::-webkit-scrollbar-track {
+    border-radius: 15px;
+    background-color: transparent;
+    box-shadow: inset 7px 10px 12px #f0f0f0;
 }
 
 

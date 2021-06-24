@@ -7,6 +7,7 @@ const card = (props) => {
     
     const style = {
         width: ` 70rem`,
+        height:`60rem`
     }
     const imgStyle = {
         height: props.imgHeight,
