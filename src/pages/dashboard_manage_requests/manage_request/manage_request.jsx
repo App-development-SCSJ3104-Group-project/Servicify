@@ -56,10 +56,10 @@ class ManageRequests extends Component {
                                             <h3>27 minutes ago / Johor Bahru / Cash</h3>
                                         </div>
                                         <div className="right_float_button">
-                                            <IconButton innerText={"Accept"} heightDiv="4.0rem" widthDiv="15.0rem"
-                                                borderRadius="5rem" backgroundColor="#1E2833" src={null} />
-                                            <IconButton innerText={"Reject"} heightDiv="4.0rem" widthDiv="15.0rem"
-                                                borderRadius="5rem" backgroundColor="#1E2833" src={null} />
+                                            <IconButton innerText={"Accept"} heightDiv="3.5rem" widthDiv="15.0rem"
+                                                borderRadius="5rem" backgroundColor="rgb(231, 111, 81)" src={null} />
+                                            <IconButton innerText={"Reject"} heightDiv="3.5rem" widthDiv="15.0rem"
+                                                borderRadius="5rem" backgroundColor="rgb(231, 111, 81)" src={null} />
                                         </div>
                                     </div>
                                     <div className="toggle_card">

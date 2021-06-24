@@ -22,7 +22,7 @@
 
 .order {
     position: relative;
-    background-color: #FFD980;
+    background-color: #313641;
     margin: 3rem 0;
     height: 15rem;
     // height: 35rem;
@@ -34,6 +34,7 @@
     font-family: 'Mulish', sans-serif;
     font-weight: bold;
     transition: all .5s ease-in-out;
+    color: white;
     &__extra-info__type {
         margin-top: 3rem;
         width: 120%;
@@ -61,11 +62,11 @@
         position: absolute;
         left: -7rem;
         top: -2rem;
-        background-color: #FFD980;
+        background-color: #313641;
     }
     &__info {
         font-size: 1.5rem;
-        color: #1E2833;
+        color: rgb(236, 228, 228);
         font-weight: 600;
         margin-top: 1.5rem;
         &__user {
@@ -104,9 +105,9 @@
     }
     &__buttons-container {
         margin-top: 1.5rem;
-        margin-left: 6rem;
+        margin-left: 10rem;
         &>* {
-            background-color: #1E2833;
+            background-color: rgb(231, 111, 81);
             color: white;
             border: none;
             margin: 0 .5rem;

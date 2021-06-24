@@ -4,7 +4,6 @@ import Reciept from "../../icons/outline_receipt_long_white_24dp 1.png"
 import Replay from "../../icons/outline_replay_white_24dp 1.png";
 import OrderStatus from "../../icons/orderStatus.png"
 import { ReactComponent as FilledStar } from '../../icons/star.svg';
-import { ReactComponent as BlackStar } from "../../icons/blackstar.svg"
 import { ReactComponent as ArrowDown } from "../../icons/arrow-down-sign-to-navigate.svg"
 import { ReactComponent as ArrowUp } from "../../icons/arrowup.svg"
 import Zoom from 'react-reveal/Zoom';
@@ -72,7 +71,7 @@ class Order extends React.Component {
                 <div className="order__info">
                     <div className="order__info__user">
                         <span className="order__info__user__name"> {name}</span>
-                        <span className="order__info__rating"> {rating} <BlackStar style={{ marginLeft: ".5rem" }}></BlackStar>
+                        <span className="order__info__rating"> {rating} <FilledStar style={{ marginLeft: ".5rem",fill:"white",width:"2rem",height:"2rem",cursor:"pointer" }}></FilledStar>
                         </span>
                     </div>
                     <div className={`order__info__order ${toggled ? "visible" : null}`} >
@@ -92,7 +91,7 @@ class Order extends React.Component {
                     <span>
                         {
                             toggled ?
-                                <ArrowUp className="arrow arrow-down" onClick={() => this.shrinkCard()}></ArrowUp> :
+                                <ArrowUp className="arrow arrow-down"  onClick={() => this.shrinkCard()}></ArrowUp> :
                                 <ArrowDown className="arrow arrow-down" onClick={() => this.expandCard()}></ArrowDown>
                         }
 

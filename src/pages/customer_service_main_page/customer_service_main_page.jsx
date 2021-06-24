@@ -167,10 +167,10 @@ class CustomerServiceMainPage extends Component {
 
                     <Button
                   innerText={"#" + e}
-                  margin="0.3rem"
+                  margin="0.3rem .5rem"
                   iconPosition="true"
-                  color="black"
-                  backGroundColor="#57C4E5"
+                  color="white"
+                  backGroundColor="#e76f51"
                   width="10rem"
                   height="3rem"
                   borderRadius="10px"

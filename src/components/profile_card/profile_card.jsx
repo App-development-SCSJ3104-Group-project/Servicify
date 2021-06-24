@@ -24,7 +24,7 @@ class ProfileCard extends Component {
 
                 <div>
 
-                <Card image_src={profileIcon} >
+                <Card image_src={profileIcon}  >
 
                     <div className="header">
                         <div className="card_header">
@@ -47,19 +47,19 @@ class ProfileCard extends Component {
                     </div>
                     <div className="action_buttons">
                         <Button innerText={null}
-                            margin="0.3rem"
+                            margin="0 0.1rem"
                             color="black"
                             iconPosition='false'
-                            backGroundColor="#1E2833"
+                            backGroundColor="#e76f51"
                             width="4rem"
                             height="4rem"
                             icon={favourite}
                             borderRadius="50%" />
                         <Button innerText={null}
-                            margin="0.3rem"
+                            margin="0 0.1rem"
                             color="black"
                             iconPosition='false'
-                            backGroundColor="#1E2833"
+                            backGroundColor="#e76f51"
                             width="4rem"
                             height="4rem"
                             icon={order}
