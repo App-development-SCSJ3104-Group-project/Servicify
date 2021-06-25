@@ -2,7 +2,7 @@
 import React from "react";
 
 import "./formInput.scss";
-const FormInputGroup=({type,placeHolder,displayType,className,customLabel,onChange,missing})=>{
+const FormInputGroup=({type,placeHolder,displayType,className,customLabel,onChange,missing,resetFormField})=>{
 
     const labelClassName=`${className}__label`;
     const inputClassName=`${className}__input-field`
@@ -15,7 +15,7 @@ const FormInputGroup=({type,placeHolder,displayType,className,customLabel,onChan
                         displayType=="block"? <div className={labelClassName} style={{display:displayType}}>{customLabel}</div>:null
                     }
                            
-                <input className={inputClassName} placeholder={placeHolder ? placeHolder : ""} type={type} onChange={(e)=>onChange(e.target.value)}/>
+                <input className={inputClassName} placeholder={placeHolder ? placeHolder : ""}   type={type}  onChange={(e)=>onChange(e.target.value)}/>
                     {
                         displayType=="inline-block"? <div className={labelClassName} style={{display:displayType}}>{customLabel}</div>:null
                     }

@@ -15,7 +15,7 @@
     transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
-    overflow-y: scroll;
+    overflow-y: auto;
     z-index: 10;
     &__content-container {
         width: 85%;

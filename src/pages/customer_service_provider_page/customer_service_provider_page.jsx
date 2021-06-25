@@ -4,7 +4,6 @@ import Icon from "../../components/icon/icon_component"
 import Review from "../../components/reviews/review"
 import Card from "../../components/card/card"
 import Template from "../../components/template/template"
-
 import "./customer_service_provider_page.scss"
 import image from "../../icons/Ellipse.svg";
 import favourite from "../../icons/icons8-heart-30 (1) 1.svg";
@@ -15,11 +14,8 @@ import paymentIcon from "../../icons/payment-method.svg";
 import icon_4 from "../../icons/outline_star_white_48dp 1.svg";
 import profileIcon from "../../icons/Ellipse (3).svg";
 import Star from "../../icons/star.svg"
-
 import Zoom from 'react-reveal/Zoom'
-import LightSpeed from 'react-reveal/LightSpeed'
-import Fade from 'react-reveal/Fade'
-import Bounce from 'react-reveal/Bounce'
+
 
 
 class CustomerServiceProviderPage extends Component {

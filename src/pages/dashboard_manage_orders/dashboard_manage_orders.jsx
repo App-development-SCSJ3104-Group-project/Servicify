@@ -63,6 +63,7 @@ class DashboardManageOrders extends Component {
                     <ScreenTabs tabs={this.tabs} callback={this.onclickFun} />
                 </div>
 
+                
                 {this.tabs[0].status ? <CurrentOrder orderStatus={this.orderStatus} callback={this.onOrderCardClicked} /> : <OrdersHistory />}
 
 
@@ -72,18 +73,3 @@ class DashboardManageOrders extends Component {
 }
 export default DashboardManageOrders
 
-// const mapStateToProps = (state) => {
-//     return {
-//       name: state.main.posts
-//     }
-//   }
-  
-//   const mapDispatchToProps = (dispatch) => {
-  
-//     return {
-//       // import action from //???? action file
-//       // addPost: (id) => { dispatch(addPost(id)) }
-  
-//     }
-//   }
-//   export default connect(mapStateToProps)(CustomerMain)

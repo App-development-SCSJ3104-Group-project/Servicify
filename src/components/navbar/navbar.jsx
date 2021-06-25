@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./navbar.css";
-import { Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CustomButton from "./../button/button";
 import NotificationIcon from "./notification_icons";
 import Check_Icon from "./check_icon";
 import { userLogout } from "../../redux/users/users_action";
 import LogoTransparent from "../../icons/Brand/logo.png"
 import Zoom from 'react-reveal/Zoom'
-
+import {useHistory} from "react-router-dom"
 import { connect } from "react-redux";
 
 function Nav({userInAuth,userLogout,isLogged}) {

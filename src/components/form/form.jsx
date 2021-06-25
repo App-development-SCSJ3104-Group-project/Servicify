@@ -9,20 +9,26 @@ import RedCircles from "../../icons/RedCircles.svg";
 import Quotations from "../../icons/Quotations.svg";
 import WhiteArrow  from "../../icons/WhiteArrow.svg";
 import Check from "../../icons/Check.svg";
-import {useHistory, Redirect } from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 
-const Form = ({ formInputs, formButtons, type, leftSideBackgroundHeight, SubmitFormCallback }) => {
+class Form extends React.Component{
 
-
-  let userInfo={}
-const validateEmailFormat = (email) => {
+  constructor (props) {
+    
+    super(props);
+    this.state = {
+      userInfo:{}
+    }
+  }
+ validateEmailFormat = (email) => {
     
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
+  handleFormSubmission = (formInputs, SubmitFormCallback) => {
+    const { userInfo } = this.state;
 
-  const handleFormSubmission = (formInputs, SubmitFormCallback) => {
               let missingField,isEmailValid = false;
               formInputs.forEach((formInput) => {
                 let elementIdentifer = formInput.className.split(" ")[0];
@@ -30,7 +36,7 @@ const validateEmailFormat = (email) => {
                 if (userInfo[elementIdentifer] && userInfo[elementIdentifer] != "") {
                   
                   if (elementIdentifer == "email") {
-                    isEmailValid=validateEmailFormat(userInfo[elementIdentifer])
+                    isEmailValid=this.validateEmailFormat(userInfo[elementIdentifer])
                   }
                 } else {
                  missingField = true;
@@ -41,16 +47,16 @@ const validateEmailFormat = (email) => {
               
   }
 
-  const style = {
-    // backgroundImage: `url(${mainImg})`,
+
+  render() {
+
+  
+    const { formInputs, formButtons, type, leftSideBackgroundHeight, SubmitFormCallback, resetFormFields,goBackCallBack } = this.props;
+    const { userInfo } = this.state;
+const style = {
     height:leftSideBackgroundHeight
   };
-    let history = useHistory();
-
-  const goBack=()=>{
-    history.goBack();
-    }
-  return (
+    return (
     <div className="form" >
     <div className="form__left-side " style={style}>
       <img
@@ -95,11 +101,11 @@ const validateEmailFormat = (email) => {
       </div>
     </div>
     <div className="form__right-side ">
-      <div className="form__right-side__back-btn" onClick={()=>goBack()}>
+      <div className="form__right-side__back-btn" onClick={()=>goBackCallBack()}>
         <img className="backArrow" src={leftArrow} alt="" />
         Back
       </div>
-      <form className="form__right-side__innerForm">
+      <form className="form__right-side__innerForm" autoComplete="true">
         <div className="form__right-side__innerForm__header">
           {type == "signup" ? (
             <div>
@@ -130,14 +136,14 @@ const validateEmailFormat = (email) => {
           // @ts-ignore
           return (
             <div className=" animate__animated animate__zoomInDown" style={{animationDelay:`${index*0.5}s`}}>
-              {<FormInputGroup
+              {<FormInputGroup 
               key={index}
               type={formInput.type}
               placeHolder={formInput.placeHolder}
               className={formInput.className}
               customLabel={formInput.customLabel}
                 displayType={formInput.displayType}
-              
+                resetFormField={resetFormFields}
                 onChange={(value) => {
                   //nested object set state way
                   userInfo[formInputIdentfier]=value
@@ -151,25 +157,19 @@ const validateEmailFormat = (email) => {
          
           return <div className=" animate__animated animate__zoomIn" style={{animationDelay:`${formButtons.length*1.1}s`}}>
             {<CustomButton key={index} {...formButton} onClick={index == 0 ? () => {
-              handleFormSubmission(formInputs,SubmitFormCallback)
+              this.handleFormSubmission(formInputs,SubmitFormCallback)
             }:null}></CustomButton>}
           </div>
         })}
 
-          {/* <div className="extra-feature">
-              or
-            {type == "login" ?
-            
-            <button className="extra-feature__btn" onClick={()=>history.push("/signup")}>SignUp</button>:<button className="extra-feature__btn" onClick={()=>history.push("/login")}>login</button>
-          
-          }
-          </div> */}
+     
       </form>
     </div>
   </div>
     )
-  
+  }
 }
+
 
 
 export default Form;

@@ -99,14 +99,14 @@ a {
     position: absolute;
     top: 72px;
     width: 320px;
-    height: auto;
+    height: 100rem;
     transform: translateX(-45%);
     background-color: #ffd980;
     border: var(--border);
     border-radius: var(--border-radius);
     padding: 2rem;
     transition: height var(--speed) ease;
-    z-index: 10;
+    z-index: 1000;
 }
 
 .menu-1 {

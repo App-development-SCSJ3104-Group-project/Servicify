@@ -8,6 +8,7 @@
     margin: 5rem;
     color: white;
 }
+
 .normal {
     width: 50%;
     border-radius: 2rem;
@@ -19,11 +20,5 @@
 }
 
 .active {
-    width: 50%;
-    border-radius: 2rem;
     background-color: #212738;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
 }

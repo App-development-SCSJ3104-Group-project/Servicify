@@ -21,12 +21,13 @@ class DashboardManageRequests extends Component {
 
 
         const target = event.target.closest('.normal').classList.value.split(" ").filter(e => e == "active")
-
+        
         if (target !== "active") {
             this.tabs.filter(e => e.status === true)[0].status = false
             this.tabs.filter(e => e.name === event.target.closest('.normal').dataset.name)[0].status = true
 
         }
+        
         this.setState({})
     }
 
