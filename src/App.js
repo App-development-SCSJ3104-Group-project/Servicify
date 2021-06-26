@@ -49,13 +49,12 @@ function App() {
         path="/customer_post_screen"
         component={CustomerPostScreen}
       ></Route>
-      {/* this */}
       <Route
-        path="/customer_view_post_screen"
+        path="/customer_view_post_screen/:_id"
         component={CustomerViewPost}
       ></Route>
       <Route
-        path="/service_provider_make_proposal_screen"
+        path="/service_provider_make_proposal_screen/:_id"
         component={ProposalForm}
       ></Route>
       <Route

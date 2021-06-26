@@ -14,3 +14,4 @@ export const fetchPosts = () =>
   });
 
 export const createPost = (newPost) => axios.post(url, newPost);
+export const fetchPost = (_id) => axios.get(url + _id);

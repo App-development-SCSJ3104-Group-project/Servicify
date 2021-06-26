@@ -125,20 +125,17 @@ select::-ms-expand {
   line-height: 16px;
 }
 
-.footer__area__proposal_form {
+.proposal__footArea_submit_section {
   display: flex;
   justify-content: flex-end;
-  margin: 5rem 4rem 10rem 0rem;
+  margin: 5rem 10rem 10rem 5rem;
 }
-
-.cancel__proposal_form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 52px;
-  height: 52px;
-  background-color: black;
+.proposal__footArea_submit_section-button {
   color: white;
-  border-radius: 50%;
-  margin: 0rem 1rem 6rem 0rem;
+  background-color: black;
+  width: 160px;
+  height: 51px;
+  font-size: 14.5px;
+  border-radius: 25.5px;
+  margin-bottom: 10rem;
 }

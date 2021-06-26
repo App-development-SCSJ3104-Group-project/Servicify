@@ -2,40 +2,22 @@ import React, { useState } from "react";
 import Nav from "./../../components/navbar/navbar";
 import "./service_provider_make_proposal.css";
 import PostCard from "./../../components/post_card/post_card";
-import ProposalCardButton from "./../customer_view_post_screen/compoents/button";
+// import { useForm, useFieldArray } from "react-hook-form";
+import { v4 as uuidv4 } from "uuid";
 
-const ProposalForm = () => {
+const ProposalForm = (props) => {
+  const postsList = JSON.parse(localStorage.getItem("posts"));
+  const post = postsList.find((post) => post._id === props.match.params._id);
+
   return (
     <React.Fragment>
       <Nav isLogged={true} />
-
       <div className="posts-wrappper-background">
         <ProposalFormHeader></ProposalFormHeader>
-        <ManageProposalForm></ManageProposalForm>
-        <ProposalFormPostArea />
-        <div className="footer__area__proposal_form">
-          <div className="cancel__proposal_form">X</div>
-          <ProposalCardButton
-            onClick={false}
-            isOpened={false}
-            buttonName="Submit"
-          />
-        </div>
-        <span></span>
+        <ManageProposalForm post={post}></ManageProposalForm>
       </div>
     </React.Fragment>
   );
-};
-
-const post = {
-  id: 1,
-  timestamp: "30 minutes ago",
-  location: "Johor Bahru",
-  cancelationFee: "Free cancellation",
-  description:
-    "dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into",
-  tags: ["#Electrical", "#Job", "#Free", "#People"],
-  proposals: 6,
 };
 
 const ProposalFormHeader = () => {
@@ -48,71 +30,57 @@ const ProposalFormHeader = () => {
   );
 };
 
-const ManageProposalForm = () => {
-  const [fee, setFess] = useState("");
-  const [payment, setPayment] = useState("");
-  const [description, setDescription] = useState("");
-  const [stepsNo, setStepsNO] = useState();
-  const [stepsInputFieldsNo, setStepsInputFieldsNo] = useState([]);
+const ManageProposalForm = (props) => {
+  //
+  // to store all input fields
+  const [inputFields, setInputFields] = useState([
+    { id: uuidv4(), stepDesc: "" },
+  ]);
 
-  const handleChangeInput = (indexNo, event) => {
-    const newSteps = stepsInputFieldsNo.map((i, index) => {
-      if (indexNo === index) {
-        i[event.target.name] = event.target.value;
+  // submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(inputFields);
+  };
+
+  const handleAddFields = () => {
+    setInputFields([...inputFields, { id: uuidv4(), stepDesc: "" }]);
+  };
+
+  const handleChangeInput = (id, e) => {
+    // important
+    const newInputFields = inputFields.map((i) => {
+      if (id === i.id) {
+        i[e.target.name] = e.target.value;
       }
       return i;
     });
-    setStepsInputFieldsNo(newSteps);
+
+    setInputFields(newInputFields); // array
   };
-
-  const handleStepsNumber = (event) => {
-    setStepsNO(event.target.value);
-
-    if (stepsNo === "0") {
-      setStepsInputFieldsNo([]);
-    }
-    if (stepsNo === "1") {
-      setStepsInputFieldsNo([{ stepDescription: "" }]);
-    }
-
-    if (stepsNo === "2") {
-      setStepsInputFieldsNo([{ stepDescription: "" }, { stepDescription: "" }]);
-    }
-
-    if (stepsNo === "3") {
-      setStepsInputFieldsNo([
-        { stepDescription: "" },
-        { stepDescription: "" },
-        { stepDescription: "" },
-      ]);
-    }
-
-    if (stepsNo === "4") {
-      setStepsInputFieldsNo([
-        { stepDescription: "" },
-        { stepDescription: "" },
-        { stepDescription: "" },
-        { stepDescription: "" },
-      ]);
-    }
+  const handleRemoveFields = (id) => {
+    const values = [...inputFields];
+    values.splice(
+      values.findIndex((value) => value.id === id),
+      1
+    );
+    setInputFields(values);
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="proposal__form_body_section">
         <input
           type="text"
-          name="fee"
           className="proposal__form_body_section-input_field-1"
-          onChange={(event) => setFess(event.target.value)}
           placeholder="Fees"
+          name="fee"
         />
         <br />
         <div className="select">
           <select
             className="proposal__form_body_section-input_field-1"
-            value="payment"
-            onChange={(event) => setPayment(event.target.value)}
+            name="payment"
           >
             <option value="payment">payment</option>
             <option value="Cash">Cash</option>
@@ -125,50 +93,52 @@ const ManageProposalForm = () => {
         <textarea
           className="proposal__form_body_section-input_field-2"
           name="proposalDescription"
-          onChange={(event) => setDescription(event.target.value)}
           cols="40"
           rows="10"
           placeholder="Describe your proposal here"
+          name="description"
         ></textarea>
         <br />
-        <div className="select">
-          <select
-            className="proposal__form_body_section-input_field-5"
-            value="Steps"
-            onChange={(event) => handleStepsNumber(event)}
-          >
-            <option value="steps">Steps</option>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-        </div>
-        <br />
-        {stepsInputFieldsNo.map((i, index) => (
-          <div key={index}>
+
+        {/* dynmic  */}
+        {inputFields?.map((inputField) => (
+          <div key={inputField.id}>
             <input
-              className="proposal__form_body_section-input_field-4"
-              name="stepDescription"
-              placeholder={`Describe your step ${index + 1} here`}
               type="text"
-              onChange={(event) => handleChangeInput(index, event)}
+              name="stepDesc"
+              value={inputField.stepDesc}
+              onChange={(event) => handleChangeInput(inputField.id, event)}
             />
+            <p onClick={() => handleRemoveFields(inputField.id)}>Remove</p>
+            <p onClick={handleAddFields}>Add</p>
           </div>
         ))}
+        <br />
+      </div>
+      <ProposalFormPostArea post={props.post} />
+      <div className="proposal__footArea_submit_section">
+        <input
+          className="proposal__footArea_submit_section-button"
+          type="submit"
+          value="Back"
+        />
+        <input
+          className="proposal__footArea_submit_section-button"
+          type="submit"
+          value="Submit"
+        />
       </div>
     </form>
   );
 };
 
-const ProposalFormPostArea = () => {
+const ProposalFormPostArea = (props) => {
   return (
     <React.Fragment>
       <div className="proposal__form_post_Area">
         <header className="proposal__form_post_Area-title">Serverd Post</header>
       </div>
-      <PostCard post={post} />
+      <PostCard post={props.post} />
     </React.Fragment>
   );
 };

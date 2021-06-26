@@ -10,6 +10,16 @@ export const getPosts = () => async (dispatch) => {
   }
 };
 
+export const getPost = (_id) => async (dispatch) => {
+  try {
+    const { data } = await api.fetchPost(_id);
+
+    dispatch({ type: "FETCH_POST", payload: data });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 export const createNewPost = (post) => async (dispatch) => {
   try {
     const { data } = await api.createPost(post);
