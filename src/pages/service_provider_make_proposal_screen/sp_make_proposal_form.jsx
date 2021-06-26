@@ -47,6 +47,7 @@ const ManageProposalForm = (props) => {
     setInputFields([...inputFields, { id: uuidv4(), stepDesc: "" }]);
   };
 
+  //
   const handleChangeInput = (id, e) => {
     // important
     const newInputFields = inputFields.map((i) => {
@@ -58,6 +59,8 @@ const ManageProposalForm = (props) => {
 
     setInputFields(newInputFields); // array
   };
+
+  //
   const handleRemoveFields = (id) => {
     const values = [...inputFields];
     values.splice(
@@ -73,44 +76,54 @@ const ManageProposalForm = (props) => {
         <input
           type="text"
           className="proposal__form_body_section-input_field-1"
-          placeholder="Fees"
+          placeholder="Cost of diagnosis"
           name="fee"
+          autoComplete="off"
         />
         <br />
         <div className="select">
           <select
-            className="proposal__form_body_section-input_field-1"
+            className="proposal__form_body_section-input_field-copied"
             name="payment"
           >
-            <option value="payment">payment</option>
+            <option value="payment" selected disabled>
+              Payment method
+            </option>
             <option value="Cash">Cash</option>
             <option value="onlineBanking">Online banking</option>
             <option value="FBX">FBX service</option>
             <option value="creditCard">credit card</option>
           </select>
         </div>
-        <br />
         <textarea
-          className="proposal__form_body_section-input_field-2"
-          name="proposalDescription"
-          cols="40"
-          rows="10"
+          className="description_form"
           placeholder="Describe your proposal here"
           name="description"
+          wrap="off"
         ></textarea>
-        <br />
 
         {/* dynmic  */}
-        {inputFields?.map((inputField) => (
-          <div key={inputField.id}>
+        {inputFields?.map((inputField, index) => (
+          <div className="proposal-steps-form" key={inputField.id}>
             <input
               type="text"
               name="stepDesc"
               value={inputField.stepDesc}
               onChange={(event) => handleChangeInput(inputField.id, event)}
+              className="proposal-form-stepDesc"
+              placeholder={`Enter Step ${index + 1} Description`}
+              autoComplete="off"
             />
-            <p onClick={() => handleRemoveFields(inputField.id)}>Remove</p>
-            <p onClick={handleAddFields}>Add</p>
+            {inputFields.length === 1 ? (
+              ""
+            ) : (
+              <div className="proposal-form-steps-action">
+                <p onClick={() => handleRemoveFields(inputField.id)}>-</p>
+              </div>
+            )}
+            <div className="proposal-form-steps-action">
+              <p onClick={handleAddFields}>+</p>
+            </div>
           </div>
         ))}
         <br />

@@ -20,50 +20,42 @@
   width: 306px;
   height: 49px;
   background: rgba(196, 196, 196, 0.38);
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  font-size: 12.5px;
-  padding: 0px 0px 10px 2rem;
+  font-size: 16px;
+  padding: 14px;
+  margin-bottom: 2rem;
+  border: none;
+  font-weight: 500;
+}
+.proposal__form_body_section-input_field-copied {
+  width: 306px;
+  height: 49px;
+  background: rgba(196, 196, 196, 0.38);
+  box-shadow: inset 0px 9px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  font-size: 17px;
+  padding-left: 16px;
+  margin-top: -8px;
   margin-bottom: 2rem;
   font-weight: 600;
   border: none;
   outline: none;
 }
 
-.proposal__form_body_section-input_field-2 {
+.description_form {
   width: 713px;
   height: 189px;
   background: rgba(196, 196, 196, 0.38);
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  padding: 0px 0px 12px 2rem;
+  padding: 20px;
+  padding-top: 10px;
+  font-size: 16px;
   margin-bottom: 3rem;
   border: none;
   outline: none;
-  color: black;
-}
-
-.proposal__form_body_section-input_field-4 {
-  width: 713px;
-  height: 110px;
-  background: rgba(196, 196, 196, 0.38);
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  margin-bottom: 2rem;
-  padding: 0px 0px 12px 2rem;
-  border: none;
-  outline: none;
-}
-
-.proposal__form_body_section-input_field-5 {
-  background: rgba(196, 196, 196, 0.38);
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  font-size: 12.5px;
-  font-weight: 600;
-  padding: 0px 0px 12px 2rem;
-  border: none;
-  outline: none;
+  font-weight: 500;
 }
 
 select {
@@ -95,6 +87,7 @@ select::-ms-expand {
   background: rgba(196, 196, 196, 0.38);
   overflow: hidden;
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 .select::after {
   content: "\25BC";
@@ -138,4 +131,37 @@ select::-ms-expand {
   font-size: 14.5px;
   border-radius: 25.5px;
   margin-bottom: 10rem;
+}
+
+.proposal-steps-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.proposal-form-stepDesc {
+  font-size: 16px;
+  padding: 12px;
+  border: 1px solid lightgray;
+  border-radius: 12px;
+  width: 25%;
+  height: 55px;
+  margin-right: 2rem;
+}
+
+.proposal-form-steps-action {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 40px;
+  margin-right: 10px;
+  background-color: #242020;
+  width: 50px;
+  height: 50px;
+  margin-top: 1rem;
+}
+
+.proposal-form-steps-action-disable {
+  display: hidden;
 }
