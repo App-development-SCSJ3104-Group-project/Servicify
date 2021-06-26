@@ -114,7 +114,7 @@ const ManageProposalForm = (props) => {
               placeholder={`Enter Step ${index + 1} Description`}
               autoComplete="off"
             />
-            {inputFields.length === 1 ? (
+            {index + 1 === 1 ? (
               ""
             ) : (
               <div className="proposal-form-steps-action">
@@ -122,7 +122,7 @@ const ManageProposalForm = (props) => {
               </div>
             )}
             <div className="proposal-form-steps-action">
-              <p onClick={handleAddFields}>+</p>
+              <p onClick={index + 1 > 5 ? "" : handleAddFields}>+</p>
             </div>
           </div>
         ))}
