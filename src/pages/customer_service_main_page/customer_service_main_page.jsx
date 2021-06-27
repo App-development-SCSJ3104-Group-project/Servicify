@@ -3,10 +3,12 @@ import Button from "../../components/button/button";
 import Divider from "../../components/divider/divider";
 import Icon from "../../components/icon_component/icon";
 import ProfileCard from "../../components/profile_card/profile_card";
-import dropDownIcon from "../../icons/outline_arrow_back_ios_white_24dp 1.svg";
 import notification from "../../icons/outline_notification_important_black_48dp 1.svg";
 import Template from "../../components/template/template"
 import Zoom from 'react-reveal/Zoom'
+import { connect } from "react-redux";
+import { fetchServiceProviders } from "../../redux/categories/categories_action"
+
 
 
 
@@ -18,141 +20,24 @@ class CustomerServiceMainPage extends Component {
   }
 
   state = {
-
-    windowWidth: window.innerWidth,
-    windowHeight: window.innerHeight
+    active: null
   }
 
-  resize = () => {
-    this.state.windowHeight = window.innerHeight
-    this.state.windowWidth = window.innerWidth
-    this.setState({})
+  onClick = (index) => {
+    this.state.active === index ? index = null : index = index
+    this.setState({ active: index })
   }
 
-  onClick = (event) => {
+  componentDidMount() {
+    const { fetchServiceProviders } = this.props
+    fetchServiceProviders();
 
-    // console.log(event.target)
-    event.target.classList.toggle('active')
   }
   render() {
+    const { serviceProviders } = this.props
+    const data = Array.from(serviceProviders)
 
-    window.onresize = this.resize
 
-    const buttons = [
-      {
-        name: "Fees",
-        isActive: false,
-        type: "fees",
-        backgroundColor: "#1E2833",
-        color: "white",
-      },
-      {
-        name: "Rate",
-        isActive: false,
-        type: "rate",
-        backgroundColor: "#1E2833",
-        color: "white",
-      },
-      {
-        name: "Location",
-        isActive: false,
-        type: "location",
-        backgroundColor: "#1E2833",
-        color: "white",
-      },
-      {
-        name: "Payment",
-        isActive: false,
-        type: "payment",
-        backgroundColor: "#1E2833",
-        color: "white",
-      },
-      {
-        name: "Reset",
-        isActive: false,
-        type: "reset",
-        backgroundColor: "#FF835C",
-        color: "white",
-      },
-    ];
-    const categories = [
-      "Tech",
-      "Tech",
-      "Tech",
-      "Tech",
-      "Tech",
-      "Tech",
-      "Tech",
-      "Tech",
-      "Tech",
-      "Tech",
-    ];
-    const mockUsers = [
-      {
-        title: "Kodo Mozo",
-        rate: 4,
-        payment: 54.0,
-        description:
-          "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?",
-      },
-      {
-        title: "Kodo Mozo",
-        rate: 4,
-        payment: 54.0,
-        description:
-          "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?",
-      },
-      {
-        title: "Kodo Mozo",
-        rate: 4,
-        payment: 54.0,
-        description:
-          "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?",
-      },
-      {
-        title: "Kodo Mozo",
-        rate: 4,
-        payment: 54.0,
-        description:
-          "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?",
-      },
-      {
-        title: "Kodo Mozo",
-        rate: 4,
-        payment: 54.0,
-        description:
-          "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?",
-      },
-      {
-        title: "Kodo Mozo",
-        rate: 4,
-        payment: 54.0,
-        description:
-          "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?",
-      },
-      {
-        title: "Kodo Mozo",
-        rate: 4,
-        payment: 54.0,
-        description:
-          "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?",
-      },
-      {
-        title: "Kodo Mozo",
-        rate: 4,
-        payment: 54.0,
-        description:
-          "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?",
-      },
-      {
-        title: "Kodo Mozo",
-        rate: 4,
-        payment: 54.0,
-        description:
-          "Lorem ipsum, odit debitis harum voluptatem iure recusandae, iusto assumenda reprehenderit tenetur. Quo quis laboriosam tempore nulla praesentium, assumenda labore quae aperiam dolorem deleniti asperiores corrupti, voluptate veritatis amet nisi?",
-      },
-    ];
-    const currentIndex = 2;
     return (
 
       <Template route={"services"}>
@@ -160,29 +45,34 @@ class CustomerServiceMainPage extends Component {
         <div className="card_view ">
           <div className="categories " >
             <h4>Categories</h4>
-              <div className="items  " >
-              {categories.map((e) => (
+            <div className="items  " >
+              {data.map((e) => (
                 // @ts-ignore
-              <Zoom left >
+                <Zoom left >
 
+                  <div style={{
+                    backgroundColor: e[0] === this.state.active ? "orange" : "#57C4E5",
+                    borderRadius: "10px",
+                    marginRight: "10px"
+                  }}>
                     <Button
-                  innerText={"#" + e}
-                  margin="0.3rem"
-                  iconPosition="true"
-                  color="black"
-                  backGroundColor="#57C4E5"
-                  width="10rem"
-                  height="3rem"
-                  borderRadius="10px"
-                  onClick={this.onClick}
-                  />
-              </Zoom>
-                  
+                      innerText={"#" + e[0]}
+                      iconPosition="true"
+                      width="10rem"
+                      height="3rem"
+                      color="black"
+                      backGroundColor="transparent"
+                      borderRadius="10px"
+                      onClick={() => this.onClick(e[0])}
+                    />
+                  </div>
+                </Zoom>
+
               ))}
-              </div>
+            </div>
           </div>
-         
-          <div className="results" style={{animationDelay:".75s"}}>
+
+          <div className="results" style={{ animationDelay: ".75s" }}>
             <Divider
               width="100%"
               height="0.2rem"
@@ -191,18 +81,16 @@ class CustomerServiceMainPage extends Component {
               marginTop="3rem"
             />
 
-            {mockUsers.length != 0 ? (
-              mockUsers.map((e) => [
-                <ProfileCard data={e} />,
-                (mockUsers.indexOf(e) + 1) % (this.state.windowWidth <= 1300 ? 3 : 4) === 0 ? (
-                  <Divider
-                    width="100%"
-                    height="0.2rem"
-                    backgroundColor="grey"
-                    marginBottom="3rem"
-                    marginTop="3rem"
-                  />
-                ) : null,
+            {data.length != 0 ? (
+              data.map((e) => [
+
+                this.state.active === null ?
+                  e[1].map((e) =>
+                    <ProfileCard data={e} />,
+                  ) : this.state.active === e[0] ?
+                    e[1].map((e) =>
+                      <ProfileCard data={e} />,
+                    ) : null
               ])
             ) : (
               <div className="empty">
@@ -220,20 +108,19 @@ class CustomerServiceMainPage extends Component {
   }
 }
 
-export default CustomerServiceMainPage;
 
-// const mapStateToProps = (state) => {
-//   return {
-//     name: state.main.posts
-//   }
-// }
+const mapStateToProps = ({ categoriesReducer }) => {
+  return {
+    // isServiceProvider: usersReducer.isServiceProvider,
+    serviceProviders: categoriesReducer.serviceProviders
+  }
+}
 
-// const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
 
-//   return {
-//     // import action from //???? action file
-//     // addPost: (id) => { dispatch(addPost(id)) }
+  return {
+    fetchServiceProviders: () => { dispatch(fetchServiceProviders()) }
 
-//   }
-// }
-// export default connect(mapStateToProps)(CustomerMain)
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(CustomerServiceMainPage)

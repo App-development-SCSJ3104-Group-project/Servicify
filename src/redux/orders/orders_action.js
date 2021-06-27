@@ -15,7 +15,7 @@ export const loadData = (userInfo) => {
 
         axios.post("https://service-backend-web.herokuapp.com/orders", { customerId: userInfo._id }).then(res => {
 
-            const data = res.data;
+            const data = res.data.data;
             // console.log("orders data");
             // console.log(data);
 

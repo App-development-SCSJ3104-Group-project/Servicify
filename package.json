@@ -10,6 +10,7 @@
         "axios": "^0.21.1",
         "bootstrap": "^5.0.0",
         "firebase": "^8.2.0",
+        "history": "^5.0.0",
         "moment": "^2.29.1",
         "node-sass": "^5.0.0",
         "react": "^17.0.2",

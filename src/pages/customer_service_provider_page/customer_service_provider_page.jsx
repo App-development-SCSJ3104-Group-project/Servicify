@@ -16,8 +16,6 @@ import profileIcon from "../../icons/Ellipse (3).svg";
 import Star from "../../icons/star.svg"
 import Zoom from 'react-reveal/Zoom'
 
-
-
 class CustomerServiceProviderPage extends Component {
 
     mockUsers = [
@@ -99,9 +97,9 @@ class CustomerServiceProviderPage extends Component {
 
                         <Zoom>
                             <div className="profile_image">
-                            <img src={image} alt="" />
-                            <h3>John Smith</h3>
-                        </div>
+                                <img src={image} alt="" />
+                                <h3>John Smith</h3>
+                            </div>
                         </Zoom>
 
                     </div>
@@ -110,30 +108,30 @@ class CustomerServiceProviderPage extends Component {
 
                         <Zoom right cascade>
                             <div className="top_content">
-                            <div className="">
-                                <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={icon_1} backgroundColor="#57C4E5" />
-                                <br />
-                                <h3>Johor Bahru</h3>
+                                <div className="">
+                                    <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={icon_1} backgroundColor="#57C4E5" />
+                                    <br />
+                                    <h3>Johor Bahru</h3>
+                                </div>
+                                <div className="">
+                                    <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={icon_4} backgroundColor="#57C4E5" />
+                                    <br />
+                                    <h3>4.5</h3>
+                                </div>
+                                <div className="">
+                                    <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={paymentIcon} backgroundColor="#57C4E5" />
+                                    <br />
+                                    <h3>10.00</h3>
+                                </div>
+                                <div className="">
+                                    <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={cashIcon} backgroundColor="#57C4E5" />
+                                    <br />
+                                    <h3>Cash</h3>
+                                </div>
                             </div>
-                            <div className="">
-                                <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={icon_4} backgroundColor="#57C4E5" />
-                                <br />
-                                <h3>4.5</h3>
-                            </div>
-                            <div className="">
-                                <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={paymentIcon} backgroundColor="#57C4E5" />
-                                <br />
-                                <h3>10.00</h3>
-                            </div>
-                            <div className="">
-                                <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={cashIcon} backgroundColor="#57C4E5" />
-                                <br />
-                                <h3>Cash</h3>
-                            </div>
-                        </div>
                         </Zoom>
 
-                            <div className="profile_body_content">
+                        <div className="profile_body_content">
                             <h2>Information</h2>
                             <br />
                             <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ad vero sequi impedit dolor. Excepturi, alias modi totam esse aut fuga repudiandae non officia libero. Dicta ullam beatae deleniti. Impedit, sequi repellendus magni ullam nam rem soluta dignissimos officia, nisi saepe similique! Perspiciatis provident illum necessitatibus non! Excepturi, reprehenderit ipsum. Praesentium quas provident culpa numquam, minus quia at dignissimos explicabo possimus, soluta optio accusamus omnis. Esse, recusandae nihil explicabo modi repellat voluptatibus illum suscipit consequuntur minus obcaecati ducimus necessitatibus deleniti doloribus quisquam porro id, dolor temporibus expedita nostrum! Nostrum, vel! Totam saepe rerum sit nihil aspernatur aliquam laborum maiores corporis!</h5>
@@ -142,31 +140,31 @@ class CustomerServiceProviderPage extends Component {
                         <Review />
                         <div className="feedback_card">
 
-                                <Zoom>
+                            <Zoom>
 
-                            {this.mockUsers.map(e => (
+                                {this.mockUsers.map(e => (
 
 
-                                     <Card image_src={profileIcon}>
-                                    <div className="header">
-                                        <div className="card_header">
-                                            <h5>{e.name}</h5>
-                                            <h5>{e.date}</h5>
+                                    <Card image_src={profileIcon}>
+                                        <div className="header">
+                                            <div className="card_header">
+                                                <h5>{e.name}</h5>
+                                                <h5>{e.date}</h5>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div className="card_body">
+                                        <div className="card_body">
 
-                                        <div className="feedback">{e.feedback}</div>
+                                            <div className="feedback">{e.feedback}</div>
 
-                                        <br />
-                                        <div className="card_feedback_rate">
-                                            {this.getRate(e.rate)}
+                                            <br />
+                                            <div className="card_feedback_rate">
+                                                {this.getRate(e.rate)}
+                                            </div>
                                         </div>
-                                    </div>
-                                </Card>
-                            ))}
-                               </Zoom>
+                                    </Card>
+                                ))}
+                            </Zoom>
 
                         </div>
 
@@ -179,20 +177,4 @@ class CustomerServiceProviderPage extends Component {
     }
 }
 
-export default CustomerServiceProviderPage;
-
-// const mapStateToProps = (state) => {
-//     return {
-//       name: state.main.posts
-//     }
-//   }
-  
-//   const mapDispatchToProps = (dispatch) => {
-  
-//     return {
-//       // import action from //???? action file
-//       // addPost: (id) => { dispatch(addPost(id)) }
-  
-//     }
-//   }
-//   export default connect(mapStateToProps)(CustomerMain)
+export default CustomerServiceProviderPage
