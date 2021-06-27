@@ -22,23 +22,3 @@ export const setLoading = (value) => ({
     type: CategoriesActionType.SET_LOADING,
     value
 })
-export const makeRequest = (data) => {
-    return (dispatch) => {
-
-        dispatch(setLoading(true))
-
-        const req = {
-            customerId: data.customerId,
-            serviceProviderId: data.serviceProviderId,
-            description: data.description,
-            fees: data.fees,
-            location: data.location
-        }
-        console.log(data);
-        axios.post("http://localhost:5000/requests/create", req).then(res => {
-            dispatch(setLoading(false))
-
-        })
-
-    }
-}

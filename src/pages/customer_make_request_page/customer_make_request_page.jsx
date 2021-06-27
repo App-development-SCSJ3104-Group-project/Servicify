@@ -5,7 +5,7 @@ import Zoom from 'react-reveal/Zoom'
 import { connect } from "react-redux";
 import "./customer_make_request_page.scss"
 import cancel from "../../icons/outline_add_white_24dp 1.svg"
-import { makeRequest } from "../../redux/categories/categories_action"
+import { makeRequest } from "../../redux/requests/requests_action"
 
 
 class CustomerMakeRequestScreen extends Component {
@@ -118,9 +118,9 @@ class CustomerMakeRequestScreen extends Component {
 }
 
 
-const mapStateToProps = ({ usersReducer, categoriesReducer }) => ({
+const mapStateToProps = ({ usersReducer, requestsReducer }) => ({
     userId: usersReducer.userInAuth[0]._id,
-    loading: categoriesReducer.loading
+    loading: requestsReducer.loading
 });
 
 const mapDispatchToProps = (dispatch) => {
