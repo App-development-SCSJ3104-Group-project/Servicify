@@ -17,6 +17,13 @@ const requestsReducer = (state = initState, action) => {
                     loading: action.value
                 }
             }
+        case RequestsActionType.GET_REQUESTS:
+            {
+                return {
+                    ...state,
+                    requests: action.value
+                }
+            }
     }
     return state;
 }

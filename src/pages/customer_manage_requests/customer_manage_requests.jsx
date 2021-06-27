@@ -1,11 +1,12 @@
 import React, { Component } from "react"
-import DashboardTopBar from "../../components/dashboard_top_bar/dashboard_top_bar"
 import ScreenTabs from "../../components/screen_tabs/screen_tabs"
 import "./customer_manage_requests.scss"
 import "../../components/screen_tabs/screen_tabs.scss"
 import Proposals from "./manage_proposals/manage_proposals"
 import Requests from "./manage_request/manage_request"
+import { connect } from "react-redux";
 import Template from "../../components/template/template"
+import { getRequest } from "../../redux/requests/requests_action"
 
 class CustomerManageRequests extends Component {
 
@@ -18,6 +19,10 @@ class CustomerManageRequests extends Component {
         { name: "requests", status: false },
     ]
 
+    componentDidMount() {
+        const { getRequest } = this.props
+        getRequest(this.props.userId)
+    }
     onclickFun = (event) => {
 
 
@@ -33,6 +38,8 @@ class CustomerManageRequests extends Component {
     }
 
     render() {
+
+        const { loading, requests } = this.props
         return (
             <Template route="requests">
 
@@ -42,7 +49,14 @@ class CustomerManageRequests extends Component {
                         <ScreenTabs tabs={this.tabs} callback={this.onclickFun} />
                     </div>
 
-                    {this.tabs[0].status ? <Requests /> : <Proposals />}
+                    {
+                        loading ?
+                            <div className="loading-div">
+                                <div className="loader">Loading...</div>
+                            </div>
+                            : this.tabs[0].status ? <Requests /> : <Proposals />
+                    }
+                    {console.log(requests)}
 
                 </div>
 
@@ -50,20 +64,20 @@ class CustomerManageRequests extends Component {
         )
     }
 }
-export default CustomerManageRequests
 
-// const mapStateToProps = (state) => {
-//     return {
-//       name: state.main.posts
-//     }
-//   }
+const mapStateToProps = ({ requestsReducer, usersReducer }) => {
+    return {
+        loading: requestsReducer.loading,
+        requests: requestsReducer.requests,
+        userId: usersReducer.userInAuth[0]._id
+    }
+}
 
-//   const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
 
-//     return {
-//       // import action from //???? action file
-//       // addPost: (id) => { dispatch(addPost(id)) }
+    return {
+        getRequest: (id) => { dispatch(getRequest(id)) }
 
-//     }
-//   }
-//   export default connect(mapStateToProps)(CustomerMain)
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(CustomerManageRequests)
