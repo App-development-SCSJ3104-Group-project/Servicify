@@ -3,7 +3,12 @@ import Nav from "./../../components/navbar/navbar";
 import "./service_provider_make_proposal.css";
 import PostCard from "./../../components/post_card/post_card";
 import { v4 as uuidv4 } from "uuid";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { createNewProposal } from "./../../redux/posts/posts_action";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 //
 const ProposalForm = (props) => {
   const postsList = JSON.parse(localStorage.getItem("posts"));
@@ -14,7 +19,10 @@ const ProposalForm = (props) => {
       <Nav isLogged={true} />
       <div className="posts-wrappper-background">
         <ProposalFormHeader></ProposalFormHeader>
-        <ManageProposalForm post={post}></ManageProposalForm>
+        <ManageProposalForm
+          post={post}
+          id={props.match.params._id}
+        ></ManageProposalForm>
       </div>
     </React.Fragment>
   );
@@ -41,7 +49,14 @@ const ManageProposalForm = (props) => {
   const [description, setDescription] = useState();
   const [serviceProviderId, setServiceProviderId] = useState("A18CS4042");
 
+  // state for error message either successful or unsuccessful
+  const [submissionStatus, setSubmissionStatus] = useState(false);
+
   const proposalInfo = {};
+
+  // dispacther
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   // submission
   const handleSubmit = (e) => {
@@ -58,9 +73,24 @@ const ManageProposalForm = (props) => {
       proposalInfo["diagnosisFee"] = diagnosisFee;
       proposalInfo["paymentMethod"] = paymentMethod;
       proposalInfo["description"] = description;
-      proposalInfo["steps"] = inputFields;
-      console.log(proposalInfo);
+      proposalInfo["steps"] = [];
+      for (let index = 0; index < inputFields.length; index++) {
+        proposalInfo["steps"].push(inputFields[index].stepDesc);
+      }
+      dispatch(createNewProposal(proposalInfo, props.id));
+      setSubmissionStatus(true);
+      showMessage();
+
+      // undo all states
+      setDiagnosisFee("");
+      setPaymentMethod("");
+      setDescription("");
     }
+  };
+
+  // toastify notification object
+  const showMessage = () => {
+    toast.success("Proposal has been sent to customer");
   };
 
   const handleAddFields = () => {
@@ -92,11 +122,17 @@ const ManageProposalForm = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      {submissionStatus ? (
+        <ToastContainer className="notification-container_proposal_form" />
+      ) : (
+        ""
+      )}
       <div className="proposal__form_body_section">
         <input
           type="text"
           name="serviceProviderId"
           value={serviceProviderId}
+          onChange={(event) => setServiceProviderId(event.target.value)}
           hidden
         />
         <input
@@ -104,6 +140,7 @@ const ManageProposalForm = (props) => {
           className="proposal__form_body_section-input_field-1"
           placeholder="Cost of diagnosis"
           name="fee"
+          value={diagnosisFee}
           autoComplete="off"
           onChange={(e) => setDiagnosisFee(e.target.value)}
         />
@@ -111,6 +148,7 @@ const ManageProposalForm = (props) => {
         <div className="select">
           <select
             className="proposal__form_body_section-input_field-copied"
+            value={paymentMethod}
             name="payment"
             onChange={(e) => setPaymentMethod(e.target.value)}
           >
@@ -122,8 +160,8 @@ const ManageProposalForm = (props) => {
         <textarea
           className="description_form"
           placeholder="Describe your proposal here"
+          value={description}
           name="description"
-          wrap="off"
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
 

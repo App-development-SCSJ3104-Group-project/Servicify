@@ -32,7 +32,7 @@ const CustomerPostScreen = () => {
       <div>
         <div className="posts-wrappper-background">
           <PostCardForm useState={useState}></PostCardForm>
-          {postsList.map((post) => (
+          {postsList?.map((post) => (
             <Zoom key={post._id}>
               <PostCard key={post._id} post={post} actions={true} />
             </Zoom>

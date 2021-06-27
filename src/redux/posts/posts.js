@@ -14,4 +14,13 @@ export const fetchPosts = () =>
   });
 
 export const createPost = (newPost) => axios.post(url, newPost);
-export const fetchPost = (_id) => axios.get(url + _id);
+export const createProposal = (proposalInfo, _id) =>
+  axios({
+    method: "POST", //you can set what request you want to be
+    url: url + "/" + _id,
+    data: proposalInfo,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+    },
+  });
