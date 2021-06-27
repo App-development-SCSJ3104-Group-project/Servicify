@@ -82,6 +82,7 @@
   display: flex;
   flex-direction: row;
   margin: 18px 0px 5px 20px;
+  text-decoration-line: none;
 }
 
 .stack__avatars img {
@@ -91,25 +92,22 @@
 .post__dropdown-options {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   position: absolute;
   top: 100px;
-  width: 224px;
+  width: 230px;
   transform: translate(-45%);
   background-color: #000000;
   color: white;
   border-radius: 5px;
-  padding: 10px;
+  padding: 2px;
   overflow: hidden;
   font-size: 14px;
 }
 
 .item__options__selected {
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   border-bottom: 1px solid white;
-  padding: 10px;
+  margin: 2px 0px 2px 20px;
+  width: 80%;
+  padding: 4px;
 }

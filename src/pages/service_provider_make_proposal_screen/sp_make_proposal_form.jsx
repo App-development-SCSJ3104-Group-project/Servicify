@@ -2,40 +2,30 @@ import React, { useState } from "react";
 import Nav from "./../../components/navbar/navbar";
 import "./service_provider_make_proposal.css";
 import PostCard from "./../../components/post_card/post_card";
-import ProposalCardButton from "./../customer_view_post_screen/compoents/button";
+import { v4 as uuidv4 } from "uuid";
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { createNewProposal } from "./../../redux/posts/posts_action";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const ProposalForm = () => {
+//
+const ProposalForm = (props) => {
+  const postsList = JSON.parse(localStorage.getItem("posts"));
+  const post = postsList.find((post) => post._id === props.match.params._id);
+
   return (
     <React.Fragment>
       <Nav isLogged={true} />
-
       <div className="posts-wrappper-background">
         <ProposalFormHeader></ProposalFormHeader>
-        <ManageProposalForm></ManageProposalForm>
-        <ProposalFormPostArea />
-        <div className="footer__area__proposal_form">
-          <div className="cancel__proposal_form">X</div>
-          <ProposalCardButton
-            onClick={false}
-            isOpened={false}
-            buttonName="Submit"
-          />
-        </div>
-        <span></span>
+        <ManageProposalForm
+          post={post}
+          id={props.match.params._id}
+        ></ManageProposalForm>
       </div>
     </React.Fragment>
   );
-};
-
-const post = {
-  id: 1,
-  timestamp: "30 minutes ago",
-  location: "Johor Bahru",
-  cancelationFee: "Free cancellation",
-  description:
-    "dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into",
-  tags: ["#Electrical", "#Job", "#Free", "#People"],
-  proposals: 6,
 };
 
 const ProposalFormHeader = () => {
@@ -48,127 +38,185 @@ const ProposalFormHeader = () => {
   );
 };
 
-const ManageProposalForm = () => {
-  const [fee, setFess] = useState("");
-  const [payment, setPayment] = useState("");
-  const [description, setDescription] = useState("");
-  const [stepsNo, setStepsNO] = useState();
-  const [stepsInputFieldsNo, setStepsInputFieldsNo] = useState([]);
+const ManageProposalForm = (props) => {
+  //
+  // to store all input fields
+  const [inputFields, setInputFields] = useState([
+    { id: uuidv4(), stepDesc: "" },
+  ]);
+  const [diagnosisFee, setDiagnosisFee] = useState("");
+  const [paymentMethod, setPaymentMethod] = useState();
+  const [description, setDescription] = useState();
+  const [serviceProviderId, setServiceProviderId] = useState("A18CS4042");
 
-  const handleChangeInput = (indexNo, event) => {
-    const newSteps = stepsInputFieldsNo.map((i, index) => {
-      if (indexNo === index) {
-        i[event.target.name] = event.target.value;
+  // state for error message either successful or unsuccessful
+  const [submissionStatus, setSubmissionStatus] = useState(false);
+
+  const proposalInfo = {};
+
+  // dispacther
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  // submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!parseInt(diagnosisFee)) {
+      alert("Enter cost of diagnosis");
+    } else if (paymentMethod === "" || paymentMethod == "payment") {
+      alert("Please select payement method");
+    } else if (description === "") {
+      alert("please Enter Description");
+    } else {
+      proposalInfo["serviceProviderId"] = serviceProviderId;
+      proposalInfo["diagnosisFee"] = diagnosisFee;
+      proposalInfo["paymentMethod"] = paymentMethod;
+      proposalInfo["description"] = description;
+      proposalInfo["steps"] = [];
+      for (let index = 0; index < inputFields.length; index++) {
+        proposalInfo["steps"].push(inputFields[index].stepDesc);
+      }
+      dispatch(createNewProposal(proposalInfo, props.id));
+      setSubmissionStatus(true);
+      showMessage();
+
+      // undo all states
+      setDiagnosisFee("");
+      setPaymentMethod("");
+      setDescription("");
+    }
+  };
+
+  // toastify notification object
+  const showMessage = () => {
+    toast.success("Proposal has been sent to customer");
+  };
+
+  const handleAddFields = () => {
+    setInputFields([...inputFields, { id: uuidv4(), stepDesc: "" }]);
+  };
+
+  //
+  const handleChangeInput = (id, e) => {
+    // important
+    const newInputFields = inputFields.map((i) => {
+      if (id === i.id) {
+        i[e.target.name] = e.target.value;
       }
       return i;
     });
-    setStepsInputFieldsNo(newSteps);
+
+    setInputFields(newInputFields); // array
   };
 
-  const handleStepsNumber = (event) => {
-    setStepsNO(event.target.value);
-
-    if (stepsNo === "0") {
-      setStepsInputFieldsNo([]);
-    }
-    if (stepsNo === "1") {
-      setStepsInputFieldsNo([{ stepDescription: "" }]);
-    }
-
-    if (stepsNo === "2") {
-      setStepsInputFieldsNo([{ stepDescription: "" }, { stepDescription: "" }]);
-    }
-
-    if (stepsNo === "3") {
-      setStepsInputFieldsNo([
-        { stepDescription: "" },
-        { stepDescription: "" },
-        { stepDescription: "" },
-      ]);
-    }
-
-    if (stepsNo === "4") {
-      setStepsInputFieldsNo([
-        { stepDescription: "" },
-        { stepDescription: "" },
-        { stepDescription: "" },
-        { stepDescription: "" },
-      ]);
-    }
+  //
+  const handleRemoveFields = (id) => {
+    const values = [...inputFields];
+    values.splice(
+      values.findIndex((value) => value.id === id),
+      1
+    );
+    setInputFields(values);
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
+      {submissionStatus ? (
+        <ToastContainer className="notification-container_proposal_form" />
+      ) : (
+        ""
+      )}
       <div className="proposal__form_body_section">
         <input
           type="text"
-          name="fee"
+          name="serviceProviderId"
+          value={serviceProviderId}
+          onChange={(event) => setServiceProviderId(event.target.value)}
+          hidden
+        />
+        <input
+          type="text"
           className="proposal__form_body_section-input_field-1"
-          onChange={(event) => setFess(event.target.value)}
-          placeholder="Fees"
+          placeholder="Cost of diagnosis"
+          name="fee"
+          value={diagnosisFee}
+          autoComplete="off"
+          onChange={(e) => setDiagnosisFee(e.target.value)}
         />
         <br />
         <div className="select">
           <select
-            className="proposal__form_body_section-input_field-1"
-            value="payment"
-            onChange={(event) => setPayment(event.target.value)}
+            className="proposal__form_body_section-input_field-copied"
+            value={paymentMethod}
+            name="payment"
+            onChange={(e) => setPaymentMethod(e.target.value)}
           >
-            <option value="payment">payment</option>
+            <option value="payment">Payment method</option>
             <option value="Cash">Cash</option>
-            <option value="onlineBanking">Online banking</option>
-            <option value="FBX">FBX service</option>
-            <option value="creditCard">credit card</option>
+            <option value="card">Credit/debit card</option>
           </select>
         </div>
-        <br />
         <textarea
-          className="proposal__form_body_section-input_field-2"
-          name="proposalDescription"
-          onChange={(event) => setDescription(event.target.value)}
-          cols="40"
-          rows="10"
+          className="description_form"
           placeholder="Describe your proposal here"
+          value={description}
+          name="description"
+          onChange={(e) => setDescription(e.target.value)}
         ></textarea>
-        <br />
-        <div className="select">
-          <select
-            className="proposal__form_body_section-input_field-5"
-            value="Steps"
-            onChange={(event) => handleStepsNumber(event)}
-          >
-            <option value="steps">Steps</option>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-        </div>
-        <br />
-        {stepsInputFieldsNo.map((i, index) => (
-          <div key={index}>
+
+        {/* dynmic  */}
+        {inputFields?.map((inputField, index) => (
+          <div className="proposal-steps-form" key={inputField.id}>
             <input
-              className="proposal__form_body_section-input_field-4"
-              name="stepDescription"
-              placeholder={`Describe your step ${index + 1} here`}
               type="text"
-              onChange={(event) => handleChangeInput(index, event)}
+              name="stepDesc"
+              value={inputField.stepDesc}
+              onChange={(event) => handleChangeInput(inputField.id, event)}
+              className="proposal-form-stepDesc"
+              placeholder={`*Optional Enter Step ${index + 1} Description`}
+              autoComplete="off"
             />
+            {index + 1 === 1 ? (
+              ""
+            ) : (
+              <div className="proposal-form-steps-action">
+                <p onClick={() => handleRemoveFields(inputField.id)}>-</p>
+              </div>
+            )}
+            <div className="proposal-form-steps-action">
+              <p onClick={index + 1 > 5 ? "" : handleAddFields}>+</p>
+            </div>
           </div>
         ))}
+        <br />
+      </div>
+      <ProposalFormPostArea post={props.post} />
+      <div className="proposal__footArea_submit_section">
+        <Link to="/customer_post_screen">
+          <input
+            className="proposal__footArea_submit_section-button"
+            type="submit"
+            value="Back"
+          />
+        </Link>
+        <input
+          className="proposal__footArea_submit_section-button"
+          type="submit"
+          value="Submit"
+        />
       </div>
     </form>
   );
 };
 
-const ProposalFormPostArea = () => {
+const ProposalFormPostArea = (props) => {
   return (
     <React.Fragment>
       <div className="proposal__form_post_Area">
         <header className="proposal__form_post_Area-title">Serverd Post</header>
       </div>
-      <PostCard post={post} />
+      <PostCard post={props.post} />
     </React.Fragment>
   );
 };

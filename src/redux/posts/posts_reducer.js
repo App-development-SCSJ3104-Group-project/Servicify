@@ -4,6 +4,8 @@ const postsReducer = (posts = [], action) => {
       return action.payload;
     case "CREATE_POST":
       return [...posts, action.payload];
+    case "CREATE_PROPOSAL":
+      return action.payload;
     default:
       return posts;
   }
