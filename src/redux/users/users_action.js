@@ -60,13 +60,13 @@ export const resetSignupState = () => ({
 })
 export const validateUser = (userInfo) => {
 
-        // console.log(userInfo)
-        return (dispatch) => {
-            const url = `https://service-backend-web.herokuapp.com/users/login/auth`;
-            dispatch(fetchUsers(url, "validateUser", userInfo))
-        }
+    // console.log(userInfo)
+    return (dispatch) => {
+        const url = `https://service-backend-web.herokuapp.com/users/login/auth`;
+        dispatch(fetchUsers(url, "validateUser", userInfo))
     }
-    // thunk middleware action
+}
+// thunk middleware action
 export const fetchUsers = (url, fetchingMode, userInfo) => {
 
     return (dispatch) => {
@@ -76,48 +76,48 @@ export const fetchUsers = (url, fetchingMode, userInfo) => {
         console.log(userInfo.email)
         axios.post(url, userInfo).then(res => {
 
-                const data = res.data;
+            const data = res.data;
 
-                console.log(data)
-                console.log(data.length)
+            console.log(data)
+            console.log(data.length)
 
-                switch (fetchingMode) {
+            switch (fetchingMode) {
 
-                    case "validateUser":
-                        if (data.length != 0) {
-                            dispatch(validatingUserSucess(data))
-                        } else {
-                            dispatch(validatingUserFailed())
-                        }
-                        break;
-                    case "checkDuplication":
-                        if (data.length == 0) {
-                            dispatch(emailAvailabilityFailure())
-
-                        } else {
-                            dispatch(emailAvailabilitySucess())
-                        }
-                        break;
-                    default:
-                        dispatch(fetchUserSucess(data))
-                        break;
-                }
-
-            }).catch(err => {
-                const errorMsg = err.message;
-
-                alert(errorMsg)
-                switch (fetchingMode) {
-
-                    case "validateUser":
+                case "validateUser":
+                    if (data.length != 0) {
+                        dispatch(validatingUserSucess(data))
+                    } else {
                         dispatch(validatingUserFailed())
-                        break;
+                    }
+                    break;
+                case "checkDuplication":
+                    if (data.length == 0) {
+                        dispatch(emailAvailabilityFailure())
 
-                    default:
-                        dispatch(fetchUsersFailed(errorMsg))
-                        break;
-                }
-            })
-            // 
+                    } else {
+                        dispatch(emailAvailabilitySucess())
+                    }
+                    break;
+                default:
+                    dispatch(fetchUserSucess(data))
+                    break;
+            }
+
+        }).catch(err => {
+            const errorMsg = err.message;
+
+            alert(errorMsg)
+            switch (fetchingMode) {
+
+                case "validateUser":
+                    dispatch(validatingUserFailed())
+                    break;
+
+                default:
+                    dispatch(fetchUsersFailed(errorMsg))
+                    break;
+            }
+        })
+        // 
     }
 }

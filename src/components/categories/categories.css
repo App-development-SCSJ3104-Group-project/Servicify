@@ -1,0 +1,50 @@
+.categories__section_container {
+  margin: 2rem 1rem 3rem 1rem;
+}
+.categories_section-headline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 0rem 5rem 0rem;
+  font-size: 24px;
+  line-height: 18px;
+  font-weight: 600;
+}
+
+.col-md-4 {
+  margin-left: 4rem;
+}
+
+.categories-section {
+  display: grid;
+  grid-template-columns: 250px 250px;
+  grid-template-rows: auto auto;
+  justify-items: center;
+  row-gap: 0.8rem;
+  margin-left: 6.5rem;
+}
+
+.starter-word {
+  font-size: 22px;
+  color: #ef3a01;
+}
+
+.btncategory {
+  font-size: 1.5rem;
+  border-radius: 20px;
+  height: 56px;
+  width: 235px;
+  background-color: #f2f6f9;
+  border: none;
+}
+
+.col-md-7 {
+  margin-left: 5rem;
+}
+
+.demo-image {
+  height: 380px;
+  width: 90%;
+  margin-left: 40px;
+  border-radius: 10px;
+}

@@ -27,7 +27,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .input {
@@ -37,7 +36,7 @@
     height: 4rem;
     border-radius: 1rem;
     padding: 0.5rem;
-    box-shadow: inset 0px 3px 0px #09080856;
+    box-shadow: inset 0 0.75rem 5px rgba(0, 0, 0, 0.2);
     font-size: 1.4rem;
     color: #000;
 }
@@ -62,4 +61,30 @@ input:focus {
 :-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     color: #000;
+}
+.loading-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.loader {
+    color: #fafafa;
+    font-size: 90px;
+    text-indent: -9999em;
+    overflow: hidden;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin: 72px auto;
+    position: absolute;
+    top: 35%;
+    left: 47.5%;
+    transform: translate(-50%, -50%);
+    -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+    animation: load6 1.7s infinite ease, round 1.7s infinite ease;
 }

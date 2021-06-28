@@ -9,13 +9,14 @@ import PostHeaderInfo from "./post_header-info";
 import TimeIcon from "./icons/time_icon";
 import LocationIcon from "./icons/location_icon";
 import OptionIcon from "./icons/option_icon";
-import ShareIcon from "./icons/share_icon";
+// import ShareIcon from "./icons/share_icon";
+import { Link } from "react-router-dom";
 const moment = require("moment");
 
 const PostCard = (props) => {
   return (
     <div className="post-wrapper">
-      <PostHeader {...props.post} />
+      <PostHeader {...props.post} actions={props.actions} />
       <PostContent {...props.post} />
       <PostFooter {...props.post} />
     </div>
@@ -23,11 +24,13 @@ const PostCard = (props) => {
 };
 
 const PostHeader = ({
+  actions,
   profileAvatar,
   timestamp,
   location,
   cancelationFee,
   postAuthor,
+  _id,
 }) => {
   const proposalShareOptioneMenu = [
     "Send default proposal",
@@ -40,11 +43,7 @@ const PostHeader = ({
     "Report this post",
   ];
 
-  const serviceProviderOptionMenu = [
-    "Remove post",
-    "Edit post",
-    "copy post link",
-  ];
+  const serviceProviderOptionMenu = ["Remove post", "Edit post"];
 
   return (
     <div className="post-header__content_styles">
@@ -67,49 +66,54 @@ const PostHeader = ({
         </div>
       </div>
       <div className="post__header_optionMenu">
-        {postAuthor ? (
-          <OptionButton icon={<ShareIcon />}>
+        {actions ? (
+          <OptionButton icon={<OptionIcon />}>
             <Dropdownmenu>
-              <ViewerOptions OptionMenu={proposalShareOptioneMenu} />
+              <Link
+                style={{ color: "white", textDecoration: "none" }}
+                to={"/service_provider_make_proposal_screen/" + _id}
+              >
+                <div className="item__options__selected">
+                  <p>Send proposal</p>
+                </div>
+              </Link>
+              <Link
+                style={{ color: "white", textDecoration: "none" }}
+                to={"/service_provider_make_proposal_screen/" + _id}
+              >
+                <div className="item__options__selected">
+                  <p>Update post</p>
+                </div>
+              </Link>
+              <Link
+                style={{ color: "white", textDecoration: "none" }}
+                to={"/service_provider_make_proposal_screen/" + _id}
+              >
+                <div className="item__options__selected">
+                  <p>Delete post</p>
+                </div>
+              </Link>
             </Dropdownmenu>
           </OptionButton>
         ) : (
           ""
         )}
-        <OptionButton icon={<OptionIcon />}>
+        {/* <OptionButton icon={<OptionIcon />}>
           <Dropdownmenu>
             {postAuthor ? (
               <ViewerOptions OptionMenu={serviceProviderOptionMenu} />
             ) : (
-              <ViewerOptions OptionMenu={customerOptionMenu} />
+              <ViewerOptions OptionMenu={serviceProviderOptionMenu} />
             )}
           </Dropdownmenu>
-        </OptionButton>
+        </OptionButton> */}
       </div>
     </div>
   );
 };
 
-const ViewerOptions = ({ OptionMenu }) => {
-  return (
-    <React.Fragment>
-      {OptionMenu.map((option) => (
-        <DropdownmenuItem key={option}>{option}</DropdownmenuItem>
-      ))}
-    </React.Fragment>
-  );
-};
-
 const Dropdownmenu = (props) => {
   return <div className="post__dropdown-options">{props.children}</div>;
-};
-
-const DropdownmenuItem = (props) => {
-  return (
-    <div className="item__options__selected">
-      <p>{props.children}</p>
-    </div>
-  );
 };
 
 export default PostCard;

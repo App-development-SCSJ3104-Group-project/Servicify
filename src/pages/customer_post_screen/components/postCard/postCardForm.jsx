@@ -1,7 +1,7 @@
 import React from "react";
 import Avatar from "../../../../components/search_result/inner_components/avatar";
 // import AddIcon from "../../svg/add_icon";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { createNewPost } from "../../../../redux/posts/posts_action";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,8 +14,6 @@ const PostCardForm = ({ useState }) => {
   const [cancelationFee, setCancelationFee] = useState();
   const [description, setDescription] = useState("");
   const [errorMessage, setErrorMessage] = useState(false);
-  // const userObject = useSelector((state) => state.usersReducer);
-  // console.log(userObject);
 
   // dispatch
   const dispatch = useDispatch();
@@ -70,7 +68,11 @@ const PostCardForm = ({ useState }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      {errorMessage ? <ToastContainer /> : ""}
+      {errorMessage ? (
+        <ToastContainer className="notification-container_proposal_form" />
+      ) : (
+        ""
+      )}
       <div className="post__form_card___wrapper">
         <div className="post__form_card___header-section">
           <div className="post_form_card__header__avatar_styles">
@@ -95,8 +97,8 @@ const PostCardForm = ({ useState }) => {
                   <option value="Johor">Johor Bahru</option>
                   <option value="Kuala">Kuala Lumper</option>
                   <option value="Penange">Penang</option>
-                  <option value="Penange">Selangor</option>
-                  <option value="Penange">Klentan</option>
+                  <option value="Selangor">Selangor</option>
+                  <option value="Klentan">Klentan</option>
                 </select>
                 <select
                   className="post__form_card_header_location-dropdown"

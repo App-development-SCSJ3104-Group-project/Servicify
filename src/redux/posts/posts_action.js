@@ -19,3 +19,14 @@ export const createNewPost = (post) => async (dispatch) => {
     console.log(error.message);
   }
 };
+
+export const createNewProposal = (proposalInfo, _id) => async (dispatch) => {
+  try {
+    console.log(_id);
+    const { data } = await api.createProposal(proposalInfo, _id);
+
+    dispatch({ type: "CREATE_PROPOSAL", payload: data });
+  } catch (error) {
+    console.log(error.message);
+  }
+};

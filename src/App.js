@@ -16,6 +16,7 @@ import LandingPage from "./pages/landing_page/landing_page";
 import CustomerViewPost from "./pages/customer_view_post_screen/customer_view_post_screen";
 import ProposalForm from "./pages/service_provider_make_proposal_screen/sp_make_proposal_form";
 import ServiceProivderPostScreen from "./pages/service_provider_post_screen/service_provider_post_screen";
+import CustomerManageRequests from "./pages/customer_manage_requests/customer_manage_requests";
 
 function App() {
   return (
@@ -42,6 +43,10 @@ function App() {
         component={CustomerMakeRequestPage}
       ></Route>
       <Route
+        path="/customer_manage_requests"
+        component={CustomerManageRequests}
+      ></Route>
+      <Route
         path="/customer_orders_screen"
         component={CustomerOrderScreen}
       ></Route>
@@ -49,13 +54,12 @@ function App() {
         path="/customer_post_screen"
         component={CustomerPostScreen}
       ></Route>
-      {/* this */}
       <Route
-        path="/customer_view_post_screen"
+        path="/customer_view_post_screen/:_id"
         component={CustomerViewPost}
       ></Route>
       <Route
-        path="/service_provider_make_proposal_screen"
+        path="/service_provider_make_proposal_screen/:_id"
         component={ProposalForm}
       ></Route>
       <Route
