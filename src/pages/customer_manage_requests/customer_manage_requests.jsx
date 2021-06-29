@@ -56,7 +56,7 @@ class CustomerManageRequests extends Component {
                             </div>
                             : this.tabs[0].status ? <Requests /> : <Proposals />
                     }
-                    {console.log(requests)}
+                    
 
                 </div>
 

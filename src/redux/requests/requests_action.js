@@ -31,12 +31,10 @@ export const setRequest = (value) => ({
 
 export const getRequest = (id) => {
     return (dispatch) => {
-        console.log(id);
         dispatch(setLoading(true))
 
         axios.get("http://localhost:5000/requests/" + id, { isServiceProvider: false }).then(res => {
 
-            console.log(res.data)
             dispatch(setLoading(false))
             dispatch(setRequest(res.data))
         })

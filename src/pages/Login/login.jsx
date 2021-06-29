@@ -56,13 +56,6 @@ const LoginFrom = ({
       customLabel: "Password*",
       className: "password form__right-side__innerForm__input-group",
     },
-    {
-      type: "checkbox",
-      placeHolder: null,
-      displayType: "inline-block",
-      customLabel: "I agree to terms & conditions",
-      className: "checkbox form__right-side__innerForm__input-group",
-    },
   ];
   const formButtons = [
     {

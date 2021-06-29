@@ -51,7 +51,6 @@ class DashboardManageOrders extends Component {
             event.target.parentElement.classList.add("active_card")
 
         }
-        console.log(this.orderStatus)
         this.setState({})
     }
     render() {

@@ -25,7 +25,6 @@ const CustomerPostScreen = () => {
   // const user = useSelector((state) => state.usersReducer);
 
   // const user = JSON.parse(localStorage.getItem("usersReducer"));
-  // console.log(user);
 
   return (
     <Template route="posts">
