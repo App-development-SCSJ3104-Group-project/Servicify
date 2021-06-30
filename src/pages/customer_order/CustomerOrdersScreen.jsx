@@ -133,12 +133,12 @@ class CustomerOrdersScreen extends React.Component {
 
     //returning the first order within the ongoing orders
     const currentOrder = this.props.ordersList.filter((order) => order.ongoing == true)[0];
-    
+
     //deciding on tabs content, if orders list , orderslist will get populated
     if (this.state.activeTab != "OrdersList") {
 
       if (currentOrder == null || currentOrder == undefined || currentOrder == []) {
-        
+
         return <div className="orders-list-inner-section__content-container__status__inner  animate__animated animate__zoomInDown">
 
           <img src={Diagnosing} alt="" className="orders-list-inner-section__content-container__status__img " />
@@ -152,37 +152,35 @@ class CustomerOrdersScreen extends React.Component {
       } else {
         return (
 
-        <div className="orders-list-inner-section__content-container__status__inner  animate__animated animate__zoomInDown">
+          <div className="orders-list-inner-section__content-container__status__inner  animate__animated animate__zoomInDown">
 
-          <img src={Diagnosing} alt="" className="orders-list-inner-section__content-container__status__img " />
+            <img src={Diagnosing} alt="" className="orders-list-inner-section__content-container__status__img " />
 
-          <div className="orders-list-inner-section__content-container__status__inner__diagnosis-info ">
-            <div>Diagnosing the problem</div>
-            <div>#0156FD55DFF55</div>
+            <div className="orders-list-inner-section__content-container__status__inner__diagnosis-info ">
+              <div>Diagnosing the problem</div>
+              <div>#0156FD55DFF55</div>
+            </div>
+            <Order {...currentOrder} orderType="order-status"></Order>
           </div>
-          <Order {...currentOrder} orderType="order-status"></Order>
-        </div>
-      )
+        )
 
       }
-      
+
     }
   }
   componentDidMount() {
     const { loadData } = this.props;
-    
-    if (this.props.userInAuth != undefined) {
-      loadData(this.props.userInAuth[0])
-    }
-    
+
+    loadData(localStorage.getItem("user"))
+
   }
   render() {
 
-  
-    const { innerTabs, activeTab} = this.state;
+
+    const { innerTabs, activeTab } = this.state;
     const { handleTabChanges } = this;
-     
-   
+
+
 
     return (
       <Template route="orders">
@@ -219,9 +217,9 @@ class CustomerOrdersScreen extends React.Component {
 
                       <div className="orders-list-inner-section__content-container__orders__animation-container animate__animated animate__zoomIn">
                         {
-                          this.props.ordersList!=undefined&&this.props.ordersList.length!=0?this.props.ordersList.map((order, index) => {
-                          return <Order {...order} id={index} className="" giveFeedBackOnClick={this.openPopUp } cancelOnClick={ this.openPopUp}></Order>
-                        }):<div className="orders-list-inner-section__content-container__orders__no-orders">No Orders History</div>
+                          this.props.ordersList != undefined && this.props.ordersList.length != 0 ? this.props.ordersList.map((order, index) => {
+                            return <Order {...order} id={index} className="" giveFeedBackOnClick={this.openPopUp} cancelOnClick={this.openPopUp}></Order>
+                          }) : <div className="orders-list-inner-section__content-container__orders__no-orders">No Orders History</div>
                         }
                       </div>
                       : null
@@ -247,10 +245,10 @@ class CustomerOrdersScreen extends React.Component {
 }
 
 
-const mapStateToProps = ({ ordersReducer,usersReducer }) => {
+const mapStateToProps = ({ ordersReducer, usersReducer }) => {
   return {
     ordersList: ordersReducer.ordersList,
-    userInAuth:usersReducer.userInAuth
+    userInAuth: usersReducer.userInAuth
   }
 }
 

@@ -9,11 +9,11 @@ export const storeData = (data) => ({
 
 })
 
-export const loadData = (userInfo) => {
+export const loadData = (id) => {
 
     return (dispatch) => {
 
-        axios.post("https://service-backend-web.herokuapp.com/orders", { customerId: userInfo._id }).then(res => {
+        axios.post("http://localhost:5000/orders/" + id, { isServiceProvider: false }).then(res => {
 
             const data = res.data.data;
 
