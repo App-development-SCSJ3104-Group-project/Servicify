@@ -13,7 +13,7 @@ export const loadData = (id) => {
 
     return (dispatch) => {
 
-        axios.post("http://localhost:5000/orders/" + id, { isServiceProvider: false }).then(res => {
+        axios.post("https://service-backend-web.herokuapp.com/orders/" + id, { isServiceProvider: false }).then(res => {
 
             const data = res.data.data;
 

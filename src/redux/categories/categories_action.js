@@ -10,7 +10,7 @@ export const fetchServiceProviders = () => {
     return (dispatch) => {
 
         dispatch(setLoading(true))
-        axios.get("http://localhost:5000/users/categories").then(res => {
+        axios.get("https://service-backend-web.herokuapp.com/users/categories").then(res => {
 
             const data = res.data
 

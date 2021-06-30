@@ -13,7 +13,7 @@ export const makeRequest = (data) => {
             location: data.location
         }
 
-        axios.post("http://localhost:5000/requests/create", req).then(res => {
+        axios.post("https://service-backend-web.herokuapp.com/requests/create", req).then(res => {
             dispatch(setLoading(false))
 
         })
@@ -34,7 +34,7 @@ export const getRequest = (id) => {
     return (dispatch) => {
         dispatch(setLoading(true))
 
-        axios.get("http://localhost:5000/requests/" + id, { isServiceProvider: false }).then(res => {
+        axios.get("https://service-backend-web.herokuapp.com/requests/" + id, { isServiceProvider: false }).then(res => {
 
             dispatch(setLoading(false))
             dispatch(setRequest(res.data))
@@ -46,7 +46,7 @@ export const cancelRequest = (id, customerId) => {
     return (dispatch) => {
         dispatch(setLoading(true))
 
-        axios.patch("http://localhost:5000/requests/" + id, { status: "Canceled" }).then(res => {
+        axios.patch("https://service-backend-web.herokuapp.com/requests/" + id, { status: "Canceled" }).then(res => {
 
             getRequest(customerId)
             dispatch(setLoading(false))
