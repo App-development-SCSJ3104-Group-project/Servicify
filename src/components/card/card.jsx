@@ -7,7 +7,7 @@ const card = (props) => {
     
     const style = {
         width: ` 70rem`,
-        height: `60rem`,
+        // height: `60rem`,
         backgroundColor:mainColor
         
     }
@@ -20,7 +20,7 @@ const card = (props) => {
         width: props.imgWsize
     }
     
-    if (scaleUp) { imgStyle.left = "-10rem" }
+    // if (scaleUp) { imgStyle.left = "-10rem" }
     
     return (
         <div className="profile_card" style={scaleUp==true?style:mainColor?{backgroundColor:mainColor}:null} onClick={props.callback} data-name={props.data}>

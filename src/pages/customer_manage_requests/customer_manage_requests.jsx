@@ -54,9 +54,9 @@ class CustomerManageRequests extends Component {
                             <div className="loading-div">
                                 <div className="loader">Loading...</div>
                             </div>
-                            : this.tabs[0].status ? <Requests /> : <Proposals />
+                            : this.tabs[0].status ? <Requests /> : <Proposals requests={requests} />
                     }
-                    
+
 
                 </div>
 

@@ -9,6 +9,7 @@ export const makeRequest = (data) => {
             serviceProviderId: data.serviceProviderId,
             description: data.description,
             fees: data.fees,
+            payment: data.payment,
             location: data.location
         }
 
