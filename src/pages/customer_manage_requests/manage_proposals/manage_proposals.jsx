@@ -14,19 +14,6 @@ class ManageProposals extends Component {
         this.props = props
     }
 
-    data = [
-        { name: "husam Mousa", status: false },
-        { name: "Ahmad Mousa", status: false },
-        { name: "husam Mousa", status: false },
-        { name: "Ahmad Mousa", status: false },
-        { name: "husam Mousa", status: false },
-        { name: "Ahmad Mousa", status: false },
-        { name: "husam Mousa", status: false },
-        { name: "Ahmad Mousa", status: false },
-        { name: "husam Mousa", status: false },
-        { name: "Ahmad Mousa", status: false },
-    ]
-
     onClickCard = (event) => {
 
         const target = event.target.closest(".profile_card").lastChild
