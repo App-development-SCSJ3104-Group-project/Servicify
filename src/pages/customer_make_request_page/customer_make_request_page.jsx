@@ -31,7 +31,7 @@ class CustomerMakeRequestScreen extends Component {
 
         const response = makeRequest({
             location: this.state.location, payment: this.state.payment, fees: this.state.fees,
-            description: this.state.description, customerId: this.props.userId, serviceProviderId: new URLSearchParams(this.props.location.search).get("id")
+            description: this.state.description, customerId: localStorage.getItem("user"), serviceProviderId: new URLSearchParams(this.props.location.search).get("id")
         })
 
         setTimeout(() => {
@@ -126,7 +126,7 @@ class CustomerMakeRequestScreen extends Component {
 
 
 const mapStateToProps = ({ usersReducer, requestsReducer }) => ({
-    userId: usersReducer.userInAuth[0]._id,
+    // userId: usersReducer.userInAuth[0]._id,
     loading: requestsReducer.loading
 });
 

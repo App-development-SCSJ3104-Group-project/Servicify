@@ -42,3 +42,15 @@ export const getRequest = (id) => {
 
     }
 }
+export const cancelRequest = (id, customerId) => {
+    return (dispatch) => {
+        dispatch(setLoading(true))
+
+        axios.patch("http://localhost:5000/requests/" + id, { status: "Canceled" }).then(res => {
+
+            getRequest(customerId)
+            dispatch(setLoading(false))
+        })
+
+    }
+}

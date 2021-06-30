@@ -19,8 +19,9 @@ class ManageProposals extends Component {
         const target = event.target.closest(".profile_card").lastChild
         target.classList.toggle("show_card")
     }
+
     render() {
-        const { requests } = this.props
+        const { requests, cancelRequest } = this.props
         return (
             <DashboardCard label={"Orders history"} >
 
@@ -42,10 +43,14 @@ class ManageProposals extends Component {
                                             </div>
                                             <h3>{prop.time} / {prop.location} / {prop.payment}</h3>
                                         </div>
-                                        <div className="right_float_button">
-                                            <IconButton innerText={"Cancel"} heightDiv="4.0rem" widthDiv="15.0rem"
-                                                borderRadius="5rem" backgroundColor="#1E2833" src={null} />
-                                        </div>
+                                        {prop.status === "Pending" ?
+                                            <div className="right_float_button">
+                                                <div onClick={() => { cancelRequest(prop._id, prop.customerId); window.location.reload() }}>
+                                                    <IconButton innerText={"Cancel"} heightDiv="4.0rem" widthDiv="15.0rem"
+                                                        borderRadius="5rem" backgroundColor="#1E2833" src={null} />
+                                                </div>
+                                            </div> : null
+                                        }
                                         <div className="proposal_status" style={{ cursor: `pointer` }}>
                                             <h3>{prop.status}</h3>
                                         </div>
