@@ -9,11 +9,14 @@ export const loadCategories = (data) => {
 export const fetchServiceProviders = () => {
     return (dispatch) => {
 
+        dispatch(setLoading(true))
         axios.get("http://localhost:5000/users/categories").then(res => {
 
             const data = res.data
 
-            return dispatch(loadCategories(data))
+            dispatch(loadCategories(data))
+
+            dispatch(setLoading(false))
 
         })
     }

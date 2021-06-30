@@ -39,7 +39,7 @@ class ProfileCard extends Component {
 
                             <div className="header">
                                 <div className="card_header">
-                                    <h5>{data.firstName}</h5>
+                                    <h5>{data.firstName + " " + data.lastName}</h5>
                                     <div className="rate">
 
                                         {
