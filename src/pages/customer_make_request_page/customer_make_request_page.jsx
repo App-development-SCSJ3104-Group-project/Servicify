@@ -22,7 +22,6 @@ class CustomerMakeRequestScreen extends Component {
     }
     componentDidMount() {
         const data = JSON.parse(localStorage.getItem("user"))
-        console.log(data);
     }
     onClick = () => {
         if (this.state.location === "" ||
@@ -35,13 +34,15 @@ class CustomerMakeRequestScreen extends Component {
 
         const data = JSON.parse(localStorage.getItem("user"))
 
-        const response = makeRequest({
+        makeRequest({
             location: this.state.location, payment: this.state.payment, fees: this.state.fees,
             description: this.state.description, customerId: data._id, serviceProviderId: new URLSearchParams(this.props.location.search).get("id")
         })
 
-        if (this.props.loading === false)
+        setTimeout(() => {
             this.props.history.push('/customer_manage_requests');
+        }, 500);
+
 
     }
 
@@ -130,7 +131,6 @@ class CustomerMakeRequestScreen extends Component {
 
 
 const mapStateToProps = ({ usersReducer, requestsReducer }) => ({
-    // userId: usersReducer.userInAuth[0]._id,
     loading: requestsReducer.loading
 });
 

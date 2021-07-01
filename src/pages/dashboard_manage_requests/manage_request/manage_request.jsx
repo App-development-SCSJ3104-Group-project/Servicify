@@ -14,19 +14,6 @@ class ManageRequests extends Component {
         this.props = props
     }
 
-    data = [
-        { name: "husam Mousa", status: false },
-        { name: "Ahmad Mousa", status: false },
-        { name: "husam Mousa", status: false },
-        { name: "Ahmad Mousa", status: false },
-        { name: "husam Mousa", status: false },
-        { name: "Ahmad Mousa", status: false },
-        { name: "husam Mousa", status: false },
-        { name: "Ahmad Mousa", status: false },
-        { name: "husam Mousa", status: false },
-        { name: "Ahmad Mousa", status: false },
-    ]
-
     onClickCard = (event) => {
 
         const target = event.target.closest(".profile_card").lastChild
@@ -63,10 +50,20 @@ class ManageRequests extends Component {
                                                 <h3>{prop.time} / {prop.location} / {prop.payment}</h3>
                                             </div>
                                             <div className="right_float_button">
-                                                <IconButton innerText={"Accept"} heightDiv="4.0rem" widthDiv="15.0rem"
-                                                    borderRadius="5rem" backgroundColor="#1E2833" src={null} />
-                                                <IconButton innerText={"Reject"} heightDiv="4.0rem" widthDiv="15.0rem"
-                                                    borderRadius="5rem" backgroundColor="#1E2833" src={null} />
+
+                                                {
+                                                    prop.status === "Pending" ?
+                                                        [<div onClick={() => acceptRequest(prop._id, JSON.parse(localStorage.getItem("user"))._id, "Accepted")}>
+                                                            <IconButton innerText={"Accept"} heightDiv="4.0rem" widthDiv="15.0rem"
+                                                                borderRadius="5rem" backgroundColor="#1E2833" src={null} />
+                                                        </div>,
+                                                        <div onClick={() => acceptRequest(prop._id, JSON.parse(localStorage.getItem("user"))._id, "Rejected")}>
+                                                            <IconButton innerText={"Reject"} heightDiv="4.0rem" widthDiv="15.0rem"
+                                                                borderRadius="5rem" backgroundColor="#1E2833" src={null} />
+                                                        </div>] : <div className="proposal_status" style={{ cursor: `pointer` }}>
+                                                            <h3>{prop.status}</h3>
+                                                        </div>
+                                                }
                                             </div>
                                         </div>
                                         <div className="toggle_card">

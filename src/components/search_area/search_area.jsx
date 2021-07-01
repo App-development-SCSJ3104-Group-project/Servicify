@@ -45,14 +45,14 @@ class SearchArea extends Component {
       lastTab: true,
       needsAuth: true,
     },
-    localStorage.getItem("isServiceProvider") === true
+    localStorage.getItem("isServiceProvider") === "true"
       ? {
-          name: "Dashboard",
-          isActive: false,
-          linkTo: "/dashboard",
-          lastTab: true,
-          needsAuth: true,
-        }
+        name: "Dashboard",
+        isActive: false,
+        linkTo: "/dashboard",
+        lastTab: true,
+        needsAuth: true,
+      }
       : {},
   ];
   render() {
@@ -89,13 +89,13 @@ class SearchArea extends Component {
         <div className="navbar-search ">
           {tabsToBeRendered
             ? tabsToBeRendered.map((tab) => (
-                <NavigationTab
-                  currentTab={tab.isActive}
-                  lastTab={tab.lastTab}
-                  tabName={tab.name}
-                  linkTo={tab.linkTo}
-                />
-              ))
+              <NavigationTab
+                currentTab={tab.isActive}
+                lastTab={tab.lastTab}
+                tabName={tab.name}
+                linkTo={tab.linkTo}
+              />
+            ))
             : null}
         </div>
       </div>

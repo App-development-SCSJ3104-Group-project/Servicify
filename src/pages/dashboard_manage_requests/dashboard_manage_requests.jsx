@@ -68,7 +68,7 @@ const mapDispatchToProps = (dispatch) => {
 
     return {
         getServiceProviderRequest: (id) => { dispatch(getServiceProviderRequest(id)) },
-        acceptRequest: (id, customerId) => { dispatch(acceptRequest(id, customerId)) }
+        acceptRequest: (id, customerId, status) => { dispatch(acceptRequest(id, customerId, status)) }
 
     }
 }

@@ -69,11 +69,11 @@ export const cancelRequest = (id, customerId) => {
 
     }
 }
-export const acceptRequest = (id, customerId) => {
+export const acceptRequest = (id, customerId, status) => {
     return (dispatch) => {
         dispatch(setLoading(true))
 
-        axios.patch("https://service-backend-web.herokuapp.com/requests/" + id, { status: "Accepted" }).then(res => {
+        axios.patch("https://service-backend-web.herokuapp.com/requests/" + id, { status: status }).then(res => {
 
             getServiceProviderRequest(customerId)
             dispatch(setLoading(false))
