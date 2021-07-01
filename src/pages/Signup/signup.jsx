@@ -59,7 +59,7 @@ const SignUpFrom = ({ checkEmailAvailability, duplicateUserEmail, users, loading
             placeHolder: null,
             displayType: "inline-block",
             customLabel: "Is service provider",
-            className: "checkbox form__right-side__innerForm__input-group"
+            className: "isServiceProvider form__right-side__innerForm__input-group"
         }
     ]
     const formButtons = [

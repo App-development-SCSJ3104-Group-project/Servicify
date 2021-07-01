@@ -14,7 +14,7 @@
     flex-direction: column;
     z-index: 3;
     align-items: flex-start;
-    color: red;
+    color: white;
 }
 
 .card_description {
@@ -22,15 +22,18 @@
     padding-left: 1rem;
     padding-right: 1rem;
     text-align: start;
-    color: black;
+    color: white;
+    margin-top: 1rem;
     margin-bottom: 5rem;
+    min-height: 10rem;
+    max-height: 15rem;
 }
 
 .action_buttons {
     position: absolute;
-    bottom: 0;
+    bottom: 1.5rem;
+    right: 1rem;
     padding: 0.5rem;
-    right: 0;
     display: flex;
     width: 45%;
     justify-content: space-around;
