@@ -32,7 +32,6 @@ class SearchArea extends Component {
       needsAuth: true,
     },
     { name: "favorites", isActive: false, needsAuth: true },
-<<<<<<< HEAD
     {
       name: "requests",
       isActive: false,
@@ -55,11 +54,6 @@ class SearchArea extends Component {
           needsAuth: true,
         }
       : {},
-=======
-    { name: "requests", isActive: false, linkTo: "/customer_manage_requests", needsAuth: true },
-    { name: "profile", isActive: false, linkTo: "/dashboard", lastTab: true, needsAuth: true },
-    localStorage.getItem("isServiceProvider") === true ? { name: "Dashboard", isActive: false, linkTo: "/dashboard", lastTab: true, needsAuth: true } : {}
->>>>>>> 74688af515dea16735bc16373d845978307e912c
   ];
   render() {
     const { popUpToggle } = this.state;
