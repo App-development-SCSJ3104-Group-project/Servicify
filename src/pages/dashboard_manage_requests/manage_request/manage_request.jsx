@@ -32,47 +32,65 @@ class ManageRequests extends Component {
         const target = event.target.closest(".profile_card").lastChild
         target.classList.toggle("show_card")
     }
+
     render() {
 
+        const { requests, acceptRequest, loading } = this.props
         return (
             <DashboardCard label={"Orders history"} >
 
                 <div className="list_of_cards">
 
                     {
-                        this.data.map(prop => (
-                            [
-                                <Card imgHeight="15.0rem" scaleUp={true} imgWidth="15.0rem" width="50%" image_src={profileIcon} imgHsize="8rem" imgWsize="8rem" data={prop.name} callback={this.onClickCard}>
+                        loading ?
+                            <div className="loading-div">
+                                <div className="loader">Loading...</div>
+                            </div>
+                            :
+                            requests.map(prop => (
+                                [
+                                    <Card imgHeight="15.0rem" scaleUp={true} imgWidth="15.0rem" width="50%" image_src={profileIcon} imgHsize="8rem" imgWsize="8rem" data={prop.name} callback={this.onClickCard}>
 
-                                    <div className="order_header_card">
-                                        <div className="order_header_card_left">
-                                            <div className="part_one">
-                                                <h3>{prop.name}</h3>
-                                                <div className="rate_div">
-                                                    <h3>4.5</h3>
-                                                    <img src={star} alt="" />
+                                        <div className="order_header_card">
+                                            <div className="order_header_card_left">
+                                                <div className="part_one">
+                                                    <h3>{prop.serviceProvider.firstName + " " + prop.serviceProvider.lastName}</h3>
+                                                    <div className="rate_div">
+                                                        <h3>4.5</h3>
+                                                        <img src={star} alt="" />
+                                                    </div>
                                                 </div>
+                                                <h3>{prop.time} / {prop.location} / {prop.payment}</h3>
                                             </div>
-                                            <h3>27 minutes ago / Johor Bahru / Cash</h3>
+                                            <div className="right_float_button">
+                                                <IconButton innerText={"Accept"} heightDiv="4.0rem" widthDiv="15.0rem"
+                                                    borderRadius="5rem" backgroundColor="#1E2833" src={null} />
+                                                <IconButton innerText={"Reject"} heightDiv="4.0rem" widthDiv="15.0rem"
+                                                    borderRadius="5rem" backgroundColor="#1E2833" src={null} />
+                                            </div>
                                         </div>
+<<<<<<< HEAD
                                         <div className="right_float_button">
                                             <IconButton innerText={"Accept"} heightDiv="3.5rem" widthDiv="15.0rem"
                                                 borderRadius="5rem" backgroundColor="rgb(231, 111, 81)" src={null} />
                                             <IconButton innerText={"Reject"} heightDiv="3.5rem" widthDiv="15.0rem"
                                                 borderRadius="5rem" backgroundColor="rgb(231, 111, 81)" src={null} />
+=======
+                                        <div className="toggle_card">
+                                            <br />
+                                            <h3>City: {prop.location} </h3>
+                                            <h3>Diagnosing fees: {prop.fees}</h3>
+                                            <h3>Payment: {prop.payment}</h3>
+                                            <h3>Description:{prop.description}</h3>
+                                            <h3>Provision date:{prop.provisionDate}</h3>
+                                            <h3>Time:{prop.time}</h3>
+                                            <h3>Feedback: Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse mollitia officiis ipsum. Praesentium, consequuntur. Mollitia aspernatur quibusdam cupiditate laboriosam quis?</h3>
+                                            <h3>Rate: 3</h3>
+>>>>>>> abd98cd666eaade41abd3ae9a723c22183680fef
                                         </div>
-                                    </div>
-                                    <div className="toggle_card">
-                                        <h3>Type: Mechanical / Name: Motors / Time: 12:00 - 15:00</h3>
-                                        <h3>City: Makkah / Day: Sunday / Date: 15/12/1999</h3>
-                                        <h3>Diagnosing fees: 15.00 $ / Total fees: 50.00 $</h3>
-                                        <h3>Payment: Cash</h3>
-                                        <h3>Feedback: Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse mollitia officiis ipsum. Praesentium, consequuntur. Mollitia aspernatur quibusdam cupiditate laboriosam quis?</h3>
-                                        <h3>Rate: 3</h3>
-                                    </div>
-                                </Card>,
-                                <br />
-                            ]))
+                                    </Card>,
+                                    <br />
+                                ]))
                     }
                 </div>
 

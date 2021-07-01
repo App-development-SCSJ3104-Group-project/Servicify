@@ -20,10 +20,10 @@ class CustomerManageRequests extends Component {
     ]
 
     componentDidMount() {
-        console.log(localStorage.getItem('user'));
         const { getRequest } = this.props
-        // getRequest(this.props.userId)
-        getRequest(localStorage.getItem('user'))
+        const data = JSON.parse(localStorage.getItem("user"))
+
+        getRequest(data._id)
     }
     onclickFun = (event) => {
 

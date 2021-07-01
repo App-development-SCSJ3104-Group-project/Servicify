@@ -21,8 +21,8 @@ const CustomerPostScreen = () => {
   localStorage.setItem("posts", JSON.stringify(postsList));
 
   // get User from local storage
-  // const user = JSON.parse(localStorage.getItem("user"));
-  // console.log(user);
+  // const user = localStorage.getItem("user");
+  //
 
   return (
     <Template route="posts">

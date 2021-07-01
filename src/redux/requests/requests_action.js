@@ -34,8 +34,23 @@ export const getRequest = (id) => {
     return (dispatch) => {
         dispatch(setLoading(true))
 
-        axios.get("https://service-backend-web.herokuapp.com/requests/" + id, { isServiceProvider: false }).then(res => {
+        axios.get("https://service-backend-web.herokuapp.com/requests/?id=" + id + "&type=false").then(res => {
+            // axios.get("http://localhost:5000/requests/?id=" + id + "&type=false").then(res => {
 
+            dispatch(setLoading(false))
+            dispatch(setRequest(res.data))
+        })
+
+    }
+}
+export const getServiceProviderRequest = (id) => {
+    return (dispatch) => {
+        dispatch(setLoading(true))
+
+        axios.get("https://service-backend-web.herokuapp.com/requests/?id=" + id + "&type=true").then(res => {
+            // axios.get("http://localhost:5000/requests/?id=" + id + "&type=true").then(res => {
+
+            // console.log(res.data);
             dispatch(setLoading(false))
             dispatch(setRequest(res.data))
         })
@@ -49,6 +64,18 @@ export const cancelRequest = (id, customerId) => {
         axios.patch("https://service-backend-web.herokuapp.com/requests/" + id, { status: "Canceled" }).then(res => {
 
             getRequest(customerId)
+            dispatch(setLoading(false))
+        })
+
+    }
+}
+export const acceptRequest = (id, customerId) => {
+    return (dispatch) => {
+        dispatch(setLoading(true))
+
+        axios.patch("https://service-backend-web.herokuapp.com/requests/" + id, { status: "Accepted" }).then(res => {
+
+            getServiceProviderRequest(customerId)
             dispatch(setLoading(false))
         })
 
