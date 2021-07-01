@@ -6,7 +6,6 @@ export const getPosts = () => async (dispatch) => {
 
     dispatch({ type: "FETCH_ALL_POSTS", payload: data });
   } catch (error) {
-    console.log(error.message);
   }
 };
 
@@ -16,17 +15,14 @@ export const createNewPost = (post) => async (dispatch) => {
 
     dispatch({ type: "CREATE_POST", payload: data });
   } catch (error) {
-    console.log(error.message);
   }
 };
 
 export const createNewProposal = (proposalInfo, _id) => async (dispatch) => {
   try {
-    console.log(_id);
     const { data } = await api.createProposal(proposalInfo, _id);
 
     dispatch({ type: "CREATE_PROPOSAL", payload: data });
   } catch (error) {
-    console.log(error.message);
   }
 };

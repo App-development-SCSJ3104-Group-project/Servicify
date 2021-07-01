@@ -6,9 +6,7 @@ import PostCardForm from "./components/postCard/postCardForm";
 import Template from "../../components/template/template";
 import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "../../redux/posts/posts_action";
-// import { useForm } from "react-hook-form";
 import Zoom from "react-reveal/Zoom";
-// import usersReducer from './../../redux/users/users_reducer';
 
 const CustomerPostScreen = () => {
   const dispatch = useDispatch();
@@ -22,9 +20,8 @@ const CustomerPostScreen = () => {
 
   localStorage.setItem("posts", JSON.stringify(postsList));
 
-  // const user = useSelector((state) => state.usersReducer);
-
-  // const user = JSON.parse(localStorage.getItem("usersReducer"));
+  // get User from local storage
+  // const user = JSON.parse(localStorage.getItem("user"));
   // console.log(user);
 
   return (

@@ -52,7 +52,6 @@ const Overview = () => {
 
 const OverviewCard = (props) => {
 
-  console.log(props)
   return (
     <div className=" Overview__section_card_information" >
       <div className="Overview__section_card_icon-section" style={{animationDelay:`${props.index*.35}s`}}> <img src={props.logo.type}></img> </div>

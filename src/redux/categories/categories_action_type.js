@@ -1,5 +1,6 @@
 export const CategoriesActionType = {
 
     LOAD_CATEGORIES: "LOAD_CATEGORIES",
-    SET_LOADING: "SET_LOADING"
+    SET_LOADING: "SET_LOADING",
+    SET_USER_PROFILE: "SET_USER_PROFILE"
 }

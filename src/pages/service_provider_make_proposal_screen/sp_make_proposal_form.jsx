@@ -47,7 +47,9 @@ const ManageProposalForm = (props) => {
   const [diagnosisFee, setDiagnosisFee] = useState("");
   const [paymentMethod, setPaymentMethod] = useState();
   const [description, setDescription] = useState();
-  const [serviceProviderId, setServiceProviderId] = useState("A18CS4042");
+  const [serviceProviderId, setServiceProviderId] = useState(
+    "60dae3bcdfbb690d0036d4d9"
+  );
 
   // state for error message either successful or unsuccessful
   const [submissionStatus, setSubmissionStatus] = useState(false);

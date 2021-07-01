@@ -3,7 +3,8 @@ import { CategoriesActionType } from "./categories_action_type";
 const initState =
 {
     loading: false,
-    serviceProviders: []
+    serviceProviders: [],
+    user: "",
 }
 
 const categoriesReducer = (state = initState, action) => {
@@ -25,6 +26,16 @@ const categoriesReducer = (state = initState, action) => {
                 return {
                     ...state,
                     loading: action.value
+                }
+            }
+        case CategoriesActionType.SET_USER_PROFILE:
+            {
+
+                const user = state.serviceProviders.get(action.value).filter((e) => e._id === action.id)
+
+                return {
+                    ...state,
+                    user: user[0]
                 }
             }
     }

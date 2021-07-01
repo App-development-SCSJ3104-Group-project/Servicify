@@ -7,12 +7,9 @@ import notification from "../../icons/outline_notification_important_black_48dp 
 import Template from "../../components/template/template"
 import Zoom from 'react-reveal/Zoom'
 import { connect } from "react-redux";
-import { fetchServiceProviders } from "../../redux/categories/categories_action"
-
-
-
-
 import "./customer_service_main_page.scss";
+
+
 class CustomerServiceMainPage extends Component {
 
   constructor(props) {
@@ -28,11 +25,6 @@ class CustomerServiceMainPage extends Component {
     this.setState({ active: index })
   }
 
-  componentDidMount() {
-    const { fetchServiceProviders } = this.props
-    fetchServiceProviders();
-
-  }
   render() {
     const { serviceProviders } = this.props
     const data = Array.from(serviceProviders)
@@ -126,7 +118,6 @@ class CustomerServiceMainPage extends Component {
 
 const mapStateToProps = ({ categoriesReducer }) => {
   return {
-    // isServiceProvider: usersReducer.isServiceProvider,
     serviceProviders: categoriesReducer.serviceProviders
   }
 }
@@ -134,7 +125,6 @@ const mapStateToProps = ({ categoriesReducer }) => {
 const mapDispatchToProps = (dispatch) => {
 
   return {
-    fetchServiceProviders: () => { dispatch(fetchServiceProviders()) }
 
   }
 }

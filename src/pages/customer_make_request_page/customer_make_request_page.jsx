@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import "./customer_make_request_page.scss"
 import cancel from "../../icons/outline_add_white_24dp 1.svg"
 import { makeRequest } from "../../redux/requests/requests_action"
-
+import { Link } from "react-router-dom";
 
 class CustomerMakeRequestScreen extends Component {
 
@@ -21,12 +21,17 @@ class CustomerMakeRequestScreen extends Component {
         }
     }
     onClick = () => {
+        if (this.state.location === "" ||
+            this.state.payment === "" ||
+            this.state.fees === "" ||
+            this.state.description === "")
+            return alert("field are required")
 
         const { makeRequest } = this.props
 
         const response = makeRequest({
             location: this.state.location, payment: this.state.payment, fees: this.state.fees,
-            description: this.state.description, customerId: this.props.userId, serviceProviderId: new URLSearchParams(this.props.location.search).get("id")
+            description: this.state.description, customerId: localStorage.getItem("user"), serviceProviderId: new URLSearchParams(this.props.location.search).get("id")
         })
 
         setTimeout(() => {
@@ -81,18 +86,20 @@ class CustomerMakeRequestScreen extends Component {
 
                                         <div className="flex-div">
 
-                                            <Button innerText={null}
-                                                margin="0.3rem"
-                                                color="black"
-                                                iconPosition='false'
-                                                backGroundColor="#1E2833"
-                                                width="4rem"
-                                                height="4rem"
-                                                icon={cancel}
-                                                borderRadius="50%"
-                                                iconHeight="3rem"
-                                                iconWidth="3rem"
-                                            />
+                                            <Link to="/customer_service_main_page">
+                                                <Button innerText={null}
+                                                    margin="0.3rem"
+                                                    color="black"
+                                                    iconPosition='false'
+                                                    backGroundColor="#1E2833"
+                                                    width="4rem"
+                                                    height="4rem"
+                                                    icon={cancel}
+                                                    borderRadius="50%"
+                                                    iconHeight="3rem"
+                                                    iconWidth="3rem"
+                                                />
+                                            </Link>
                                             <div onClick={() => this.onClick()}>
                                                 <Button innerText={"Send request"}
                                                     margin="0.3rem"
@@ -119,7 +126,7 @@ class CustomerMakeRequestScreen extends Component {
 
 
 const mapStateToProps = ({ usersReducer, requestsReducer }) => ({
-    userId: usersReducer.userInAuth[0]._id,
+    // userId: usersReducer.userInAuth[0]._id,
     loading: requestsReducer.loading
 });
 

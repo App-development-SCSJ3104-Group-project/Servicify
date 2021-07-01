@@ -60,7 +60,6 @@ export const resetSignupState = () => ({
 })
 export const validateUser = (userInfo) => {
 
-    // console.log(userInfo)
     return (dispatch) => {
         const url = `https://service-backend-web.herokuapp.com/users/login/auth`;
         dispatch(fetchUsers(url, "validateUser", userInfo))
@@ -73,13 +72,9 @@ export const fetchUsers = (url, fetchingMode, userInfo) => {
 
         dispatch(fetchUsersRequest());
 
-        console.log(userInfo.email)
         axios.post(url, userInfo).then(res => {
 
             const data = res.data;
-
-            console.log(data)
-            console.log(data.length)
 
             switch (fetchingMode) {
 

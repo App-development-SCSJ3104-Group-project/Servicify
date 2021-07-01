@@ -20,6 +20,7 @@ class SearchArea extends Component {
     { name: "favorites", isActive: false, needsAuth: true },
     { name: "requests", isActive: false, linkTo: "/customer_manage_requests", needsAuth: true },
     { name: "profile", isActive: false, linkTo: "/dashboard", lastTab: true, needsAuth: true },
+    localStorage.getItem("isServiceProvider") ? { name: "Dashboard", isActive: false, linkTo: "/dashboard", lastTab: true, needsAuth: true } : {}
   ];
   render() {
     const { popUpToggle } = this.state;
@@ -29,7 +30,7 @@ class SearchArea extends Component {
       if (tab.needsAuth == false) {
         return tab;
       }
-      if (tab.needsAuth == true && userInAuth != null) {
+      if (tab.needsAuth == true && localStorage.length != 0) {
         return tab
       }
     })

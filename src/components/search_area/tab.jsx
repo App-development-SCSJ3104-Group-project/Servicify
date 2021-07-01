@@ -7,7 +7,6 @@ import {  Link } from "react-router-dom";
         </Link> */}
 const NavigationTab = ({ currentTab, lastTab, tabName,linkTo }) => {
 
-  // console.log(linkTo)
   // link gets redirected to same page if the link to props is undefined
   return (
    <Link to={linkTo!==undefined?linkTo:window.location.href.split("/")[3]} style={{textDecoration:"none",color:"white"}}>

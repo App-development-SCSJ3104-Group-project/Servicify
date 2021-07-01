@@ -6,7 +6,7 @@ import Proposals from "./manage_proposals/manage_proposals"
 import Requests from "./manage_request/manage_request"
 import { connect } from "react-redux";
 import Template from "../../components/template/template"
-import { getRequest } from "../../redux/requests/requests_action"
+import { cancelRequest, getRequest } from "../../redux/requests/requests_action"
 
 class CustomerManageRequests extends Component {
 
@@ -20,8 +20,10 @@ class CustomerManageRequests extends Component {
     ]
 
     componentDidMount() {
+        console.log(localStorage.getItem('user'));
         const { getRequest } = this.props
-        getRequest(this.props.userId)
+        // getRequest(this.props.userId)
+        getRequest(localStorage.getItem('user'))
     }
     onclickFun = (event) => {
 
@@ -39,7 +41,7 @@ class CustomerManageRequests extends Component {
 
     render() {
 
-        const { loading, requests } = this.props
+        const { loading, requests, cancelRequest } = this.props
         return (
             <Template route="requests">
 
@@ -54,9 +56,9 @@ class CustomerManageRequests extends Component {
                             <div className="loading-div">
                                 <div className="loader">Loading...</div>
                             </div>
-                            : this.tabs[0].status ? <Requests /> : <Proposals />
+                            : this.tabs[0].status ? <Requests /> : <Proposals requests={requests} cancelRequest={cancelRequest} />
                     }
-                    {console.log(requests)}
+
 
                 </div>
 
@@ -69,14 +71,15 @@ const mapStateToProps = ({ requestsReducer, usersReducer }) => {
     return {
         loading: requestsReducer.loading,
         requests: requestsReducer.requests,
-        userId: usersReducer.userInAuth[0]._id
+        // userId: usersReducer.userInAuth[0]._id
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
 
     return {
-        getRequest: (id) => { dispatch(getRequest(id)) }
+        getRequest: (id) => { dispatch(getRequest(id)) },
+        cancelRequest: (id, customerId) => { dispatch(cancelRequest(id, customerId)) }
 
     }
 }
