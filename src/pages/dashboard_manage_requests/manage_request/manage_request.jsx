@@ -35,7 +35,7 @@ class ManageRequests extends Component {
 
     render() {
 
-        const { requests, cancelRequest, loading } = this.props
+        const { requests, acceptRequest, loading } = this.props
         return (
             <DashboardCard label={"Orders history"} >
 
