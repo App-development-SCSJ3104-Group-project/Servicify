@@ -48,20 +48,6 @@ class CustomerServiceMainPage extends Component {
                     marginRight: "10px"
                   }}>
                     <Button
-<<<<<<< HEAD
-                  innerText={"#" + e}
-                  margin="0.3rem .5rem"
-                  iconPosition="true"
-                  color="white"
-                  backGroundColor="#e76f51"
-                  width="10rem"
-                  height="3rem"
-                  borderRadius="10px"
-                  onClick={this.onClick}
-                  />
-              </Zoom>
-                  
-=======
                       innerText={"#" + e[0]}
                       iconPosition="true"
                       width="10rem"
@@ -74,7 +60,6 @@ class CustomerServiceMainPage extends Component {
                   </div>
                 </Zoom>
 
->>>>>>> 428fc451e60ea8c757273957815fe0999b84b690
               ))}
             </div>
           </div>

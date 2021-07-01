@@ -41,7 +41,9 @@ class Form extends React.Component {
       } else {
         missingField = true;
       }
-    })
+    })  
+
+
     !missingField ? isEmailValid ? SubmitFormCallback(userInfo) : alert("please fill a valid email") : alert("please fill in all input field")
 
 
@@ -132,7 +134,10 @@ class Form extends React.Component {
               // dynamically adding state attributes instead of typing it statically
               // state attribtues will be customized to each form type
               var formInputIdentfier = formInput.className.split(" ")[0];
-
+              if (formInput.type == "checkbox") {
+                        userInfo[formInputIdentfier] = false
+                }
+                     
               // @ts-ignore
               return (
                 <div className=" animate__animated animate__zoomInDown" style={{ animationDelay: `${index * 0.5}s` }}>
@@ -146,7 +151,12 @@ class Form extends React.Component {
                     resetFormField={resetFormFields}
                     onChange={(value) => {
                       //nested object set state way
-                      userInfo[formInputIdentfier] = value
+                      if (formInput.type !== "checkbox") {
+                        userInfo[formInputIdentfier] = value
+                      }
+                      else {
+                        userInfo[formInputIdentfier] = value == "on" ? true : false;  
+                      }
                     }}
                   ></FormInputGroup>}
                 </div>
