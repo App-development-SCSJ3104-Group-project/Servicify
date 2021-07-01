@@ -58,7 +58,32 @@
 .show_card h3 {
     margin-bottom: 2rem;
 }
+.loading-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
 
+.loader {
+    color: #fafafa;
+    font-size: 90px;
+    text-indent: -9999em;
+    overflow: hidden;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin: 72px auto;
+    position: absolute;
+    top: 35%;
+    left: 47.5%;
+    transform: translate(-50%, -50%);
+    -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+    animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+}
 
 /* Handle on hover */
 
@@ -75,8 +100,8 @@
     position: absolute;
     bottom: 1rem;
     right: 1rem;
-    padding: .5rem 4rem;
-    background-image: radial-gradient( circle 939px at 94.7% 50%, rgba(0, 178, 169, 1) 0%, rgba(0, 106, 101, 1) 76.9%);
+    padding: 0.5rem 4rem;
+    background-image: radial-gradient(circle 939px at 94.7% 50%, rgba(0, 178, 169, 1) 0%, rgba(0, 106, 101, 1) 76.9%);
     border-radius: 20px;
 }
 

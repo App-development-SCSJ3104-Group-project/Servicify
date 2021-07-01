@@ -21,11 +21,16 @@ const LoginFrom = ({
     if (IsUserInfoValid == true) {
       setTimeout(() => {
         resetCallBack();
+<<<<<<< HEAD
         localStorage.setItem("user", userInAuth[0]._id);
         localStorage.setItem(
           "isServiceProvider",
           userInAuth[0].isServiceProvider
         );
+=======
+        localStorage.setItem('user', JSON.stringify(userInAuth[0]));
+        localStorage.setItem('isServiceProvider', userInAuth[0].isServiceProvider);
+>>>>>>> 74688af515dea16735bc16373d845978307e912c
         history.push("/");
       }, 2250);
       return (
