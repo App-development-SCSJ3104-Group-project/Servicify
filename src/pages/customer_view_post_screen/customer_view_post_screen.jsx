@@ -19,9 +19,6 @@ const proposalsInfo = {
 };
 
 const CustomerViewPost = (props) => {
-  // const postsList = useSelector((state) => state.posts);
-  // const post = postsList.find((post) => post._id === props.match.params._id);
-
   const postsList = JSON.parse(localStorage.getItem("posts"));
 
   const post = postsList.find((post) => post._id === props.match.params._id);
