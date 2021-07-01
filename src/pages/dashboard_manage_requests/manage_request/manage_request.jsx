@@ -69,13 +69,6 @@ class ManageRequests extends Component {
                                                     borderRadius="5rem" backgroundColor="#1E2833" src={null} />
                                             </div>
                                         </div>
-<<<<<<< HEAD
-                                        <div className="right_float_button">
-                                            <IconButton innerText={"Accept"} heightDiv="3.5rem" widthDiv="15.0rem"
-                                                borderRadius="5rem" backgroundColor="rgb(231, 111, 81)" src={null} />
-                                            <IconButton innerText={"Reject"} heightDiv="3.5rem" widthDiv="15.0rem"
-                                                borderRadius="5rem" backgroundColor="rgb(231, 111, 81)" src={null} />
-=======
                                         <div className="toggle_card">
                                             <br />
                                             <h3>City: {prop.location} </h3>
@@ -86,7 +79,6 @@ class ManageRequests extends Component {
                                             <h3>Time:{prop.time}</h3>
                                             <h3>Feedback: Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse mollitia officiis ipsum. Praesentium, consequuntur. Mollitia aspernatur quibusdam cupiditate laboriosam quis?</h3>
                                             <h3>Rate: 3</h3>
->>>>>>> abd98cd666eaade41abd3ae9a723c22183680fef
                                         </div>
                                     </Card>,
                                     <br />
