@@ -66,6 +66,7 @@ class ManageRequests extends Component {
                     backgroundColor="#1E2833"
                     src={null}
                   />
+
                   <IconButton
                     innerText={"Reject"}
                     heightDiv="4.0rem"
@@ -96,4 +97,5 @@ class ManageRequests extends Component {
     );
   }
 }
+
 export default ManageRequests;
