@@ -20,6 +20,10 @@ class CustomerMakeRequestScreen extends Component {
             description: ""
         }
     }
+    componentDidMount() {
+        const data = JSON.parse(localStorage.getItem("user"))
+        console.log(data);
+    }
     onClick = () => {
         if (this.state.location === "" ||
             this.state.payment === "" ||
@@ -29,15 +33,15 @@ class CustomerMakeRequestScreen extends Component {
 
         const { makeRequest } = this.props
 
+        const data = JSON.parse(localStorage.getItem("user"))
+
         const response = makeRequest({
             location: this.state.location, payment: this.state.payment, fees: this.state.fees,
-            description: this.state.description, customerId: localStorage.getItem("user"), serviceProviderId: new URLSearchParams(this.props.location.search).get("id")
+            description: this.state.description, customerId: data._id, serviceProviderId: new URLSearchParams(this.props.location.search).get("id")
         })
 
-        setTimeout(() => {
-            if (this.props.loading === false)
-                this.props.history.push('/customer_manage_requests');
-        }, 500);
+        if (this.props.loading === false)
+            this.props.history.push('/customer_manage_requests');
 
     }
 

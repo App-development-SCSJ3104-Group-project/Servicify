@@ -170,8 +170,9 @@ class CustomerOrdersScreen extends React.Component {
   }
   componentDidMount() {
     const { loadData } = this.props;
+    const data = JSON.parse(localStorage.getItem("user"))
 
-    loadData(localStorage.getItem("user"))
+    loadData(data._id)
 
   }
   render() {

@@ -45,7 +45,10 @@ class ManageProposals extends Component {
                                         </div>
                                         {prop.status === "Pending" ?
                                             <div className="right_float_button">
-                                                <div onClick={() => { cancelRequest(prop._id, localStorage.getItem("user")); window.location.reload() }}>
+                                                <div onClick={() => {
+                                                    const data = JSON.parse(localStorage.getItem("user"))
+                                                    cancelRequest(prop._id, data._id); window.location.reload()
+                                                }}>
                                                     <IconButton innerText={"Cancel"} heightDiv="4.0rem" widthDiv="15.0rem"
                                                         borderRadius="5rem" backgroundColor="#1E2833" src={null} />
                                                 </div>
