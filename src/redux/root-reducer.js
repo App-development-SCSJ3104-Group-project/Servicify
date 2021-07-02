@@ -17,7 +17,7 @@ export default combineReducers({
   notificationsReducer: notificationsReducer,
   ordersReducer: ordersReducer,
   posts: postsReducer,
-  proposalsReducer: proposalsReducer,
+  proposals: proposalsReducer,
   requestsReducer: requestsReducer,
   savedReducer: savedReducer,
   searchReducer: searchReducer,

@@ -39,6 +39,8 @@ const ProposalFormHeader = () => {
 };
 
 const ManageProposalForm = (props) => {
+  // getting userDate whether it is service provider or customer
+  const currentUser = JSON.parse(localStorage.getItem("user"));
   //
   // to store all input fields
   const [inputFields, setInputFields] = useState([
@@ -47,9 +49,7 @@ const ManageProposalForm = (props) => {
   const [diagnosisFee, setDiagnosisFee] = useState("");
   const [paymentMethod, setPaymentMethod] = useState();
   const [description, setDescription] = useState();
-  const [serviceProviderId, setServiceProviderId] = useState(
-    "60dae3bcdfbb690d0036d4d9"
-  );
+  const [serviceProviderId, setServiceProviderId] = useState(currentUser._id);
 
   // state for error message either successful or unsuccessful
   const [submissionStatus, setSubmissionStatus] = useState(false);
@@ -58,7 +58,6 @@ const ManageProposalForm = (props) => {
 
   // dispacther
   const dispatch = useDispatch();
-  const history = useHistory();
 
   // submission
   const handleSubmit = (e) => {
@@ -134,7 +133,6 @@ const ManageProposalForm = (props) => {
           type="text"
           name="serviceProviderId"
           value={serviceProviderId}
-          onChange={(event) => setServiceProviderId(event.target.value)}
           hidden
         />
         <input
