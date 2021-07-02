@@ -5,7 +5,8 @@ import Replay from "../../icons/outline_replay_white_24dp 1.png";
 import OrderStatus from "../../icons/orderStatus.png"
 import { ReactComponent as FilledStar } from '../../icons/star.svg';
 import { ReactComponent as ArrowDown } from "../../icons/arrow-down-sign-to-navigate.svg"
-import { ReactComponent as ArrowUp } from "../../icons/arrowup.svg"
+import { ReactComponent as ArrowUp } from "../../icons/arrowup.svg";
+import defaultUserImg from "../../icons/defaultUser.svg";
 import Zoom from 'react-reveal/Zoom';
 
 
@@ -56,7 +57,7 @@ class Order extends React.Component {
         const { profileImgSrc, rating, provisionDate, city, day, date, diagonsingFees, totalFees, paymentType, feedback, name, giveFeedBackOnClick, orderType, cancelOnClick } = this.props;
 
         const style = {
-            backgroundImage: `url(${profileImgSrc})`,
+            backgroundImage: `url(${profileImgSrc?profileImgSrc:defaultUserImg})`,
         }
         const { cardStyle, textStyle, toggled } = this.state;
 

@@ -1,7 +1,7 @@
 import React from "react";
-
 import "./form.scss";
 import FormInputGroup from "../formInput/formInput";
+import LeftSide from "./components/leftSide/leftSide"
 import CustomButton from "../../components/button/button";
 import leftArrow from "../../icons/left-arrow.svg";
 import OrangeDots from "../../icons/OrangeDots.svg";
@@ -9,7 +9,6 @@ import RedCircles from "../../icons/RedCircles.svg";
 import Quotations from "../../icons/Quotations.svg";
 import WhiteArrow from "../../icons/WhiteArrow.svg";
 import Check from "../../icons/Check.svg";
-import { useHistory } from 'react-router-dom';
 
 
 class Form extends React.Component {
@@ -20,6 +19,7 @@ class Form extends React.Component {
     this.state = {
       userInfo: {}
     }
+
   }
   validateEmailFormat = (email) => {
 
@@ -41,73 +41,88 @@ class Form extends React.Component {
       } else {
         missingField = true;
       }
+
     })  
-
-
+   
     !missingField ? isEmailValid ? SubmitFormCallback(userInfo) : alert("please fill a valid email") : alert("please fill in all input field")
 
 
   }
+  handleInputChange=(formInput,value,userInfo,formInputIdentfier)=>{
+
+                      //nested object set state way
+                      if (formInput.type !== "checkbox") {
+                        userInfo[formInputIdentfier] = value
+
+                      }
+                      else {  
+                        
+                        userInfo[formInputIdentfier]=!userInfo[formInputIdentfier]
+                        this.setState({}, () => console.log(this.state))
+                        
+                      }
+                    
+  }
+  renderInputFields = (formInput, index) => {
+    
+    const { userInfo } = this.state;
+    
+              // dynamically adding state attributes instead of typing it statically
+              // state attribtues will be customized to each form type
+           
+              var formInputIdentfier = formInput.className.split(" ")[0];
+              if (formInput.type == "checkbox") {
+
+                console.log(userInfo[formInputIdentfier])
+                if (userInfo[formInputIdentfier] == undefined) {
+                  userInfo[formInputIdentfier] = false
+
+                }
+                console.log(this.state)
+              }
+
+              if (formInput.preRequiste==undefined||(formInput.preRequiste&&userInfo.isServiceProvider==true)) {
+                
+                return (
+        
+        <div className={`animate__animated animate__zoomInDown`} style={{ width: formInput.width, animationDelay: `${formInput.preRequiste ? 0.25 : index * 0.5}s` }}>
+          
+                  {<FormInputGroup
+                    key={index}
+                    type={formInput.type}
+                    placeHolder={formInput.placeHolder}
+                    className={formInput.className}
+                    customLabel={formInput.customLabel}
+                    displayType={formInput.displayType}
+                    onChange={(value) =>this.handleInputChange(formInput,value,userInfo,formInputIdentfier)}
+                  ></FormInputGroup>}
+                </div>
+              );
+                       
+              }
+  }
+
 
 
   render() {
 
 
-    const { formInputs, formButtons, type, leftSideBackgroundHeight, SubmitFormCallback, resetFormFields, goBackCallBack } = this.props;
+    const { formInputs, formButtons, type, leftSideBackgroundHeight, SubmitFormCallback, resetFormFields, goBackCallBack,ServiceProviderExtraInputs } = this.props;
     const { userInfo } = this.state;
     const style = {
       height: leftSideBackgroundHeight
     };
     return (
       <div className="form" >
-        <div className="form__left-side " style={style}>
-          <img
-            src={OrangeDots}
-            alt=""
-            className="form__left-side__orange-dots"
-          />
-          <img
-            src={RedCircles}
-            alt=""
-            className="form__left-side__red-circles"
-          />
 
-          <div className="form__left-side__main-content">
-            <div className="form__left-side__main-content__text">
-              <p className="form__left-side__main-content__paragraph">
-                The passage experienced a surge in popularity during the 1960s
-                when Letraset used it on their dry-transfer sheets, and again
-                during the 90s as desktop publishers bundled the text with their
-                software.
-              </p>
-              <div className="form__left-side__main-content__user-name">
-                Vincet Obi{" "}
-                <img
-                  src={Check}
-                  alt=""
-                  className="form__left-side__main-content__user-name__check"
-                />
-              </div>
-            </div>
+        <LeftSide style={style}></LeftSide>
 
-            <img
-              src={WhiteArrow}
-              alt=""
-              className="form__left-side__white-arrow"
-            />
-            <img
-              src={Quotations}
-              alt=""
-              className="form__left-side__quotation"
-            />
-          </div>
-        </div>
         <div className="form__right-side ">
           <div className="form__right-side__back-btn" onClick={() => goBackCallBack()}>
             <img className="backArrow" src={leftArrow} alt="" />
             Back
           </div>
-          <form className="form__right-side__innerForm" autoComplete="true">
+          <form className="form__right-side__innerForm" style={type=="signup"?{top:"43%"}:{top:"50%"}}  autoComplete="true">
             <div className="form__right-side__innerForm__header">
               {type == "signup" ? (
                 <div>
@@ -129,39 +144,7 @@ class Form extends React.Component {
             </div>
             <hr className="style-two" />
 
-            {formInputs.map((formInput, index) => {
-
-              // dynamically adding state attributes instead of typing it statically
-              // state attribtues will be customized to each form type
-              var formInputIdentfier = formInput.className.split(" ")[0];
-              if (formInput.type == "checkbox") {
-                        userInfo[formInputIdentfier] = false
-                }
-                     
-              // @ts-ignore
-              return (
-                <div className=" animate__animated animate__zoomInDown" style={{ animationDelay: `${index * 0.5}s` }}>
-                  {<FormInputGroup
-                    key={index}
-                    type={formInput.type}
-                    placeHolder={formInput.placeHolder}
-                    className={formInput.className}
-                    customLabel={formInput.customLabel}
-                    displayType={formInput.displayType}
-                    resetFormField={resetFormFields}
-                    onChange={(value) => {
-                      //nested object set state way
-                      if (formInput.type !== "checkbox") {
-                        userInfo[formInputIdentfier] = value
-                      }
-                      else {
-                        userInfo[formInputIdentfier] = value == "on" ? true : false;  
-                      }
-                    }}
-                  ></FormInputGroup>}
-                </div>
-              );
-            })}
+            {formInputs.map((formInput, index) =>this.renderInputFields(formInput,index))}
 
             {formButtons.map((formButton, index) => {
 
