@@ -35,7 +35,7 @@ class ProfileCard extends Component {
                 <Link to={"/customer_service_provider_page?id=" + data._id + "&type=" + data.jobName} style={{ textDecoration: "none", color: "black" }}>
                     <div>
 
-                        <Card image_src={profileIcon} >
+                        <Card image_src={data.imgSrc} >
 
                             <div className="header">
                                 <div className="card_header">

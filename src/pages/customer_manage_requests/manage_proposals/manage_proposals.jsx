@@ -23,7 +23,7 @@ class ManageProposals extends Component {
     render() {
         const { requests, cancelRequest, loading } = this.props
         return (
-            <DashboardCard label={"Orders history"} >
+            <DashboardCard label={"Requests list"} >
 
                 <div className="list_of_cards">
                     {
@@ -35,7 +35,7 @@ class ManageProposals extends Component {
                             typeof requests === "string" ? <h3>{requests}</h3> :
                                 requests.map(prop => (
                                     [
-                                        <Card imgHeight="15.0rem" scaleUp={true} imgWidth="15.0rem" width="50%" image_src={profileIcon} imgHsize="8rem" imgWsize="8rem" data={prop.name} callback={this.onClickCard}>
+                                        <Card imgHeight="15.0rem" scaleUp={true} imgWidth="15.0rem" width="50%" image_src={prop.serviceProvider.imgSrc} imgHsize="8rem" imgWsize="8rem" data={prop.name} callback={this.onClickCard}>
 
                                             <div className="order_header_card">
                                                 <div className="order_header_card_left">

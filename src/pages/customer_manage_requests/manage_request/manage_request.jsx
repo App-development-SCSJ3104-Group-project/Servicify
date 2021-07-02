@@ -32,7 +32,7 @@ class ManageRequests extends Component {
   };
   render() {
     return (
-      <DashboardCard label={"Orders history"}>
+      <DashboardCard label={"Proposals"}>
         <div className="list_of_cards">
           {this.data.map((prop) => [
             <Card
