@@ -20,18 +20,21 @@ const CustomerPostScreen = () => {
 
   localStorage.setItem("posts", JSON.stringify(postsList));
 
-  // get User from local storage
-  // const user = localStorage.getItem("user");
-  //
+  // getting userDate whether it is service provider or customer
+  const currentUser = JSON.parse(localStorage.getItem("user"));
 
   return (
     <Template route="posts">
       <div>
         <div className="posts-wrappper-background">
-          <PostCardForm useState={useState}></PostCardForm>
+          {currentUser.isServiceProvider ? (
+            ""
+          ) : (
+            <PostCardForm useState={useState}></PostCardForm>
+          )}
           {postsList?.map((post) => (
             <Zoom key={post._id}>
-              <PostCard key={post._id} post={post} actions={true} />
+              <PostCard key={post._id} post={post} />
             </Zoom>
           ))}
         </div>

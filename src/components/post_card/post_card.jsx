@@ -31,25 +31,25 @@ const PostHeader = ({
   cancelationFee,
   postAuthor,
   _id,
+  imgSrc,
 }) => {
   const proposalShareOptioneMenu = [
     "Send default proposal",
     "send custome proposal",
   ];
 
-  const customerOptionMenu = [
-    "Hide this post",
-    "share this post via",
-    "Report this post",
-  ];
-
-  const serviceProviderOptionMenu = ["Remove post", "Edit post"];
+  // getting userDate whether it is service provider or customer
+  const currentUser = JSON.parse(localStorage.getItem("user"));
 
   return (
     <div className="post-header__content_styles">
       <div className="post-header__res">
         <Avatar
-          source="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg"
+          source={
+            imgSrc
+              ? imgSrc
+              : "https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg"
+          }
           width={"100px"}
           height={"100px"}
         />
@@ -66,7 +66,7 @@ const PostHeader = ({
         </div>
       </div>
       <div className="post__header_optionMenu">
-        {actions ? (
+        {currentUser.isServiceProvider ? (
           <OptionButton icon={<OptionIcon />}>
             <Dropdownmenu>
               <Link
@@ -77,14 +77,11 @@ const PostHeader = ({
                   <p>Send proposal</p>
                 </div>
               </Link>
-              <Link
-                style={{ color: "white", textDecoration: "none" }}
-                to={"/service_provider_make_proposal_screen/" + _id}
-              >
-                <div className="item__options__selected">
-                  <p>Update post</p>
-                </div>
-              </Link>
+            </Dropdownmenu>
+          </OptionButton>
+        ) : (
+          <OptionButton icon={<OptionIcon />}>
+            <Dropdownmenu>
               <Link
                 style={{ color: "white", textDecoration: "none" }}
                 to={"/service_provider_make_proposal_screen/" + _id}
@@ -95,18 +92,7 @@ const PostHeader = ({
               </Link>
             </Dropdownmenu>
           </OptionButton>
-        ) : (
-          ""
         )}
-        {/* <OptionButton icon={<OptionIcon />}>
-          <Dropdownmenu>
-            {postAuthor ? (
-              <ViewerOptions OptionMenu={serviceProviderOptionMenu} />
-            ) : (
-              <ViewerOptions OptionMenu={serviceProviderOptionMenu} />
-            )}
-          </Dropdownmenu>
-        </OptionButton> */}
       </div>
     </div>
   );
