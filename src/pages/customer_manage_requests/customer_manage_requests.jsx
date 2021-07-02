@@ -52,11 +52,8 @@ class CustomerManageRequests extends Component {
                     </div>
 
                     {
-                        loading ?
-                            <div className="loading-div">
-                                <div className="loader">Loading...</div>
-                            </div>
-                            : this.tabs[0].status ? <Requests /> : <Proposals requests={requests} cancelRequest={cancelRequest} />
+
+                        this.tabs[0].status ? <Requests /> : <Proposals requests={requests} cancelRequest={cancelRequest} loading={loading} />
                     }
 
 

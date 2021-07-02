@@ -1,9 +1,10 @@
-const initState =
-{
+const proposalsReducer = (proposals = [], action) => {
+  switch (action.type) {
+    case "FETCH_PROPOSALS":
+      return action.payload;
+    default:
+      return proposals;
+  }
+};
 
-}
-
-const proposalsReducer = (state = initState, action) => {
-    return state;
-}
-export default proposalsReducer
+export default proposalsReducer;

@@ -1,5 +1,4 @@
-import React from "react"
-
+import React from "react";
 
 const ProposalSteps = ({ proposedSteps }) => {
   if (proposedSteps.length === 0) {
@@ -7,8 +6,8 @@ const ProposalSteps = ({ proposedSteps }) => {
   }
 
   return (
-    <div className="proposal__description_steps" >
-      {proposedSteps.map((value, index) => (
+    <div className="proposal__description_steps">
+      {proposedSteps?.map((value, index) => (
         <div key={index}>
           <p>
             <b>Step: {index + 1}</b>

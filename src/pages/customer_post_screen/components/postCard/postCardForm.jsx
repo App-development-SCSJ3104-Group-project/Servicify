@@ -8,15 +8,20 @@ import "react-toastify/dist/ReactToastify.css";
 
 const PostCardForm = ({ useState }) => {
   //
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+  //
   const [tags, setTags] = useState([]);
   const [location, setLocation] = useState("");
   const [paymentMethod, setPayementMethod] = useState("");
   const [cancelationFee, setCancelationFee] = useState();
   const [description, setDescription] = useState("");
+  const [imgSrc, setImgSrc] = useState(currentUser.imgSrc);
   const [errorMessage, setErrorMessage] = useState(false);
 
   // dispatch
   const dispatch = useDispatch();
+
+  // get the user from the local storage
 
   // to handle the action of deleting a tag
   const removeTags = (indexToRemove) => {
@@ -36,12 +41,13 @@ const PostCardForm = ({ useState }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    postData["customerId"] = "A18CS4042"; // default value
+    postData["customerId"] = currentUser._id; // default value
     postData["location"] = location;
     postData["paymentMethod"] = paymentMethod;
     postData["cancelationFee"] = cancelationFee;
     postData["tags"] = tags;
     postData["description"] = description;
+    postData["imgSrc"] = imgSrc;
 
     if (
       cancelationFee === "" ||
@@ -77,14 +83,13 @@ const PostCardForm = ({ useState }) => {
         <div className="post__form_card___header-section">
           <div className="post_form_card__header__avatar_styles">
             <Avatar
-              source={
-                "https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg"
-              }
+              source={currentUser.imgSrc}
               width={"100px"}
               height={"100px"}
             />
             <div className="post__form_card__header-section-form-element">
               <div className="post__form_card_header_dropdowns-section">
+                <input type="text" value={imgSrc} hidden />
                 <select
                   className="post__form_card_header_location-dropdown"
                   value={location}
