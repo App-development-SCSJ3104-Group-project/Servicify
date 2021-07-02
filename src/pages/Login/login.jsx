@@ -2,10 +2,8 @@ import React from "react";
 import Form from "../../components/form/form";
 import "./login.scss";
 import googleIcon from "../../icons/GoogleIcon.svg";
-// redux actions needs to be imported in an object destructruing way
 import { validateUser, resetLoginState } from "../../redux/users/users_action";
 import { connect } from "react-redux";
-
 import { useHistory } from "react-router-dom";
 
 const LoginFrom = ({

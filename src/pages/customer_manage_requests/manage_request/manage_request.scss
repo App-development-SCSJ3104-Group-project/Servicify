@@ -59,7 +59,6 @@
     margin-bottom: 2rem;
 }
 
-
 /* Handle on hover */
 
 .right_float_button {
@@ -73,15 +72,24 @@
 
 .proposal_status {
     position: absolute;
-    bottom: 1rem;
-    right: 1rem;
-    padding: .5rem 4rem;
-    background-image: radial-gradient( circle 939px at 94.7% 50%, rgba(0, 178, 169, 1) 0%, rgba(0, 106, 101, 1) 76.9%);
+    width: "15rem";
+    height: 40px;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    padding: 0.5rem 4rem;
+    background-image: radial-gradient(circle 939px at 94.7% 50%, rgba(0, 178, 169, 1) 0%, rgba(0, 106, 101, 1) 76.9%);
     border-radius: 20px;
 }
 
-.proposal_status h3 {
+.proposal_status h4 {
     text-decoration: none;
+    width: 100%;
+    text-align: center;
     color: white;
 }
 

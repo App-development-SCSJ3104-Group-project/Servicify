@@ -43,8 +43,8 @@ class ManageProposals extends Component {
                                             </div>
                                             <h3>{prop.time} / {prop.location} / {prop.payment}</h3>
                                         </div>
-                                        {prop.status === "Pending" ?
-                                            <div className="right_float_button">
+                                        <div className="right_float_button">
+                                            {prop.status === "Pending" ?
                                                 <div onClick={() => {
                                                     const data = JSON.parse(localStorage.getItem("user"))
                                                     cancelRequest(prop._id, data._id); setTimeout(() => {
@@ -54,10 +54,11 @@ class ManageProposals extends Component {
                                                     <IconButton innerText={"Cancel"} heightDiv="4.0rem" widthDiv="15.0rem"
                                                         borderRadius="5rem" backgroundColor="#1E2833" src={null} />
                                                 </div>
-                                            </div> : null
-                                        }
-                                        <div className="proposal_status" style={{ cursor: `pointer` }}>
-                                            <h3>{prop.status}</h3>
+                                                : null
+                                            }
+                                            <div className="proposal_status" style={{ cursor: `pointer`, width: "15rem" }}>
+                                                <h4>{prop.status}</h4>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="toggle_card">

@@ -57,10 +57,10 @@ class ManageProposals extends Component {
                                         </div>
                                         <div className="right_float_button">
                                             <IconButton innerText={"Cancel"} heightDiv="4.0rem" widthDiv="15.0rem"
-                                                borderRadius="5rem" backgroundColor="rgb(231, 111, 81)" src={null} />
-                                        </div>
-                                        <div className="proposal_status" style={{cursor:`pointer`}}>
-                                            <h3>Pending</h3>
+                                                borderRadius="5rem" backgroundColor="#1E2833" src={null} />
+                                            <div className="proposal_status" style={{ cursor: `pointer`, width: "15.0rem" }}>
+                                                <h4>Pending</h4>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="toggle_card">

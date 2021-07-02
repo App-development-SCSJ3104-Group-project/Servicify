@@ -52,15 +52,23 @@ class ManageRequests extends Component {
 
                         {
                           prop.status === "Pending" ?
-                            [<div onClick={() => acceptRequest(prop._id, JSON.parse(localStorage.getItem("user"))._id, "Accepted")}>
+                            [<div onClick={() => {
+                              acceptRequest(prop._id, JSON.parse(localStorage.getItem("user"))._id, "Accepted"); setTimeout(() => {
+                                window.location.reload()
+                              }, 500);
+                            }}>
                               <IconButton innerText={"Accept"} heightDiv="4.0rem" widthDiv="15.0rem"
                                 borderRadius="5rem" backgroundColor="#1E2833" src={null} />
                             </div>,
-                            <div onClick={() => acceptRequest(prop._id, JSON.parse(localStorage.getItem("user"))._id, "Rejected")}>
+                            <div onClick={() => {
+                              acceptRequest(prop._id, JSON.parse(localStorage.getItem("user"))._id, "Rejected"); setTimeout(() => {
+                                window.location.reload()
+                              }, 500);
+                            }}>
                               <IconButton innerText={"Reject"} heightDiv="4.0rem" widthDiv="15.0rem"
                                 borderRadius="5rem" backgroundColor="#1E2833" src={null} />
-                            </div>] : <div className="proposal_status" style={{ cursor: `pointer` }}>
-                              <h3>{prop.status}</h3>
+                            </div>] : <div className="proposal_status" style={{ cursor: `pointer`, width: "15rem" }}>
+                              <h4>{prop.status}</h4>
                             </div>
                         }
                       </div>
