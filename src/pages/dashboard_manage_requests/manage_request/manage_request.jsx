@@ -23,7 +23,7 @@ class ManageRequests extends Component {
 
     const { requests, acceptRequest, loading } = this.props
     return (
-      <DashboardCard label={"Orders history"} >
+      <DashboardCard label={"Requests list"} >
 
         <div className="list_of_cards">
 
@@ -36,12 +36,12 @@ class ManageRequests extends Component {
               typeof requests === "string" ? <h3>{requests}</h3> :
                 requests.map(prop => (
                   [
-                    <Card imgHeight="15.0rem" scaleUp={true} imgWidth="15.0rem" width="50%" image_src={profileIcon} imgHsize="8rem" imgWsize="8rem" data={prop.name} callback={this.onClickCard}>
+                    <Card imgHeight="15.0rem" scaleUp={true} imgWidth="15.0rem" width="50%" image_src={prop.customer.imgSrc} imgHsize="8rem" imgWsize="8rem" data={prop.name} callback={this.onClickCard}>
 
                       <div className="order_header_card">
                         <div className="order_header_card_left">
                           <div className="part_one">
-                            <h3>{prop.serviceProvider.firstName + " " + prop.serviceProvider.lastName}</h3>
+                            <h3>{prop.customer.firstName + " " + prop.customer.lastName}</h3>
                             <div className="rate_div">
                               <h3>4.5</h3>
                               <img src={star} alt="" />
