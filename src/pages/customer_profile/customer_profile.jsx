@@ -24,7 +24,7 @@ class CustomerProfile extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            city: null
         }
     }
 
@@ -39,9 +39,21 @@ class CustomerProfile extends Component {
 
         const { getUser } = this.props
 
-        console.log(this.props.match.params.id);
         getUser(this.props.match.params.id)
+
+
     }
+
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value
+        });
+    }
+
     render() {
         const { loading, user } = this.props
 
@@ -69,28 +81,34 @@ class CustomerProfile extends Component {
                             <div className="profile_body">
 
                                 <Zoom right cascade>
-                                    <div className="top_content">
-                                        <div className="">
-                                            <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={icon_1} backgroundColor="#57C4E5" />
-                                            <br />
-                                            <h3>{user.city}</h3>
+                                    <form action="">
+                                        <div className="top_content">
+                                            <div className="">
+                                                <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={icon_1} backgroundColor="#57C4E5" />
+                                                <br />
+                                                <input
+                                                    name="city"
+                                                    type="text"
+                                                    value={this.state.city === null ? user.city : this.state.city}
+                                                    onChange={(event) => this.handleInputChange(event)} />
+                                            </div>
+                                            <div className="">
+                                                <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={icon_4} backgroundColor="#57C4E5" />
+                                                <br />
+                                                <h3>{user.rate}</h3>
+                                            </div>
+                                            <div className="">
+                                                <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={paymentIcon} backgroundColor="#57C4E5" />
+                                                <br />
+                                                <h3>{user.diagnosingFees}</h3>
+                                            </div>
+                                            <div className="">
+                                                <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={cashIcon} backgroundColor="#57C4E5" />
+                                                <br />
+                                                <h3>Cash</h3>
+                                            </div>
                                         </div>
-                                        <div className="">
-                                            <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={icon_4} backgroundColor="#57C4E5" />
-                                            <br />
-                                            <h3>{user.rate}</h3>
-                                        </div>
-                                        <div className="">
-                                            <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={paymentIcon} backgroundColor="#57C4E5" />
-                                            <br />
-                                            <h3>{user.diagnosingFees}</h3>
-                                        </div>
-                                        <div className="">
-                                            <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={cashIcon} backgroundColor="#57C4E5" />
-                                            <br />
-                                            <h3>Cash</h3>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </Zoom>
 
                                 <div className="profile_body_content">

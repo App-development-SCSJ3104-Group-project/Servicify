@@ -13,10 +13,12 @@ export const loadData = (id) => {
 
     return (dispatch) => {
 
-        axios.post("https://service-backend-web.herokuapp.com/orders/" + id, { isServiceProvider: false }).then(res => {
+        // axios.get("https://service-backend-web.herokuapp.com/orders/?id=" + id, +"&type=false").then(res => {
+        axios.get("http://localhost:5000/orders/?id=" + id, +"&type=false").then(res => {
 
-            const data = res.data.data;
+            const data = res.data;
 
+            console.log(data);
             return dispatch(storeData(data))
 
         }).catch(err => {

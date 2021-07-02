@@ -54,87 +54,87 @@ class Order extends React.Component {
     render() {
 
 
-        const { profileImgSrc, rating, provisionDate, city, day, date, diagonsingFees, totalFees, paymentType, feedback, name, giveFeedBackOnClick, orderType, cancelOnClick } = this.props;
+        const { profileImgSrc, rating, provisionDate, city, day, date, diagonsingFees, totalFees, paymentType, feedback, customer, serviceProvider, giveFeedBackOnClick, orderType, cancelOnClick } = this.props;
 
         const style = {
-            backgroundImage: `url(${profileImgSrc?profileImgSrc:defaultUserImg})`,
+            backgroundImage: `url(${profileImgSrc ? profileImgSrc : defaultUserImg})`,
         }
         const { cardStyle, textStyle, toggled } = this.state;
 
         return (
 
             <Zoom>
-                
-                 <div className="order" style={cardStyle}>
 
-                {/* image is done using css now, needs to be converted to js */}
-                <div className="order__user-img" style={style}></div>
-                <div className="order__info">
-                    <div className="order__info__user">
-                        <span className="order__info__user__name"> {name}</span>
-                        <span className="order__info__rating"> {rating} <FilledStar style={{ marginLeft: ".5rem",fill:"white",width:"2rem",height:"2rem",cursor:"pointer" }}></FilledStar>
-                        </span>
-                    </div>
-                    <div className={`order__info__order ${toggled ? "visible" : null}`} >
+                <div className="order" style={cardStyle}>
 
-                        {provisionDate}  ago / {city} / {paymentType}
-                        <div className="order__extra-info__type">
-                            <div className="order__extra-info__type__details"> <span>Type:  Mechanical</span> <span>/</span> <span>Name: Mototrs</span> <span>/</span> <span>Time: 12:00 - 15:00</span></div>
-                            <div className="order__extra-info__type__details"><span>City: {city}</span> <span>/</span> <span>Day: {day}</span> <span>/</span> <span>Date: {date}</span> </div>
-                            <div className="order__extra-info__type__details"><span>Diagonsing fees: {diagonsingFees}$</span> <span>/</span> <span>Total fees: {totalFees}$</span></div>
-                            <div>Payment: {paymentType}</div>
-                            <div>Feedback: {feedback}. </div>
-                            <div className="rate">
-                                <span className="rate__text">Rate: </span>  <FilledStar className="filled-star" /> <FilledStar className="filled-star" /> <FilledStar className="filled-star" /><FilledStar className="filled-star" /><FilledStar className="filled-star" />
+                    {/* image is done using css now, needs to be converted to js */}
+                    <div className="order__user-img" style={style}></div>
+                    <div className="order__info">
+                        <div className="order__info__user">
+                            <span className="order__info__user__name"> {serviceProvider.firstName + " " + serviceProvider.lastName}</span>
+                            <span className="order__info__rating"> {rating} <FilledStar style={{ marginLeft: ".5rem", fill: "white", width: "2rem", height: "2rem", cursor: "pointer" }}></FilledStar>
+                            </span>
+                        </div>
+                        <div className={`order__info__order ${toggled ? "visible" : null}`} >
+
+                            {provisionDate}  ago / {city} / {paymentType}
+                            <div className="order__extra-info__type">
+                                <div className="order__extra-info__type__details"> <span>Type:  Mechanical</span> <span>/</span> <span>Name: Mototrs</span> <span>/</span> <span>Time: 12:00 - 15:00</span></div>
+                                <div className="order__extra-info__type__details"><span>City: {city}</span> <span>/</span> <span>Day: {day}</span> <span>/</span> <span>Date: {date}</span> </div>
+                                <div className="order__extra-info__type__details"><span>Diagonsing fees: {diagonsingFees}$</span> <span>/</span> <span>Total fees: {totalFees}$</span></div>
+                                <div>Payment: {paymentType}</div>
+                                <div>Feedback: {feedback}. </div>
+                                <div className="rate">
+                                    <span className="rate__text">Rate: </span>  <FilledStar className="filled-star" /> <FilledStar className="filled-star" /> <FilledStar className="filled-star" /><FilledStar className="filled-star" /><FilledStar className="filled-star" />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <span>
-                        {
-                            toggled ?
-                                <ArrowUp className="arrow arrow-down"  onClick={() => this.shrinkCard()}></ArrowUp> :
-                                <ArrowDown className="arrow arrow-down" onClick={() => this.expandCard()}></ArrowDown>
-                        }
+                        <span>
+                            {
+                                toggled ?
+                                    <ArrowUp className="arrow arrow-down" onClick={() => this.shrinkCard()}></ArrowUp> :
+                                    <ArrowDown className="arrow arrow-down" onClick={() => this.expandCard()}></ArrowDown>
+                            }
 
 
-                    </span>
-                </div>
-
-                {
-                    orderType != "order-status" ? <div className="order__buttons-container">
-
-                        <button className="order__buttons-container__feedback" onClick={() => giveFeedBackOnClick("feedback")}>Give FeedBack</button>
-                        <button className="order__buttons-container__reciept">
-                            <img src={Reciept} alt="" />
-                        </button>
-                        <button className="order__buttons-container__replay">
-                            <img src={Replay} alt="" />
-
-                        </button>
-
-                    </div> : <div className="order__buttons-container">
-
-
-
-                        <button className="order__buttons-container__reciept" style={{ marginLeft: "10rem" }}>
-                            <img src={OrderStatus}></img>
-                        </button>
-                        <button className="order__buttons-container__feedback" onClick={() => cancelOnClick("status")}>Cancel</button>
-
+                        </span>
                     </div>
 
-                }
+                    {
+                        orderType != "order-status" ? <div className="order__buttons-container">
+
+                            <button className="order__buttons-container__feedback" onClick={() => giveFeedBackOnClick("feedback")}>Give FeedBack</button>
+                            <button className="order__buttons-container__reciept">
+                                <img src={Reciept} alt="" />
+                            </button>
+                            <button className="order__buttons-container__replay">
+                                <img src={Replay} alt="" />
+
+                            </button>
+
+                        </div> : <div className="order__buttons-container">
 
 
-                <div className="order__extra-info">
 
+                            <button className="order__buttons-container__reciept" style={{ marginLeft: "10rem" }}>
+                                <img src={OrderStatus}></img>
+                            </button>
+                            <button className="order__buttons-container__feedback" onClick={() => cancelOnClick("status")}>Cancel</button>
+
+                        </div>
+
+                    }
+
+
+                    <div className="order__extra-info">
+
+
+
+                    </div>
 
 
                 </div>
-
-
-            </div>
-           </Zoom>
+            </Zoom>
         )
     }
 }

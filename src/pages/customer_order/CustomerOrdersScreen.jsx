@@ -132,7 +132,8 @@ class CustomerOrdersScreen extends React.Component {
   checkTab = () => {
 
     //returning the first order within the ongoing orders
-    const currentOrder = this.props.ordersList.filter((order) => order.ongoing == true)[0];
+    const { ordersList } = this.props
+    const currentOrder = typeof ordersList !== "string" ? ordersList.filter((order) => order.ongoing == true)[0] : null
 
     //deciding on tabs content, if orders list , orderslist will get populated
     if (this.state.activeTab != "OrdersList") {
@@ -168,7 +169,7 @@ class CustomerOrdersScreen extends React.Component {
 
     }
   }
-  componentDidMount() {
+  componentWillMount() {
     const { loadData } = this.props;
     const data = JSON.parse(localStorage.getItem("user"))
 
@@ -218,9 +219,9 @@ class CustomerOrdersScreen extends React.Component {
 
                       <div className="orders-list-inner-section__content-container__orders__animation-container animate__animated animate__zoomIn">
                         {
-                          this.props.ordersList != undefined && this.props.ordersList.length != 0 ? this.props.ordersList.map((order, index) => {
+                          typeof this.props.ordersList !== "string" ? this.props.ordersList.map((order, index) => {
                             return <Order {...order} id={index} className="" giveFeedBackOnClick={this.openPopUp} cancelOnClick={this.openPopUp}></Order>
-                          }) : <div className="orders-list-inner-section__content-container__orders__no-orders">No Orders History</div>
+                          }) : <div className="orders-list-inner-section__content-container__orders__no-orders">{this.props.ordersList}</div>
                         }
                       </div>
                       : null
