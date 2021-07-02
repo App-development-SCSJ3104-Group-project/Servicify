@@ -84,7 +84,7 @@ class CustomerServiceProviderPage extends Component {
 
         return (
 
-            <Template route={"profile"} padding="0rem">
+            <Template padding="0rem">
                 {loading ?
                     <div className="loading-div">
                         <div className="loader">Loading...</div>

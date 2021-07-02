@@ -6,7 +6,8 @@ const initState = {
     duplicateUserEmail: null,
     loading: false,
     IsUserInfoValid: null,
-    userInAuth: null
+    userInAuth: null,
+    user: null
 
 }
 const usersReducer = (state = initState, action) => {
@@ -44,7 +45,7 @@ const usersReducer = (state = initState, action) => {
                     loading: false
                 }
             }
-            //validation
+        //validation
         case UserActionTypes.VALID_USER_SUCESS:
             {
 
@@ -68,7 +69,7 @@ const usersReducer = (state = initState, action) => {
                 }
             }
 
-            //duplication
+        //duplication
         case UserActionTypes.EMAIL_Availability_SUCESS:
             {
                 return {
@@ -119,6 +120,18 @@ const usersReducer = (state = initState, action) => {
                 }
             }
 
+        case UserActionTypes.SET_LOADING: {
+            return {
+                ...state,
+                loading: action.value
+            }
+        }
+        case UserActionTypes.SET_USER: {
+            return {
+                ...state,
+                user: action.data
+            }
+        }
     }
     return state;
 }

@@ -41,7 +41,7 @@ class SearchArea extends Component {
     {
       name: "profile",
       isActive: false,
-      linkTo: "/dashboard",
+      linkTo: "/customer_profile/" + JSON.parse(localStorage.getItem("user"))?._id,
       lastTab: true,
       needsAuth: true,
     },

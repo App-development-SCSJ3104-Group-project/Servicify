@@ -17,6 +17,7 @@ import CustomerViewPost from "./pages/customer_view_post_screen/customer_view_po
 import ProposalForm from "./pages/service_provider_make_proposal_screen/sp_make_proposal_form";
 import ServiceProivderPostScreen from "./pages/service_provider_post_screen/service_provider_post_screen";
 import CustomerManageRequests from "./pages/customer_manage_requests/customer_manage_requests";
+import CustomerProfile from "./pages/customer_profile/customer_profile";
 
 function App() {
   return (
@@ -75,6 +76,10 @@ function App() {
       <Route
         path="/dashboard_manage_requests"
         component={DashboardManageRequests}
+      ></Route>
+      <Route
+        path="/customer_profile/:id"
+        component={CustomerProfile}
       ></Route>
     </div>
   );

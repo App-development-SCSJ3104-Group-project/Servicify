@@ -1,0 +1,129 @@
+.main_content {
+    width: 100%;
+}
+
+.profile_header {
+    position: relative;
+    width: 100%;
+    height: 25rem;
+    padding: 0 20rem;
+    background-color: rgb(255, 217, 128);
+}
+
+.profile_buttons {
+    display: flex;
+    position: absolute;
+    bottom: 50%;
+    padding: 0.5rem;
+    right: 3rem;
+    display: flex;
+    width: 10rem;
+    justify-content: space-around;
+}
+
+.profile_image {
+    width: 20rem;
+    height: 20rem;
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+    bottom: -10rem;
+    color: white;
+    left: 45%;
+}
+
+.profile_image img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 1rem;
+}
+
+.profile_body {
+    background-color: #1e2833;
+    padding-top: 17rem;
+    padding: 20rem 20%;
+    overflow: hidden;
+}
+
+.top_content {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    color: white;
+}
+
+.profile_body_content {
+    width: 90%;
+    display: flex;
+    margin: 5rem auto 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.card_body {
+    z-index: 1;
+    padding: 1rem;
+}
+
+.card_feedback_rate {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 65%;
+}
+
+.card_feedback_rate img {
+    margin-right: 1rem;
+}
+
+.feedback_card {
+    padding: 3rem;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    width: 100%;
+}
+.loading-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.loader {
+    color: #fafafa;
+    font-size: 90px;
+    text-indent: -9999em;
+    overflow: hidden;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin: 72px auto;
+    position: absolute;
+    top: 35%;
+    left: 47.5%;
+    transform: translate(-50%, -50%);
+    -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+    animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+}
+
+@media (max-width: 960px) {
+    .profile_header {
+        padding: 0;
+    }
+    .profile_body {
+        padding: 20rem 0;
+    }
+    .profile_image {
+        width: 15rem;
+        height: 15rem;
+        bottom: -8rem;
+        left: 45%;
+    }
+}
