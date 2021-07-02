@@ -35,24 +35,45 @@ const SignUpFrom = ({ checkEmailAvailability, duplicateUserEmail, users, loading
     const formInputs = [
         {
             type: "text",
-            placeHolder: "Enter Full Name",
+            placeHolder: "First Name",
             displayType: "block",
-            customLabel: "Full Name*",
-            className: "name form__right-side__innerForm__input-group"
+            customLabel: "First Name*",
+            className: "firstName name form__right-side__innerForm__input-group",
+            width:"100%"
+        },
+        {
+            type: "text",
+            placeHolder: "Last Name",
+            displayType: "block",
+            customLabel: "Last Name*",
+            className: "lastName name form__right-side__innerForm__input-group",
+            width:"100%"
         },
         {
             type: "text",
             placeHolder: "Enter Email Address",
             displayType: "block",
             customLabel: "Email Address*",
-            className: "email form__right-side__innerForm__input-group"
+            className: "email form__right-side__innerForm__input-group",
+            width:"100%"
+
         },
         {
             type: "password",
             placeHolder: "Enter Password",
             displayType: "block",
             customLabel: "Password*",
-            className: "password form__right-side__innerForm__input-group"
+            className: "password form__right-side__innerForm__input-group",
+            width:"100%"
+        },
+        {
+            type: "text",
+            placeHolder: "Job Name",
+            displayType: "block",
+            customLabel: "Job Name*",
+            className: "jobName  form__right-side__innerForm__input-group",
+            width: "100%",
+            preRequiste:"isServiceProvider"
         },
         {
             type: "checkbox",
@@ -62,6 +83,17 @@ const SignUpFrom = ({ checkEmailAvailability, duplicateUserEmail, users, loading
             className: "isServiceProvider form__right-side__innerForm__input-group"
         }
     ]
+    // const ServiceProviderExtraInputs = [
+    //     {
+    //         type: "text",
+    //         placeHolder: "Job Name",
+    //         displayType: "block",
+    //         customLabel: "Job Name*",
+    //         className: "jobName  form__right-side__innerForm__input-group",
+    //         width: "100%",
+    //         preRequiste:"isServiceProvider"
+    //     },
+    // ]
     const formButtons = [
 
         {
