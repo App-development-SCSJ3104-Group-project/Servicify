@@ -49,7 +49,11 @@
     display: flex;
     justify-content: space-around;
     text-align: center;
-    color: white;
+    margin-bottom: 5rem;
+    input {
+        color: white;
+        font-size: 20px;
+    }
 }
 
 .profile_body_content {
@@ -59,6 +63,15 @@
     flex-direction: column;
     flex-wrap: wrap;
     color: white;
+}
+.profile_body_content_2 {
+    width: 100%;
+    display: flex;
+    margin: 5rem 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: white;
+    justify-content: space-between;
 }
 
 .card_body {
@@ -126,4 +139,43 @@
         bottom: -8rem;
         left: 45%;
     }
+}
+
+.input_style {
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: transparent;
+    text-align: center;
+    color: black;
+    width: 100%;
+    min-height: 3.5rem;
+}
+.textarea_style {
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: transparent;
+    text-align: start;
+    width: 100%;
+    color: white;
+}
+.input_style_edit {
+    background-color: white;
+    border: white;
+    text-align: center;
+    color: black;
+}
+
+.header_style {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.info_card {
+    background-color: #ffd980;
+    border-radius: 20px;
+    color: black;
+    text-align: center;
+    padding: 1rem 0;
 }
