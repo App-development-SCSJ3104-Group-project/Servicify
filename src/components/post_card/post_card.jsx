@@ -32,6 +32,7 @@ const PostHeader = ({
   postAuthor,
   _id,
   imgSrc,
+  customerId,
 }) => {
   const proposalShareOptioneMenu = [
     "Send default proposal",
@@ -81,16 +82,20 @@ const PostHeader = ({
           </OptionButton>
         ) : (
           <OptionButton icon={<OptionIcon />}>
-            <Dropdownmenu>
-              <Link
-                style={{ color: "white", textDecoration: "none" }}
-                to={"/service_provider_make_proposal_screen/" + _id}
-              >
-                <div className="item__options__selected">
-                  <p>Delete post</p>
-                </div>
-              </Link>
-            </Dropdownmenu>
+            {currentUser._id === customerId ? (
+              <Dropdownmenu>
+                <Link
+                  style={{ color: "white", textDecoration: "none" }}
+                  to={"/service_provider_make_proposal_screen/" + _id}
+                >
+                  <div className="item__options__selected">
+                    <p>Delete post</p>
+                  </div>
+                </Link>
+              </Dropdownmenu>
+            ) : (
+              ""
+            )}
           </OptionButton>
         )}
       </div>

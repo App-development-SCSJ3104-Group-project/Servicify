@@ -7,6 +7,7 @@ import Template from "../../components/template/template";
 import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "../../redux/posts/posts_action";
 import Zoom from "react-reveal/Zoom";
+import NotifyBill from "./svg/notification_icon";
 
 const CustomerPostScreen = () => {
   const dispatch = useDispatch();
@@ -32,11 +33,25 @@ const CustomerPostScreen = () => {
           ) : (
             <PostCardForm useState={useState}></PostCardForm>
           )}
-          {postsList?.map((post) => (
-            <Zoom key={post._id}>
-              <PostCard key={post._id} post={post} />
-            </Zoom>
-          ))}
+          {postsList.length == 0 ? (
+            <div
+              style={{
+                fontSize: "24px",
+                textAlign: "center",
+                padding: "20px",
+                marginTop: "10px",
+              }}
+            >
+              <NotifyBill /> <br /> <br /> <br />
+              Sorry, no post is Available yet
+            </div>
+          ) : (
+            postsList?.map((post) => (
+              <Zoom key={post._id}>
+                <PostCard key={post._id} post={post} />
+              </Zoom>
+            ))
+          )}
         </div>
       </div>
     </Template>
