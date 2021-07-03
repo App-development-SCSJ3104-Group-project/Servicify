@@ -90,7 +90,7 @@ const filterSet = (data) => {
 
   let filter = []
   Array.from(data).map((e) => {
-    e[1] === true ? filter.push(e[0]) : e = e
+    e[1] ==== true ? filter.push(e[0]) : e = e
   })
 
   return filter

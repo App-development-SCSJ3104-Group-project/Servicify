@@ -24,10 +24,10 @@ class CustomerMakeRequestScreen extends Component {
         const data = JSON.parse(localStorage.getItem("user"))
     }
     onClick = () => {
-        if (this.state.location === "" ||
-            this.state.payment === "" ||
-            this.state.fees === "" ||
-            this.state.description === "")
+        if (this.state.location ==== "" ||
+            this.state.payment ==== "" ||
+            this.state.fees ==== "" ||
+            this.state.description ==== "")
             return alert("field are required")
 
         const { makeRequest } = this.props

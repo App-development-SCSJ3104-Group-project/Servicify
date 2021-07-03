@@ -87,7 +87,7 @@ export const fetchUsers = (url, fetchingMode, userInfo) => {
                     }
                     break;
                 case "checkDuplication":
-                    if (data.length == 0) {
+                    if (data.length === 0) {
                         dispatch(emailAvailabilityFailure())
 
                     } else {

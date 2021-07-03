@@ -28,7 +28,7 @@ class PopUp extends React.Component{
         const {starClickingInfo}=this.state;
         document.querySelectorAll(`.feedbackPopUp__rate__star`).forEach((star,index)=>{
 
-            if(starClickingInfo.status==false){
+            if(starClickingInfo.status===false){
                 if(index<=hoveredStarIndex){
                                             star.style.fill=color
                                         }
@@ -89,7 +89,7 @@ class PopUp extends React.Component{
                     rating:(starClickingInfo.clickedIndex+1)
                 });
                 e.preventDefault()
-            }} style={popUpType=="status"?{height:"45rem"}:null}>
+            }} style={popUpType==="status"?{height:"45rem"}:null}>
 
 
         <div className="feedbackPopUp__header">{Header}</div>
@@ -110,7 +110,7 @@ class PopUp extends React.Component{
                 height="4rem" borderRadius="22px" displayType="inline-block"  ></CustomButton>
             </div>
 {
-    popUpType=="feedback"?
+    popUpType==="feedback"?
             <div className="feedbackPopUp__rate">
                
                             <Zoom  cascade>{this.getStars()}</Zoom>

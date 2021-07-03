@@ -16,7 +16,7 @@ const LoginFrom = ({
   let history = useHistory();
 
   const handleAuthState = (IsUserInfoValid, resetCallBack) => {
-    if (IsUserInfoValid == true) {
+    if (IsUserInfoValid === true) {
       setTimeout(() => {
         resetCallBack();
         localStorage.setItem("user", JSON.stringify(userInAuth[0]));

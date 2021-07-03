@@ -24,7 +24,7 @@ const OptionIcon = () => {
           id="image0"
           width="24"
           height="24"
-          xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAAKElEQVQ4y2NgGKbgv8f/x0DoQbyGR/9B4BENNZDqpNFQGhxgNJToDgDiB1Rh9jp8GgAAAABJRU5ErkJggg=="
+          xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAAKElEQVQ4y2NgGKbgv8f/x0DoQbyGR/9B4BENNZDqpNFQGhxgNJToDgDiB1Rh9jp8GgAAAABJRU5ErkJggg==="
         />
       </defs>
     </svg>

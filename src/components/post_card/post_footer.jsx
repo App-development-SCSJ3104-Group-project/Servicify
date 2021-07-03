@@ -32,7 +32,7 @@ const PostFooter = ({ tags, proposal, _id, customerId }) => {
               }}
             ></p>
           </div>
-        ) : currentUser._id === customerId ? (
+        ) : currentUser._id ==== customerId ? (
           <Link
             style={{ textDecoration: "none" }}
             to={"/customer_view_post_screen/" + _id}
@@ -59,7 +59,7 @@ const PostFooter = ({ tags, proposal, _id, customerId }) => {
           </Link>
         ) : (
           <div className="stack__avatars">
-            {proposal.length === 0 ? (
+            {proposal.length ==== 0 ? (
               <div>No proposals yet</div>
             ) : (
               proposal?.map((proposal, index) => (

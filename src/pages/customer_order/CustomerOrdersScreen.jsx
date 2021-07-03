@@ -103,7 +103,7 @@ class CustomerOrdersScreen extends React.Component {
     const newInnerTabs = this.state.innerTabs;
     let activeTab = buttonInnerText;
     newInnerTabs.forEach((innerTab) => {
-      innerTab.innerText == buttonInnerText
+      innerTab.innerText === buttonInnerText
         ? (innerTab.isActive = true)
         : (innerTab.isActive = false);
     });
@@ -133,12 +133,12 @@ class CustomerOrdersScreen extends React.Component {
 
     //returning the first order within the ongoing orders
     const { ordersList } = this.props
-    const currentOrder = typeof ordersList !== "string" ? ordersList.filter((order) => order.ongoing == true)[0] : null
+    const currentOrder = typeof ordersList !== "string" ? ordersList.filter((order) => order.ongoing === true)[0] : null
 
     //deciding on tabs content, if orders list , orderslist will get populated
     if (this.state.activeTab != "OrdersList") {
 
-      if (currentOrder == null || currentOrder == undefined || currentOrder == []) {
+      if (currentOrder === null || currentOrder === undefined || currentOrder === []) {
 
         return <div className="orders-list-inner-section__content-container__status__inner  animate__animated animate__zoomInDown">
 
@@ -190,7 +190,7 @@ class CustomerOrdersScreen extends React.Component {
         <div className="customer-order">
           <div className="order-list-section">
 
-            {this.state.popUpToggle == true ? <PopUp popUpType={this.state.popUpType} closeCallBack={this.closePopUp} submitCallBack={this.handlePopUpInput} Header={this.state.popUpType == "feedback" ? "Description" : "Reason"}></PopUp> : null}
+            {this.state.popUpToggle === true ? <PopUp popUpType={this.state.popUpType} closeCallBack={this.closePopUp} submitCallBack={this.handlePopUpInput} Header={this.state.popUpType === "feedback" ? "Description" : "Reason"}></PopUp> : null}
 
             <div className="orders-list-inner-section">
               <div className="orders-list-inner-section__content-container">
@@ -215,7 +215,7 @@ class CustomerOrdersScreen extends React.Component {
                 <div className="orders-list-inner-section__content-container__orders ">
                   {
 
-                    this.state.activeTab == "OrdersList" ?
+                    this.state.activeTab === "OrdersList" ?
 
                       <div className="orders-list-inner-section__content-container__orders__animation-container animate__animated animate__zoomIn">
                         {

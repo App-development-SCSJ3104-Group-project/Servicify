@@ -20,7 +20,7 @@ const CustomButton = ({ backGroundColor, innerText, color, boxShadow, type, disp
     const value1 = "translateX(1.6rem)";
     const value2 = null;
     const styleIcon = {
-        transform: iconPosition === 'false' ? value2 : value1,
+        transform: iconPosition ==== 'false' ? value2 : value1,
         width: iconWidth,
         height: iconHeight,
     }

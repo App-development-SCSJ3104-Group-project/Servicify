@@ -12,7 +12,7 @@ const SignUpFrom = ({ checkEmailAvailability, duplicateUserEmail, users, loading
 
     const handleAuthState = (duplicateUserEmail, resetCallBack) => {
 
-        if (duplicateUserEmail == false) {
+        if (duplicateUserEmail === false) {
             setTimeout(() => {
                 resetCallBack()
                 history.push('/login');
