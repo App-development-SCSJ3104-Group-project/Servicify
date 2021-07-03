@@ -54,10 +54,10 @@ class Order extends React.Component {
     render() {
 
 
-        const { giveFeedBackOnClick,cancelOnClick, order } = this.props;
+        const { giveFeedBackOnClick,cancelOnClick, order,orderType } = this.props;
         const { serviceProvider } = order
         const style = {
-            backgroundImage: `url(${order.profileImgSrc ? order.profileImgSrc : defaultUserImg})`,
+            backgroundImage: `url(${order.serviceProvider.imgSrc ? order.serviceProvider.imgSrc : defaultUserImg})`,
         }
         const { cardStyle, toggled } = this.state;
 
@@ -82,8 +82,8 @@ class Order extends React.Component {
                             {order.provisionDate}  ago / {order.city} / {order.paymentType}
                             <div className="order__extra-info__type">
                                 <div className="order__extra-info__type__details"> <span>Type:  Mechanical</span> <span>/</span> <span>Name: Mototrs</span> <span>/</span> <span>Time: 12:00 - 15:00</span></div>
-                                <div className="order__extra-info__type__details"><span>City: {order.city}</span> <span>/</span> <span>Day: {order.day}</span> <span>/</span> <span>Date: {order.date}</span> </div>
-                                <div className="order__extra-info__type__details"><span>Diagonsing fees: {}$</span> <span>/</span> <span>Total fees: {order.fees}$</span></div>
+                                <div className="order__extra-info__type__details"><span>City: {order.location}</span>  <span>/</span> <span>Date: {order.provisionDate.split(" ")}</span> </div>
+                                <div className="order__extra-info__type__details"><span>Diagonsing fees: {serviceProvider.diagnosingFees}$</span> <span>/</span> <span>Total fees: {order.serviceFees}$</span></div>
                                 <div>Payment: {order.paymentType}</div>
                                 <div>Feedback: {order.feedback}. </div>
                                 <div className="rate">
@@ -103,7 +103,7 @@ class Order extends React.Component {
                     </div>
 
                     {
-                        order.orderType != "order-status" ? <div className="order__buttons-container">
+                        orderType != "order-status" ? <div className="order__buttons-container">
 
                             <button className="order__buttons-container__feedback" onClick={() => giveFeedBackOnClick("feedback")}>Give FeedBack</button>
                             <button className="order__buttons-container__reciept">
