@@ -4,6 +4,8 @@ import PostCard from "../../components/post_card/post_card";
 import ProposalCard from "./compoents/proposalCard/proposalCard";
 import { useDispatch, useSelector } from "react-redux";
 import { getProposals } from "./../../redux/proposals/proposals_action";
+import NotifyBill from "./../customer_post_screen/svg/notification_icon";
+import NotificationIcon from "./../../components/navbar/notification_icons";
 
 const CustomerViewPost = (props) => {
   // dispatch an action
@@ -30,14 +32,30 @@ const CustomerViewPost = (props) => {
           <h3>Proposals</h3>
         </div>
 
-        {proposalsList.map((proposalInfo, index) => (
-          <ProposalCard
-            key={index}
-            {...proposalInfo}
-            proposalsInfo={proposalInfo}
-            useState={useState}
-          />
-        ))}
+        {proposalsList?.length === 0 ? (
+          <div
+            style={{
+              fontSize: "24px",
+              textAlign: "center",
+              padding: "20px",
+              margin: "10px 0px 40px 0px",
+              color: "black",
+              fontFamily: "sans-serif",
+            }}
+          >
+            <NotificationIcon /> <br /> <br />
+            <div>Sorry, proposal is available</div>
+          </div>
+        ) : (
+          proposalsList?.map((proposalInfo, index) => (
+            <ProposalCard
+              key={index}
+              {...proposalInfo}
+              proposalsInfo={proposalInfo}
+              useState={useState}
+            />
+          ))
+        )}
       </div>
     </React.Fragment>
   );
