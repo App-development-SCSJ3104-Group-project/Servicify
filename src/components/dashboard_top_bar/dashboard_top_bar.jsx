@@ -22,7 +22,7 @@ class DashboardTopBar extends Component {
 
     render() {
 
-        this.tabs.find(e => e.name == this.props.route).isActive = true;
+        this.tabs.find(e => e.name === this.props.route).isActive = true;
         return (
             <div className="overview_header">
 

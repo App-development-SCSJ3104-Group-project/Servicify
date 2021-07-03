@@ -39,6 +39,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: start;
+
+    img {
+        height: 1.5rem;
+    }
 }
 
 .toggle_card {

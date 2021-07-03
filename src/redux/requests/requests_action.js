@@ -35,7 +35,7 @@ export const getRequest = (id) => {
         dispatch(setLoading(true))
 
         axios.get("https://service-backend-web.herokuapp.com/requests/?id=" + id + "&type=false").then(res => {
-            // axios.get("http://localhost:5000/requests/?id=" + id + "&type=false").then(res => {
+            // axios.get("https://service-backend-web.herokuapp.com/requests/?id=" + id + "&type=false").then(res => {
 
             dispatch(setLoading(false))
             dispatch(setRequest(res.data))
@@ -48,7 +48,7 @@ export const getServiceProviderRequest = (id) => {
         dispatch(setLoading(true))
 
         axios.get("https://service-backend-web.herokuapp.com/requests/?id=" + id + "&type=true").then(res => {
-            // axios.get("http://localhost:5000/requests/?id=" + id + "&type=true").then(res => {
+            // axios.get("https://service-backend-web.herokuapp.com/requests/?id=" + id + "&type=true").then(res => {
 
             // console.log(res.data);
             dispatch(setLoading(false))

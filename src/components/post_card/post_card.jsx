@@ -9,8 +9,9 @@ import PostHeaderInfo from "./post_header-info";
 import TimeIcon from "./icons/time_icon";
 import LocationIcon from "./icons/location_icon";
 import OptionIcon from "./icons/option_icon";
-// import ShareIcon from "./icons/share_icon";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deleteAPost } from "../../redux/posts/posts_action";
 const moment = require("moment");
 
 const PostCard = (props) => {
@@ -24,14 +25,12 @@ const PostCard = (props) => {
 };
 
 const PostHeader = ({
-  actions,
-  profileAvatar,
   timestamp,
   location,
   cancelationFee,
-  postAuthor,
   _id,
   imgSrc,
+  customerId,
 }) => {
   const proposalShareOptioneMenu = [
     "Send default proposal",
@@ -40,6 +39,8 @@ const PostHeader = ({
 
   // getting userDate whether it is service provider or customer
   const currentUser = JSON.parse(localStorage.getItem("user"));
+
+  const dispatch = useDispatch();
 
   return (
     <div className="post-header__content_styles">
@@ -81,16 +82,15 @@ const PostHeader = ({
           </OptionButton>
         ) : (
           <OptionButton icon={<OptionIcon />}>
-            <Dropdownmenu>
-              <Link
-                style={{ color: "white", textDecoration: "none" }}
-                to={"/service_provider_make_proposal_screen/" + _id}
-              >
+            {currentUser._id ==== customerId ? (
+              <Dropdownmenu>
                 <div className="item__options__selected">
-                  <p>Delete post</p>
+                  <p onClick={() => dispatch(deleteAPost(_id))}>Delete post</p>
                 </div>
-              </Link>
-            </Dropdownmenu>
+              </Dropdownmenu>
+            ) : (
+              ""
+            )}
           </OptionButton>
         )}
       </div>

@@ -45,7 +45,7 @@ class SearchArea extends Component {
       lastTab: true,
       needsAuth: true,
     },
-    localStorage.getItem("isServiceProvider") === "true"
+    localStorage.getItem("isServiceProvider") ==== "true"
       ? {
         name: "Dashboard",
         isActive: false,
@@ -59,15 +59,15 @@ class SearchArea extends Component {
     const { popUpToggle } = this.state;
     const { userInAuth } = this.props;
     const tabsToBeRendered = this.tabs.filter((tab) => {
-      if (tab.needsAuth == false) {
+      if (tab.needsAuth === false) {
         return tab;
       }
-      if (tab.needsAuth == true && localStorage.length != 0) {
+      if (tab.needsAuth === true && localStorage.length != 0) {
         return tab;
       }
     });
     if (this.props.route !== undefined)
-      this.tabs.find((e) => e.name == this.props.route).isActive = true;
+      this.tabs.find((e) => e.name === this.props.route).isActive = true;
 
     return (
       <div className={`browse-area } `}>

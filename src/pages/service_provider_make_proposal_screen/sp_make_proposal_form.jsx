@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 //
 const ProposalForm = (props) => {
   const postsList = JSON.parse(localStorage.getItem("posts"));
-  const post = postsList.find((post) => post._id === props.match.params._id);
+  const post = postsList.find((post) => post._id ==== props.match.params._id);
 
   return (
     <React.Fragment>
@@ -65,9 +65,9 @@ const ManageProposalForm = (props) => {
 
     if (!parseInt(diagnosisFee)) {
       alert("Enter cost of diagnosis");
-    } else if (paymentMethod === "" || paymentMethod == "payment") {
+    } else if (paymentMethod ==== "" || paymentMethod === "payment") {
       alert("Please select payement method");
-    } else if (description === "") {
+    } else if (description ==== "") {
       alert("please Enter Description");
     } else {
       proposalInfo["serviceProviderId"] = serviceProviderId;
@@ -102,7 +102,7 @@ const ManageProposalForm = (props) => {
   const handleChangeInput = (id, e) => {
     // important
     const newInputFields = inputFields.map((i) => {
-      if (id === i.id) {
+      if (id ==== i.id) {
         i[e.target.name] = e.target.value;
       }
       return i;
@@ -115,7 +115,7 @@ const ManageProposalForm = (props) => {
   const handleRemoveFields = (id) => {
     const values = [...inputFields];
     values.splice(
-      values.findIndex((value) => value.id === id),
+      values.findIndex((value) => value.id ==== id),
       1
     );
     setInputFields(values);
@@ -177,7 +177,7 @@ const ManageProposalForm = (props) => {
               placeholder={`*Optional Enter Step ${index + 1} Description`}
               autoComplete="off"
             />
-            {index + 1 === 1 ? (
+            {index + 1 ==== 1 ? (
               ""
             ) : (
               <div className="proposal-form-steps-action">
