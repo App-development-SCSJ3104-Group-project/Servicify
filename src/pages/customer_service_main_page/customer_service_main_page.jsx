@@ -21,7 +21,7 @@ class CustomerServiceMainPage extends Component {
   }
 
   onClick = (index) => {
-    this.state.active ==== index ? index = null : index = index
+    this.state.active === index ? index = null : index = index
     this.setState({ active: index })
   }
 
@@ -43,7 +43,7 @@ class CustomerServiceMainPage extends Component {
                 <Zoom left >
 
                   <div style={{
-                    backgroundColor: e[0] ==== this.state.active ? "orange" : "#57C4E5",
+                    backgroundColor: e[0] === this.state.active ? "orange" : "#57C4E5",
                     borderRadius: "10px",
                     marginRight: "10px"
                   }}>
@@ -76,10 +76,10 @@ class CustomerServiceMainPage extends Component {
             {data.length != 0 ? (
               data.map((e) => [
 
-                this.state.active ==== null ?
+                this.state.active === null ?
                   e[1].map((e) =>
                     <ProfileCard data={e} />,
-                  ) : this.state.active ==== e[0] ?
+                  ) : this.state.active === e[0] ?
                     e[1].map((e) =>
                       <ProfileCard data={e} />,
                     ) : null

@@ -95,7 +95,7 @@ class CustomerSavedScreen extends Component {
             {mockUsers.length != 0 ? (
               mockUsers.map((e) => [
                 <ProfileCard data={e} />,
-                (mockUsers.indexOf(e) + 1) % 3 ==== 0 ? (
+                (mockUsers.indexOf(e) + 1) % 3 === 0 ? (
                   <Divider
                     width="100%"
                     height="0.2rem"

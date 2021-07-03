@@ -45,7 +45,7 @@ class SearchArea extends Component {
       lastTab: true,
       needsAuth: true,
     },
-    localStorage.getItem("isServiceProvider") ==== "true"
+    localStorage.getItem("isServiceProvider") === "true"
       ? {
         name: "Dashboard",
         isActive: false,

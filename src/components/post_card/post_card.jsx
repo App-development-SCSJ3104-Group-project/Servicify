@@ -82,7 +82,7 @@ const PostHeader = ({
           </OptionButton>
         ) : (
           <OptionButton icon={<OptionIcon />}>
-            {currentUser._id ==== customerId ? (
+            {currentUser._id === customerId ? (
               <Dropdownmenu>
                 <div className="item__options__selected">
                   <p onClick={() => dispatch(deleteAPost(_id))}>Delete post</p>

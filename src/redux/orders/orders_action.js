@@ -17,8 +17,6 @@ export const loadData = (id) => {
         axios.get("https://service-backend-web.herokuapp.com/orders/?id=" + id, +"&type=false").then(res => {
 
             const data = res.data;
-
-            console.log(data);
             return dispatch(storeData(data))
 
         }).catch(err => {

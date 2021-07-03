@@ -32,7 +32,7 @@ class ManageProposals extends Component {
                                 <div className="loader">Loading...</div>
                             </div>
                             :
-                            typeof requests ==== "string" ? <h3>{requests}</h3> :
+                            typeof requests === "string" ? <h3>{requests}</h3> :
                                 requests.map(prop => (
                                     [
                                         <Card imgHeight="15.0rem" scaleUp={true} imgWidth="15.0rem" width="50%" image_src={prop.serviceProvider.imgSrc} imgHsize="8rem" imgWsize="8rem" data={prop.name} callback={this.onClickCard}>
@@ -49,7 +49,7 @@ class ManageProposals extends Component {
                                                     <h3>{prop.time} / {prop.location} / {prop.payment}</h3>
                                                 </div>
                                                 <div className="right_float_button">
-                                                    {prop.status ==== "Pending" ?
+                                                    {prop.status === "Pending" ?
                                                         <div onClick={() => {
                                                             const data = JSON.parse(localStorage.getItem("user"))
                                                             cancelRequest(prop._id, data._id); setTimeout(() => {

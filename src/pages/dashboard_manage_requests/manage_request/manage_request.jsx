@@ -33,7 +33,7 @@ class ManageRequests extends Component {
                 <div className="loader">Loading...</div>
               </div>
               :
-              typeof requests ==== "string" ? <h3>{requests}</h3> :
+              typeof requests === "string" ? <h3>{requests}</h3> :
                 requests.map(prop => (
                   [
                     <Card imgHeight="15.0rem" scaleUp={true} imgWidth="15.0rem" width="50%" image_src={prop.customer.imgSrc} imgHsize="8rem" imgWsize="8rem" data={prop.name} callback={this.onClickCard}>
@@ -52,7 +52,7 @@ class ManageRequests extends Component {
                         <div className="right_float_button">
 
                           {
-                            prop.status ==== "Pending" ?
+                            prop.status === "Pending" ?
                               [<div onClick={() => {
                                 acceptRequest(prop._id, JSON.parse(localStorage.getItem("user"))._id, "Accepted"); setTimeout(() => {
                                   window.location.reload()

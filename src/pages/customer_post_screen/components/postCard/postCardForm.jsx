@@ -50,10 +50,10 @@ const PostCardForm = ({ useState }) => {
     postData["imgSrc"] = imgSrc;
 
     if (
-      cancelationFee ==== "" ||
-      location ==== "" ||
-      description ==== "" ||
-      paymentMethod ==== ""
+      cancelationFee  ==="" ||
+      location === "" ||
+      description === "" ||
+      paymentMethod === ""
     ) {
       alert("please fill all required inputs");
     } else {
@@ -153,7 +153,7 @@ const PostCardForm = ({ useState }) => {
             <input
               type="text"
               onKeyUp={(event) =>
-                event.key ==== "Shift" ? addTags(event) : null
+                event.key === "Shift" ? addTags(event) : null
               }
               placeholder="Press shift to add tags"
             />

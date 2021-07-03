@@ -27,8 +27,8 @@ class DashboardManageOrders extends Component {
         const target = event.target.closest('.normal').classList.value.split(" ").filter(e => e === "active")
 
         if (target !== "active") {
-            this.tabs.filter(e => e.status ==== true)[0].status = false
-            this.tabs.filter(e => e.name ==== event.target.closest('.normal').dataset.name)[0].status = true
+            this.tabs.filter(e => e.status === true)[0].status = false
+            this.tabs.filter(e => e.name === event.target.closest('.normal').dataset.name)[0].status = true
 
         }
         this.setState({})
@@ -43,11 +43,11 @@ class DashboardManageOrders extends Component {
     ]
     onOrderCardClicked = (event) => {
 
-        const target = event.target.parentElement.classList.value.split(" ").filter(e => e ==== "active_card")
+        const target = event.target.parentElement.classList.value.split(" ").filter(e => e === "active_card")
 
         if (target[0] !== "active_card") {
-            this.orderStatus.filter((e) => e.status ==== true)[0].status = false
-            this.orderStatus.filter((e) => e.name ==== event.target.parentElement.dataset.name)[0].status = true
+            this.orderStatus.filter((e) => e.status === true)[0].status = false
+            this.orderStatus.filter((e) => e.name === event.target.parentElement.dataset.name)[0].status = true
             event.target.parentElement.classList.add("active_card")
 
         }

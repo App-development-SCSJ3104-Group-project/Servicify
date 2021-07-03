@@ -10,7 +10,7 @@ class LabeledInputField extends Component {
                 <h2>{this.props.label}</h2>
                 <br />
                 {
-                    this.props.tag ==== "textarea" ?
+                    this.props.tag === "textarea" ?
                         <textarea className={this.props.className}
                             name={this.props.name}
                             type={this.props.type}

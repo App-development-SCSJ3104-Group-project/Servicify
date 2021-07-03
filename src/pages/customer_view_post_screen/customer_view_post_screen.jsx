@@ -13,7 +13,7 @@ const CustomerViewPost = (props) => {
 
   // Fetch post from the local storage
   const postsList = JSON.parse(localStorage.getItem("posts"));
-  const post = postsList.find((post) => post._id ==== props.match.params._id);
+  const post = postsList.find((post) => post._id === props.match.params._id);
 
   useEffect(() => {
     dispatch(getProposals(props.match.params._id));
@@ -32,7 +32,7 @@ const CustomerViewPost = (props) => {
           <h3>Proposals</h3>
         </div>
 
-        {proposalsList?.length ==== 0 ? (
+        {proposalsList?.length === 0 ? (
           <div
             style={{
               fontSize: "24px",

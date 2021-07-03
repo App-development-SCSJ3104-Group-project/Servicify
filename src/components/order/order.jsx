@@ -13,7 +13,7 @@ import Zoom from 'react-reveal/Zoom';
 class Order extends React.Component {
 
 
-    constructor(props) {
+    constructor (props) {
 
         super(props);
 
@@ -54,12 +54,14 @@ class Order extends React.Component {
     render() {
 
 
-        const { profileImgSrc, rating, provisionDate, city, day, date, diagonsingFees, totalFees, paymentType, feedback, customer, serviceProvider, giveFeedBackOnClick, orderType, cancelOnClick } = this.props;
-
+        const { giveFeedBackOnClick,cancelOnClick, order } = this.props;
+        const { serviceProvider } = order
         const style = {
-            backgroundImage: `url(${profileImgSrc ? profileImgSrc : defaultUserImg})`,
+            backgroundImage: `url(${order.profileImgSrc ? order.profileImgSrc : defaultUserImg})`,
         }
-        const { cardStyle, textStyle, toggled } = this.state;
+        const { cardStyle, toggled } = this.state;
+
+        console.log(serviceProvider)
 
         return (
 
@@ -71,19 +73,19 @@ class Order extends React.Component {
                     <div className="order__user-img" style={style}></div>
                     <div className="order__info">
                         <div className="order__info__user">
-                            <span className="order__info__user__name"> {serviceProvider.firstName + " " + serviceProvider.lastName}</span>
-                            <span className="order__info__rating"> {rating} <FilledStar style={{ marginLeft: ".5rem", fill: "white", width: "2rem", height: "2rem", cursor: "pointer" }}></FilledStar>
+                            <span className="order__info__user__name"> {order.serviceProvider.firstName + " " + order.serviceProvider.lastName}</span>
+                            <span className="order__info__rating"> {order.rating} <FilledStar style={{ marginLeft: ".5rem", fill: "white", width: "2rem", height: "2rem", cursor: "pointer" }}></FilledStar>
                             </span>
                         </div>
                         <div className={`order__info__order ${toggled ? "visible" : null}`} >
 
-                            {provisionDate}  ago / {city} / {paymentType}
+                            {order.provisionDate}  ago / {order.city} / {order.paymentType}
                             <div className="order__extra-info__type">
                                 <div className="order__extra-info__type__details"> <span>Type:  Mechanical</span> <span>/</span> <span>Name: Mototrs</span> <span>/</span> <span>Time: 12:00 - 15:00</span></div>
-                                <div className="order__extra-info__type__details"><span>City: {city}</span> <span>/</span> <span>Day: {day}</span> <span>/</span> <span>Date: {date}</span> </div>
-                                <div className="order__extra-info__type__details"><span>Diagonsing fees: {diagonsingFees}$</span> <span>/</span> <span>Total fees: {totalFees}$</span></div>
-                                <div>Payment: {paymentType}</div>
-                                <div>Feedback: {feedback}. </div>
+                                <div className="order__extra-info__type__details"><span>City: {order.city}</span> <span>/</span> <span>Day: {order.day}</span> <span>/</span> <span>Date: {order.date}</span> </div>
+                                <div className="order__extra-info__type__details"><span>Diagonsing fees: {}$</span> <span>/</span> <span>Total fees: {order.fees}$</span></div>
+                                <div>Payment: {order.paymentType}</div>
+                                <div>Feedback: {order.feedback}. </div>
                                 <div className="rate">
                                     <span className="rate__text">Rate: </span>  <FilledStar className="filled-star" /> <FilledStar className="filled-star" /> <FilledStar className="filled-star" /><FilledStar className="filled-star" /><FilledStar className="filled-star" />
                                 </div>
@@ -101,7 +103,7 @@ class Order extends React.Component {
                     </div>
 
                     {
-                        orderType != "order-status" ? <div className="order__buttons-container">
+                        order.orderType != "order-status" ? <div className="order__buttons-container">
 
                             <button className="order__buttons-container__feedback" onClick={() => giveFeedBackOnClick("feedback")}>Give FeedBack</button>
                             <button className="order__buttons-container__reciept">
