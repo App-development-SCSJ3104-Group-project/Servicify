@@ -137,7 +137,7 @@ export const getUser = (id) => {
 
         dispatch(setLoading(true))
 
-        axios.get("http://localhost:5000/users/" + id).then((res) => {
+        axios.get("https://service-backend-web.herokuapp.com/users/" + id).then((res) => {
 
             dispatch(setUser(res.data))
             dispatch(setLoading(false))
@@ -151,7 +151,7 @@ export const updateUser = (user) => {
 
         dispatch(setLoading(true))
 
-        axios.patch("http://localhost:5000/users/" + user._id, user).then((res) => {
+        axios.patch("https://service-backend-web.herokuapp.com/users/" + user._id, user).then((res) => {
 
             console.log(res.data);
             dispatch(setUser(res.data))
