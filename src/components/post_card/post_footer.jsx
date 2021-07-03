@@ -60,7 +60,7 @@ const PostFooter = ({ tags, proposal, _id, customerId }) => {
         ) : (
           <div className="stack__avatars">
             {proposal.length === 0 ? (
-              <div>"No proposals yet"</div>
+              <div>No proposals yet</div>
             ) : (
               proposal?.map((proposal, index) => (
                 <Avatar
