@@ -24,3 +24,14 @@ export const createProposal = (proposalInfo, _id) =>
       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
   });
+
+export const deletePost = (id) =>
+  axios({
+    method: "DELETE", //you can set what request you want to be
+    url: `${url}/${id}`,
+    data: null,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+    },
+  });

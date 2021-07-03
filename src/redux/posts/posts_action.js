@@ -5,8 +5,7 @@ export const getPosts = () => async (dispatch) => {
     const { data } = await api.fetchPosts();
 
     dispatch({ type: "FETCH_ALL_POSTS", payload: data });
-  } catch (error) {
-  }
+  } catch (error) {}
 };
 
 export const createNewPost = (post) => async (dispatch) => {
@@ -14,8 +13,7 @@ export const createNewPost = (post) => async (dispatch) => {
     const { data } = await api.createPost(post);
 
     dispatch({ type: "CREATE_POST", payload: data });
-  } catch (error) {
-  }
+  } catch (error) {}
 };
 
 export const createNewProposal = (proposalInfo, _id) => async (dispatch) => {
@@ -23,6 +21,13 @@ export const createNewProposal = (proposalInfo, _id) => async (dispatch) => {
     const { data } = await api.createProposal(proposalInfo, _id);
 
     dispatch({ type: "CREATE_PROPOSAL", payload: data });
-  } catch (error) {
-  }
+  } catch (error) {}
+};
+
+export const deleteAPost = (id) => async (dispatch) => {
+  try {
+    await api.deletePost(id);
+
+    dispatch({ type: "Delete_POST", payload: id });
+  } catch (error) {}
 };
