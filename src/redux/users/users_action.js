@@ -145,3 +145,18 @@ export const getUser = (id) => {
         })
     }
 }
+export const updateUser = (user) => {
+
+    return (dispatch) => {
+
+        dispatch(setLoading(true))
+
+        axios.patch("http://localhost:5000/users/" + user._id, user).then((res) => {
+
+            console.log(res.data);
+            dispatch(setUser(res.data))
+            dispatch(setLoading(false))
+
+        })
+    }
+}

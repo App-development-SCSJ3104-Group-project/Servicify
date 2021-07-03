@@ -13,5 +13,6 @@ export const UserActionTypes = {
     SET_LOADING: "SET_LOADING",
     GET_USER: "GET_USER",
     SET_USER: "SET_USER",
+    UPDATE_USER: "UPDATE_USER",
 
 }

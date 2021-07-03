@@ -17,7 +17,6 @@
     padding: 0.5rem;
     right: 3rem;
     display: flex;
-    width: 10rem;
     justify-content: space-around;
 }
 
@@ -161,10 +160,15 @@
     color: white;
 }
 .input_style_edit {
-    background-color: white;
-    border: white;
+    font-size: 16px;
+    border-radius: 10px;
     text-align: center;
     color: black;
+    width: 100%;
+    min-height: 3.5rem;
+    background-color: white;
+    border: white;
+    pointer-events: all;
 }
 
 .header_style {
@@ -172,10 +176,19 @@
     flex-direction: column;
     align-items: center;
 }
+.header_style_edit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input {
+        color: #000;
+    }
+}
 .info_card {
     background-color: #ffd980;
     border-radius: 20px;
     color: black;
     text-align: center;
     padding: 1rem 0;
+    pointer-events: none;
 }

@@ -1,7 +1,7 @@
 import "./review.scss"
 import Icon from "../icon_component/icon"
 import RateRatio from "../rate_ratio/rate_ratio"
-import Star from "../../icons/star.svg"
+import Star from "../../icons/filledStar.svg"
 
 const review = ({ }) => {
     return (
