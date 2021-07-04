@@ -54,7 +54,7 @@ class Order extends React.Component {
     render() {
 
 
-        const { giveFeedBackOnClick,cancelOnClick, order,orderType } = this.props;
+        const { giveFeedBackOnClick, cancelOnClick, order, orderType } = this.props;
         const { serviceProvider } = order
         const style = {
             backgroundImage: `url(${order.serviceProvider.imgSrc ? order.serviceProvider.imgSrc : defaultUserImg})`,
