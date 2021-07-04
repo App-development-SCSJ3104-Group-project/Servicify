@@ -27,7 +27,7 @@ const card = (props) => {
         <div className="profile_card" style={scaleUp === true ? style : mainColor ? { backgroundColor: mainColor } : null} onClick={props.callback} data-name={props.data}>
 
 
-            <div className="image_block" style={imgStyle}>
+            <div className="profile_card__image" style={imgStyle}>
                 {props.image_src !== undefined ? <img src={props.image_src} style={imgSize} alt="" /> : null}
             </div>
 

@@ -1,5 +1,5 @@
 .profile_card {
-    background-color:#ffd980;
+    background-color: #ffd980;
     position: relative;
     border-radius: 2.5rem;
     padding: 1rem 1.5rem;
@@ -7,6 +7,7 @@
     width: 27rem;
     color: black;
     cursor: pointer;
+
     &h1,
     h2,
     h3,
@@ -14,6 +15,40 @@
     h6,
     p {
         color: black;
+    }
+
+    &__img {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: -2rem;
+        top: -2rem;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 100%;
+        background-color: inherit;
+
+        &image {}
+    }
+
+    &__image {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: -2rem;
+        top: -2rem;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 100%;
+        background-color: inherit;
+
+        img {
+            margin-top: -1rem;
+            width: 6rem;
+            height: 6rem;
+        }
     }
 }
 
@@ -24,26 +59,7 @@
     white-space: wrap;
 }
 
-.image_block {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    left: -2rem;
-    top: -2rem;
-    width: 10rem;
-    height: 10rem;
-    border-radius: 100%;
-    background-color: inherit;
-}
-
-.image_block img {
-    margin-top: -1rem;
-    width: 6rem;
-    height: 6rem;
-}
-
-.card_title {
+.image_block .card_title {
     position: relative;
     z-index: 10;
 }
