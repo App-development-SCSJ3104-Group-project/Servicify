@@ -4,28 +4,30 @@
     flex-direction: column;
     justify-content: space-around;
     margin: 5rem auto;
-}
 
-.review_card_header {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    color: white;
-}
+    &__header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        color: white;
 
-.review_card_header_text_style {
-    text-align: end;
-}
+        &__icons {
+            text-align: end;
 
-.review_card_header_text_style h4 {
-    margin: 1rem;
-}
+            &h4 {
+                margin: 1rem;
 
-.review_rate {
-    width: 100%;
-    color: white;
-    display: flex;
-    flex-direction: column;
+            }
+
+        }
+    }
+
+    &__rate {
+        width: 100%;
+        color: white;
+        display: flex;
+        flex-direction: column;
+    }
 }

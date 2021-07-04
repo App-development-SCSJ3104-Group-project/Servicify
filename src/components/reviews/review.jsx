@@ -7,10 +7,10 @@ const review = ({ }) => {
     return (
         <div className="review_card">
 
-            <div className="review_card_header">
+            <div className="review_card__header">
                 <h2>Review</h2>
 
-                <div className="review_card_header_text_style">
+                <div className="review_card__header__icons">
                     <Icon height="4rem" width="4rem" src={Star} />
                     <Icon height="4rem" width="4rem" src={Star} />
                     <Icon height="4rem" width="4rem" src={Star} />
@@ -21,7 +21,7 @@ const review = ({ }) => {
 
             </div>
 
-            <div className="review_rate">
+            <div className="review__card__rate">
                 <RateRatio width="50" index="5" />
                 <RateRatio width="30" index="4" />
                 <RateRatio width="10" index="3" />
