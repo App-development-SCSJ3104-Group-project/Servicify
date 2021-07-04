@@ -8,29 +8,35 @@
     justify-content: flex-start;
     align-items: center;
     font-family: 'Mulish', sans-serif;
+
     &__img {
         width: 8.5rem;
         height: 8.5rem;
         margin-left: 3rem;
         margin-right: 1.5rem;
     }
+
     &__text {
         font-weight: bold;
         font-size: 1.7rem;
+
         &__name {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
         &__rate {
             display: flex;
             align-items: center;
+
             &__black-star {
                 margin-left: .5rem;
                 margin-top: -.5rem;
             }
         }
     }
+
     &__buttons-group {
         &__button {
             background-color: #1E2833;
@@ -42,6 +48,7 @@
             outline: none;
             margin: 0 .5rem;
         }
+
         margin-left: 9.5rem;
     }
 }

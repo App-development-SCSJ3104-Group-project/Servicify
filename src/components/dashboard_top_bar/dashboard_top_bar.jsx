@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import NavigationTab from "../search_area/tab"
+import NavigationTab from "../search_area/components/tab/tab"
 import profileImg from "../../icons/User2.svg"
 import CircularAvatar from "../icon/icon_component"
 

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import "./search_area.css";
-import NavigationTab from "./tab";
-import SearchPopUp from "./components/innerPopUp/PopUp";
-
+import "./search_area.scss";
+import NavigationTab from "./components/tab/tab";
+import SearchPopUp from "./components/popup/PopUp";
 import { connect } from "react-redux";
+
 class SearchArea extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       popUpToggle: false,
@@ -57,7 +57,6 @@ class SearchArea extends Component {
   ];
   render() {
     const { popUpToggle } = this.state;
-    const { userInAuth } = this.props;
     const tabsToBeRendered = this.tabs.filter((tab) => {
       if (tab.needsAuth === false) {
         return tab;
@@ -72,12 +71,12 @@ class SearchArea extends Component {
     return (
       <div className={`browse-area } `}>
         {popUpToggle ? <SearchPopUp></SearchPopUp> : null}
-        <div className="title-search"></div>
-        <div className="user-search">
-          <p className="title">Browse</p>
+        <div className="browse-area__title-search"></div>
+        <div className="browse-area__user-search">
+          <p className="browse-area__title">Browse</p>
           <input
             type="text"
-            className="search-input"
+            className="browse-area__search-input"
             placeholder="search for a service provider now"
             onClick={() => {
               this.setState({
@@ -86,7 +85,7 @@ class SearchArea extends Component {
             }}
           />
         </div>
-        <div className="navbar-search ">
+        <div className="browse-area__tabs ">
           {tabsToBeRendered
             ? tabsToBeRendered.map((tab) => (
               <NavigationTab
