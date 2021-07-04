@@ -6,11 +6,13 @@
     justify-self: center;
     margin: 2rem auto;
     border-radius: 1rem;
-}
-
-.card_label {
+    
+    &__label {
     position: absolute;
     left: 0;
     top: 0;
     color: white;
+    }
+
 }
+

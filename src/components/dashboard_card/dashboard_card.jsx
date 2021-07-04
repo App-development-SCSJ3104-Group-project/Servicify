@@ -8,9 +8,8 @@ const dashboardCard = (props) => {
 
         <div className="dashboard_card">
 
-            <div className="card_label">
+            <div className="dashboard_card__label">
                 <CircularAvatar height={"1.6rem"} width={"1.6rem"} innerText={props.label} src={null} heightDiv={"5rem"} widthDiv={"15rem"} backgroundColor={"#303036"} borderRadius={"1rem"} />
-
             </div>
             {props.children}
         </div>
