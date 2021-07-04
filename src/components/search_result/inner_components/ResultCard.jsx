@@ -1,18 +1,16 @@
 import React from "react";
-import Avatar from "./avatar"
+import Avatar from "./avatar";
 import StarIcon from "./star";
 import Tag from "./tag";
 const UserResultCard = (props) => {
   const getStar = (data) => {
-
-    let element = []
+    let element = [];
     for (let index = 0; index < data; index++) {
-      element.push(<StarIcon />)
+      element.push(<StarIcon />);
     }
 
-    return element
-
-  }
+    return element;
+  };
 
   return (
     <div className="search__result_card_container">
@@ -27,7 +25,8 @@ const UserResultCard = (props) => {
           />
           <div className="search__result_card_header-sub-section">
             <span>
-              {props.data.country}, {props.data.city} @{props.data.firstName + " " + props.data.lastName}
+              {props.data.country}, {props.data.city} @
+              {props.data.firstName + " " + props.data.lastName}
             </span>
             <div className="search__result_card_header-sub-section-stars">
               {getStar(props.data.rate)}
@@ -49,4 +48,4 @@ const UserResultCard = (props) => {
     </div>
   );
 };
-export default UserResultCard
+export default UserResultCard;
