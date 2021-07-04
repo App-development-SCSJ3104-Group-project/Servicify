@@ -1,7 +1,7 @@
 import React from "react";
 import "./search_result.scss";
 import Zoom from 'react-reveal/Zoom'
-import UserResultCard from "./inner_components/resultCard"
+import UserResultCard from "./inner_components/ResultCard"
 import { connect } from "react-redux";
 import { fetchServiceProviders } from "../../redux/categories/categories_action"
 import { useState, useEffect } from "react";

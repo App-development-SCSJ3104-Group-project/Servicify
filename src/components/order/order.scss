@@ -118,6 +118,9 @@
     &__buttons-container {
         margin-top: 1.5rem;
         padding-right: 2rem;
+        width: 30rem;
+        display: flex;
+        justify-content: flex-end;
 
         &>* {
             background-color: rgb(33, 39, 56);
