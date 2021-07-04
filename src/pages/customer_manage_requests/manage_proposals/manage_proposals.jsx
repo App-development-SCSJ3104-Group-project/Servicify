@@ -8,7 +8,7 @@ import star from "../../../icons/outline_star_black_24dp 1.svg";
 import "./manage_proposals.scss";
 
 class ManageProposals extends Component {
-  constructor({ props }) {
+  constructor ({ props }) {
     super(props);
     this.props = props;
   }
@@ -30,11 +30,14 @@ class ManageProposals extends Component {
     const target = event.target.closest(".profile_card").lastChild;
     target.classList.toggle("show_card");
   };
+
   render() {
     return (
       <DashboardCard label={"Proposals"}>
         <div className="list_of_cards">
+
           {this.data.map((prop) => [
+
             <Card
               imgHeight="15.0rem"
               scaleUp={true}
@@ -46,13 +49,14 @@ class ManageProposals extends Component {
               data={prop.name}
               callback={this.onClickCard}
             >
+
               <div className="order_header_card">
                 <div className="order_header_card_left">
                   <div className="part_one">
                     <h3>{prop.name}</h3>
                     <div className="rate_div">
                       <h3>4.5</h3>
-                      <img src={star} alt="" />
+                      <img className="rate_div__star" src={star} alt="" />
                     </div>
                   </div>
                   <h3>27 minutes ago / Johor Bahru / Cash</h3>

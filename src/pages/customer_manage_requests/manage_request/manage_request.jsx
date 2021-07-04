@@ -8,7 +8,7 @@ import star from "../../../icons/outline_star_black_24dp 1.svg";
 import "./manage_request.scss";
 
 class ManageRequests extends Component {
-  constructor({ props }) {
+  constructor ({ props }) {
     super(props);
     this.props = props;
   }
@@ -52,7 +52,7 @@ class ManageRequests extends Component {
                       </h3>
                       <div className="rate_div">
                         <h3>4.5</h3>
-                        <img src={star} alt="" />
+                        <img className="rate_div__star" src={star} alt="" />
                       </div>
                     </div>
                     <h3>
