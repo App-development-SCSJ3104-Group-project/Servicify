@@ -32,8 +32,6 @@ const PostHeader = ({
   imgSrc,
   customerId,
 }) => {
-
-
   // getting userDate whether it is service provider or customer
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
@@ -65,11 +63,11 @@ const PostHeader = ({
       </div>
       <div className="post__option__menu">
         {currentUser.isServiceProvider ? (
-          <OptionButton icon={<OptionIcon />}>
+          <OptionButton>
             <Dropdownmenu>
               {currentUser._id === customerId ? (
                 <div className="post__option__item">
-                  <p onClick={() => dispatch(deleteAPost(_id))}>Delete post</p>
+                  <a onClick={() => dispatch(deleteAPost(_id))}>Delete post</a>
                 </div>
               ) : (
                 <Link
@@ -88,7 +86,7 @@ const PostHeader = ({
             {currentUser._id === customerId ? (
               <Dropdownmenu>
                 <div className="post__option__item">
-                  <p onClick={() => dispatch(deleteAPost(_id))}>Delete post</p>
+                  <a onClick={() => dispatch(deleteAPost(_id))}>Delete post</a>
                 </div>
               </Dropdownmenu>
             ) : (

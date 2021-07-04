@@ -16,13 +16,7 @@ const UserResultCard = (props) => {
     <div className="search__result_card_container">
       <div className="search__result_card_header">
         <div className="search__result_card_header-left-section">
-          <Avatar
-            source={
-              "https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg"
-            }
-            width={"80px"}
-            height={"80px"}
-          />
+          <Avatar source={props.data.imgSrc} width={"80px"} height={"80px"} />
           <div className="search__result_card_header-sub-section">
             <span>
               {props.data.country}, {props.data.city} @
