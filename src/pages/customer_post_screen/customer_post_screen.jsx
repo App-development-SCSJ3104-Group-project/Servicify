@@ -17,6 +17,7 @@ const CustomerPostScreen = () => {
   }, [dispatch]);
 
   // use selectors
+  // @ts-ignore
   const postsList = useSelector((state) => state.posts);
 
   localStorage.setItem("posts", JSON.stringify(postsList));

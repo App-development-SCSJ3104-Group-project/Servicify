@@ -10,6 +10,7 @@ const PostFooter = ({ tags, proposal, _id, customerId }) => {
   return (
     <div className="post_footer__style">
       {tags?.map((name) => (
+        // @ts-ignore
         <Tag key={name} tag={name} color="#57C4E5" />
       ))}
 

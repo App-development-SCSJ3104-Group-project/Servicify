@@ -5,7 +5,6 @@ import Button from "../../components/button/button";
 import ProfileCard from "../../components/profile_card/profile_card";
 import Template from "../../components/template/template";
 import Icon from "../../components/icon_component/icon";
-
 import notification from "../../icons/outline_notification_important_black_48dp 1.svg";
 import favorite from "../../icons/icons8-heart-30 (1) 1.svg";
 
@@ -13,7 +12,7 @@ import "../landing_page/landing_page.scss";
 import "./customer_saved_screen.scss";
 
 class CustomerSavedScreen extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = props;
   }
@@ -73,7 +72,9 @@ class CustomerSavedScreen extends Component {
               <div className="cat_spec">
                 <h4>Mechanical Engineering</h4>
                 <div className="button_ab">
-                  <Button
+                  <
+// @ts-ignore
+                  Button
                     innerText={null}
                     margin="0.3rem"
                     iconPosition="false"

@@ -14,7 +14,7 @@ import { connect } from "react-redux";
 
 
 class CustomerOrdersScreen extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       activeTab: "OrdersList",
@@ -40,61 +40,6 @@ class CustomerOrdersScreen extends React.Component {
           margin: "2.5rem -1.5rem",
           boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
           isActive: true,
-        },
-      ],
-
-
-
-      OrdersList: [
-        {
-          name: "Marwan Mostafa",
-          rating: 4.2,
-          orderedSince: "27 minutes",
-          city: "Istanbul",
-          day: "monday",
-          date: "15/05/2021",
-          diagonsingFees: 10.00,
-          totalFees: 30.00,
-          paymentType: "cash",
-          feedback: "dummy text of the priting and typesetting industry",
-          userImg: UserImg,
-          ongoing: false,
-          giveFeedBackOnClick: this.openPopUp,
-          cancelOnClick: this.openPopUp,
-        },
-        {
-          name: "Jalal ajlan",
-          rating: 4.8,
-          orderedSince: "1 hour",
-          city: "Johor",
-          day: "Friday",
-          date: "18/02/2021",
-          diagonsingFees: 14.00,
-          totalFees: 42.00,
-          paymentType: "cash",
-          feedback: "dummy text of the priting and typesetting industry",
-          userImg: UserImg2,
-          ongoing: false,
-          giveFeedBackOnClick: this.openPopUp,
-          cancelOnClick: this.openPopUp,
-
-        },
-        {
-          name: "Ahmed el raqab",
-          rating: 4.6,
-          orderedSince: "2 hours",
-          city: "Mecca",
-          day: "Sunday",
-          date: "11/02/2021",
-          diagonsingFees: 24.00,
-          totalFees: 52.00,
-          paymentType: "cash",
-          feedback: "dummy text of the priting and typesetting industry",
-          userImg: UserImg3,
-          ongoing: true,
-          giveFeedBackOnClick: this.openPopUp,
-          cancelOnClick: this.openPopUp,
-
         },
       ],
     };

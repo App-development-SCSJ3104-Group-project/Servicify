@@ -4,11 +4,7 @@ import FormInputGroup from "../formInput/formInput";
 import LeftSide from "./components/leftSide/leftSide"
 import CustomButton from "../../components/button/button";
 import leftArrow from "../../icons/left-arrow.svg";
-import OrangeDots from "../../icons/OrangeDots.svg";
-import RedCircles from "../../icons/RedCircles.svg";
-import Quotations from "../../icons/Quotations.svg";
-import WhiteArrow from "../../icons/WhiteArrow.svg";
-import Check from "../../icons/Check.svg";
+
 
 
 class Form extends React.Component {

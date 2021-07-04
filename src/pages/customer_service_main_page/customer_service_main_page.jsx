@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { Component } from "react";
 import Button from "../../components/button/button";
 import Divider from "../../components/divider/divider";
@@ -12,7 +13,7 @@ import "./customer_service_main_page.scss";
 
 class CustomerServiceMainPage extends Component {
 
-  constructor(props) {
+  constructor (props) {
     super(props)
   }
 

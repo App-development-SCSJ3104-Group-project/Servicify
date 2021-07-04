@@ -18,6 +18,7 @@ const CustomerViewPost = (props) => {
     dispatch(getProposals(props.match.params._id));
   }, [dispatch]);
 
+  // @ts-ignore
   const proposalsList = useSelector((state) => state.proposals);
   //
 

@@ -31,6 +31,7 @@ const categoriesReducer = (state = initState, action) => {
         case CategoriesActionType.SET_USER_PROFILE:
             {
 
+                // @ts-ignore
                 const user = state.serviceProviders.get(action.value).filter((e) => e._id === action.id)
 
                 return {

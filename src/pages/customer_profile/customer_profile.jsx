@@ -2,23 +2,24 @@ import React, { Component } from "react";
 import Button from "../../components/button/button"
 import Icon from "../../components/icon/icon_component"
 import Review from "../../components/reviews/review"
-import Card from "../../components/card/card"
+// @ts-ignore
 import Template from "../../components/template/template"
 import "./customer_profile.scss"
-import image from "../../icons/Ellipse.svg";
+// @ts-ignore
 import favourite from "../../icons/icons8-heart-30 (1) 1.svg";
-import order from "../../icons/outline_book_white_24dp 1.svg";
+// @ts-ignore
 import icon_1 from "../../icons/outline_location_on_white_48dp 1.svg";
 import cashIcon from "../../icons/cash.svg";
 import paymentIcon from "../../icons/payment-method.svg";
 import icon_4 from "../../icons/outline_star_white_48dp 1.svg";
-import profileIcon from "../../icons/Ellipse (3).svg";
+// @ts-ignore
 import Star from "../../icons/star.svg"
+// @ts-ignore
 import Zoom from 'react-reveal/Zoom'
 import LabeledInputField from "../../components/input_field_labled/input_field_labeld"
 import { connect } from "react-redux";
 import { getUser, updateUser } from "../../redux/users/users_action";
-import { Link } from "react-router-dom";
+// @ts-ignore
 import cancel from "../../icons/outline_add_white_24dp 1.svg"
 
 class CustomerProfile extends Component {
@@ -149,6 +150,7 @@ class CustomerProfile extends Component {
                                     {
                                         this.state.isEdit ?
                                             [
+                                                // @ts-ignore
                                                 <Button innerText={null}
                                                     margin="0.3rem"
                                                     color="black"
@@ -159,6 +161,7 @@ class CustomerProfile extends Component {
                                                     onClick={() => this.reset()}
                                                     icon={cancel}
                                                     borderRadius="50%" />,
+                                                // @ts-ignore
                                                 <Button innerText={"Update"}
                                                     margin="0.3rem"
                                                     color="white"
@@ -170,6 +173,7 @@ class CustomerProfile extends Component {
                                                     onClick={() => this.submit()}
                                                 />
                                             ] :
+                                            // @ts-ignore
                                             <Button innerText={null}
                                                 margin="0.3rem"
                                                 color="black"

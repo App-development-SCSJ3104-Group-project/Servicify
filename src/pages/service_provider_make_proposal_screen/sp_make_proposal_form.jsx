@@ -3,7 +3,9 @@ import Nav from "./../../components/navbar/navbar";
 import "./service_provider_make_proposal.css";
 import PostCard from "./../../components/post_card/post_card";
 import { v4 as uuidv4 } from "uuid";
-import { Link, useHistory } from "react-router-dom";
+
+// @ts-ignore
+import { Link} from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { createNewProposal } from "./../../redux/posts/posts_action";
 import { toast, ToastContainer } from "react-toastify";
@@ -49,6 +51,7 @@ const ManageProposalForm = (props) => {
   const [diagnosisFee, setDiagnosisFee] = useState("");
   const [paymentMethod, setPaymentMethod] = useState();
   const [description, setDescription] = useState();
+  // @ts-ignore
   const [serviceProviderId, setServiceProviderId] = useState(currentUser._id);
 
   // state for error message either successful or unsuccessful
@@ -84,7 +87,9 @@ const ManageProposalForm = (props) => {
 
       // undo all states
       setDiagnosisFee("");
+      // @ts-ignore
       setPaymentMethod("");
+      // @ts-ignore
       setDescription("");
     }
   };
@@ -150,6 +155,7 @@ const ManageProposalForm = (props) => {
             className="proposal__form_body_section-input_field-copied"
             value={paymentMethod}
             name="payment"
+            // @ts-ignore
             onChange={(e) => setPaymentMethod(e.target.value)}
           >
             <option value="payment">Payment method</option>
@@ -162,6 +168,7 @@ const ManageProposalForm = (props) => {
           placeholder="Describe your proposal here"
           value={description}
           name="description"
+          // @ts-ignore
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
 
@@ -185,7 +192,9 @@ const ManageProposalForm = (props) => {
               </div>
             )}
             <div className="proposal-form-steps-action">
-              <p onClick={index + 1 > 5 ? "" : handleAddFields}>+</p>
+              <p 
+// @ts-ignore
+              onClick={index + 1 > 5 ? "" : handleAddFields}>+</p>
             </div>
           </div>
         ))}

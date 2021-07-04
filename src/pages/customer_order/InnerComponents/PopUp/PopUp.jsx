@@ -4,13 +4,14 @@ import "./PopUp.scss";
 
 import { ReactComponent as Star } from "../../../../icons/star.svg";
 
+// @ts-ignore
 import Zoom from 'react-reveal/Zoom'
 
 
 import CustomButton from "../../../../components/button/button"
 class PopUp extends React.Component {
 
-    constructor(props) {
+    constructor (props) {
 
         super(props);
 
@@ -30,12 +31,14 @@ class PopUp extends React.Component {
 
             if (starClickingInfo.status === false) {
                 if (index <= hoveredStarIndex) {
+                    // @ts-ignore
                     star.style.fill = color
                 }
                 else return
             }
             else {
                 if (index <= hoveredStarIndex && index > starClickingInfo.clickedIndex) {
+                    // @ts-ignore
                     star.style.fill = color
                 }
             }
@@ -52,6 +55,7 @@ class PopUp extends React.Component {
             }
         })
         document.querySelectorAll(".feedbackPopUp__rate__star").forEach((star, index) => {
+            // @ts-ignore
             index <= clickedStarIndex ? star.style.fill = "goldenrod" : star.style.fill = "black"
         })
 
@@ -61,7 +65,9 @@ class PopUp extends React.Component {
         let stars = []
         for (let i = 0; i < 5; i++) {
             stars.push(
+                // @ts-ignore
                 <Star className="feedbackPopUp__rate__star" id={`star-${i}`} onMouseOver={(e) => this.manageStarsHoverment("goldenrod", i)} onMouseOut={(e) => this.manageStarsHoverment("black", i)}
+                    // @ts-ignore
                     onClick={(e) => {
                         this.manageStars(i)
                     }}
@@ -100,12 +106,16 @@ class PopUp extends React.Component {
 
 
                 <div className="feedbackPopUp__buttons-group">
-                    <CustomButton
+                    <
+                        // @ts-ignore
+                        CustomButton
                         innerText="x" backGroundColor="#1E2833" color="white" type="submit" width="4rem"
                         height="4rem" borderRadius="50%" displayType="inline-block" margin="0rem 1rem" onClick={() => {
                             closeCallBack()
                         }} ></CustomButton>
-                    <CustomButton
+                    <
+                        // @ts-ignore
+                        CustomButton
                         innerText="Submit" backGroundColor="#1E2833" color="white" type="submit" width="10rem"
                         height="4rem" borderRadius="22px" displayType="inline-block"  ></CustomButton>
                 </div>

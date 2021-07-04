@@ -35,9 +35,7 @@ const UserResultCard = (props) => {
         <p>{props.data.jobDescription}</p>
       </div>
       <div className="search__result_card_footer">
-        {/* {user.userCommonTags.map((tag) => (
-          <Tag key={tag} color="#EEC37E" tag={tag}></Tag>
-        ))} */}
+
       </div>
     </div>
   );

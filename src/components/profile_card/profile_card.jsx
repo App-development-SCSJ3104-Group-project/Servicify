@@ -1,7 +1,6 @@
 // @ts-nocheck
 import React, { Component } from "react";
 import "./profile_card.scss"
-import profileIcon from "../../icons//Ellipse (3).svg";
 import Icon from "../icon_component/icon";
 import Star from "../../icons/star.svg";
 import favourite from "../../icons/icons8-heart-30 (1) 1.svg";
@@ -12,7 +11,7 @@ import Zoom from 'react-reveal/Zoom';
 import { Link } from "react-router-dom";
 
 class ProfileCard extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {};
     }
@@ -36,7 +35,7 @@ class ProfileCard extends Component {
                 <Link to={"/customer_service_provider_page?id=" + data._id + "&type=" + data.jobName} style={{ textDecoration: "none", color: "black" }}>
                     <div>
 
-                        <Card image_src={data.imgSrc} >
+                        <Card image_src={data.imgSrc} verticalCard={true}>
 
                             <div className="header">
                                 <div className="card_header">
@@ -54,7 +53,7 @@ class ProfileCard extends Component {
                                 <h5>{data.diagnosingFees}$</h5>
                             </div>
                             <div className="card_description">
-                                <h6>{data.jobDescription}</h6>
+                                {data.jobDescription}
                             </div>
                             <div className="action_buttons">
                                 <Button innerText={null}

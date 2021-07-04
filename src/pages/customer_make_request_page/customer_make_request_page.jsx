@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 class CustomerMakeRequestScreen extends Component {
 
 
-    constructor(props) {
+    constructor (props) {
         super(props)
         this.state = {
             location: "",
@@ -27,7 +27,6 @@ class CustomerMakeRequestScreen extends Component {
     onClick = () => {
 
         const data = JSON.parse(localStorage.getItem("user"))
-        console.log(data);
         if (data === null) {
             alert("login to the system")
         } else {
