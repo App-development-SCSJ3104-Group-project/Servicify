@@ -1,24 +1,21 @@
 import React from "react";
-import "./footer.css";
+import "./footer.scss";
 import Icon from "../icon_component/icon";
 import logo from "../../icons/Logo.svg";
 import logoF from "../../icons/001-facebook.svg";
 import logoI from "../../icons/004-instagram.svg";
 import logoT from "../../icons/003-twitter.svg";
-
-import Zoom from "react-reveal/Zoom";
-import Bounce from "react-reveal/Bounce";
-import Reveal from "react-reveal/Reveal";
 import Slide from "react-reveal/Slide";
+
 const footer = () => {
   return (
     <Slide up>
       <div className="footer">
         <Icon src={logo} />
-        <div className="paragraph">
+        <div className="footer__paragraph">
           <p></p>
         </div>
-        <div className="bottom_navigation">
+        <div className="footer__bottom-navigation">
           <h6>About</h6>
           <h6>Contact Us</h6>
           <h6>Profile</h6>
@@ -26,7 +23,7 @@ const footer = () => {
           <h6>Mahshy</h6>
         </div>
 
-        <div className="socialmedia">
+        <div className="footer__socialmedia-bar">
           <Icon src={logoF} />
           <Icon src={logoI} />
           <Icon src={logoT} />

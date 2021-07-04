@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { Component } from "react";
 import "./profile_card.scss"
 import profileIcon from "../../icons//Ellipse (3).svg";

@@ -7,30 +7,30 @@ import "./dashboard_top_bar.scss"
 
 class DashboardTopBar extends Component {
 
-    constructor({ props }) {
+    constructor ({ props }) {
         super(props);
         this.state = props
     }
 
-   
+
     tabs = [
-        { name: "overview", isActive: false,redirectTo:"/dashboard" },
+        { name: "overview", isActive: false, redirectTo: "/dashboard" },
         { name: "manage services", isActive: false },
-        { name: "manage orders", isActive: false,redirectTo:"/dashboard_manage_orders" },
-        { name: "manage requests", isActive: false,redirectTo:"/dashboard_manage_requests" },
+        { name: "manage orders", isActive: false, redirectTo: "/dashboard_manage_orders" },
+        { name: "manage requests", isActive: false, redirectTo: "/dashboard_manage_requests" },
     ];
 
     render() {
 
         this.tabs.find(e => e.name === this.props.route).isActive = true;
         return (
-            <div className="overview_header">
+            <div className="dashboard-top-bar">
 
-                <div className="overview_information">
-                    <div className="left_info">
+                <div className="dashboard-top-bar__info">
+                    <div className="dashboard-top-bar__info__left">
 
-                        <img src={profileImg} alt="" />
-                        <div className="overview_information_details">
+                        <img className="dashboard-top-bar__info__left__img" src={profileImg} alt="" />
+                        <div className="dashboard-top-bar__info__details">
                             <h1>John Williams</h1>
                             <h3>CEO Ma nager at google</h3>
                         </div>
@@ -41,7 +41,7 @@ class DashboardTopBar extends Component {
                 </div>
 
 
-                <div className="overview_tabs">
+                <div className="dashboard-top-bar__tabs">
                     {this.tabs ? this.tabs.map((tab) => (
                         // @ts-ignore
                         <NavigationTab

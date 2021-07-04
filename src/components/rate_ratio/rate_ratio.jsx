@@ -20,7 +20,7 @@ const rate_ratio = ({ index, width }) => {
         <div className="review_rate_card">
             <h3>{index}</h3>
             <Icon height="4rem" width="4rem" src={Star} />
-            <div className="rate_ratio">
+            <div className="review_rate_card__ratio">
                 <div className="active" style={active_Style}></div>
                 <div className="inActive" style={in_active_Style}></div>
             </div>

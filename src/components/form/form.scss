@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap");
+
 .form {
     width: 100%;
     height: 100vh;
@@ -9,11 +10,13 @@
     font-family: "Inter", sans-serif;
     z-index: 1;
     font-size: 1.7rem;
+
     &__left-side,
     &__right-side {
         width: 50%;
         min-height: 100%;
     }
+
     &__left-side {
         position: relative;
         background-position: center;
@@ -21,16 +24,19 @@
         image-rendering: pixelated;
         overflow: visible;
         background-color: #1E2833;
+
         &__orange-dots {
             position: absolute;
             top: 15rem;
             right: 15rem;
         }
+
         &__red-circles {
             position: absolute;
             bottom: 0.5rem;
             left: -2rem;
         }
+
         &__main-content {
             width: 70%;
             position: absolute;
@@ -39,6 +45,7 @@
             transform: translate(-50%, -50%);
             color: white;
             font-size: 2rem;
+
             &__text {
                 height: 16rem;
                 display: flex;
@@ -47,11 +54,13 @@
                 align-items: flex-start;
             }
         }
+
         &__white-arrow {
             position: absolute;
             bottom: -5rem;
             right: 8rem;
         }
+
         &__quotation {
             position: absolute;
             width: 4rem;
@@ -60,9 +69,11 @@
             left: 0rem;
         }
     }
+
     &__right-side {
         position: relative;
         background-color: white;
+
         &__back-btn {
             color: black;
             font-size: 1.6rem;
@@ -71,6 +82,7 @@
             vertical-align: middle;
             margin: 2.5rem 5rem;
         }
+
         &__innerForm {
             position: absolute;
             width: 70%;
@@ -79,8 +91,10 @@
             left: 50%;
             transform: translate(-50%, -50%);
             padding: 1.5rem;
+
             &__header {
                 padding: 1.5rem 0;
+
                 &__primary {
                     font-size: 3rem;
                     color: black;
@@ -88,6 +102,7 @@
                     line-height: auto;
                     margin-bottom: 1.5rem;
                 }
+
                 &__secondary {
                     font-size: 1.8rem;
                     color: #8692a6;
@@ -111,7 +126,7 @@ hr.style-two {
     border: 0;
     height: 1px;
     margin: 0.75rem 0;
-    background-image: linear-gradient( to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
 }
 
 hr.style-eight {
@@ -140,6 +155,7 @@ hr.style-eight:after {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
     &__btn {
         position: relative;
         border: none;
@@ -148,6 +164,7 @@ hr.style-eight:after {
         cursor: pointer;
         padding-bottom: .5rem;
     }
+
     &__btn::after {
         content: "";
         position: absolute;

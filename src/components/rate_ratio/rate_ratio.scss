@@ -4,9 +4,11 @@
     justify-content: space-between;
     margin: 1rem;
     align-items: center;
-}
 
-.rate_ratio {
-    display: inline-flex;
-    width: 80%;
+    &__ratio {
+        _ratio {
+            display: inline-flex;
+            width: 80%;
+        }
+    }
 }

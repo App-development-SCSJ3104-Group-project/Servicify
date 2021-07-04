@@ -1,0 +1,91 @@
+.overview-card {
+    margin: 2rem;
+    width: 98%;
+    height: 40rem;
+    background: #f2f6f9;
+    border-radius: 12px;
+
+    &__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__title {
+            font-size: 2.4rem;
+            font-weight: 600;
+            line-height: 18px;
+            letter-spacing: 0.3px;
+            margin: 5rem 0rem 5rem 0rem;
+        }
+    }
+
+    &__info {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        margin: 0rem 6rem 0rem 6rem;
+
+        &__content {
+            margin: 0.5rem 2rem 0rem 1rem;
+
+            &__icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 1rem;
+                animation: fadeInLeft 1s ease-in-out forwards;
+                visibility: hidden;
+
+                &>* {
+                    cursor: pointer;
+                    width: 100%;
+                    width: 6rem;
+                    height: 6rem;
+                    margin-bottom: 2rem;
+                }
+            }
+
+            &__desc {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 17px;
+                line-height: 2.5rem;
+                padding: 1rem;
+                animation: fadeInUp 1s ease-in-out forwards;
+                visibility: hidden;
+
+                &__box {
+                    width: 300px;
+                    word-wrap: break-word;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        visibility: hidden;
+        transform: scale(0) translateX(-12rem);
+    }
+
+    to {
+        transform: scale(1) translateX(0);
+        visibility: visible;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        visibility: hidden;
+        transform: scale(0) translateY(12rem);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1) translateY(0);
+        visibility: visible;
+        opacity: 1;
+    }
+}

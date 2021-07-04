@@ -13,7 +13,7 @@ import Check from "../../icons/Check.svg";
 
 class Form extends React.Component {
 
-  constructor(props) {
+  constructor (props) {
 
     super(props);
     this.state = {
@@ -42,64 +42,66 @@ class Form extends React.Component {
         missingField = true;
       }
 
-    })  
-   
+    })
+
     !missingField ? isEmailValid ? SubmitFormCallback(userInfo) : alert("please fill a valid email") : alert("please fill in all input field")
 
 
   }
-  handleInputChange=(formInput,value,userInfo,formInputIdentfier)=>{
+  handleInputChange = (formInput, value, userInfo, formInputIdentfier) => {
 
-                      //nested object set state way
-                      if (formInput.type !== "checkbox") {
-                        userInfo[formInputIdentfier] = value
+    //nested object set state way
+    if (formInput.type !== "checkbox") {
+      userInfo[formInputIdentfier] = value
 
-                      }
-                      else {  
-                        
-                        userInfo[formInputIdentfier]=!userInfo[formInputIdentfier]
-                        this.setState({}, () => console.log(this.state))
-                        
-                      }
-                    
+    }
+    else {
+
+      userInfo[formInputIdentfier] = !userInfo[formInputIdentfier]
+      this.setState({})
+
+    }
+
   }
   renderInputFields = (formInput, index) => {
-    
+
     const { userInfo } = this.state;
-    
-              // dynamically adding state attributes instead of typing it statically
-              // state attribtues will be customized to each form type
-           
-              var formInputIdentfier = formInput.className.split(" ")[0];
-              if (formInput.type === "checkbox") {
 
-                console.log(userInfo[formInputIdentfier])
-                if (userInfo[formInputIdentfier] === undefined) {
-                  userInfo[formInputIdentfier] = false
+    // dynamically adding state attributes instead of typing it statically
+    // state attribtues will be customized to each form type
 
-                }
-                console.log(this.state)
-              }
+    var formInputIdentfier = formInput.className.split(" ")[0];
+    if (formInput.type === "checkbox") {
 
-              if (formInput.preRequiste===undefined||(formInput.preRequiste&&userInfo.isServiceProvider===true)) {
-                
-                return (
-        
+      if (userInfo[formInputIdentfier] === undefined) {
+        userInfo[formInputIdentfier] = false
+
+      }
+    }
+
+    if (formInput.preRequiste === undefined || (formInput.preRequiste && userInfo.isServiceProvider === true)) {
+
+      return (
+
         <div className={`animate__animated animate__zoomInDown`} style={{ width: formInput.width, animationDelay: `${formInput.preRequiste ? 0.25 : index * 0.5}s` }}>
-          
-                  {<FormInputGroup
-                    key={index}
-                    type={formInput.type}
-                    placeHolder={formInput.placeHolder}
-                    className={formInput.className}
-                    customLabel={formInput.customLabel}
-                    displayType={formInput.displayType}
-                    onChange={(value) =>this.handleInputChange(formInput,value,userInfo,formInputIdentfier)}
-                  ></FormInputGroup>}
-                </div>
-              );
-                       
-              }
+
+          {
+            // @ts-ignore
+
+            <FormInputGroup
+              key={index}
+              type={formInput.type}
+              placeHolder={formInput.placeHolder}
+              className={formInput.className}
+              customLabel={formInput.customLabel}
+              displayType={formInput.displayType}
+              onChange={(value) => this.handleInputChange(formInput, value, userInfo, formInputIdentfier)}
+            ></FormInputGroup>
+          }
+        </div>
+      );
+
+    }
   }
 
 
@@ -107,8 +109,7 @@ class Form extends React.Component {
   render() {
 
 
-    const { formInputs, formButtons, type, leftSideBackgroundHeight, SubmitFormCallback, resetFormFields, goBackCallBack,ServiceProviderExtraInputs } = this.props;
-    const { userInfo } = this.state;
+    const { formInputs, formButtons, type, leftSideBackgroundHeight, SubmitFormCallback, goBackCallBack } = this.props;
     const style = {
       height: leftSideBackgroundHeight
     };
@@ -122,7 +123,7 @@ class Form extends React.Component {
             <img className="backArrow" src={leftArrow} alt="" />
             Back
           </div>
-          <form className="form__right-side__innerForm" style={type==="signup"?{top:"43%"}:{top:"50%"}}  autoComplete="true">
+          <form className="form__right-side__innerForm" style={type === "signup" ? { top: "43%" } : { top: "50%" }} autoComplete="true">
             <div className="form__right-side__innerForm__header">
               {type === "signup" ? (
                 <div>
@@ -144,7 +145,7 @@ class Form extends React.Component {
             </div>
             <hr className="style-two" />
 
-            {formInputs.map((formInput, index) =>this.renderInputFields(formInput,index))}
+            {formInputs.map((formInput, index) => this.renderInputFields(formInput, index))}
 
             {formButtons.map((formButton, index) => {
 
