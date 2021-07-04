@@ -4,7 +4,6 @@ import PostCard from "../../components/post_card/post_card";
 import ProposalCard from "./compoents/proposalCard/proposalCard";
 import { useDispatch, useSelector } from "react-redux";
 import { getProposals } from "./../../redux/proposals/proposals_action";
-import NotifyBill from "./../customer_post_screen/svg/notification_icon";
 import NotificationIcon from "./../../components/navbar/notification_icons";
 
 const CustomerViewPost = (props) => {

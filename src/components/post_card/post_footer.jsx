@@ -4,7 +4,7 @@ import Avatar from "../search_result/inner_components/avatar";
 import { Link } from "react-router-dom";
 
 const PostFooter = ({ tags, proposal, _id, customerId }) => {
-  // getting userDate whether it is service provider or customer
+  // getting userData whether it is service provider or customer
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
   return (
@@ -32,7 +32,7 @@ const PostFooter = ({ tags, proposal, _id, customerId }) => {
               }}
             ></p>
           </div>
-        ) : currentUser._id === customerId ? (
+        ) : currentUser._id === customerId && proposal.length !== 0 ? (
           <Link
             style={{ textDecoration: "none" }}
             to={"/customer_view_post_screen/" + _id}
@@ -46,6 +46,7 @@ const PostFooter = ({ tags, proposal, _id, customerId }) => {
                   height="30px"
                 />
               ))}
+
               <p
                 style={{
                   fontSize: "14px",
@@ -53,7 +54,7 @@ const PostFooter = ({ tags, proposal, _id, customerId }) => {
                   color: "black",
                 }}
               >
-                Check Now
+                check now
               </p>
             </div>
           </Link>

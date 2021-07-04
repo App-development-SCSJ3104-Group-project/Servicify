@@ -21,7 +21,7 @@ const CustomerPostScreen = () => {
 
   localStorage.setItem("posts", JSON.stringify(postsList));
 
-  // getting userDate whether it is service provider or customer
+  // getting userData whether it is service provider or customer
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
   return (
