@@ -13,7 +13,7 @@ import Zoom from 'react-reveal/Zoom';
 class Order extends React.Component {
 
 
-    constructor (props) {
+    constructor(props) {
 
         super(props);
 
@@ -61,7 +61,6 @@ class Order extends React.Component {
         }
         const { cardStyle, toggled } = this.state;
 
-        console.log(serviceProvider)
 
         return (
 
@@ -105,7 +104,10 @@ class Order extends React.Component {
                     {
                         orderType != "order-status" ? <div className="order__buttons-container">
 
-                            <button className="order__buttons-container__feedback" onClick={() => giveFeedBackOnClick("feedback")}>Give FeedBack</button>
+                            {
+                                order.isFeedbackGiven ? null
+                                    : <button className="order__buttons-container__feedback" onClick={() => giveFeedBackOnClick("feedback")}>Give FeedBack</button>
+                            }
                             <button className="order__buttons-container__reciept">
                                 <img src={Reciept} alt="" />
                             </button>
