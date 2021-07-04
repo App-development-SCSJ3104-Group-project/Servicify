@@ -5,7 +5,12 @@ const OptionButton = (props) => {
 
   return (
     <div className="post__option__button">
-      <a onClick={() => setOpen(!open)}>{props.icon}</a>
+      <a
+        style={{ color: "white", fontSize: "22px", fontWeight: "600" }}
+        onClick={() => setOpen(!open)}
+      >
+        ≡
+      </a>
       {open && props.children}
     </div>
   );
