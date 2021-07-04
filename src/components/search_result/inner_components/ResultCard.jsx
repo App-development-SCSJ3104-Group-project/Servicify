@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "./avatar";
+import Avatar from "./avatar"
 import StarIcon from "./star";
 import Tag from "./tag";
 const UserResultCard = (props) => {

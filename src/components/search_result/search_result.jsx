@@ -1,7 +1,7 @@
 import React from "react";
-import "./search_result.css";
+import "./search_result.scss";
 import Zoom from 'react-reveal/Zoom'
-import UserResultCard from "./inner_components/ResultCard"
+import UserResultCard from "./inner_components/resultCard"
 import { connect } from "react-redux";
 import { fetchServiceProviders } from "../../redux/categories/categories_action"
 import { useState, useEffect } from "react";
@@ -26,12 +26,12 @@ const SearchResult = (props) => {
         <div className="loader">Loading...</div>
       </div>
     ) :
-      <div className="search__result_container">
+      <div className="search-result-container">
         <Zoom left>
-          <div className="search__result_container__filter">
+          <div className="search-result-container__filter">
 
-            <div className="filter-section_content-3">
-              <p className="search__result_container__filter__skills">Skills:</p>
+            <div className="search-result-container__filter__bar">
+              <p className="search-result-container__filter__bar__skills">Skills:</p>
               {Array.from(data.serviceProviders).map((skill) => (
                 <FilterSkills key={skill[0]} skill={skill[0]} setState={setState} />
               ))}
@@ -39,8 +39,8 @@ const SearchResult = (props) => {
           </div>
         </Zoom>
         <Zoom right>
-          <div className="search__result_container__content">
-            <div className="search__result_container__content__title">
+          <div className="search-result-container__content">
+            <div className="search-result-container__content__title">
               <p>Top Results:</p>
             </div>
             {
@@ -74,9 +74,9 @@ const filterSet = (data) => {
 }
 const FilterSkills = (props) => {
   return (
-    <div className="skill_box-filter">
+    <div className="search-result-container__filter__bar__item">
       <input type="checkbox" id="checkbox_filter-section" onChange={(event) => { props.setState(map => new Map(map.set(props.skill, event.target.checked))) }} />
-      <span className="skill_name">{props.skill}</span>
+      <span className="search-result-container__filter__bar__item__name">{props.skill}</span>
       <br />
     </div>
   );

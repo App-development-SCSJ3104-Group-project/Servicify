@@ -1,33 +1,59 @@
-.search__result_container_a {
+.search-result-container {
   display: grid;
   grid-template-columns: 30% 69%;
   margin: 2rem 1rem 6rem 3rem;
   column-gap: 2rem;
+
+  &__filter {
+    background-color: #f2f6f9;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 4px;
+
+    &__bar {
+      &__skills {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 18px;
+        margin-bottom: 2rem;
+      }
+
+      &__item {
+        display: flex;
+        flex-direction: row;
+        margin: 1rem 0rem 1rem 0rem;
+
+        &__name {
+          font-weight: 600;
+          margin: 0.42rem 0rem 0rem 1rem;
+          font-size: 16px;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+
+  &__content {
+    background-color: #f2f6f9;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 4px;
+    height: 1000px;
+    overflow: scroll;
+
+    &__title {
+      font-size: 16px;
+      font-weight: 600;
+      border-bottom: 1px solid darkgrey;
+    }
+  }
+
 }
 
-.search__result_filter-section {
-  background-color: #f2f6f9;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  border-radius: 4px;
-}
 
-.search__result_results-section {
-  background-color: #f2f6f9;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  border-radius: 4px;
-  height: 1000px;
-  overflow: scroll;
-}
 
-.filter-section_title {
-  font-size: 16px;
-  font-weight: 600;
-  border-bottom: 1px solid darkgrey;
-}
 
 .filter-section_content-2 {
   display: flex;
@@ -61,25 +87,9 @@
   mix-blend-mode: darken;
 }
 
-.skill_box-filter {
-  display: flex;
-  flex-direction: row;
-  margin: 1rem 0rem 1rem 0rem;
-}
 
-.skill_name {
-  font-weight: 600;
-  margin: 0.42rem 0rem 0rem 1rem;
-  font-size: 16px;
-  line-height: 18px;
-}
 
-.filter-section_content-3_skills {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 18px;
-  margin-bottom: 2rem;
-}
+
 
 .search__result_results-section-title {
   font-size: 16px;
