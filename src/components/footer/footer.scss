@@ -8,35 +8,40 @@
     display: flex;
     font-size: 1.7rem;
     flex-direction: column;
+
     &__paragraph {
-    width: 25rem;
-    text-align: center;
-    color: white;
-    font-size: 1.4rem;
-    margin-bottom: 2rem;
-}
-&__bottom-navigation {
-    display: flex;
-    width: 50%;
-    justify-content: space-between;
-    text-align: center;
-    color: white;
-    font-size:inherit;
-    &>* {
-    cursor: pointer;
-    font-size: inherit;
+        width: 25rem;
+        text-align: center;
+        color: white;
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
     }
 
-}
-&__socialmedia-bar {
-    display: flex;
-    width: 20%;
-    margin-top: 2rem;
-    justify-content: space-between;
-    text-align: center;
-    color: white;
-    &>* {
-    cursor: pointer;
+    &__bottom-navigation {
+        display: flex;
+        width: 50%;
+        justify-content: space-between;
+        text-align: center;
+        color: white;
+        font-size: inherit;
+
+        &>* {
+            cursor: pointer;
+            font-size: inherit;
+        }
+
     }
+
+    &__socialmedia-bar {
+        display: flex;
+        width: 20%;
+        margin-top: 2rem;
+        justify-content: space-between;
+        text-align: center;
+        color: white;
+
+        &>* {
+            cursor: pointer;
+        }
     }
 }

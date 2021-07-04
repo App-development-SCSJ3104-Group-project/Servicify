@@ -1,5 +1,6 @@
+// @ts-nocheck
 import React, { useState } from "react";
-import "./navbar.css";
+import "./navbar.scss";
 import { Link } from "react-router-dom";
 import CustomButton from "./../button/button";
 import NotificationIcon from "./notification_icons";
@@ -7,7 +8,6 @@ import Check_Icon from "./check_icon";
 import { userLogout } from "../../redux/users/users_action";
 import LogoTransparent from "../../icons/Brand/logo.png"
 import Zoom from 'react-reveal/Zoom'
-import { useHistory } from "react-router-dom"
 import { connect } from "react-redux";
 
 function Nav({ userInAuth, userLogout, isLogged }) {
@@ -15,11 +15,13 @@ function Nav({ userInAuth, userLogout, isLogged }) {
 }
 const SignedInNav = ({ userLogout }) => {
   return (
+
     <React.Fragment>
       <NavItem icon={<NotificationIcon />}>
         <DropdownMenu></DropdownMenu>
       </NavItem>
       <Link to="/" style={{ textDecoration: "none" }}>
+
         <CustomButton
           innerText="Logout"
           margin="1rem"
@@ -71,12 +73,12 @@ const SignedOutNav = () => {
 
 function Navbar(props) {
   return (
-    <div className="navbar ">
-      <div className="left-section-navbar-1">
-        <p className="logoname-service " > <span className="logo-name" > <Zoom right cascade>Servicify</Zoom> </span>  <img src={LogoTransparent} className="logo-image animate__animated animate__zoomIn"></img></p>
+    <div className="navbar">
+      <div className="navbar__left-section">
+        <p className="navbar__logo" > <span className="navbar__logo__name" > <Zoom right cascade>Servicify</Zoom> </span>  <img src={LogoTransparent} className="navbar__logo__img animate__animated animate__zoomIn"></img></p>
       </div>
-      <div className="right-section-navbar-2">
-        <ul className="navbar-nav-2">{props.children}</ul>
+      <div className="navbar__right-section">
+        <ul className="navbar__right-section__list">{props.children}</ul>
       </div>
     </div>
   );
@@ -86,8 +88,8 @@ function NavItem(props) {
   const [open, setOpen] = useState(false);
 
   return (
-    <li className="circled-button-box">
-      <a href="#" className="box-icon-button" onClick={() => setOpen(!open)}>
+    <li className="navbar__right-section__circular-btn">
+      <a href="#" className="navbar__right-section__circular-btn__icon" onClick={() => setOpen(!open)}>
         {props.icon}
       </a>
       {open && props.children}
@@ -97,25 +99,25 @@ function NavItem(props) {
 
 function DropdownItem(props) {
   return (
-    <div href="#" className="menu-item-styles">
+    <div href="#" className="navbar__menu-item">
       {props.children}
-      <span className="box-icon-button  icon-right-positioned">
+      <span className="navbar__menu-item_box-btn  navbar__menu-item_box-btn__right-positioned">
         {props.rightIcon}
       </span>
-      <p className="dropdown-item-header-timestamp">{props.notificationTime}</p>
+      <p className="navbar__menu-item__timestamp">{props.notificationTime}</p>
     </div>
   );
 }
 
 function DropdownMenu() {
   return (
-    <div className="dropdown-showup-area">
-      <div className="menu-1">
+    <div className="navbar__menu-item__display-area">
+      <div className="navbar__menu-item__display-area__menu">
         <DropdownItem
           rightIcon={<Check_Icon />}
           notificationTime="Friday, 12/05/2020, 9 a.m"
         >
-          <p className="dropdown-item-header-title">
+          <p className="navbar__menu-item__display-area__title">
             new proposal has been sent to your post
           </p>
           <span></span>
@@ -124,7 +126,7 @@ function DropdownMenu() {
           rightIcon={<Check_Icon />}
           notificationTime="Friday, 12/05/2020, 9 a.m"
         >
-          <p className="dropdown-item-header-title">
+          <p className="navbar__menu-item__display-area__title">
             new proposal has been sent to your post
           </p>
           <span></span>
@@ -133,7 +135,7 @@ function DropdownMenu() {
           rightIcon={<Check_Icon />}
           notificationTime="Friday, 12/05/2020, 9 a.m"
         >
-          <p className="dropdown-item-header-title">
+          <p className="navbar__menu-item__display-area__title">
             new proposal has been sent to your post
           </p>
           <span></span>

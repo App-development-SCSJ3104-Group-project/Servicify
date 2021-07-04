@@ -1,37 +1,40 @@
 .categories-section-container {
     margin: 2rem 1rem 3rem 1rem;
     height: 60rem;
+
     &__headline {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5rem 0rem 5rem 0rem;
-    font-size: 24px;
-    line-height: 18px;
-    font-weight: 600;
-    &__highlighted-word {
-    font-size: 22px;
-    color: #ef3a01;
-    }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5rem 0rem 5rem 0rem;
+        font-size: 24px;
+        line-height: 18px;
+        font-weight: 600;
+
+        &__highlighted-word {
+            font-size: 22px;
+            color: #ef3a01;
+        }
     }
 
-    &__items{
-     display: grid;
-    grid-template-columns: 250px 250px;
-    grid-template-rows: auto auto;
-    justify-items: center;
-    row-gap: 0.8rem;
-    margin-left: 6.5rem;
+    &__items {
+        display: grid;
+        grid-template-columns: 250px 250px;
+        grid-template-rows: auto auto;
+        justify-items: center;
+        row-gap: 0.8rem;
+        margin-left: 6.5rem;
     }
+
     &__demo-image {
-    width: 100%;
-    margin-left: 40px;
-    height: 100%;
-    border-radius: 10px;
-    background: url("../../icons/selfworker.jpg");
-    background-size: cover;
-    background-position: center;
-}
+        width: 100%;
+        margin-left: 40px;
+        height: 100%;
+        border-radius: 10px;
+        background: url("../../icons/selfworker.jpg");
+        background-size: cover;
+        background-position: center;
+    }
 }
 
 .col-md-4 {
@@ -41,5 +44,3 @@
 .col-md-7 {
     margin-left: 5rem;
 }
-
-

@@ -1,14 +1,13 @@
-
-.category-button-container{
+.category-button-container {
     margin: .5rem 0;
 
-    &__btn{
-    font-size: 1.5rem;
-    border-radius: 20px;
-    height: 56px;
-    width: 235px;
-    background-color: #f2f6f9;
-    border: 1px solid rgba(0,0,0,0.2);
+    &__btn {
+        font-size: 1.5rem;
+        border-radius: 20px;
+        height: 56px;
+        width: 235px;
+        background-color: #f2f6f9;
+        border: 1px solid rgba(0, 0, 0, 0.2);
     }
 
 }
