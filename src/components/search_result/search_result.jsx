@@ -1,20 +1,13 @@
 import React from "react";
 import "./search_result.css";
-import users from "./dummydata";
 import Zoom from 'react-reveal/Zoom'
-import UserResultCard from "./inner_components/ResultCard"
+import UserResultCard from "./inner_components/resultCard"
 import { connect } from "react-redux";
 import { fetchServiceProviders } from "../../redux/categories/categories_action"
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const SearchResult = (props) => {
-  const filterSkills = [
-    "Electrical",
-    "Mechnical",
-    "House Cleaning",
-    "Pet care",
-  ];
 
   const dispatch = useDispatch();
 
@@ -23,6 +16,7 @@ const SearchResult = (props) => {
   }, [dispatch]);
 
   // use selectors
+  // @ts-ignore
   const data = useSelector(({ categoriesReducer }) => categoriesReducer);
   const [state, setState] = useState(new Map())
   const profile = filterSet(state)
@@ -32,29 +26,12 @@ const SearchResult = (props) => {
         <div className="loader">Loading...</div>
       </div>
     ) :
-      <div className="search__result_container_a">
+      <div className="search__result_container">
         <Zoom left>
-          <div className="search__result_filter-section">
-            {/* <div className="filter-section_title">
-              <p>Filters:</p>
-            </div>
-            <div className="filter-section_content-1">
-              <p>Hourly Rate:</p>
-            </div>
-            <div className="filter-section_content-2">
-              <input
-                className="filter-section_content-2__input"
-                placeholder="Min"
-                type="text"
-              />
-              <input
-                className="filter-section_content-2__input"
-                placeholder="Max"
-                type="text"
-              />
-            </div> */}
+          <div className="search__result_container__filter">
+
             <div className="filter-section_content-3">
-              <p className="filter-section_content-3_skills">Skills:</p>
+              <p className="search__result_container__filter__skills">Skills:</p>
               {Array.from(data.serviceProviders).map((skill) => (
                 <FilterSkills key={skill[0]} skill={skill[0]} setState={setState} />
               ))}
@@ -62,8 +39,8 @@ const SearchResult = (props) => {
           </div>
         </Zoom>
         <Zoom right>
-          <div className="search__result_results-section">
-            <div className="search__result_results-section-title">
+          <div className="search__result_container__content">
+            <div className="search__result_container__content__title">
               <p>Top Results:</p>
             </div>
             {
