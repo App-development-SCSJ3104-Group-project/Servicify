@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { Component } from "react"
 import Button from "../../components/button/button"
 import Template from "../../components/template/template"
@@ -11,7 +12,7 @@ import { Link } from "react-router-dom";
 class CustomerMakeRequestScreen extends Component {
 
 
-    constructor(props) {
+    constructor (props) {
         super(props)
         this.state = {
             location: "",
@@ -61,35 +62,31 @@ class CustomerMakeRequestScreen extends Component {
             ) :
                 <Template>
 
-                    <div className="request_content">
+                    <div className="request">
 
                         <Zoom>
-                            <div className="request_body">
+                            <div className="request__body">
                                 <h3>Send a request</h3>
-                                <div className="input_fields">
-                                    <div className="flex-div">
+                                <div className="request__inputs">
+                                    <div className="request__inputs__flex-container">
 
-                                        <input onChange={event => this.onChange('location', event.target.value)} className="input" type="text" placeholder="Location" />
-                                        <input onChange={event => this.onChange('payment', event.target.value)} className="input" type="text" placeholder="payment" />
-                                        <input onChange={event => this.onChange('fees', event.target.value)} className="input" type="number" placeholder="Total Fees" />
+                                        <input onChange={event => this.onChange('location', event.target.value)} className="request__inputs__item" type="text" placeholder="Location" />
+                                        <input onChange={event => this.onChange('payment', event.target.value)} className="request__inputs__item" type="text" placeholder="payment" />
+                                        <input onChange={event => this.onChange('fees', event.target.value)} className="request__inputs__item" type="number" placeholder="Total Fees" />
 
                                     </div>
-                                    {/* <Button innerText={"Upload file"}
-                                    margin="0.3rem"
-                                    color={"white"}
-                                    backGroundColor={"#1E2833"}
-                                    width="12rem"
-                                    height="4rem"
-                                    borderRadius="2rem" /> */}
+
                                 </div>
 
-                                <textarea onChange={event => this.onChange('description', event.target.value)} name="Text1" cols="40" rows="5" placeholder="Problem description" className="input description_input"></textarea>
+                                <textarea onChange={event => this.onChange('description', event.target.value)} name="Text1"
+                                    // @ts-ignore
+                                    cols="40" rows="5" placeholder="Problem description" className="request__inputs__item__desc"></textarea>
                                 <Zoom left >
 
-                                    <div className="input_fields">
-                                        <input className="input" type="number" placeholder={"To: " + new URLSearchParams(this.props.location.search).get("name")} readOnly />
+                                    <div className="request__inputs">
+                                        <input className="request__inputs__item" type="number" placeholder={"To: " + new URLSearchParams(this.props.location.search).get("name")} readOnly />
 
-                                        <div className="flex-div">
+                                        <div className="request__inputs__flex-container">
 
                                             <Link to="/customer_service_main_page">
                                                 <Button innerText={null}
@@ -130,7 +127,7 @@ class CustomerMakeRequestScreen extends Component {
 }
 
 
-const mapStateToProps = ({ usersReducer, requestsReducer }) => ({
+const mapStateToProps = ({ requestsReducer }) => ({
     loading: requestsReducer.loading
 });
 

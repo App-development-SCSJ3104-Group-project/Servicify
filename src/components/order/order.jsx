@@ -13,7 +13,7 @@ import Zoom from 'react-reveal/Zoom';
 class Order extends React.Component {
 
 
-    constructor(props) {
+    constructor (props) {
 
         super(props);
 
@@ -68,7 +68,6 @@ class Order extends React.Component {
 
                 <div className="order" style={cardStyle}>
 
-                    {/* image is done using css now, needs to be converted to js */}
                     <div className="order__user-img" style={style}></div>
                     <div className="order__info">
                         <div className="order__info__user">
