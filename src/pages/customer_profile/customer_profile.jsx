@@ -23,7 +23,7 @@ import cancel from "../../icons/outline_add_white_24dp 1.svg"
 
 class CustomerProfile extends Component {
 
-    constructor(props) {
+    constructor (props) {
         super(props)
         this.state = {
             city: null,
@@ -43,10 +43,6 @@ class CustomerProfile extends Component {
             repeatedPassword: null,
             displayLanguage: null,
             jobName: null,
-            jobDescription: null,
-            isCashPaymentActive: null,
-            diagnosingFees: null,
-            rate: null,
             class: "input_style",
             classH: "header_style",
             isEdit: false
@@ -75,11 +71,6 @@ class CustomerProfile extends Component {
             repeatedPassword: null,
             displayLanguage: null,
             jobName: null,
-            jobDescription: null,
-            isCashPaymentActive: null,
-            diagnosingFees: null,
-            rate: null,
-            city: null,
             class: "input_style",
             classH: "header_style",
             isEdit: false
@@ -310,35 +301,7 @@ class CustomerProfile extends Component {
                                 </div>
 
                                 <Review />
-                                {/* <div className="feedback_card">
 
-                                <Zoom>
- 
-                                    {this.mockUsers.map(e => (
-
-
-                                        <Card image_src={profileIcon}>
-                                            <div className="header">
-                                                <div className="card_header">
-                                                    <h5>{e.name}</h5>
-                                                    <h5>{e.date}</h5>
-                                                </div>
-                                            </div>
-
-                                            <div className="card_body">
-
-                                                <div className="feedback">{e.feedback}</div>
-
-                                                <br />
-                                                <div className="card_feedback_rate">
-                                                    {this.getRate(e.rate)}
-                                                </div>
-                                            </div>
-                                        </Card>
-                                    ))}
-                                </Zoom>
-
-                            </div> */}
 
                             </div>
                         </div>
