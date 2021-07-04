@@ -3,7 +3,9 @@ import Avatar from "../../../../components/search_result/inner_components/avatar
 import ProposalCardButton from "../button";
 import ProposalSteps from "../proposalSteps/proposalStep";
 import Zoom from "react-reveal/Zoom";
-import moment from "moment";
+import { useDispatch } from "react-redux";
+import { acceptAProposal } from "../../../../redux/proposals/proposals_action";
+import { rejectAProposal } from "./../../../../redux/proposals/proposals_action";
 
 const ProposalCard = ({
   serviceProvider,
@@ -11,10 +13,86 @@ const ProposalCard = ({
   description,
   diagnosisFee,
   provisionDate,
-  timepStamp,
+  timepstamp,
   useState,
+  _id,
+  status,
 }) => {
   const [open, setOpen] = useState(false);
+  // const [clicked, setClicked] = useState(true);
+
+  const dispatch = useDispatch();
+
+  const acceptProposal = () => {
+    dispatch(acceptAProposal(_id));
+  };
+
+  const rejectProposal = () => {
+    dispatch(rejectAProposal(_id));
+  };
+
+  const pressedActions = () => {
+    if (status === "Pending") {
+      return (
+        <React.Fragment>
+          <button
+            onClick={acceptProposal}
+            className={"proposal__card_button"}
+            style={{
+              marginBottom: "1rem",
+              border: "none",
+              fontSize: "1.6rem",
+              fontFamily: "Mulish",
+            }}
+          >
+            Accept
+          </button>
+          <button
+            onClick={rejectProposal}
+            className={"proposal__card_button"}
+            style={{
+              marginBottom: "1rem",
+              border: "none",
+              fontSize: "1.6rem",
+              fontFamily: "Mulish",
+            }}
+          >
+            Reject
+          </button>
+        </React.Fragment>
+      );
+    } else if (status === "rejected") {
+      return (
+        <button
+          className={"proposal__card_button"}
+          style={{
+            marginBottom: "1rem",
+            border: "none",
+            fontSize: "1.6rem",
+            fontFamily: "Mulish",
+            backgroundColor: "#f44336",
+          }}
+        >
+          Rejected
+        </button>
+      );
+    } else if (status === "Accepted") {
+      return (
+        <button
+          className={"proposal__card_button"}
+          style={{
+            marginBottom: "1rem",
+            border: "none",
+            fontSize: "1.6rem",
+            fontFamily: "Mulish",
+            backgroundColor: "#3f51b5",
+          }}
+        >
+          check orders
+        </button>
+      );
+    }
+  };
 
   return (
     <Zoom>
@@ -31,22 +109,11 @@ const ProposalCard = ({
               <p>
                 {serviceProvider.firstName + " " + serviceProvider.lastName}
               </p>
-              <p>
-                {provisionDate} / {moment(timepStamp).fromNow()}
-              </p>
+              <p>{provisionDate}</p>
             </div>
           </div>
           <div className="proposal__controlled_buttons">
-            <ProposalCardButton
-              isOpened={false}
-              buttonName={"Accept"}
-              onClick={() => setOpen(false)}
-            />
-            <ProposalCardButton
-              isOpened={false}
-              buttonName={"Reject"}
-              onClick={() => setOpen(false)}
-            />
+            {pressedActions()}
             <ProposalCardButton
               buttonName={"Show steps"}
               onClick={() => setOpen(!open)}

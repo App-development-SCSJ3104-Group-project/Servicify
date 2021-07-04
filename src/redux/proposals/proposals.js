@@ -12,3 +12,7 @@ export const fetchProposals = (id) =>
       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
   });
+
+export const acceptProposal = (id) => axios.patch(`${url}${id}/accept`);
+
+export const rejectProposal = (id) => axios.patch(`${url}${id}/reject`);
