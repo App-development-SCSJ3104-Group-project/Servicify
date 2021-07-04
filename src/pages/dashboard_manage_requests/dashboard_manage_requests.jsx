@@ -49,7 +49,8 @@ class DashboardManageRequests extends Component {
                     <ScreenTabs tabs={this.tabs} callback={this.onclickFun} />
                 </div>
 
-                {this.tabs[0].status ? <Proposals /> : <Requests acceptRequest={acceptRequest} requests={requests} loading={loading} />}
+                {this.tabs[0].status ? <Proposals />
+                    : <Requests acceptRequest={acceptRequest} requests={requests} loading={loading} />}
 
 
             </div>

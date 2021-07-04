@@ -17,8 +17,8 @@ class CustomerManageRequests extends Component {
     this.props = props;
   }
   tabs = [
-    { name: "Proposals", status: true },
     { name: "requests", status: false },
+    { name: "Proposals", status: true },
   ];
 
   componentDidMount() {
@@ -53,13 +53,12 @@ class CustomerManageRequests extends Component {
           </div>
 
           {this.tabs[0].status ? (
-            <Requests />
-          ) : (
-            <Proposals
+            <Requests
               requests={requests}
               cancelRequest={cancelRequest}
-              loading={loading}
-            />
+              loading={loading} />
+          ) : (
+            <Proposals />
           )}
         </div>
       </Template>
