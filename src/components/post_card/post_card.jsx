@@ -70,14 +70,20 @@ const PostHeader = ({
         {currentUser.isServiceProvider ? (
           <OptionButton icon={<OptionIcon />}>
             <Dropdownmenu>
-              <Link
-                style={{ color: "white", textDecoration: "none" }}
-                to={"/service_provider_make_proposal_screen/" + _id}
-              >
+              {currentUser._id === customerId ? (
                 <div className="item__options__selected">
-                  <p>Send proposal</p>
+                  <p onClick={() => dispatch(deleteAPost(_id))}>Delete post</p>
                 </div>
-              </Link>
+              ) : (
+                <Link
+                  style={{ color: "white", textDecoration: "none" }}
+                  to={"/service_provider_make_proposal_screen/" + _id}
+                >
+                  <div className="item__options__selected">
+                    <p>Send proposal</p>
+                  </div>
+                </Link>
+              )}
             </Dropdownmenu>
           </OptionButton>
         ) : (
