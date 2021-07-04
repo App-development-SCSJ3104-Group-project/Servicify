@@ -4,7 +4,7 @@ import "./screen_tabs.scss"
 class ScreenTabs extends React.Component {
 
 
-    constructor({ props }) {
+    constructor ({ props }) {
         super(props)
         this.props = props
     }

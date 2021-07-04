@@ -6,6 +6,11 @@
     justify-content: start;
 }
 
+.card_header {
+    margin-left: 4.5rem;
+    margin-top: 3.5rem;
+}
+
 .card_title {
     width: 100%;
     display: flex;
@@ -15,18 +20,17 @@
     z-index: 3;
     align-items: flex-start;
     color: white;
+    display: none;
 }
 
 .card_description {
     width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
-    text-align: start;
-    color: white;
-    margin-top: 1rem;
-    margin-bottom: 5rem;
-    min-height: 10rem;
-    max-height: 15rem;
+    max-height: 18.5rem;
+    font-size: 1.2rem;
+    margin-top: 5rem;
+    overflow: auto;
 }
 
 .action_buttons {

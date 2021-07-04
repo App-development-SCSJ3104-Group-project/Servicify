@@ -50,6 +50,18 @@
             border-radius: 50%;
         }
     }
+
+    &__vertical {
+
+        height: 30rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        &__img {
+            top: 2.5rem;
+        }
+    }
 }
 
 .card_body {

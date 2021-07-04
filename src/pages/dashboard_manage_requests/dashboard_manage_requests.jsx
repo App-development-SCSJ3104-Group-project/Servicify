@@ -10,7 +10,7 @@ import { acceptRequest, getServiceProviderRequest } from "../../redux/requests/r
 
 class DashboardManageRequests extends Component {
 
-    constructor({ props }) {
+    constructor ({ props }) {
         super(props);
         this.props = props
     }

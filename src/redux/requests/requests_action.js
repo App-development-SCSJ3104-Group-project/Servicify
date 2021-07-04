@@ -12,7 +12,7 @@ export const makeRequest = (data) => {
             payment: data.payment,
             location: data.location
         }
-
+        
         axios.post("https://service-backend-web.herokuapp.com/requests/create", req).then(res => {
             dispatch(setLoading(false))
 
@@ -35,7 +35,6 @@ export const getRequest = (id) => {
         dispatch(setLoading(true))
 
         axios.get("https://service-backend-web.herokuapp.com/requests/?id=" + id + "&type=false").then(res => {
-            // axios.get("https://service-backend-web.herokuapp.com/requests/?id=" + id + "&type=false").then(res => {
 
             dispatch(setLoading(false))
             dispatch(setRequest(res.data))
@@ -48,9 +47,7 @@ export const getServiceProviderRequest = (id) => {
         dispatch(setLoading(true))
 
         axios.get("https://service-backend-web.herokuapp.com/requests/?id=" + id + "&type=true").then(res => {
-            // axios.get("https://service-backend-web.herokuapp.com/requests/?id=" + id + "&type=true").then(res => {
-
-            // console.log(res.data);
+          
             dispatch(setLoading(false))
             dispatch(setRequest(res.data))
         })

@@ -34,7 +34,7 @@ class ManageProposals extends Component {
   render() {
     return (
       <DashboardCard label={"Proposals"}>
-        <div className="list_of_cards">
+        <div className="cards_list">
 
           {this.data.map((prop) => [
 
@@ -93,7 +93,9 @@ class ManageProposals extends Component {
                 </h3>
                 <h3>Rate: 3</h3>
               </div>
-            </Card>,
+
+            </Card>
+            ,
             <br />,
           ])}
         </div>

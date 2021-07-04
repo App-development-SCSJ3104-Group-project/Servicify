@@ -48,13 +48,13 @@ const SearchResult = (props) => {
           </div>
           {profile.length !== 0
             ? profile.map((e) =>
-                data.serviceProviders
-                  .get(e)
-                  .map((v) => <UserResultCard key={v._id} data={v} />)
-              )
+              data.serviceProviders
+                .get(e)
+                .map((v) => <UserResultCard key={v._id} data={v} />)
+            )
             : Array.from(data.serviceProviders).map((e) =>
-                e[1].map((v) => <UserResultCard key={v._id} data={v} />)
-              )}
+              e[1].map((v) => <UserResultCard key={v._id} data={v} />)
+            )}
         </div>
       </Zoom>
     </div>

@@ -12,7 +12,7 @@ import {
 } from "../../redux/requests/requests_action";
 
 class CustomerManageRequests extends Component {
-  constructor({ props }) {
+  constructor ({ props }) {
     super(props);
     this.props = props;
   }

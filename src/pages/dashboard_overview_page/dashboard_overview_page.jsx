@@ -9,7 +9,7 @@ import "./dashboard_overview_page.scss"
 class DashboardOverviewPage extends Component {
 
 
-    constructor(props) {
+    constructor (props) {
         super(props)
         this.state = props;
     }
@@ -35,7 +35,7 @@ class DashboardOverviewPage extends Component {
 
                         {this.overviewData.map((e) => (
 
-                            <Card imgHeight={"6rem"} imgWidth={"6rem"} mainColor="#303036"> 
+                            <Card imgHeight={"6rem"} imgWidth={"6rem"} mainColor="#303036">
                                 <div className="dashboard_overview_cards_container">
                                     <h1>{e.value}</h1>
                                     <h4>{e.name}</h4>
@@ -57,18 +57,3 @@ class DashboardOverviewPage extends Component {
 
 export default DashboardOverviewPage
 
-// const mapStateToProps = (state) => {
-//     return {
-//       name: state.main.posts
-//     }
-//   }
-  
-//   const mapDispatchToProps = (dispatch) => {
-  
-//     return {
-//       // import action from //???? action file
-//       // addPost: (id) => { dispatch(addPost(id)) }
-  
-//     }
-//   }
-//   export default connect(mapStateToProps)(CustomerMain)

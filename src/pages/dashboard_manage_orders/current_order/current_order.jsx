@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { Component } from "react"
 import DashboardCard from "../../../components/dashboard_card/dashboard_card"
 import Button from "../../../components/button/button"
@@ -6,7 +7,7 @@ import "./current_order.scss"
 
 class CurrentOrder extends Component {
 
-    constructor({ props }) {
+    constructor ({ props }) {
         super(props)
         this.props = props
     }

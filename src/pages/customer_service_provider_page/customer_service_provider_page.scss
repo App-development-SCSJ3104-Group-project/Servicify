@@ -85,6 +85,7 @@
     -ms-overflow-style: -ms-autohiding-scrollbar;
     width: 100%;
 }
+
 .loading-div {
     position: absolute;
     top: 0;
@@ -116,9 +117,11 @@
     .profile_header {
         padding: 0;
     }
+
     .profile_body {
         padding: 20rem 0;
     }
+
     .profile_image {
         width: 15rem;
         height: 15rem;

@@ -13,7 +13,7 @@ import OrdersHistory from "./orders_history/orders_history"
 
 class DashboardManageOrders extends Component {
 
-    constructor({ props }) {
+    constructor ({ props }) {
         super(props);
         this.props = props
     }
@@ -62,7 +62,7 @@ class DashboardManageOrders extends Component {
                     <ScreenTabs tabs={this.tabs} callback={this.onclickFun} />
                 </div>
 
-                
+
                 {this.tabs[0].status ? <CurrentOrder orderStatus={this.orderStatus} callback={this.onOrderCardClicked} /> : <OrdersHistory />}
 
 

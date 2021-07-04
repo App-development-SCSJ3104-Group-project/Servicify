@@ -1,3 +1,4 @@
+// @ts-nocheck
 import axios from "axios"
 import { ordersActionType } from "./orders_action_type"
 
@@ -13,7 +14,7 @@ export const loadData = (id) => {
 
     return (dispatch) => {
 
-        // axios.get("https://service-backend-web.herokuapp.com/orders/?id=" + id, +"&type=false").then(res => {
+      
         axios.get("https://service-backend-web.herokuapp.com/orders/?id=" + id, +"&type=false").then(res => {
 
             const data = res.data;
@@ -38,9 +39,7 @@ export const giveFeedback = (id, description, rate) => {
 
             dispatch(loadData(currentUser._id))
 
-        }).catch(err => {
-            const errorMsg = err.message;
-        })
+        }).catch(err =>err.message)
 
 
     }

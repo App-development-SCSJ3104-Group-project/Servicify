@@ -14,6 +14,7 @@ import paymentIcon from "../../icons/payment-method.svg";
 import icon_4 from "../../icons/outline_star_white_48dp 1.svg";
 import profileIcon from "../../icons/Ellipse (3).svg";
 import Star from "../../icons/star.svg"
+// @ts-ignore
 import Zoom from 'react-reveal/Zoom'
 import { connect } from "react-redux";
 import { getUser } from "../../redux/categories/categories_action";
@@ -21,7 +22,7 @@ import { Link } from "react-router-dom";
 
 class CustomerServiceProviderPage extends Component {
 
-    constructor(props) {
+    constructor (props) {
         super(props)
         this.state = {
 
@@ -94,7 +95,10 @@ class CustomerServiceProviderPage extends Component {
 
                         <div className="profile_header">
                             <div className="profile_buttons">
-                                <Button innerText={null}
+
+                                <
+// @ts-ignore
+                                Button innerText={null}
                                     margin="0.3rem"
                                     color="black"
                                     iconPosition='false'
@@ -104,7 +108,10 @@ class CustomerServiceProviderPage extends Component {
                                     icon={favourite}
                                     borderRadius="50%" />
                                 <Link to={"/customer_request_page?id=" + user._id + "&name=" + user.firstName + " " + user.lastName}>
-                                    <Button innerText={null}
+                                    
+                                    <
+// @ts-ignore
+                                    Button innerText={null}
                                         margin="0.3rem"
                                         color="black"
                                         iconPosition='false'
