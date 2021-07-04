@@ -7,7 +7,11 @@ const postsReducer = (posts = [], action) => {
     case "CREATE_PROPOSAL":
       return posts;
     case "Delete_POST":
-      return posts.filter((post) => post._id !== action.payload._id);
+      const postsList = posts.filter(function (post) {
+        return post._id !== action.payload;
+      });
+      return postsList;
+
     default:
       return posts;
   }

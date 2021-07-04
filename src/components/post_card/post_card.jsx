@@ -32,6 +32,11 @@ const PostHeader = ({
   imgSrc,
   customerId,
 }) => {
+  const deletePost = (id) => {
+    dispatch(deleteAPost(id));
+    window.location.replace("/customer_post_screen");
+  };
+
   // getting userDate whether it is service provider or customer
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
@@ -67,7 +72,7 @@ const PostHeader = ({
             <Dropdownmenu>
               {currentUser._id === customerId ? (
                 <div className="post__option__item">
-                  <a onClick={() => dispatch(deleteAPost(_id))}>Delete post</a>
+                  <a onClick={() => deletePost(_id)}>Delete post</a>
                 </div>
               ) : (
                 <Link
