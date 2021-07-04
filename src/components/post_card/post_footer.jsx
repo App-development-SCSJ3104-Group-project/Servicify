@@ -14,25 +14,7 @@ const PostFooter = ({ tags, proposal, _id, customerId }) => {
       ))}
 
       <div className="service_provider__proposall_length">
-        {currentUser.isServiceProvider ? (
-          <div className="stack__avatars">
-            {proposal?.map((proposal, index) => (
-              <Avatar
-                key={index}
-                source={proposal}
-                width="30px"
-                height="30px"
-              />
-            ))}
-            <p
-              style={{
-                fontSize: "14px",
-                margin: "4px 0px 0px 8px",
-                color: "black",
-              }}
-            ></p>
-          </div>
-        ) : currentUser._id === customerId && proposal.length !== 0 ? (
+        {currentUser._id === customerId && proposal.length !== 0 ? (
           <Link
             style={{ textDecoration: "none" }}
             to={"/customer_view_post_screen/" + _id}
@@ -46,7 +28,6 @@ const PostFooter = ({ tags, proposal, _id, customerId }) => {
                   height="30px"
                 />
               ))}
-
               <p
                 style={{
                   fontSize: "14px",

@@ -28,11 +28,7 @@ const CustomerPostScreen = () => {
     <Template route="posts">
       <div>
         <div className="posts-wrappper-background">
-          {currentUser.isServiceProvider ? (
-            ""
-          ) : (
-            <PostCardForm useState={useState}></PostCardForm>
-          )}
+          <PostCardForm useState={useState}></PostCardForm>
           {postsList.length === 0 ? (
             <div
               style={{
