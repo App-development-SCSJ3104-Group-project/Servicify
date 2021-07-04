@@ -1,11 +1,11 @@
 import React from "react";
 import Avatar from "../search_result/inner_components/avatar";
-import "./post_card.css";
-import PostContent from "./post_content";
-import PostFooter from "./post_footer";
-import OptionButton from "./option_Button";
+import "./post_card.scss";
+import PostContent from "./innercomponents/postcontent/post_content";
+import PostFooter from "./innercomponents/postfooter/post_footer";
+import OptionButton from "./innercomponents/optionalButton/option_Button";
 import FeeIcon from "./icons/fee_icon";
-import PostHeaderInfo from "./post_header-info";
+import PostHeaderInfo from "./innercomponents/postHeader/post_header-info";
 import TimeIcon from "./icons/time_icon";
 import LocationIcon from "./icons/location_icon";
 import OptionIcon from "./icons/option_icon";
@@ -16,7 +16,7 @@ const moment = require("moment");
 
 const PostCard = (props) => {
   return (
-    <div className="post-wrapper">
+    <div className="post__wrapper">
       <PostHeader {...props.post} actions={props.actions} />
       <PostContent {...props.post} />
       <PostFooter {...props.post} />
@@ -32,10 +32,7 @@ const PostHeader = ({
   imgSrc,
   customerId,
 }) => {
-  const proposalShareOptioneMenu = [
-    "Send default proposal",
-    "send custome proposal",
-  ];
+
 
   // getting userDate whether it is service provider or customer
   const currentUser = JSON.parse(localStorage.getItem("user"));
@@ -43,8 +40,8 @@ const PostHeader = ({
   const dispatch = useDispatch();
 
   return (
-    <div className="post-header__content_styles">
-      <div className="post-header__res">
+    <div className="post">
+      <div className="post__header">
         <Avatar
           source={
             imgSrc
@@ -54,7 +51,7 @@ const PostHeader = ({
           width={"100px"}
           height={"100px"}
         />
-        <div className="service_provider__avatar__side__content">
+        <div className="post__header__text-container">
           <PostHeaderInfo
             description={moment(timestamp).fromNow()}
             icon={<TimeIcon />}
@@ -66,12 +63,12 @@ const PostHeader = ({
           />
         </div>
       </div>
-      <div className="post__header_optionMenu">
+      <div className="post__option__menu">
         {currentUser.isServiceProvider ? (
           <OptionButton icon={<OptionIcon />}>
             <Dropdownmenu>
               {currentUser._id === customerId ? (
-                <div className="item__options__selected">
+                <div className="post__option__item">
                   <p onClick={() => dispatch(deleteAPost(_id))}>Delete post</p>
                 </div>
               ) : (
@@ -79,7 +76,7 @@ const PostHeader = ({
                   style={{ color: "white", textDecoration: "none" }}
                   to={"/service_provider_make_proposal_screen/" + _id}
                 >
-                  <div className="item__options__selected">
+                  <div className="post__option__item">
                     <p>Send proposal</p>
                   </div>
                 </Link>
@@ -90,7 +87,7 @@ const PostHeader = ({
           <OptionButton icon={<OptionIcon />}>
             {currentUser._id === customerId ? (
               <Dropdownmenu>
-                <div className="item__options__selected">
+                <div className="post__option__item">
                   <p onClick={() => dispatch(deleteAPost(_id))}>Delete post</p>
                 </div>
               </Dropdownmenu>

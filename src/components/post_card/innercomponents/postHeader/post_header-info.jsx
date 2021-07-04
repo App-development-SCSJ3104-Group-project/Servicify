@@ -2,7 +2,7 @@ import React from "react";
 
 const PostHeaderInfo = ({ description, icon }) => {
   return (
-    <div className="service_provider__avatar__side__content-2">
+    <div className="post__header__text">
       {icon}
       <span className="profile_infomration__side">{description}</span>
     </div>

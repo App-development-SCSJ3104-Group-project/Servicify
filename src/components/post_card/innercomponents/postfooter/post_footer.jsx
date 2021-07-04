@@ -1,6 +1,6 @@
 import React from "react";
-import Tag from "../search_result/inner_components/tag";
-import Avatar from "../search_result/inner_components/avatar";
+import Tag from "../../../search_result/inner_components/tag";
+import Avatar from "../../../search_result/inner_components/avatar";
 import { Link } from "react-router-dom";
 
 const PostFooter = ({ tags, proposal, _id, customerId }) => {
