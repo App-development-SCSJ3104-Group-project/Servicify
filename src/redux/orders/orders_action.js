@@ -26,3 +26,22 @@ export const loadData = (id) => {
 
     }
 }
+
+
+export const giveFeedback = (id, description, rate) => {
+
+    return (dispatch) => {
+
+        axios.patch("https://service-backend-web.herokuapp.com/orders/add_feedback/?id=" + id, { feedback: description, rate: rate }).then(res => {
+
+            const currentUser = JSON.parse(localStorage.getItem("user"));
+
+            dispatch(loadData(currentUser._id))
+
+        }).catch(err => {
+            const errorMsg = err.message;
+        })
+
+
+    }
+}

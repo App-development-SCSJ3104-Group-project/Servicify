@@ -9,6 +9,7 @@ import Diagnosing from "../../icons/prescription.svg"
 import PopUp from "./InnerComponents/PopUp/PopUp"
 import { loadData } from "../../redux/orders/orders_action"
 import Template from "../../components/template/template"
+import { giveFeedback } from "../../redux/orders/orders_action"
 import { connect } from "react-redux";
 
 
@@ -258,7 +259,8 @@ const mapDispatchToProps = (dispatch) => {
 
   return {
     // import action from //???? action file
-    loadData: (userInAuth) => { dispatch(loadData(userInAuth)) }
+    loadData: (userInAuth) => { dispatch(loadData(userInAuth)) },
+    giveFeedback: (id, description, rate) => { dispatch(giveFeedback(id, description, rate)) }
 
   }
 }

@@ -73,7 +73,8 @@ export const acceptRequest = (id, customerId, status) => {
     return (dispatch) => {
         dispatch(setLoading(true))
 
-        axios.patch("https://service-backend-web.herokuapp.com/requests/" + id, { status: status }).then(res => {
+        // axios.patch("https://service-backend-web.herokuapp.com/requests/" + id, { status: status }).then(res => {
+        axios.patch("http://localhost:5000/requests/" + id, { status: status }).then(res => {
 
             getServiceProviderRequest(customerId)
             dispatch(setLoading(false))
