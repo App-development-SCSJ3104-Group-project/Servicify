@@ -10,11 +10,11 @@ const Categories = () => {
 
   return (
 
-    <div className="categories__section_container">
+    <div className="categories-section-container">
 
-      <div className="categories_section-headline">
+      <div className="categories-section-container__headline">
         <p>
-          <span className="starter-word">Hire</span> a pro for any service you
+          <span className="categories-section-container__headline__highlighted-word">Hire</span> a pro for any service you
           want
         </p>
       </div>
@@ -24,22 +24,25 @@ const Categories = () => {
 
           <Slide left>
 
-            <div className="categories-section">
+            <div className="categories-section-container__items">
 
               {
-                categories.map((category, index) => <CategoryButton category={category} ></CategoryButton>)
+                categories.map((category) => <CategoryButton category={category} ></CategoryButton>)
               }
 
             </div>
           </Slide>
 
         </div>
+
         <Slide right>
 
           <div className="col-md-7 ">
-            <div className="demo-image"></div>
+            <div className="categories-section-container__demo-image"></div>
           </div>
+
         </Slide>
+
       </div>
 
     </div>
