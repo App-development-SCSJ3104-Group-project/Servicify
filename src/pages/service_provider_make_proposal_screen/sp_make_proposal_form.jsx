@@ -65,7 +65,7 @@ const ManageProposalForm = (props) => {
 
     if (!parseInt(diagnosisFee)) {
       alert("Enter cost of diagnosis");
-    } else if (paymentMethod === "" || paymentMethod == "payment") {
+    } else if (paymentMethod === "" || paymentMethod === "payment") {
       alert("Please select payement method");
     } else if (description === "") {
       alert("please Enter Description");

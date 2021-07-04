@@ -33,7 +33,7 @@ const CustomerPostScreen = () => {
           ) : (
             <PostCardForm useState={useState}></PostCardForm>
           )}
-          {postsList.length == 0 ? (
+          {postsList.length === 0 ? (
             <div
               style={{
                 fontSize: "24px",

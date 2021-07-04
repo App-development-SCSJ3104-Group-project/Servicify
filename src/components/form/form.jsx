@@ -35,7 +35,7 @@ class Form extends React.Component {
 
       if (userInfo[elementIdentifer] && userInfo[elementIdentifer] != "") {
 
-        if (elementIdentifer == "email") {
+        if (elementIdentifer === "email") {
           isEmailValid = this.validateEmailFormat(userInfo[elementIdentifer])
         }
       } else {
@@ -71,17 +71,17 @@ class Form extends React.Component {
               // state attribtues will be customized to each form type
            
               var formInputIdentfier = formInput.className.split(" ")[0];
-              if (formInput.type == "checkbox") {
+              if (formInput.type === "checkbox") {
 
                 console.log(userInfo[formInputIdentfier])
-                if (userInfo[formInputIdentfier] == undefined) {
+                if (userInfo[formInputIdentfier] === undefined) {
                   userInfo[formInputIdentfier] = false
 
                 }
                 console.log(this.state)
               }
 
-              if (formInput.preRequiste==undefined||(formInput.preRequiste&&userInfo.isServiceProvider==true)) {
+              if (formInput.preRequiste===undefined||(formInput.preRequiste&&userInfo.isServiceProvider===true)) {
                 
                 return (
         
@@ -122,9 +122,9 @@ class Form extends React.Component {
             <img className="backArrow" src={leftArrow} alt="" />
             Back
           </div>
-          <form className="form__right-side__innerForm" style={type=="signup"?{top:"43%"}:{top:"50%"}}  autoComplete="true">
+          <form className="form__right-side__innerForm" style={type==="signup"?{top:"43%"}:{top:"50%"}}  autoComplete="true">
             <div className="form__right-side__innerForm__header">
-              {type == "signup" ? (
+              {type === "signup" ? (
                 <div>
                   <div className="form__right-side__innerForm__header__primary">
                     Register Individual Account!
@@ -149,7 +149,7 @@ class Form extends React.Component {
             {formButtons.map((formButton, index) => {
 
               return <div className=" animate__animated animate__zoomIn" style={{ animationDelay: `${formButtons.length * 1.1}s` }}>
-                {<CustomButton key={index} {...formButton} onClick={index == 0 ? () => {
+                {<CustomButton key={index} {...formButton} onClick={index === 0 ? () => {
                   this.handleFormSubmission(formInputs, SubmitFormCallback)
                 } : null}></CustomButton>}
               </div>

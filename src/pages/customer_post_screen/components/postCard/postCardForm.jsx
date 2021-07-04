@@ -50,7 +50,7 @@ const PostCardForm = ({ useState }) => {
     postData["imgSrc"] = imgSrc;
 
     if (
-      cancelationFee === "" ||
+      cancelationFee  ==="" ||
       location === "" ||
       description === "" ||
       paymentMethod === ""

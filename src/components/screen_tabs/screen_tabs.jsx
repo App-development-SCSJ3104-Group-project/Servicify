@@ -16,7 +16,7 @@ class ScreenTabs extends React.Component {
                 {
                     this.props.tabs.map(e => (
 
-                        <div className={e.status == true ? "normal active" : "normal "} onClick={this.props.callback} data-name={e.name}>
+                        <div className={e.status === true ? "normal active" : "normal "} onClick={this.props.callback} data-name={e.name}>
                             <h3 className="none" >{e.name}</h3>
                         </div>
 

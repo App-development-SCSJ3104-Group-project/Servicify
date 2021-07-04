@@ -22,7 +22,7 @@ class DashboardManageRequests extends Component {
     onclickFun = (event) => {
 
 
-        const target = event.target.closest('.normal').classList.value.split(" ").filter(e => e == "active")
+        const target = event.target.closest('.normal').classList.value.split(" ").filter(e => e === "active")
 
         if (target !== "active") {
             this.tabs.filter(e => e.status === true)[0].status = false

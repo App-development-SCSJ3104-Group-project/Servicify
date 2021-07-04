@@ -2,7 +2,7 @@
 
 import React from "react";
 import "./button.scss"
-const CustomButton = ({ backGroundColor, innerText, color, boxShadow, type, displayType, width, height, margin, icon, borderRadius, onClick, iconPosition, iconWidth = "1.6rem", iconHeight = "1.6rem",animationClassName,animationDelay }) => {
+const CustomButton = ({ backGroundColor, innerText, color, boxShadow, type, displayType, width, height, margin, icon, borderRadius, onClick, iconPosition, iconWidth = "1.6rem", iconHeight = "1.6rem", animationClassName, animationDelay }) => {
 
 
     const style = {
@@ -28,7 +28,7 @@ const CustomButton = ({ backGroundColor, innerText, color, boxShadow, type, disp
     return (
 
         <button type={type} onClick={onClick} className={`custom-button ${animationClassName}`} style={style}  >
-            {innerText}{icon ? <img className="button-icon" src={icon} style={styleIcon} ></img> : null
+            {innerText}{icon ? <img className="custom-button__icon" src={icon} style={styleIcon} ></img> : null
             }
         </button >
     )

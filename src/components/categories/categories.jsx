@@ -6,14 +6,15 @@ import Slide from 'react-reveal/Slide';
 
 const Categories = () => {
 
-  let categories = ["Farming & plantings","Electric Expert","Pet Care","Plumbing work","Mechnical guy" ,"Barbershop","Cleaning Houses","Electronics","Construction","Maintaince","wedding food","Farming & plantings"]
-  return (
-    
-       <div className="categories__section_container">
+  let categories = ["Farming & plantings", "Electric Expert", "Pet Care", "Plumbing work", "Mechnical guy", "Barbershop", "Cleaning Houses", "Electronics", "Construction", "Maintaince", "wedding food", "Farming & plantings"]
 
-      <div className="categories_section-headline">
+  return (
+
+    <div className="categories-section-container">
+
+      <div className="categories-section-container__headline">
         <p>
-          <span className="starter-word">Hire</span> a pro for any service you
+          <span className="categories-section-container__headline__highlighted-word">Hire</span> a pro for any service you
           want
         </p>
       </div>
@@ -21,27 +22,31 @@ const Categories = () => {
 
         <div className="col-md-4">
 
-    <Slide left>
-             
-              <div className="categories-section">
+          <Slide left>
 
-            {
-              categories.map((category,index)=><CategoryButton category={category} ></CategoryButton>)
-            }
-            
-          </div>
-   </Slide>
-          
-        </div>
-        <Slide right>
-        <div className="col-md-7 ">
-          <div className="demo-image"></div>
-          </div>
+            <div className="categories-section-container__items">
+
+              {
+                categories.map((category) => <CategoryButton category={category} ></CategoryButton>)
+              }
+
+            </div>
           </Slide>
-      </div>
+
+        </div>
+
+        <Slide right>
+
+          <div className="col-md-7 ">
+            <div className="categories-section-container__demo-image"></div>
+          </div>
+
+        </Slide>
 
       </div>
-      
+
+    </div>
+
   );
 };
 
