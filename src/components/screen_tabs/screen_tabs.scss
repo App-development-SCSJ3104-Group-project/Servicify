@@ -1,4 +1,4 @@
-.tabs_parent_style {
+.tabs {
     width: 80%;
     height: 5rem;
     border-radius: 2rem;
@@ -7,18 +7,18 @@
     flex-direction: row;
     margin: 5rem;
     color: white;
-}
 
-.normal {
-    width: 50%;
-    border-radius: 2rem;
-    background-color: #57c4e5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
+    &__normal {
+        width: 50%;
+        border-radius: 2rem;
+        background-color: #57c4e5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
 
-.active {
-    background-color: #212738;
+    &__active {
+        background-color: #212738;
+    }
 }

@@ -12,11 +12,11 @@ class ScreenTabs extends React.Component {
     render() {
 
         return (
-            <div className="tabs_parent_style" >
+            <div className="tabs" >
                 {
                     this.props.tabs.map(e => (
 
-                        <div className={e.status === true ? "normal active" : "normal "} onClick={this.props.callback} data-name={e.name}>
+                        <div className={e.status === true ? "normal active tabs__normal tabs__active" : "normal tabs__normal"} onClick={this.props.callback} data-name={e.name}>
                             <h3 className="none" >{e.name}</h3>
                         </div>
 
