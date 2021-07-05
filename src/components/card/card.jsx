@@ -19,7 +19,6 @@ const card = (props) => {
                 {props.image_src !== undefined ? <img src={props.image_src} alt="" /> : null}
             </div>
 
-
             {props.children}
         </div>
     )

@@ -1,7 +1,6 @@
 import React from "react";
 import "./order.scss";
 import Reciept from "../../icons/outline_receipt_long_white_24dp 1.png"
-import Replay from "../../icons/outline_replay_white_24dp 1.png";
 import OrderStatus from "../../icons/orderStatus.png"
 import { ReactComponent as FilledStar } from '../../icons/star.svg';
 import { ReactComponent as ArrowDown } from "../../icons/arrow-down-sign-to-navigate.svg"
@@ -14,7 +13,7 @@ import IconButton from "../../components/icon/icon_component";
 class Order extends React.Component {
 
 
-    constructor(props) {
+    constructor (props) {
 
         super(props);
 

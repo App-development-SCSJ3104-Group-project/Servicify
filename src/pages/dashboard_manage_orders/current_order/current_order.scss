@@ -6,6 +6,7 @@
     align-items: center;
     overflow-y: scroll;
     font-family: cursive;
+
     &__card {
         width: 100%;
         justify-self: flex-end;
@@ -28,6 +29,7 @@
                 h3 {
                     font-size: medium;
                 }
+
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -67,6 +69,7 @@
                 text-align: center;
                 position: relative;
                 z-index: 50;
+
             }
         }
 
@@ -78,6 +81,7 @@
             // visibility: hidden;
             z-index: 10;
             width: 100%;
+
             h3 {
                 font-size: small;
                 margin-bottom: 1rem;
@@ -91,17 +95,20 @@
                 flex-wrap: wrap;
                 justify-content: space-between;
                 align-content: space-between;
+
                 h3 {
                     font-size: small;
                     font-weight: normal;
                 }
             }
+
             &__flex-right-section {
                 width: 30%;
                 display: flex;
                 flex-direction: column;
                 flex-wrap: nowrap;
                 justify-content: center;
+
                 h3 {
                     font-size: small;
                     font-weight: normal;
@@ -126,14 +133,17 @@
 
     // animation: bounce 0.5s ease-in;
 }
+
 @keyframes bounce {
     0% {
         height: 0%;
     }
+
     100% {
         height: 100%;
     }
 }
+
 /* Handle on hover */
 
 @media (max-width: 750px) {
@@ -197,6 +207,7 @@
 .un-list {
     list-style-type: disc;
 }
+
 .divider-v {
     width: 1px;
     margin: 0 2rem;
@@ -204,6 +215,7 @@
     align-self: center;
     background-color: black;
 }
+
 .divider-h {
     height: 1px;
     margin: 2rem 0;

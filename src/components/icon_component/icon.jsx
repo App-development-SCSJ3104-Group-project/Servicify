@@ -6,6 +6,7 @@ const icon = (props) => {
     const style = {
         height: props.height,
         width: props.width,
+        margin:props.margin
     }
     return (
 

@@ -174,7 +174,7 @@ class CustomerOrdersScreen extends React.Component {
                     <div className="orders-list-inner-section__content-container__orders__animation-container animate__animated animate__zoomIn">
                       {typeof this.props.ordersList !== "string" ? (
                         this.props.ordersList.map((order, index) => {
-                          return (
+                          return order.status.toLowerCase() == "done" ? (
                             <Order
                               {...order}
                               order={order}
@@ -183,7 +183,7 @@ class CustomerOrdersScreen extends React.Component {
                               giveFeedBackOnClick={this.openPopUp}
                               cancelOnClick={this.openPopUp}
                             ></Order>
-                          );
+                          ):null
                         })
                       ) : (
                         <div className="orders-list-inner-section__content-container__orders__no-orders">

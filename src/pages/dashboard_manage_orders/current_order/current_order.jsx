@@ -16,12 +16,13 @@ class CurrentOrder extends Component {
         }
     }
     onClickCard = (event) => {
+        console.log("clicked parent")
         const target = event.target.closest(".profile_card").lastChild;
         // console.log(target.style);
         target.classList.toggle("current_order_show_card");
     };
     onChange = (event) => {
-
+        console.log("clicked child")
         console.log(event.target);
     }
 
@@ -144,6 +145,5 @@ class CurrentOrder extends Component {
 
 
 }
-
 export default CurrentOrder
 

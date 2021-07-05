@@ -12,12 +12,21 @@
         justify-content: space-between;
         flex-wrap: wrap;
         color: white;
+        margin-bottom: 2rem;
 
         &__icons {
             text-align: end;
 
             &h4 {
                 margin: 1rem;
+            }
+
+            &__item {
+                margin: 0 .5rem;
+            }
+
+            &__text {
+                margin: 1rem 0;
             }
         }
     }
@@ -27,5 +36,7 @@
         color: white;
         display: flex;
         flex-direction: column;
+
+
     }
 }
