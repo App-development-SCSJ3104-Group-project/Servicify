@@ -72,12 +72,15 @@ export const getServiceProviderProposals = (id) => {
     dispatch(setLoading(true));
 
     axios
-      .get("https://service-backend-web.herokuapp.com/requests/" + id + "/true")
+      .get(
+        "https://service-backend-web.herokuapp.com/proposals/" + id + "/true"
+      )
       .then((res) => {
         dispatch(setProposal(res.data));
       });
   };
 };
+
 export const cancelRequest = (id, customerId) => {
   return (dispatch) => {
     dispatch(setLoading(true));

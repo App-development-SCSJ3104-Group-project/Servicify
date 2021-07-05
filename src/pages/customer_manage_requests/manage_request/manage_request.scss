@@ -1,145 +1,140 @@
 .request-cards-list {
-    width: 100%;
-    height: 100rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: scroll;
+  width: 100%;
+  height: 100rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
 
-    &__card {
-        width: 90%;
-        justify-self: flex-end;
-        align-self: flex-end;
-        display: flex;
-        padding: 2rem 3rem 2rem 5rem;
-        flex-direction: row;
-        flex-wrap: wrap;
-        z-index: 1;
-        justify-content: space-between;
-
-        &__text {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            z-index: 10;
-            margin-left: 7rem;
-
-            &__upper-section {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: start;
-
-                &__rate {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                    margin-left: 5rem;
-
-                    &__star {
-                        width: 2rem;
-                        height: 2rem;
-                        margin-top: -.5rem;
-                    }
-                }
-            }
-        }
-
-        &__buttons-container {
-            color: white;
-            position: absolute;
-            top: 10rem;
-            right: 1rem;
-
-            &>* {
-                margin: .5rem 0;
-            }
-        }
-
-        &__expansion-section {
-            display: none;
-            z-index: 10;
-        }
-    }
-}
-
-
-.show_card {
+  &__card {
+    width: 90%;
+    justify-self: flex-end;
     align-self: flex-end;
     display: flex;
     padding: 2rem 3rem 2rem 5rem;
     flex-direction: row;
     flex-wrap: wrap;
-    z-index: 10;
-    align-content: space-between;
+    z-index: 1;
+    justify-content: space-between;
 
-    &h3 {
-        margin-bottom: 2rem;
+    &__text {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      z-index: 10;
+      margin-left: 7rem;
 
+      &__upper-section {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: start;
+
+        &__rate {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row;
+          flex-wrap: wrap;
+          margin-left: 5rem;
+
+          &__star {
+            width: 2rem;
+            height: 2rem;
+            margin-top: -0.5rem;
+          }
+        }
+      }
     }
+
+    &__buttons-container {
+      color: white;
+      position: absolute;
+      top: 10rem;
+      right: 1rem;
+
+      & > * {
+        margin: 0.5rem 0;
+      }
+    }
+
+    &__expansion-section {
+      display: none;
+      z-index: 10;
+    }
+  }
 }
 
+.show_card {
+  align-self: flex-end;
+  display: flex;
+  padding: 2rem 3rem 2rem 5rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+  z-index: 10;
+  align-content: space-between;
+
+  &h3 {
+    margin-bottom: 2rem;
+  }
+}
 
 /* Handle on hover */
 
 @media (max-width: 750px) {
-    .proposal-cards-list__card {
-        padding-left: 7rem;
-        padding-right: 0;
-        align-content: start;
+  .proposal-cards-list__card {
+    padding-left: 7rem;
+    padding-right: 0;
+    align-content: start;
 
-        &__text {
-            align-content: flex-end;
-            justify-content: flex-end;
+    &__text {
+      align-content: flex-end;
+      justify-content: flex-end;
 
-            &__upper-section {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: space-between;
+      &__upper-section {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
 
-                &__rate {
-                    margin: 0;
-
-                }
-            }
+        &__rate {
+          margin: 0;
         }
-
-        &__buttons-container {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            color: white;
-        }
+      }
     }
 
+    &__buttons-container {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      color: white;
+    }
+  }
 }
 
 .loading-div {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 2;
 }
 
 .loader {
-    color: black;
-    font-size: 90px;
-    text-indent: -9999em;
-    overflow: hidden;
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
-    margin: 72px auto;
-    position: absolute;
-    top: 35%;
-    left: 47.5%;
-    transform: translate(-50%, -50%);
-    -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
-    animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+  color: black;
+  font-size: 90px;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  margin: 72px auto;
+  position: absolute;
+  top: 35%;
+  left: 47.5%;
+  transform: translate(-50%, -50%);
+  -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+  animation: load6 1.7s infinite ease, round 1.7s infinite ease;
 }
