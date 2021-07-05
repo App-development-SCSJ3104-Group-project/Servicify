@@ -12,7 +12,7 @@ import { connect } from "react-redux";
 
 
 class CustomerOrdersScreen extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       activeTab: "OrdersList",
@@ -84,7 +84,7 @@ class CustomerOrdersScreen extends React.Component {
 
     //returning the first order within the ongoing orders
     const { ordersList } = this.props
-    const currentOrder = typeof ordersList !== "string" ? ordersList.filter((order) => order.ongoing === true)[0] : null
+    const currentOrder = typeof ordersList !== "string" ? ordersList.filter((order) => order.status !== "Done") : null
 
     //deciding on tabs content, if orders list , orderslist will get populated
     if (this.state.activeTab != "OrdersList") {
@@ -106,13 +106,13 @@ class CustomerOrdersScreen extends React.Component {
 
           <div className="orders-list-inner-section__content-container__status__inner  animate__animated animate__zoomInDown">
 
-            <img src={Diagnosing} alt="" className="orders-list-inner-section__content-container__status__img " />
-
-            <div className="orders-list-inner-section__content-container__status__inner__diagnosis-info ">
-              <div>Diagnosing the problem</div>
-              <div>#0156FD55DFF55</div>
+            <div className="orders-list-inner-section__content-container__orders__animation-container animate__animated animate__zoomIn">
+              {
+                typeof currentOrder !== "string" ? currentOrder.map((order, index) => {
+                  return <Order {...order} order={order} id={index} className="" giveFeedBackOnClick={this.openPopUp} cancelOnClick={this.openPopUp}></Order>
+                }) : <div className="orders-list-inner-section__content-container__orders__no-orders">{currentOrder}</div>
+              }
             </div>
-            <Order {...currentOrder} orderType="order-status"></Order>
           </div>
         )
 

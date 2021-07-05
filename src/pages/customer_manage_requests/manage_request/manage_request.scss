@@ -7,7 +7,7 @@
     overflow-y: scroll;
 
     &__card {
-        width: 90%;
+        width: 100%;
         justify-self: flex-end;
         align-self: flex-end;
         display: flex;
@@ -50,12 +50,10 @@
         &__buttons-container {
             color: white;
             position: absolute;
-            top: 10rem;
+            height: 9rem;
             right: 1rem;
-
-            &>* {
-                margin: .5rem 0;
-            }
+            top: 1rem;
+            
         }
 
         &__expansion-section {

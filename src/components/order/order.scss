@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap");
 
-.order__extra-info__type>* {
+.order__extra-info__type > * {
     margin: 1rem 0;
 }
 
@@ -16,7 +16,7 @@
 
 // text spacing in card info details
 .order__extra-info__type__details {
-    &>*:not(:first-of-type) {
+    & > *:not(:first-of-type) {
         margin: 0 0.5rem;
     }
 }
@@ -120,18 +120,22 @@
         background-size: cover;
     }
 
+    &__current-status {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+    }
     &__buttons-container {
-        margin-top: 1.5rem;
-        padding-right: 2rem;
         width: 30rem;
         display: flex;
         justify-content: flex-end;
 
-        &>* {
+        & > * {
             background-color: rgb(33, 39, 56);
             color: white;
             border: none;
-            margin: 0 0.5rem;
+            margin-top: 1rem;
+            margin-right: 1rem;
             font-size: 1.6rem;
         }
 

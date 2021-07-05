@@ -8,12 +8,13 @@ import { ReactComponent as ArrowDown } from "../../icons/arrow-down-sign-to-navi
 import { ReactComponent as ArrowUp } from "../../icons/arrowup.svg";
 import defaultUserImg from "../../icons/defaultUser.svg";
 import Zoom from 'react-reveal/Zoom';
+import IconButton from "../../components/icon/icon_component";
 
 
 class Order extends React.Component {
 
 
-    constructor (props) {
+    constructor(props) {
 
         super(props);
 
@@ -104,17 +105,19 @@ class Order extends React.Component {
                         orderType != "order-status" ? <div className="order__buttons-container">
 
                             {
-                                order.isFeedbackGiven ? null
-                                    : <button className="order__buttons-container__feedback" onClick={() => giveFeedBackOnClick("feedback", order._id)}>Give FeedBack</button>
+                                order.status === "Done" ?
+                                    [<button className="order__buttons-container__reciept">
+                                        <img src={Reciept} alt="" />
+                                    </button>,
+                                    order.isFeedbackGiven ? null
+                                        : <button className="order__buttons-container__feedback" onClick={() => giveFeedBackOnClick("feedback", order._id)}>Give FeedBack</button>]
+                                    : null
                             }
-                            <button className="order__buttons-container__reciept">
-                                <img src={Reciept} alt="" />
-                            </button>
-                            <button className="order__buttons-container__replay">
+
+                            {/* <button className="order__buttons-container__replay">
                                 <img src={Replay} alt="" />
 
-                            </button>
-
+                            </button> */}
                         </div> : <div className="order__buttons-container">
 
 
@@ -127,6 +130,16 @@ class Order extends React.Component {
                         </div>
 
                     }
+                    <div className="order__current-status">
+                        <IconButton
+                            innerText={order.status}
+                            heightDiv="4.0rem"
+                            widthDiv="15.0rem"
+                            borderRadius="5rem"
+                            backgroundColor="white"
+                            src={null}
+                        />
+                    </div>
 
 
                     <div className="order__extra-info">
