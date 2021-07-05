@@ -23,8 +23,8 @@ export const setStatus = (id) => {
     return (dispatch) => {
 
         setLoading(true)
-        // axios.get("https://service-backend-web.herokuapp.com/orders/" + id, { status: data }).then(res => {
-        axios.patch("http://localhost:5000/orders/" + id, { status: "Done" }).then(res => {
+        axios.get("https://service-backend-web.herokuapp.com/orders/" + id, { status: "Done" }).then(res => {
+            // axios.patch("http://localhost:5000/orders/" + id, { status: "Done" }).then(res => {
 
             setLoading(false)
 
