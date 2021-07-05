@@ -3,12 +3,11 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 1rem;
+    color: white;
     align-items: center;
 
     &__ratio {
-        _ratio {
-            display: inline-flex;
-            width: 80%;
-        }
+        display: inline-flex;
+        width: 80%;
     }
 }

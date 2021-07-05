@@ -6,6 +6,7 @@
     text-align: center;
     color: black;
     min-height: 3.5rem;
+    width: 100%;
 }
 .textarea_style {
     font-size: 16px;
@@ -15,6 +16,10 @@
     text-align: start;
     width: 100%;
     color: white;
+    input {
+        color: white;
+        text-align: start;
+    }
 }
 .input_style_edit {
     font-size: 16px;
