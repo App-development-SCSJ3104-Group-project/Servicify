@@ -6,7 +6,7 @@ import Card from "../../components/card/card"
 import Template from "../../components/template/template"
 import "./customer_service_provider_page.scss"
 import image from "../../icons/Ellipse.svg";
-import favourite from "../../icons/icons8-heart-30 (1) 1.svg";
+import favourite from "../../icons/edit.svg";
 import order from "../../icons/outline_book_white_24dp 1.svg";
 import icon_1 from "../../icons/outline_location_on_white_48dp 1.svg";
 import cashIcon from "../../icons/cash.svg";

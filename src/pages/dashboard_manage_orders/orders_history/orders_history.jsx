@@ -31,7 +31,7 @@ class OrdersHistory extends Component {
 
                 <div className="order-history-list">
                     {
-                        ordersList.map((prop) => prop.status === "Done" ? [!this.state.found ? this.setState({ found: true }) : null, (
+                        typeof ordersList !== "string" ? ordersList.map((prop) => prop.status === "Done" ? [!this.state.found ? this.setState({ found: true }) : null, (
                             <Card
                                 scaleUp={true}
                                 image_src={prop.customer.imgSrc}
@@ -100,7 +100,7 @@ class OrdersHistory extends Component {
                                 </div>
                             </Card>
                         )] : null
-                        )
+                        ) : null
                     }
                     {!this.state.found ? <h1>Order history has no records</h1> : null}
 
