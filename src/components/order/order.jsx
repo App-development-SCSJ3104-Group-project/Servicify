@@ -49,6 +49,15 @@ class Order extends React.Component {
 
     }
 
+    getStars = (orderRate) => {
+        let stars = [];
+
+        for (let i = 1; i < orderRate; i++) {
+            stars.push(<FilledStar className="filled-star" style={{ fill: "goldenrod" }} />)
+        }
+        return stars;
+    }
+
 
 
     render() {
@@ -72,7 +81,7 @@ class Order extends React.Component {
                     <div className="order__info">
                         <div className="order__info__user">
                             <span className="order__info__user__name"> {order.serviceProvider.firstName + " " + order.serviceProvider.lastName}</span>
-                            <span className="order__info__rating"> {order.rating} <FilledStar style={{ marginLeft: ".5rem", fill: "white", width: "2rem", height: "2rem", cursor: "pointer" }}></FilledStar>
+                            <span className="order__info__rating"> {order.rating} <FilledStar style={{ marginLeft: ".5rem", fill: "black", width: "2rem", height: "2rem", cursor: "pointer" }}></FilledStar>
                             </span>
                         </div>
                         <div className={`order__info__order ${toggled ? "visible" : null}`} >
@@ -85,7 +94,8 @@ class Order extends React.Component {
                                 <div>Payment: {order.paymentType}</div>
                                 <div>Feedback: {order.feedback}. </div>
                                 <div className="rate">
-                                    <span className="rate__text">Rate: </span>  <FilledStar className="filled-star" /> <FilledStar className="filled-star" /> <FilledStar className="filled-star" /><FilledStar className="filled-star" /><FilledStar className="filled-star" />
+                                    <span className="rate__text">Rate: </span>
+                                    {this.getStars(order.rate)}
                                 </div>
                             </div>
                         </div>
