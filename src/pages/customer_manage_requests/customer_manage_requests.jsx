@@ -12,13 +12,13 @@ import {
 } from "../../redux/requests/requests_action";
 
 class CustomerManageRequests extends Component {
-  constructor({ props }) {
+  constructor ({ props }) {
     super(props);
     this.props = props;
   }
   tabs = [
-    { name: "Proposals", status: true },
     { name: "requests", status: false },
+    { name: "Proposals", status: true },
   ];
 
   componentDidMount() {
@@ -53,13 +53,12 @@ class CustomerManageRequests extends Component {
           </div>
 
           {this.tabs[0].status ? (
-            <Requests />
-          ) : (
-            <Proposals
+            <Requests
               requests={requests}
               cancelRequest={cancelRequest}
-              loading={loading}
-            />
+              loading={loading} />
+          ) : (
+            <Proposals />
           )}
         </div>
       </Template>
@@ -67,11 +66,10 @@ class CustomerManageRequests extends Component {
   }
 }
 
-const mapStateToProps = ({ requestsReducer, usersReducer }) => {
+const mapStateToProps = ({ requestsReducer }) => {
   return {
     loading: requestsReducer.loading,
     requests: requestsReducer.requests,
-    // userId: usersReducer.userInAuth[0]._id
   };
 };
 

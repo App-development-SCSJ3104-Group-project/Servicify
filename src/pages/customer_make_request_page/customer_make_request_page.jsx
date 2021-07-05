@@ -25,24 +25,31 @@ class CustomerMakeRequestScreen extends Component {
         const data = JSON.parse(localStorage.getItem("user"))
     }
     onClick = () => {
-        if (this.state.location === "" ||
-            this.state.payment === "" ||
-            this.state.fees === "" ||
-            this.state.description === "")
-            return alert("field are required")
-
-        const { makeRequest } = this.props
 
         const data = JSON.parse(localStorage.getItem("user"))
+        if (data === null) {
+            alert("login to the system")
+        } else {
 
-        makeRequest({
-            location: this.state.location, payment: this.state.payment, fees: this.state.fees,
-            description: this.state.description, customerId: data._id, serviceProviderId: new URLSearchParams(this.props.location.search).get("id")
-        })
+            if (this.state.location === "" ||
+                this.state.payment === "" ||
+                this.state.fees === "" ||
+                this.state.description === "")
+                return alert("field are required")
 
-        setTimeout(() => {
-            this.props.history.push('/customer_manage_requests');
-        }, 500);
+            const { makeRequest } = this.props
+
+
+            makeRequest({
+                location: this.state.location, payment: this.state.payment, fees: this.state.fees,
+                description: this.state.description, customerId: data._id, serviceProviderId: new URLSearchParams(this.props.location.search).get("id")
+            })
+
+            setTimeout(() => {
+                this.props.history.push('/customer_manage_requests');
+            }, 500);
+        }
+
 
 
     }

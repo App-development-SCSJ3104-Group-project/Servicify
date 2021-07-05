@@ -47,12 +47,14 @@
     .filled-star {
         font-size: 1.2rem;
         width: 2rem;
+        fill: transparent;
     }
 
     .rate {
         display: flex;
         align-items: center;
         justify-content: flex-start;
+        align-items: center;
 
         &__text {
             margin-right: 1rem;
@@ -94,6 +96,10 @@
         &__rating {
             display: flex;
             align-items: center;
+
+            &svg {
+                fill: black !important;
+            }
         }
 
         &__order {

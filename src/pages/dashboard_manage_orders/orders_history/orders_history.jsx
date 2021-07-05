@@ -10,7 +10,7 @@ import "./orders_history.scss"
 
 class OrdersHistory extends Component {
 
-    constructor({ props }) {
+    constructor ({ props }) {
         super(props)
         this.props = props
     }

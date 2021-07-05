@@ -19,13 +19,13 @@ const icon = (props) => {
         justifyContent: "center",
         alignItems: "center",
         fill: "white",
-        cursor:"pointer"
+        cursor: "pointer"
     }
 
     return (
-        <div 
-// @ts-ignore
-        style={styleDiv}>
+        <div
+            // @ts-ignore
+            style={styleDiv}>
             {props.src !== null ? <img src={props.src} alt="" style={style} /> : <h4>{props.innerText}</h4>}
 
         </div>

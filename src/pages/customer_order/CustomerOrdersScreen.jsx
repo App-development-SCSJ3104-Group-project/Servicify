@@ -2,16 +2,13 @@ import React from "react";
 import "./CustomerOrdersScreen.scss";
 import CustomButton from "../../components/button/button";
 import Order from "../../components/order/order";
-import UserImg from "../../icons/User1.svg";
-import UserImg2 from "../../icons/User2.svg";
-import UserImg3 from "../../icons/User3.svg";
-import Diagnosing from "../../icons/prescription.svg"
-import PopUp from "./InnerComponents/PopUp/PopUp"
-import { loadData } from "../../redux/orders/orders_action"
-import Template from "../../components/template/template"
-import { giveFeedback } from "../../redux/orders/orders_action"
-import { connect } from "react-redux";
 
+import Diagnosing from "../../icons/prescription.svg";
+import PopUp from "./InnerComponents/PopUp/PopUp";
+import { loadData } from "../../redux/orders/orders_action";
+import Template from "../../components/template/template";
+import { giveFeedback } from "../../redux/orders/orders_action";
+import { connect } from "react-redux";
 
 class CustomerOrdersScreen extends React.Component {
   constructor(props) {
@@ -42,61 +39,7 @@ class CustomerOrdersScreen extends React.Component {
           isActive: true,
         },
       ],
-
-
-
-      OrdersList: [
-        {
-          name: "Marwan Mostafa",
-          rating: 4.2,
-          orderedSince: "27 minutes",
-          city: "Istanbul",
-          day: "monday",
-          date: "15/05/2021",
-          diagonsingFees: 10.00,
-          totalFees: 30.00,
-          paymentType: "cash",
-          feedback: "dummy text of the priting and typesetting industry",
-          userImg: UserImg,
-          ongoing: false,
-          giveFeedBackOnClick: this.openPopUp,
-          cancelOnClick: this.openPopUp,
-        },
-        {
-          name: "Jalal ajlan",
-          rating: 4.8,
-          orderedSince: "1 hour",
-          city: "Johor",
-          day: "Friday",
-          date: "18/02/2021",
-          diagonsingFees: 14.00,
-          totalFees: 42.00,
-          paymentType: "cash",
-          feedback: "dummy text of the priting and typesetting industry",
-          userImg: UserImg2,
-          ongoing: false,
-          giveFeedBackOnClick: this.openPopUp,
-          cancelOnClick: this.openPopUp,
-
-        },
-        {
-          name: "Ahmed el raqab",
-          rating: 4.6,
-          orderedSince: "2 hours",
-          city: "Mecca",
-          day: "Sunday",
-          date: "11/02/2021",
-          diagonsingFees: 24.00,
-          totalFees: 52.00,
-          paymentType: "cash",
-          feedback: "dummy text of the priting and typesetting industry",
-          userImg: UserImg3,
-          ongoing: true,
-          giveFeedBackOnClick: this.openPopUp,
-          cancelOnClick: this.openPopUp,
-
-        },
-      ],
+      orderId: null,
     };
   }
 
@@ -115,48 +58,67 @@ class CustomerOrdersScreen extends React.Component {
   };
 
   handlePopUpInput = (childData) => {
-  }
-  closePopUp = (popUpType) => {
+    console.log(this.state.orderId);
+    console.log(childData.text);
+    console.log(childData.rating);
+
+    this.props.giveFeedback(
+      this.state.orderId,
+      childData.text,
+      childData.rating
+    );
+  };
+  closePopUp = (popUpType, orderId) => {
     this.setState({
       popUpToggle: false,
-      popUpType: popUpType
-    })
-  }
-  openPopUp = (popUpType) => {
+      popUpType: popUpType,
+    });
+  };
+  openPopUp = (popUpType, orderId) => {
     this.setState({
       popUpToggle: true,
-      popUpType: popUpType
-    })
-
-  }
+      popUpType: popUpType,
+      orderId,
+    });
+  };
 
   checkTab = () => {
-
     //returning the first order within the ongoing orders
-    const { ordersList } = this.props
-    const currentOrder = typeof ordersList !== "string" ? ordersList.filter((order) => order.ongoing === true)[0] : null
+    const { ordersList } = this.props;
+    const currentOrder =
+      typeof ordersList !== "string"
+        ? ordersList.filter((order) => order.ongoing === true)[0]
+        : null;
 
     //deciding on tabs content, if orders list , orderslist will get populated
     if (this.state.activeTab != "OrdersList") {
+      if (
+        currentOrder === null ||
+        currentOrder === undefined ||
+        currentOrder === []
+      ) {
+        return (
+          <div className="orders-list-inner-section__content-container__status__inner  animate__animated animate__zoomInDown">
+            <img
+              src={Diagnosing}
+              alt=""
+              className="orders-list-inner-section__content-container__status__img "
+            />
 
-      if (currentOrder === null || currentOrder === undefined || currentOrder === []) {
-
-        return <div className="orders-list-inner-section__content-container__status__inner  animate__animated animate__zoomInDown">
-
-          <img src={Diagnosing} alt="" className="orders-list-inner-section__content-container__status__img " />
-
-          <div className="orders-list-inner-section__content-container__status__inner__diagnosis-info ">
-            <div>No ongoing Orders</div>
-            <div></div>
+            <div className="orders-list-inner-section__content-container__status__inner__diagnosis-info ">
+              <div>No ongoing Orders</div>
+              <div></div>
+            </div>
           </div>
-        </div>
-
+        );
       } else {
         return (
-
           <div className="orders-list-inner-section__content-container__status__inner  animate__animated animate__zoomInDown">
-
-            <img src={Diagnosing} alt="" className="orders-list-inner-section__content-container__status__img " />
+            <img
+              src={Diagnosing}
+              alt=""
+              className="orders-list-inner-section__content-container__status__img "
+            />
 
             <div className="orders-list-inner-section__content-container__status__inner__diagnosis-info ">
               <div>Diagnosing the problem</div>
@@ -164,39 +126,39 @@ class CustomerOrdersScreen extends React.Component {
             </div>
             <Order {...currentOrder} orderType="order-status"></Order>
           </div>
-        )
-
+        );
       }
-
     }
-  }
+  };
   componentWillMount() {
     const { loadData } = this.props;
-    const data = JSON.parse(localStorage.getItem("user"))
+    const data = JSON.parse(localStorage.getItem("user"));
 
-    loadData(data._id)
-
+    loadData(data._id);
   }
   render() {
-
-
-    const { innerTabs, activeTab } = this.state;
+    const { innerTabs } = this.state;
     const { handleTabChanges } = this;
-
-
 
     return (
       <Template route="orders">
-
         <div className="customer-order">
           <div className="order-list-section">
-
-            {this.state.popUpToggle === true ? <PopUp popUpType={this.state.popUpType} closeCallBack={this.closePopUp} submitCallBack={this.handlePopUpInput} Header={this.state.popUpType === "feedback" ? "Description" : "Reason"}></PopUp> : null}
+            {this.state.popUpToggle === true ? (
+              <PopUp
+                popUpType={this.state.popUpType}
+                closeCallBack={this.closePopUp}
+                submitCallBack={this.handlePopUpInput}
+                Header={
+                  this.state.popUpType === "feedback" ? "Description" : "Reason"
+                }
+              ></PopUp>
+            ) : null}
 
             <div className="orders-list-inner-section">
               <div className="orders-list-inner-section__content-container">
                 <div className="orders-list-inner-section__content-container__tabs">
-                  {innerTabs.map((formButton, index) => {
+                  {innerTabs.map((formButton) => {
                     // @ts-ignore
                     return (
                       <CustomButton
@@ -214,54 +176,60 @@ class CustomerOrdersScreen extends React.Component {
                   })}
                 </div>
                 <div className="orders-list-inner-section__content-container__orders ">
-                  {
-
-                    this.state.activeTab === "OrdersList" ?
-
-                      <div className="orders-list-inner-section__content-container__orders__animation-container animate__animated animate__zoomIn">
-                        {
-                          typeof this.props.ordersList !== "string" ? this.props.ordersList.map((order, index) => {
-                            return <Order {...order} order={order} id={index} className="" giveFeedBackOnClick={this.openPopUp} cancelOnClick={this.openPopUp}></Order>
-                          }) : <div className="orders-list-inner-section__content-container__orders__no-orders">{this.props.ordersList}</div>
-                        }
-                      </div>
-                      : null
-                  }
+                  {this.state.activeTab === "OrdersList" ? (
+                    <div className="orders-list-inner-section__content-container__orders__animation-container animate__animated animate__zoomIn">
+                      {typeof this.props.ordersList !== "string" ? (
+                        this.props.ordersList.map((order, index) => {
+                          return (
+                            <Order
+                              {...order}
+                              order={order}
+                              id={index}
+                              className=""
+                              giveFeedBackOnClick={this.openPopUp}
+                              cancelOnClick={this.openPopUp}
+                            ></Order>
+                          );
+                        })
+                      ) : (
+                        <div className="orders-list-inner-section__content-container__orders__no-orders">
+                          {this.props.ordersList}
+                        </div>
+                      )}
+                    </div>
+                  ) : null}
                 </div>
                 <div className="orders-list-inner-section__content-container__status ">
-                  {
-
-                    this.checkTab()
-                  }
-
-
+                  {this.checkTab()}
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </Template>
-
     );
   }
 }
 
-
 const mapStateToProps = ({ ordersReducer, usersReducer }) => {
   return {
     ordersList: ordersReducer.ordersList,
-    userInAuth: usersReducer.userInAuth
-  }
-}
+    userInAuth: usersReducer.userInAuth,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
-
   return {
     // import action from //???? action file
-    loadData: (userInAuth) => { dispatch(loadData(userInAuth)) },
-    giveFeedback: (id, description, rate) => { dispatch(giveFeedback(id, description, rate)) }
-
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(CustomerOrdersScreen)
+    loadData: (userInAuth) => {
+      dispatch(loadData(userInAuth));
+    },
+    giveFeedback: (id, description, rate) => {
+      dispatch(giveFeedback(id, description, rate));
+    },
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CustomerOrdersScreen);

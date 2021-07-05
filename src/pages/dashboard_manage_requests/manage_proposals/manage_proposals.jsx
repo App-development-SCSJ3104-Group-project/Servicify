@@ -9,7 +9,7 @@ import "./manage_proposals.scss"
 
 class ManageProposals extends Component {
 
-    constructor({ props }) {
+    constructor ({ props }) {
         super(props)
         this.props = props
     }

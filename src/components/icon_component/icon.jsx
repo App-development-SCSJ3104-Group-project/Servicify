@@ -10,6 +10,8 @@ const icon = (props) => {
     return (
 
         <img src={props.src} alt="" style={style} />
+        // <svg xmlns={props.src} fill={props.fill} style={style}></svg>
+
 
     );
 };

@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { checkEmailAvailability, resetSignupState } from "../../redux/users/users_action.js"
 import { useHistory } from "react-router-dom";
 
-const SignUpFrom = ({ checkEmailAvailability, duplicateUserEmail, users, loading, resetSignupState }) => {
+const SignUpFrom = ({ checkEmailAvailability, duplicateUserEmail, loading, resetSignupState }) => {
 
 
 
@@ -39,7 +39,7 @@ const SignUpFrom = ({ checkEmailAvailability, duplicateUserEmail, users, loading
             displayType: "block",
             customLabel: "First Name*",
             className: "firstName name form__right-side__innerForm__input-group",
-            width:"100%"
+            width: "100%"
         },
         {
             type: "text",
@@ -47,7 +47,7 @@ const SignUpFrom = ({ checkEmailAvailability, duplicateUserEmail, users, loading
             displayType: "block",
             customLabel: "Last Name*",
             className: "lastName name form__right-side__innerForm__input-group",
-            width:"100%"
+            width: "100%"
         },
         {
             type: "text",
@@ -55,7 +55,7 @@ const SignUpFrom = ({ checkEmailAvailability, duplicateUserEmail, users, loading
             displayType: "block",
             customLabel: "Email Address*",
             className: "email form__right-side__innerForm__input-group",
-            width:"100%"
+            width: "100%"
 
         },
         {
@@ -64,7 +64,7 @@ const SignUpFrom = ({ checkEmailAvailability, duplicateUserEmail, users, loading
             displayType: "block",
             customLabel: "Password*",
             className: "password form__right-side__innerForm__input-group",
-            width:"100%"
+            width: "100%"
         },
         {
             type: "text",
@@ -73,7 +73,7 @@ const SignUpFrom = ({ checkEmailAvailability, duplicateUserEmail, users, loading
             customLabel: "Job Name*",
             className: "jobName  form__right-side__innerForm__input-group",
             width: "100%",
-            preRequiste:"isServiceProvider"
+            preRequiste: "isServiceProvider"
         },
         {
             type: "checkbox",
@@ -83,17 +83,7 @@ const SignUpFrom = ({ checkEmailAvailability, duplicateUserEmail, users, loading
             className: "isServiceProvider form__right-side__innerForm__input-group"
         }
     ]
-    // const ServiceProviderExtraInputs = [
-    //     {
-    //         type: "text",
-    //         placeHolder: "Job Name",
-    //         displayType: "block",
-    //         customLabel: "Job Name*",
-    //         className: "jobName  form__right-side__innerForm__input-group",
-    //         width: "100%",
-    //         preRequiste:"isServiceProvider"
-    //     },
-    // ]
+
     const formButtons = [
 
         {

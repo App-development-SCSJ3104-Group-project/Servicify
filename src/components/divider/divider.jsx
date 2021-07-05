@@ -3,7 +3,6 @@ import "./divider.scss"
 
 const divider = ({ width, backgroundColor, height, marginTop, marginBottom }) => {
 
-
     const style = {
 
         backgroundColor: backgroundColor,

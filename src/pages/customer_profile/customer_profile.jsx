@@ -2,28 +2,20 @@ import React, { Component } from "react";
 import Button from "../../components/button/button"
 import Icon from "../../components/icon/icon_component"
 import Review from "../../components/reviews/review"
-import Card from "../../components/card/card"
 import Template from "../../components/template/template"
 import "./customer_profile.scss"
-import image from "../../icons/Ellipse.svg";
 import favourite from "../../icons/icons8-heart-30 (1) 1.svg";
-import order from "../../icons/outline_book_white_24dp 1.svg";
-import icon_1 from "../../icons/outline_location_on_white_48dp 1.svg";
-import cashIcon from "../../icons/cash.svg";
-import paymentIcon from "../../icons/payment-method.svg";
-import icon_4 from "../../icons/outline_star_white_48dp 1.svg";
-import profileIcon from "../../icons/Ellipse (3).svg";
 import Star from "../../icons/star.svg"
 import Zoom from 'react-reveal/Zoom'
-import LabeledInputField from "../../components/input_field_labled/input_field_labeld"
 import { connect } from "react-redux";
 import { getUser, updateUser } from "../../redux/users/users_action";
-import { Link } from "react-router-dom";
 import cancel from "../../icons/outline_add_white_24dp 1.svg"
-
+import profileIcon from "../../icons/Ellipse (3).svg";
+import Card from "../../components/card/card"
+import { profileBody } from "./inner_profile/profile_body"
 class CustomerProfile extends Component {
 
-    constructor (props) {
+    constructor(props) {
         super(props)
         this.state = {
             city: null,
@@ -76,6 +68,43 @@ class CustomerProfile extends Component {
             isEdit: false
         })
     }
+    mockUsers = [
+        {
+            name: "John Smith",
+            image: profileIcon,
+            date: "Friday, 12/05/2020, 9 a.m",
+            rate: 3.5,
+            feedback: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum perferendis molestias nesciunt aliquam repellat, eligendi vero magnam doloribus tenetur incidunt consequuntur dolorum? Maxime molestiae ex eos et est, necessitatibus pariatur sed dolorem perferendis corrupti a magni numquam officia nam architecto?"
+        },
+        {
+            name: "John Smith",
+            image: profileIcon,
+            date: "Friday, 12/05/2020, 9 a.m",
+            rate: 3,
+            feedback: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum perferendis molestias nesciunt aliquam repellat, eligendi vero magnam doloribus tenetur incidunt consequuntur dolorum? Maxime molestiae ex eos et est, necessitatibus pariatur sed dolorem perferendis corrupti a magni numquam officia nam architecto?"
+        },
+        {
+            name: "John Smith",
+            image: profileIcon,
+            date: "Friday, 12/05/2020, 9 a.m",
+            rate: 2,
+            feedback: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum perferendis molestias nesciunt aliquam repellat, eligendi vero magnam doloribus tenetur incidunt consequuntur dolorum? Maxime molestiae ex eos et est, necessitatibus pariatur sed dolorem perferendis corrupti a magni numquam officia nam architecto?"
+        },
+        {
+            name: "John Smith",
+            image: profileIcon,
+            date: "Friday, 12/05/2020, 9 a.m",
+            rate: 5,
+            feedback: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum perferendis molestias nesciunt aliquam repellat, eligendi vero magnam doloribus tenetur incidunt consequuntur dolorum? Maxime molestiae ex eos et est, necessitatibus pariatur sed dolorem perferendis corrupti a magni numquam officia nam architecto?"
+        },
+        {
+            name: "John Smith",
+            image: profileIcon,
+            date: "Friday, 12/05/2020, 9 a.m",
+            rate: 1,
+            feedback: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum perferendis molestias nesciunt aliquam repellat, eligendi vero magnam doloribus tenetur incidunt consequuntur dolorum? Maxime molestiae ex eos et est, necessitatibus pariatur sed dolorem perferendis corrupti a magni numquam officia nam architecto?"
+        },
+    ]
 
     submit() {
         const { updateUser, user } = this.props
@@ -144,172 +173,107 @@ class CustomerProfile extends Component {
                     <Template route={"profile"} padding="0rem">
                         <div className="main_content">
 
-                            <div className="profile_header">
-                                <div className="profile_buttons">
-                                    {
-                                        this.state.isEdit ?
-                                            [
-                                                <Button innerText={null}
-                                                    margin="0.3rem"
-                                                    color="black"
-                                                    iconPosition='false'
-                                                    backGroundColor="#1E2833"
-                                                    width="4rem"
-                                                    height="4rem"
-                                                    onClick={() => this.reset()}
-                                                    icon={cancel}
-                                                    borderRadius="50%" />,
-                                                <Button innerText={"Update"}
-                                                    margin="0.3rem"
-                                                    color="white"
-                                                    iconPosition='false'
-                                                    backGroundColor="#1E2833"
-                                                    width="10rem"
-                                                    height="4rem"
-                                                    borderRadius="20px"
-                                                    onClick={() => this.submit()}
-                                                />
-                                            ] :
-                                            <Button innerText={null}
-                                                margin="0.3rem"
-                                                color="black"
-                                                iconPosition='false'
-                                                backGroundColor="#1E2833"
-                                                width="4rem"
-                                                height="4rem"
-                                                onClick={() => this.edit()}
-                                                icon={favourite}
-                                                borderRadius="50%" />
-                                    }
-                                </div>
-                                <Zoom>
-                                    <div className="profile_image">
-                                        <img src={user.imgSrc} alt="" style={{ borderRadius: "50%", }} />
-                                        <h3>{user.firstName + " " + user.lastName}</h3>
-                                    </div>
-                                </Zoom>
-
-                            </div>
+                            {this.newMethod(user)}
 
                             <div className="profile_body">
 
-                                <Zoom right cascade>
-                                    <form action="">
-                                        <div className="top_content">
-                                            <div className={this.state.classH}>
-                                                <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={icon_1} backgroundColor="#57C4E5" />
-                                                <LabeledInputField tag="input" className={this.state.class} name="city" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                                    value={this.state.city === null ? user.city : this.state.city} />
-                                            </div>
-                                            <div className={this.state.classH}>
-                                                <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={icon_4} backgroundColor="#57C4E5" />
-                                                <LabeledInputField tag="input" className={this.state.class} name="rate" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                                    value={this.state.rate === null ? user.rate : this.state.rate} />
-                                            </div>
-                                            <div className={this.state.classH}>
-                                                <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={paymentIcon} backgroundColor="#57C4E5" />
-                                                <LabeledInputField tag="input" className={this.state.class} name="diagnosingFees" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                                    value={this.state.diagnosingFees === null ? user.diagnosingFees : this.state.diagnosingFees} />
-                                            </div>
-                                            <div className={this.state.classH}>
-                                                <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={cashIcon} backgroundColor="#57C4E5" />
-                                                <LabeledInputField tag="input" className={this.state.class} name="isCashPaymentActive" type="checkbox" handleInputChange={this.handleInputChange.bind(this)}
-                                                    value={this.state.isCashPaymentActive === null ? user.isCashPaymentActive : this.state.isCashPaymentActive} />
-                                            </div>
-                                        </div>
-                                    </form>
-                                </Zoom>
+                                {profileBody(this.state, user, this.handleInputChange.bind(this))}
 
-                                {
-                                    user.isServiceProvider ?
-                                        <div className="info_card" style={{ marginTop: "5rem", textAlign: "start", padding: "1rem" }}>
-                                            <h2>Job Description</h2>
-                                            <LabeledInputField tag="textarea" className={this.state.class} name="jobDescription" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                                value={this.state.jobDescription === null ? user.jobDescription : this.state.jobDescription} />
-                                        </div> : null
+                                <br />
+                                <br />
+                                {user.isServiceProvider ?
+                                    <Review /> : null
                                 }
+                                {user.isServiceProvider ?
+                                    <div className="feedback_card">
 
-                                <div className="profile_body_content_2">
-                                    <div className="info_card">
-                                        <h2>First Name</h2>
-                                        <LabeledInputField tag="input" className={this.state.class} name="firstName" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                            value={this.state.firstName === null ? user.firstName : this.state.firstName} />
-                                    </div>
+                                        <Zoom>
 
-                                    <div className="info_card">
-                                        <h2>Last Name</h2>
-                                        <LabeledInputField tag="input" className={this.state.class} name="lastName" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                            value={this.state.lastName === null ? user.lastName : this.state.lastName} />
-                                    </div>
-                                    <div className="info_card">
-                                        <h2>Gender</h2>
-                                        <LabeledInputField tag="input" className={this.state.class} name="gender" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                            value={this.state.gender === null ? user.gender : this.state.gender} />
-                                    </div>
-                                    <div className="info_card">
-                                        <h2>Image Source</h2>
-                                        <LabeledInputField tag="input" className={this.state.class} name="imgSrc" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                            value={this.state.imgSrc === null ? user.imgSrc : this.state.imgSrc} />
-                                    </div>
-                                </div>
-                                <div className="profile_body_content_2">
-                                    <div className="info_card">
-                                        <h2>Email</h2>
-                                        <LabeledInputField tag="input" className={this.state.class} name="email" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                            value={this.state.email === null ? user.email : this.state.email} />
-                                    </div>
-                                    <div className="info_card">
-                                        <h2>Country</h2>
-                                        <LabeledInputField tag="input" className={this.state.class} name="country" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                            value={this.state.country === null ? user.country : this.state.country} />
-                                    </div>
-                                    <div className="info_card">
-                                        <h2>Phone Number</h2>
-                                        <LabeledInputField tag="input" className={this.state.class} name="phoneNumber" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                            value={this.state.phoneNumber === null ? user.phoneNumber : this.state.phoneNumber} />
-                                    </div>
-                                    <div className="info_card">
-                                        <h2>Postal Code</h2>
-                                        <LabeledInputField tag="input" className={this.state.class} name="postalCode" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                            value={this.state.postalCode === null ? user.postalCode : this.state.postalCode} />
-                                    </div>
-                                </div>
-                                <div className="profile_body_content_2">
-                                    <div className="info_card">
-                                        <h2>Password</h2>
-                                        <LabeledInputField tag="input" className={this.state.class} name="password" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                            value={this.state.password === null ? user.password : this.state.password} />
-                                    </div>
-                                    <div className="info_card">
-                                        <h2>Repeated Password</h2>
-                                        <LabeledInputField tag="input" className={this.state.class} name="repeatedPassword" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                            value={this.state.repeatedPassword === null ? user.password : this.state.repeatedPassword} />
-                                    </div>
-                                    <div className="info_card">
-                                        <h2>Display Language</h2>
-                                        <LabeledInputField tag="input" className={this.state.class} name="displayLanguage" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                            value={this.state.displayLanguage === null ? user.displayLanguage : this.state.displayLanguage} />
-                                    </div>
-                                    {
-                                        user.isServiceProvider ?
-                                            <div className="info_card">
-                                                <h2>Job Title</h2>
-                                                <LabeledInputField tag="input" className={this.state.class} name="jobName" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                                    value={this.state.jobName === null ? user.jobName : this.state.jobName} />
-                                            </div> : null
-                                    }
-                                </div>
+                                            {this.mockUsers.map(e => (
 
-                                <Review />
+                                                <Card image_src={profileIcon}>
+                                                    <div className="header">
+                                                        <div className="card_header">
+                                                            <h5>{e.name}</h5>
+                                                            <h5>{e.date}</h5>
+                                                        </div>
+                                                    </div>
 
+                                                    <div className="card_body">
 
+                                                        <div className="feedback">{e.feedback}</div>
+
+                                                        <br />
+                                                        <div className="card_feedback_rate">
+                                                            {this.getRate(e.rate)}
+                                                        </div>
+                                                    </div>
+                                                </Card>
+                                            ))}
+                                        </Zoom>
+
+                                    </div> : null}
                             </div>
                         </div>
+
+
+
                     </Template >
                     : <div className="loading-div">
                         < div className="loader" > Loading...</div >
                     </div >
         )
+    }
+
+
+
+    newMethod(user) {
+        return <div className="profile_header">
+            <div className="profile_buttons">
+                {this.state.isEdit ?
+                    [
+                        // @ts-ignore
+                        <Button innerText={null}
+                            margin="0.3rem"
+                            color="black"
+                            iconPosition='false'
+                            backGroundColor="#1E2833"
+                            width="4rem"
+                            height="4rem"
+                            onClick={() => this.reset()}
+                            icon={cancel}
+                            borderRadius="50%" />,
+                        // @ts-ignore
+                        <Button innerText={"Update"}
+                            margin="0.3rem"
+                            color="white"
+                            iconPosition='false'
+                            backGroundColor="#1E2833"
+                            width="10rem"
+                            height="4rem"
+                            borderRadius="20px"
+                            onClick={() => this.submit()} />
+                    ] :
+                    // @ts-ignore
+                    <Button innerText={null}
+                        margin="0.3rem"
+                        color="black"
+                        iconPosition='false'
+                        backGroundColor="#1E2833"
+                        width="4rem"
+                        height="4rem"
+                        onClick={() => this.edit()}
+                        icon={favourite}
+                        borderRadius="50%" />}
+            </div>
+            <Zoom>
+                <div className="profile_image">
+                    <img src={user.imgSrc} alt="" style={{ borderRadius: "50%", }} />
+                    <h3>{user.firstName + " " + user.lastName}</h3>
+                </div>
+            </Zoom>
+
+        </div>;
     }
 }
 

@@ -1,6 +1,6 @@
+// @ts-nocheck
 import React from "react";
 import Avatar from "../../../../components/search_result/inner_components/avatar";
-// import AddIcon from "../../svg/add_icon";
 import { useDispatch } from "react-redux";
 import { createNewPost } from "../../../../redux/posts/posts_action";
 import { toast, ToastContainer } from "react-toastify";
@@ -15,7 +15,7 @@ const PostCardForm = ({ useState }) => {
   const [paymentMethod, setPayementMethod] = useState("");
   const [cancelationFee, setCancelationFee] = useState();
   const [description, setDescription] = useState("");
-  const [imgSrc, setImgSrc] = useState(currentUser.imgSrc);
+  const [imgSrc] = useState(currentUser.imgSrc);
   const [errorMessage, setErrorMessage] = useState(false);
 
   // dispatch
@@ -50,7 +50,7 @@ const PostCardForm = ({ useState }) => {
     postData["imgSrc"] = imgSrc;
 
     if (
-      cancelationFee  ==="" ||
+      cancelationFee === "" ||
       location === "" ||
       description === "" ||
       paymentMethod === ""
@@ -96,7 +96,9 @@ const PostCardForm = ({ useState }) => {
                   name="location"
                   onChange={(e) => setLocation(e.target.value)}
                 >
-                  <option value disabled>
+                  <option
+                    // @ts-ignore
+                    value disabled>
                     Location
                   </option>
                   <option value="Johor">Johor Bahru</option>

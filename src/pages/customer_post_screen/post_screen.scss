@@ -7,15 +7,18 @@
   padding: 0 8px;
   border: 1px solid rgb(214, 216, 218);
   border-radius: 6px;
+
   &:focus-within {
     border: 1px solid #57c4e5;
   }
+
   input {
     flex: 1;
     border: none;
     height: 46px;
     font-size: 14px;
     padding: 4px 0 0 0;
+
     &:focus {
       outline: transparent;
     }
@@ -42,9 +45,11 @@
   border-radius: 6px;
   margin: 0 8px 8px 0;
   background: #57c4e5;
+
   .tag-title {
     margin-top: 3px;
   }
+
   .tag-close-icon {
     display: block;
     width: 16px;

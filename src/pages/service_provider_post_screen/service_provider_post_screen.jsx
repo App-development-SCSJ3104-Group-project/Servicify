@@ -67,6 +67,7 @@ const PostCardForm = () => {
       </div>
       <div className="post__form_card_header_text-section">
         <textarea
+          // @ts-ignore
           type="text"
           className="post__form_card_header_description_field"
           placeholder="Describe your problem here"

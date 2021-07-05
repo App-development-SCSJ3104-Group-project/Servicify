@@ -13,13 +13,11 @@ const ProposalCard = ({
   description,
   diagnosisFee,
   provisionDate,
-  timepstamp,
   useState,
   _id,
   status,
 }) => {
   const [open, setOpen] = useState(false);
-  // const [clicked, setClicked] = useState(true);
 
   const dispatch = useDispatch();
 

@@ -1,0 +1,61 @@
+.input_style {
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: transparent;
+    text-align: center;
+    color: black;
+    min-height: 3.5rem;
+    width: 100%;
+}
+.textarea_style {
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: transparent;
+    text-align: start;
+    width: 100%;
+    color: white;
+    input {
+        color: white;
+        text-align: start;
+    }
+}
+.input_style_edit {
+    font-size: 16px;
+    border-radius: 10px;
+    text-align: center;
+    padding-left: 1rem;
+    color: black !important;
+    width: 100%;
+    min-height: 3.5rem;
+    background-color: white;
+    border: white;
+    pointer-events: all;
+}
+
+.header_style {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header_style_edit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input {
+        color: rgb(31, 29, 29);
+    }
+}
+.info_card {
+    border-radius: 20px;
+    color: white;
+    text-align: start;
+    padding: 1rem 0;
+    pointer-events: none;
+    margin-right: 5rem;
+    input {
+        color: white;
+        text-align: start;
+    }
+}

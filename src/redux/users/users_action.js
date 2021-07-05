@@ -68,7 +68,6 @@ export const validateUser = (userInfo) => {
 // thunk middleware action
 export const fetchUsers = (url, fetchingMode, userInfo) => {
 
-    console.log(userInfo)
     return (dispatch) => {
 
         dispatch(fetchUsersRequest());
@@ -153,7 +152,6 @@ export const updateUser = (user) => {
 
         axios.patch("https://service-backend-web.herokuapp.com/users/" + user._id, user).then((res) => {
 
-            console.log(res.data);
             dispatch(setUser(res.data))
             dispatch(setLoading(false))
 
