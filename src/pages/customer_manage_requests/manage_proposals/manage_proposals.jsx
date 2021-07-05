@@ -34,7 +34,7 @@ class ManageProposals extends Component {
   render() {
     return (
       <DashboardCard label={"Proposals"}>
-        <div className="cards_list">
+        <div className="proposal-cards-list">
 
           {this.data.map((prop) => [
 
@@ -50,18 +50,18 @@ class ManageProposals extends Component {
               callback={this.onClickCard}
             >
 
-              <div className="order_header_card">
-                <div className="order_header_card_left">
-                  <div className="part_one">
+              <div className="proposal-cards-list__card">
+                <div className="proposal-cards-list__card__text">
+                  <div className="proposal-cards-list__card__text__upper-section">
                     <h3>{prop.name}</h3>
-                    <div className="rate_div">
+                    <div className="proposal-cards-list__card__text__upper-section__rate">
                       <h3>4.5</h3>
-                      <img className="rate_div__star" src={star} alt="" />
+                      <img className="proposal-cards-list__card__text__upper-section__rate__star" src={star} alt="" />
                     </div>
                   </div>
                   <h3>27 minutes ago / Johor Bahru / Cash</h3>
                 </div>
-                <div className="right_float_button">
+                <div className="proposal-cards-list__card__buttons-container">
                   <IconButton
                     innerText={"Accept"}
                     heightDiv="4.0rem"
@@ -79,9 +79,10 @@ class ManageProposals extends Component {
                     backgroundColor="#1E2833"
                     src={null}
                   />
+
                 </div>
               </div>
-              <div className="toggle_card">
+              <div className="proposal-cards-list__card__expansion-section">
                 <h3>Type: Mechanical / Name: Motors / Time: 12:00 - 15:00</h3>
                 <h3>City: Makkah / Day: Sunday / Date: 15/12/1999</h3>
                 <h3>Diagnosing fees: 15.00 $ / Total fees: 50.00 $</h3>

@@ -70,7 +70,6 @@ const mapStateToProps = ({ requestsReducer, usersReducer }) => {
   return {
     loading: requestsReducer.loading,
     requests: requestsReducer.requests,
-    // userId: usersReducer.userInAuth[0]._id
   };
 };
 

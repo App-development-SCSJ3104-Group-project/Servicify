@@ -22,7 +22,7 @@ class ManageRequests extends Component {
     const { requests, cancelRequest, loading } = this.props;
     return (
       <DashboardCard label={"Requests list"}>
-        <div className="list_of_cards">
+        <div className="request-cards-list">
           {loading ? (
             <div className="loading-div">
               <div className="loader">Loading...</div>
@@ -42,24 +42,24 @@ class ManageRequests extends Component {
                 data={prop.name}
                 callback={this.onClickCard}
               >
-                <div className="order_header_card">
-                  <div className="order_header_card_left">
-                    <div className="part_one">
+                <div className="request-cards-list__card">
+                  <div className="request-cards-list__card__text">
+                    <div className="request-cards-list__card__text__upper-section">
                       <h3>
                         {prop.serviceProvider.firstName +
                           " " +
                           prop.serviceProvider.lastName}
                       </h3>
-                      <div className="rate_div">
+                      <div className="request-cards-list__card__text__upper-section__rate">
                         <h3>4.5</h3>
-                        <img className="rate_div__star" src={star} alt="" />
+                        <img className="request-cards-list__card__text__upper-section__rate__star" src={star} alt="" />
                       </div>
                     </div>
                     <h3>
                       {prop.time} / {prop.location} / {prop.payment}
                     </h3>
                   </div>
-                  <div className="right_float_button">
+                  <div className="request-cards-list__card__buttons-container">
                     {prop.status === "Pending" ? (
                       <div
                         onClick={() => {
@@ -88,7 +88,7 @@ class ManageRequests extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="toggle_card">
+                <div className="request-cards-list__card__expansion-section">
                   <br />
                   <h3>City: {prop.location} </h3>
                   <h3>Diagnosing fees: {prop.fees}</h3>

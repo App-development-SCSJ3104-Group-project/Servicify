@@ -1,58 +1,70 @@
-.cards_list {
+.proposal-cards-list {
     width: 100%;
     height: 100rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-y: scroll;
-}
 
-.order_header_card {
-    width: 90%;
-    justify-self: flex-end;
-    align-self: flex-end;
-    display: flex;
-    padding: 2rem 3rem 2rem 5rem;
-    flex-direction: row;
-    flex-wrap: wrap;
-    z-index: 1;
-    justify-content: space-between;
-}
+    &__card {
+        width: 90%;
+        justify-self: flex-end;
+        align-self: flex-end;
+        display: flex;
+        padding: 2rem 3rem 2rem 5rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        z-index: 1;
+        justify-content: space-between;
 
-.order_header_card_left {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    z-index: 10;
-    margin-left: 7rem;
-}
+        &__text {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            z-index: 10;
+            margin-left: 7rem;
 
-.rate_div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-left: 5rem;
+            &__upper-section {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: start;
 
-    &__star {
-        width: 2rem;
-        height: 2rem;
-        margin-top: -.5rem;
+                &__rate {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    margin-left: 5rem;
+
+                    &__star {
+                        width: 2rem;
+                        height: 2rem;
+                        margin-top: -.5rem;
+                    }
+                }
+            }
+        }
+
+        &__buttons-container {
+            color: white;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+
+            &>* {
+                margin: .5rem 0;
+            }
+        }
+
+        &__expansion-section {
+            display: none;
+            z-index: 10;
+        }
     }
 }
 
-.part_one {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: start;
-}
-
-.toggle_card {
-    display: none;
-    z-index: 10;
-}
 
 .show_card {
     align-self: flex-end;
@@ -62,51 +74,47 @@
     flex-wrap: wrap;
     z-index: 10;
     align-content: space-between;
-}
 
-.show_card h3 {
-    margin-bottom: 2rem;
+    &h3 {
+        margin-bottom: 2rem;
+
+    }
 }
 
 
 /* Handle on hover */
 
-.right_float_button {
-    color: white;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-}
-
 @media (max-width: 750px) {
-    .order_header_card {
+    .proposal-cards-list__card {
         padding-left: 7rem;
         padding-right: 0;
         align-content: start;
+
+        &__text {
+            align-content: flex-end;
+            justify-content: flex-end;
+
+            &__upper-section {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                &__rate {
+                    margin: 0;
+
+                }
+            }
+        }
+
+        &__buttons-container {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            color: white;
+        }
     }
 
-    .part_one {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-
-    .rate_div {
-        margin: 0;
-    }
-
-    .order_header_card_left {
-        align-content: flex-end;
-        justify-content: flex-end;
-    }
-
-    .right_float_button {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        color: white;
-    }
 }
 
 .loading-div {
