@@ -76,12 +76,13 @@ class CustomerServiceProviderPage extends Component {
     componentDidMount() {
         const { getUser } = this.props
 
-        getUser(new URLSearchParams(this.props.location.search).get("id"), new URLSearchParams(this.props.location.search).get("type"))
+        // getUser(new URLSearchParams(this.props.location.search).get("id"), new URLSearchParams(this.props.location.search).get("type"))
     }
     render() {
 
-        const { loading, user } = this.props
-
+        const { loading } = this.props
+        const user = this.props.location.state.data
+        console.log(user)
         return (
 
             <Template padding="0rem">
@@ -94,7 +95,9 @@ class CustomerServiceProviderPage extends Component {
 
                         <div className="profile_header">
                             <div className="profile_buttons">
-                                <Button innerText={null}
+                                <
+                                    // @ts-ignore
+                                    Button innerText={null}
                                     margin="0.3rem"
                                     color="black"
                                     iconPosition='false'
@@ -104,7 +107,9 @@ class CustomerServiceProviderPage extends Component {
                                     icon={favourite}
                                     borderRadius="50%" />
                                 <Link to={"/customer_request_page?id=" + user._id + "&name=" + user.firstName + " " + user.lastName}>
-                                    <Button innerText={null}
+                                    <
+                                        // @ts-ignore
+                                        Button innerText={null}
                                         margin="0.3rem"
                                         color="black"
                                         iconPosition='false'
@@ -119,9 +124,9 @@ class CustomerServiceProviderPage extends Component {
                             </div>
 
                             <Zoom>
-                                <div className="profile_image">
-                                    <img src={image} alt="" />
-                                    <h3>{user.firstName + " " + user.lastName}</h3>
+                                <div className="profile_info">
+                                    <img className="profile_info__img" src={user.imgSrc} alt="" />
+                                    <h3 className="profile_info__text">{user.firstName + " " + user.lastName}</h3>
                                 </div>
                             </Zoom>
 
@@ -160,7 +165,7 @@ class CustomerServiceProviderPage extends Component {
                                 <h5>{user.jobDescription}</h5>
                             </div>
 
-                            <Review />
+                            <Review rate={user.rate} />
                             <div className="feedback_card">
 
                                 <Zoom>

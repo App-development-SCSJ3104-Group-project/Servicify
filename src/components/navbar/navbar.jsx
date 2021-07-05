@@ -13,6 +13,7 @@ import { connect } from "react-redux";
 function Nav({ userInAuth, userLogout, isLogged }) {
   return <Navbar>{localStorage.length != 0 ? <SignedInNav userLogout={userLogout} /> : <SignedOutNav />}</Navbar>;
 }
+
 const SignedInNav = ({ userLogout }) => {
   return (
 
@@ -20,6 +21,7 @@ const SignedInNav = ({ userLogout }) => {
       <NavItem icon={<NotificationIcon />}>
         <DropdownMenu></DropdownMenu>
       </NavItem>
+
       <Link to="/" style={{ textDecoration: "none" }}>
 
         <CustomButton
