@@ -29,6 +29,11 @@ export const setRequest = (value) => ({
   value,
 });
 
+export const setProposal = (value) => ({
+  type: RequestsActionType.GET_PROPSALS,
+  value,
+});
+
 export const getRequest = (id) => {
   return (dispatch) => {
     dispatch(setLoading(true));
@@ -58,6 +63,18 @@ export const getServiceProviderRequest = (id) => {
       .then((res) => {
         dispatch(setLoading(false));
         dispatch(setRequest(res.data));
+      });
+  };
+};
+
+export const getServiceProviderProposals = (id) => {
+  return (dispatch) => {
+    dispatch(setLoading(true));
+
+    axios
+      .get("https://service-backend-web.herokuapp.com/requests/" + id + "/true")
+      .then((res) => {
+        dispatch(setProposal(res.data));
       });
   };
 };
