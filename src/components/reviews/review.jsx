@@ -11,17 +11,17 @@ const review = ({ }) => {
                 <h2>Review</h2>
 
                 <div className="review_card__header__icons">
-                    <Icon height="4rem" width="4rem" src={Star} />
-                    <Icon height="4rem" width="4rem" src={Star} />
-                    <Icon height="4rem" width="4rem" src={Star} />
-                    <Icon height="4rem" width="4rem" src={Star} />
-                    <Icon height="4rem" width="4rem" src={Star} />
-                    <h4>5041 Reviews</h4>
+                    <Icon margin={"0 .5rem"} height="4rem" width="4rem" src={Star} />
+                    <Icon margin={"0 .5rem"} height="4rem" width="4rem" src={Star} />
+                    <Icon margin={"0 .5rem"} height="4rem" width="4rem" src={Star} />
+                    <Icon margin={"0 .5rem"} height="4rem" width="4rem" src={Star} />
+                    <Icon margin={"0 .5rem"} height="4rem" width="4rem" src={Star} />
+                    <h4 className="review_card__header__icons__text">5041 Reviews</h4>
                 </div>
 
             </div>
 
-            <div className="review__card__rate">
+            <div className="review_card__rate">
                 <RateRatio width="50" index="5" />
                 <RateRatio width="30" index="4" />
                 <RateRatio width="10" index="3" />

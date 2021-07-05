@@ -14,7 +14,6 @@ import paymentIcon from "../../icons/payment-method.svg";
 import icon_4 from "../../icons/outline_star_white_48dp 1.svg";
 import profileIcon from "../../icons/Ellipse (3).svg";
 import Star from "../../icons/star.svg"
-// @ts-ignore
 import Zoom from 'react-reveal/Zoom'
 import { connect } from "react-redux";
 import { getUser } from "../../redux/categories/categories_action";
@@ -95,10 +94,7 @@ class CustomerServiceProviderPage extends Component {
 
                         <div className="profile_header">
                             <div className="profile_buttons">
-
-                                <
-// @ts-ignore
-                                Button innerText={null}
+                                <Button innerText={null}
                                     margin="0.3rem"
                                     color="black"
                                     iconPosition='false'
@@ -108,10 +104,7 @@ class CustomerServiceProviderPage extends Component {
                                     icon={favourite}
                                     borderRadius="50%" />
                                 <Link to={"/customer_request_page?id=" + user._id + "&name=" + user.firstName + " " + user.lastName}>
-                                    
-                                    <
-// @ts-ignore
-                                    Button innerText={null}
+                                    <Button innerText={null}
                                         margin="0.3rem"
                                         color="black"
                                         iconPosition='false'
@@ -175,7 +168,7 @@ class CustomerServiceProviderPage extends Component {
                                     {this.mockUsers.map(e => (
 
 
-                                        <Card image_src={profileIcon}>
+                                        <Card verticalCard={true} image_src={profileIcon}>
                                             <div className="header">
                                                 <div className="card_header">
                                                     <h5>{e.name}</h5>
