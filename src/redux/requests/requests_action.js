@@ -108,3 +108,14 @@ export const acceptRequest = (id, customerId, status) => {
       });
   };
 };
+export const cancelProposal = (id, customerId) => {
+  return (dispatch) => {
+    dispatch(setLoading(true));
+
+    axios
+      .patch("http://localhost:5000/proposals/" + id + "/cancel")
+      .then((res) => {
+        getServiceProviderProposals(customerId);
+      });
+  };
+};
