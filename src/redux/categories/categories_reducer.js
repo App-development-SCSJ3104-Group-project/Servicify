@@ -14,7 +14,7 @@ const categoriesReducer = (state = initState, action) => {
         case CategoriesActionType.LOAD_CATEGORIES:
             {
                 let categories = new Map
-                action.data.forEach(e => categories.has(e.jobName) ? categories.get(e.jobName).push(e) : categories.set(e.jobName, []))
+                action.data.forEach(e => categories.has(e.jobName) ? categories.get(e.jobName).push(e) : categories.set(e.jobName, [e]))
 
                 return {
                     ...state,
