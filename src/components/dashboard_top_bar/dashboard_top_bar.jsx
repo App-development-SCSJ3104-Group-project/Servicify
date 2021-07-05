@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import NavigationTab from "../search_area/components/tab/tab";
-import profileImg from "../../icons/User2.svg";
+// @ts-ignore
 import CircularAvatar from "../icon/icon_component";
 
 import "./dashboard_top_bar.scss";
 
 class DashboardTopBar extends Component {
-  constructor({ props }) {
+  constructor ({ props }) {
     super(props);
     this.state = { user: "" };
   }
@@ -40,21 +40,28 @@ class DashboardTopBar extends Component {
           <div className="dashboard-top-bar__info__left">
             <img
               className="dashboard-top-bar__info__left__img"
+              // @ts-ignore
               src={this.state.user.imgSrc}
               alt=""
             />
             <div className="dashboard-top-bar__info__details">
               <h1>
-                {this.state.user.firstName + "   " + this.state.user.lastName}
+                {
+                  // @ts-ignore
+
+                  this.state.user.firstName + "   " + this.state.user.lastName}
               </h1>
-              <h3>{this.state.user.jobName}</h3>
-              <h3></h3>
+
+              <h3>{
+                // @ts-ignore
+                this.state.user.jobName}</h3>
             </div>
           </div>
 
           <CircularAvatar
             height={"1.6rem"}
             width={"1.6rem"}
+            // @ts-ignore
             innerText={this.state.user.rate}
             src={null}
             heightDiv={"5rem"}
@@ -67,13 +74,13 @@ class DashboardTopBar extends Component {
         <div className="dashboard-top-bar__tabs">
           {this.tabs
             ? this.tabs.map((tab) => (
-                // @ts-ignore
-                <NavigationTab
-                  currentTab={tab.isActive}
-                  tabName={tab.name}
-                  linkTo={tab.redirectTo}
-                />
-              ))
+              // @ts-ignore
+              <NavigationTab
+                currentTab={tab.isActive}
+                tabName={tab.name}
+                linkTo={tab.redirectTo}
+              />
+            ))
             : null}
         </div>
       </div>

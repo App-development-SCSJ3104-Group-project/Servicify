@@ -49,6 +49,7 @@
     bottom: 0;
     left: 7rem;
     font-size: 1.8rem;
+    padding-bottom: 1rem;
 
     & p {
       margin: 0rem 1rem;
@@ -81,6 +82,7 @@
 }
 
 @media (max-width: 750px) {
+
   //to be changed
   .dashboard-top-bar__tabs .tab_style {
     text-align: center;

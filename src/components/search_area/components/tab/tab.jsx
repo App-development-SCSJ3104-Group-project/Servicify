@@ -3,7 +3,7 @@ import "./tab.scss"
 import { Link } from "react-router-dom";
 
 
-const NavigationTab = ({ currentTab, lastTab, tabName, linkTo }) => {
+const NavigationTab = ({ currentTab, tabName, linkTo,currentScreen }) => {
 
   // link gets redirected to same page if the link to props is undefined
   return (
