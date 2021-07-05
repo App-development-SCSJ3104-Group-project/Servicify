@@ -22,6 +22,7 @@ class Form extends React.Component {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
+
   handleFormSubmission = (formInputs, SubmitFormCallback) => {
     const { userInfo } = this.state;
 
@@ -34,8 +35,25 @@ class Form extends React.Component {
         if (elementIdentifer === "email") {
           isEmailValid = this.validateEmailFormat(userInfo[elementIdentifer])
         }
+
       } else {
-        missingField = true;
+
+        if (formInput.type !== "checkbox" && formInput.preRequiste == undefined) {
+          missingField = true;
+
+        }
+        else {
+
+          if (userInfo[formInput.preRequiste]) {
+
+            missingField = true;
+          }
+          else {
+            missingField = false;
+          }
+        }
+
+
       }
 
     })
@@ -83,7 +101,6 @@ class Form extends React.Component {
 
           {
             // @ts-ignore
-
             <FormInputGroup
               key={index}
               type={formInput.type}
@@ -98,6 +115,7 @@ class Form extends React.Component {
       );
 
     }
+
   }
 
 
@@ -109,6 +127,7 @@ class Form extends React.Component {
     const style = {
       height: leftSideBackgroundHeight
     };
+
     return (
       <div className="form" >
 

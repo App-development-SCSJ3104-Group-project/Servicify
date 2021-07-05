@@ -66,7 +66,7 @@ class CustomerManageRequests extends Component {
   }
 }
 
-const mapStateToProps = ({ requestsReducer, usersReducer }) => {
+const mapStateToProps = ({ requestsReducer }) => {
   return {
     loading: requestsReducer.loading,
     requests: requestsReducer.requests,
