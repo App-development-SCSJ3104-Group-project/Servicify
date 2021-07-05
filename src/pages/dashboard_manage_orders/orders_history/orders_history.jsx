@@ -12,7 +12,9 @@ class OrdersHistory extends Component {
 
     constructor({ props }) {
         super(props)
-        this.props = props
+        this.state = {
+            found: false
+        }
     }
 
     onClickCard = (event) => {
@@ -29,7 +31,7 @@ class OrdersHistory extends Component {
 
                 <div className="order-history-list">
                     {
-                        ordersList.map((prop) => prop.status === "Done" ? (
+                        ordersList.map((prop) => prop.status === "Done" ? [!this.state.found ? this.setState({ found: true }) : null, (
                             <Card
                                 scaleUp={true}
                                 image_src={prop.customer.imgSrc}
@@ -97,9 +99,10 @@ class OrdersHistory extends Component {
                                     </div>
                                 </div>
                             </Card>
-                        ) : null
+                        )] : null
                         )
                     }
+                    {!this.state.found ? <h1>Order history has no records</h1> : null}
 
                 </div>
 

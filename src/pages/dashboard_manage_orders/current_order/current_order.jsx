@@ -1,9 +1,7 @@
 // @ts-nocheck
 import React, { Component } from "react"
 import DashboardCard from "../../../components/dashboard_card/dashboard_card"
-import Button from "../../../components/button/button"
 import Card from "../../../components/card/card"
-import star from "../../../icons/filledStar.svg"
 import Zoom from 'react-reveal/Fade'
 import IconButton from "../../../components/icon/icon_component"
 
@@ -13,7 +11,9 @@ class CurrentOrder extends Component {
 
     constructor({ props }) {
         super(props)
-        this.props = props
+        this.state = {
+            found: false
+        }
     }
     onClickCard = (event) => {
         const target = event.target.closest(".profile_card").lastChild;
@@ -27,7 +27,7 @@ class CurrentOrder extends Component {
 
     render() {
 
-        const { ordersList } = this.props
+        const { ordersList, finishOrder, loading } = this.props
 
         return (
 
@@ -35,7 +35,11 @@ class CurrentOrder extends Component {
 
                 <div className="current-order-list">
                     {
-                        ordersList.map((prop) => prop.status !== "Done" ? (
+                        loading ? (
+                            <div className="loading-div">
+                                <div className="loader">Loading...</div>
+                            </div>
+                        ) : ordersList.map((prop) => prop.status !== "Done" ? [this.setState({ found: true }), (
                             <Card
                                 imgHeight="15.0rem"
                                 scaleUp={true}
@@ -62,25 +66,33 @@ class CurrentOrder extends Component {
                                     </div>
                                     <div className="current-order-list__card__buttons-container">
                                         {
-                                            // onClick={() => {
-                                            //     const data = JSON.parse(localStorage.getItem("user"));
-                                            //     cancelRequest(prop._id, data._id);
-                                            //     setTimeout(() => {
-                                            //         window.location.reload();
-                                            //     }, 500);
-                                            // }}
+                                            <div onClick={() => {
+                                                const data = JSON.parse(localStorage.getItem("user"));
+                                                finishOrder(prop._id);
+                                                setTimeout(() => {
+                                                    window.location.reload();
+                                                }, 500);
+                                            }}>
 
-                                            <div>
-
-                                                {DropDown(this.onChange)}
+                                                <IconButton
+                                                    innerText={"Done"}
+                                                    heightDiv="4.0rem"
+                                                    widthDiv="15.0rem"
+                                                    borderRadius="5rem"
+                                                    backgroundColor="rgb(30, 40, 51)"
+                                                    src={null}
+                                                />
                                             </div>
                                         }
-                                        <div
-                                            className="proposal_status"
-                                            style={{ cursor: `pointer`, width: "15rem" }}
-                                        >
-                                            <h4>{prop.status}</h4>
-                                        </div>
+                                        <br />
+                                        <IconButton
+                                            innerText={prop.status}
+                                            heightDiv="4.0rem"
+                                            widthDiv="15.0rem"
+                                            borderRadius="5rem"
+                                            backgroundColor="#57c4e5"
+                                            src={null}
+                                        />
                                     </div>
                                 </div>
                                 <Zoom >
@@ -119,9 +131,10 @@ class CurrentOrder extends Component {
                                 </Zoom>
 
                             </Card>
-                        ) : null
+                        )] : null
                         )
                     }
+                    {!this.state.found ? <h1>No Ongoing orders</h1> : null}
 
                 </div>
             </DashboardCard >
@@ -131,17 +144,6 @@ class CurrentOrder extends Component {
 
 
 }
-const DropDown = (props) => {
 
-    const handleClick = (event) => {
-        const { callback } = props
-        event.stopPropogation()
-        callback(event)
-    }
-
-    return (<select className="current-order-list__card__buttons-container__status-selector" name="" id="selector" onChange={(event) => handleClick(event)}>
-        <option value="1">1</option>
-    </select>)
-}
 export default CurrentOrder
 

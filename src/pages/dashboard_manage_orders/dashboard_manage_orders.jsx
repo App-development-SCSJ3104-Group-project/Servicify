@@ -3,11 +3,6 @@ import DashboardTopBar from "../../components/dashboard_top_bar/dashboard_top_ba
 import ScreenTabs from "../../components/screen_tabs/screen_tabs"
 import "./dashboard_manage_orders.scss"
 import "../../components/screen_tabs/screen_tabs.scss"
-import icon_1 from "../../icons/car-service 1.svg"
-import icon_2 from "../../icons/clipboard 1.svg"
-import icon_3 from "../../icons/mechanic 1.svg"
-import icon_4 from "../../icons/technical-support 1.svg"
-import icon_5 from "../../icons/wrench 1.svg"
 import CurrentOrder from "./current_order/current_order"
 import OrdersHistory from "./orders_history/orders_history"
 import { connect } from "react-redux";
@@ -59,7 +54,7 @@ class DashboardManageOrders extends Component {
     }
 
     render() {
-        const { ordersList, loading } = this.props
+        const { ordersList, loading, setStatus } = this.props
 
         return (
             loading ? (
@@ -75,7 +70,7 @@ class DashboardManageOrders extends Component {
                     </div>
 
 
-                    {this.tabs[0].status ? <CurrentOrder ordersList={ordersList} callback={this.onOrderCardClicked} /> : <OrdersHistory ordersList={ordersList} />}
+                    {this.tabs[0].status ? <CurrentOrder finishOrder={setStatus} ordersList={ordersList} loading={loading} callback={this.onOrderCardClicked} /> : <OrdersHistory ordersList={ordersList} />}
 
 
                 </div>
@@ -93,7 +88,7 @@ const mapStateToProps = ({ ordersReducer, usersReducer }) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         loadDashboardData: (id) => { dispatch(loadDashboardData(id)) },
-        setStatus: (id, status) => { dispatch(setStatus(id, status)) },
+        setStatus: (id) => { dispatch(setStatus(id)) },
     };
 };
 export default connect(

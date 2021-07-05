@@ -18,6 +18,15 @@ const ordersReducer = (state = initState, action) => {
             }
 
     }
+    switch (action.type) {
+
+        case ordersActionType.SET_LOADING:
+            return {
+                ...state,
+                loading: action.value
+            }
+
+    }
     return state;
 }
 

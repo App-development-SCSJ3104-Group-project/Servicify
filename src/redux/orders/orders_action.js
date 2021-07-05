@@ -18,16 +18,15 @@ export const setLoading = (value) => ({
 
 })
 
-export const setStatus = (id, data) => {
+export const setStatus = (id) => {
 
     return (dispatch) => {
 
-
+        setLoading(true)
         // axios.get("https://service-backend-web.herokuapp.com/orders/" + id, { status: data }).then(res => {
-        axios.patch("http://localhost:5000/orders/" + id, { status: data }).then(res => {
+        axios.patch("http://localhost:5000/orders/" + id, { status: "Done" }).then(res => {
 
-            const data = res.data;
-            return dispatch(storeData(data))
+            setLoading(false)
 
         }).catch(err => {
             const errorMsg = err.message;
