@@ -31,7 +31,6 @@ class SearchArea extends Component {
       linkTo: "/customer_orders_screen",
       needsAuth: true,
     },
-    { name: "favorites", isActive: false, needsAuth: true },
     {
       name: "requests",
       isActive: false,
