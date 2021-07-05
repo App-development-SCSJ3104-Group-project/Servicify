@@ -4,7 +4,7 @@ import DashboardCard from "../../../components/dashboard_card/dashboard_card"
 import Button from "../../../components/button/button"
 import Card from "../../../components/card/card"
 import star from "../../../icons/filledStar.svg"
-import Zoom from 'react-reveal/Zoom'
+import Zoom from 'react-reveal/Fade'
 
 import "./current_order.scss"
 
