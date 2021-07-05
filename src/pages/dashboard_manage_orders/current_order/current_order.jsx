@@ -11,17 +11,18 @@ import "./current_order.scss"
 
 class CurrentOrder extends Component {
 
-    constructor({ props }) {
+    constructor ({ props }) {
         super(props)
         this.props = props
     }
     onClickCard = (event) => {
+        console.log("clicked parent")
         const target = event.target.closest(".profile_card").lastChild;
         // console.log(target.style);
         target.classList.toggle("current_order_show_card");
     };
     onChange = (event) => {
-
+        console.log("clicked child")
         console.log(event.target);
     }
 
@@ -72,7 +73,10 @@ class CurrentOrder extends Component {
 
                                             <div>
 
-                                                {DropDown(this.onChange)}
+                                                {/* {<DropDown callback={this.onChange}></DropDown>} */}
+                                                <select className="current-order-list__card__buttons-container__status-selector" name="" id="selector" onChange={(event) => this.handleClick(event)}>
+            <option value="1">1</option>
+        </select>
                                             </div>
                                         }
                                         <div
@@ -131,17 +135,23 @@ class CurrentOrder extends Component {
 
 
 }
-const DropDown = (props) => {
 
-    const handleClick = (event) => {
-        const { callback } = props
+class DropDown extends React.Component {
+
+    handleClick = (event) => {
+        console.log("innerclick")
+        const { callback } = this.props
         event.stopPropogation()
         callback(event)
     }
 
-    return (<select className="current-order-list__card__buttons-container__status-selector" name="" id="selector" onChange={(event) => handleClick(event)}>
-        <option value="1">1</option>
-    </select>)
+    render() {
+        return (<select className="current-order-list__card__buttons-container__status-selector" name="" id="selector" onChange={(event) => this.handleClick(event)}>
+            <option value="1">1</option>
+        </select>)
+    };
+
 }
+
 export default CurrentOrder
 
