@@ -32,7 +32,7 @@ class PopUp extends React.Component {
             if (starClickingInfo.status === false) {
                 if (index <= hoveredStarIndex) {
                     // @ts-ignore
-                    star.style.fill = color
+                    star.style.fill = color;
                 }
                 else return
             }
@@ -48,6 +48,7 @@ class PopUp extends React.Component {
     //manage stars state
     manageStars = (clickedStarIndex) => {
 
+        console.log(clickedStarIndex)
         this.setState({
             starClickingInfo: {
                 status: true,

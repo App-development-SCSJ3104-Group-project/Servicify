@@ -54,7 +54,7 @@ class Order extends React.Component {
     render() {
 
 
-        const { giveFeedBackOnClick, cancelOnClick, order, orderType } = this.props;
+        const { giveFeedBackOnClick, cancelOnClick, order, orderType, id } = this.props;
         const { serviceProvider } = order
         const style = {
             backgroundImage: `url(${order.serviceProvider.imgSrc ? order.serviceProvider.imgSrc : defaultUserImg})`,
@@ -105,7 +105,7 @@ class Order extends React.Component {
 
                             {
                                 order.isFeedbackGiven ? null
-                                    : <button className="order__buttons-container__feedback" onClick={() => giveFeedBackOnClick("feedback")}>Give FeedBack</button>
+                                    : <button className="order__buttons-container__feedback" onClick={() => giveFeedBackOnClick("feedback", order._id)}>Give FeedBack</button>
                             }
                             <button className="order__buttons-container__reciept">
                                 <img src={Reciept} alt="" />

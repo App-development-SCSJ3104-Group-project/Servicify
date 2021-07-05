@@ -33,7 +33,7 @@ export const giveFeedback = (id, description, rate) => {
 
     return (dispatch) => {
 
-        axios.patch("https://service-backend-web.herokuapp.com/orders/add_feedback/?id=" + id, { feedback: description, rate: rate }).then(res => {
+        axios.patch("https://service-backend-web.herokuapp.com/orders/add_feedback/" + id, { feedback: description, rate: rate }).then(res => {
 
             const currentUser = JSON.parse(localStorage.getItem("user"));
 

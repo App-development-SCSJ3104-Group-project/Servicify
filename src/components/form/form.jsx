@@ -27,6 +27,7 @@ class Form extends React.Component {
     const { userInfo } = this.state;
 
     let missingField, isEmailValid = false;
+
     formInputs.forEach((formInput) => {
       let elementIdentifer = formInput.className.split(" ")[0];
 
@@ -178,7 +179,6 @@ class Form extends React.Component {
     )
   }
 }
-
 
 
 export default Form;

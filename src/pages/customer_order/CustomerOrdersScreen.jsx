@@ -2,9 +2,7 @@ import React from "react";
 import "./CustomerOrdersScreen.scss";
 import CustomButton from "../../components/button/button";
 import Order from "../../components/order/order";
-import UserImg from "../../icons/User1.svg";
-import UserImg2 from "../../icons/User2.svg";
-import UserImg3 from "../../icons/User3.svg";
+
 import Diagnosing from "../../icons/prescription.svg"
 import PopUp from "./InnerComponents/PopUp/PopUp"
 import { loadData } from "../../redux/orders/orders_action"
@@ -42,6 +40,7 @@ class CustomerOrdersScreen extends React.Component {
           isActive: true,
         },
       ],
+      orderId: null
     };
   }
 
@@ -60,17 +59,23 @@ class CustomerOrdersScreen extends React.Component {
   };
 
   handlePopUpInput = (childData) => {
+    console.log(this.state.orderId)
+    console.log(childData.text)
+    console.log(childData.rating)
+
+    this.props.giveFeedback(this.state.orderId, childData.text, childData.rating)
   }
-  closePopUp = (popUpType) => {
+  closePopUp = (popUpType, orderId) => {
     this.setState({
       popUpToggle: false,
       popUpType: popUpType
     })
   }
-  openPopUp = (popUpType) => {
+  openPopUp = (popUpType, orderId) => {
     this.setState({
       popUpToggle: true,
-      popUpType: popUpType
+      popUpType: popUpType,
+      orderId
     })
 
   }
@@ -125,7 +130,7 @@ class CustomerOrdersScreen extends React.Component {
   render() {
 
 
-    const { innerTabs, activeTab } = this.state;
+    const { innerTabs } = this.state;
     const { handleTabChanges } = this;
 
 
@@ -141,7 +146,7 @@ class CustomerOrdersScreen extends React.Component {
             <div className="orders-list-inner-section">
               <div className="orders-list-inner-section__content-container">
                 <div className="orders-list-inner-section__content-container__tabs">
-                  {innerTabs.map((formButton, index) => {
+                  {innerTabs.map((formButton) => {
                     // @ts-ignore
                     return (
                       <CustomButton
