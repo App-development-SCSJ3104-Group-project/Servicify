@@ -5,7 +5,6 @@ import Review from "../../components/reviews/review"
 import Card from "../../components/card/card"
 import Template from "../../components/template/template"
 import "./customer_service_provider_page.scss"
-import image from "../../icons/Ellipse.svg";
 import favourite from "../../icons/edit.svg";
 import order from "../../icons/outline_book_white_24dp 1.svg";
 import icon_1 from "../../icons/outline_location_on_white_48dp 1.svg";
@@ -74,9 +73,8 @@ class CustomerServiceProviderPage extends Component {
     }
 
     componentDidMount() {
-        const { getUser } = this.props
 
-        // getUser(new URLSearchParams(this.props.location.search).get("id"), new URLSearchParams(this.props.location.search).get("type"))
+
     }
     render() {
 

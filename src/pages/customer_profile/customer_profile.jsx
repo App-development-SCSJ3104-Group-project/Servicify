@@ -220,7 +220,7 @@ class CustomerProfile extends Component {
               <div className="feedback_card">
                 <Zoom>
                   {this.mockUsers.map((e) => (
-                    <Card image_src={profileIcon}>
+                    <Card verticalCard={true} image_src={profileIcon}>
                       <div className="header">
                         <div className="card_header">
                           <h5>{e.name}</h5>
