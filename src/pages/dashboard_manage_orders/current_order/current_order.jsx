@@ -16,6 +16,7 @@ class CurrentOrder extends Component {
     }
     onClickCard = (event) => {
         const target = event.target.closest(".profile_card").lastChild;
+        // console.log(target.style);
         target.classList.toggle("current_order_show_card");
     };
     render() {
@@ -82,7 +83,7 @@ class CurrentOrder extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                <Zoom cascade>
+                                <Zoom >
                                     <div className="current-order-list__card__expansion-section">
                                         <br />
                                         <div className="current-order-list__card__expansion-section__flex-left-section">
