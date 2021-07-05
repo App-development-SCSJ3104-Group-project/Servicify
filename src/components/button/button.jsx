@@ -29,7 +29,7 @@ const CustomButton = ({ backGroundColor, innerText, color, boxShadow, type, disp
     return (
 
         <button type={type} onClick={onClick} className={`custom-button ${animationClassName}`} style={style}  >
-            {innerText}{icon ? <img className="custom-button__icon" src={icon} style={styleIcon} ></img> : null
+            {innerText}{icon ? <img className="custom-button__icon"  src={icon} alt="icon" style={styleIcon} ></img> : null
             }
         </button >
     )

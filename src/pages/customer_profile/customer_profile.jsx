@@ -4,7 +4,7 @@ import Icon from "../../components/icon/icon_component";
 import Review from "../../components/reviews/review";
 import Template from "../../components/template/template";
 import "./customer_profile.scss";
-import favourite from "../../icons/edit.svg";
+import editIcon from "../../icons/edit.svg";
 import Star from "../../icons/star.svg";
 import Zoom from "react-reveal/Zoom";
 import { connect } from "react-redux";
@@ -264,8 +264,10 @@ class CustomerProfile extends Component {
                 color="black"
                 iconPosition="false"
                 backGroundColor="#1E2833"
-                width="4rem"
-                height="4rem"
+                iconWidth="3rem"
+                iconHeight="3rem"
+                width="3.5rem"
+                height="3.5rem"
                 onClick={() => this.reset()}
                 icon={cancel}
                 borderRadius="50%"
@@ -291,10 +293,12 @@ class CustomerProfile extends Component {
               color="black"
               iconPosition="false"
               backGroundColor="#1E2833"
-              width="4rem"
-              height="4rem"
+              width="6.5rem"
+              height="6.5rem"
+              iconWidth="3rem"
+              iconHeight="3rem"
               onClick={() => this.edit()}
-              icon={favourite}
+              icon={editIcon}
               borderRadius="50%"
             />
           )}
