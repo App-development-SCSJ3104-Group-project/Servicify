@@ -38,6 +38,7 @@ export const setStatus = (id) => {
 
 export const loadData = (id) => {
 
+    setLoading(true)
     return (dispatch) => {
 
 
@@ -45,6 +46,7 @@ export const loadData = (id) => {
 
             const data = res.data;
             return dispatch(storeData(data))
+            setLoading(false)
 
         }).catch(err => {
             const errorMsg = err.message;
