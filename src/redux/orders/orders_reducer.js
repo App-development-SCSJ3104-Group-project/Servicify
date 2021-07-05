@@ -3,6 +3,7 @@ import { ordersActionType } from "./orders_action_type"
 const initState =
 {
     ordersList: [],
+    loading: false
 }
 
 const ordersReducer = (state = initState, action) => {

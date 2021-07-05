@@ -10,71 +10,98 @@ import "./orders_history.scss"
 
 class OrdersHistory extends Component {
 
-    constructor ({ props }) {
+    constructor({ props }) {
         super(props)
         this.props = props
     }
 
-    data = [
-        { name: "husam Mousa", status: false },
-        { name: "Ahmad Mousa", status: false },
-        { name: "husam Mousa", status: false },
-        { name: "Ahmad Mousa", status: false },
-        { name: "husam Mousa", status: false },
-        { name: "Ahmad Mousa", status: false },
-        { name: "husam Mousa", status: false },
-        { name: "Ahmad Mousa", status: false },
-        { name: "husam Mousa", status: false },
-        { name: "Ahmad Mousa", status: false },
-    ]
-
     onClickCard = (event) => {
 
         const target = event.target.closest(".profile_card").lastChild
-        target.classList.toggle("show_card")
+        target.classList.toggle("order-history-show_card")
     }
     render() {
 
+        const { ordersList } = this.props
         return (
             <DashboardCard label={"Orders history"} >
 
-                <div className="list_of_cards">
 
+                <div className="order-history-list">
                     {
-                        this.data.map(prop => (
-                            [
-                                <Card imgHeight="15.0rem" scaleUp={true} imgWidth="15.0rem" width="50%" image_src={profileIcon} imgHsize="8rem" imgWsize="8rem" data={prop.name} callback={this.onClickCard}>
+                        ordersList.map((prop) => prop.status === "Done" ? (
+                            <Card
+                                scaleUp={true}
+                                image_src={prop.customer.imgSrc}
+                                data={prop.name}
+                                callback={this.onClickCard}
+                            >
+                                <div className="order-history-list__card">
+                                    <div className="order-history-list__card__text">
+                                        <div className="order-history-list__card__text__upper-section">
+                                            <h3>
+                                                {prop.customer.firstName +
+                                                    " " +
+                                                    prop.customer.lastName}
+                                            </h3>
+                                        </div>
+                                        <h3>
+                                            {prop.responseTime} / {prop.location} / {prop.paymentMethod}
+                                        </h3>
+                                    </div>
+                                    <div className="order-history-list__card__buttons-container">
 
-                                    <div className="order_header_card">
-                                        <div className="order_header_card_left">
-                                            <div className="part_one">
-                                                <h3>{prop.name}</h3>
-                                                <div className="rate_div">
-                                                    <h3>4.5</h3>
-                                                    <img src={star} alt="" />
-                                                </div>
-                                            </div>
-                                            <h3>27 minutes ago / Johor Bahru / Cash</h3>
+                                        <div className="proposal_status" style={{ cursor: `pointer`, width: "15rem" }}>
+                                            <h4>{prop.status}</h4>
                                         </div>
-                                        <div className="right_float_button">
-                                            <IconButton height="2.5rem" width="2.5rem" innerText={null} heightDiv="5.0rem" widthDiv="5.0rem"
-                                                borderRadius="50%" backgroundColor="#1E2833" src={printIcon} />
+
+                                        <IconButton
+                                            heightDiv="5.0rem"
+                                            widthDiv="5.0rem"
+                                            borderRadius="5rem"
+                                            backgroundColor="#1E2833"
+                                            src={printIcon}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="order-history-list__card__expansion-section">
+                                    <br />
+                                    <div className="order-history-list__card__expansion-section__flex-left-section">
+                                        <h3><b>Problem details:</b> {prop.problemDescription} </h3>
+                                        <h3>Service details: {prop.serviceDescription} </h3>
+                                        {prop.steps.length !== 0 ? <h3><b>Steps:</b></h3> : null}
+                                        {prop.steps.length !== 0 ? <ol>{prop.steps.map((e) => <li><h5>{e}</h5></li>)}</ol> : null}
+                                        {
+                                            prop.isFeedbackGiven ?
+                                                [<h3>
+                                                    <b>Feedback:</b> {prop.feedback}
+                                                </h3>,
+                                                <h3><b>Rate:</b> {prop.rate}</h3>
+                                                ] : null
+                                        }
+                                    </div>
+                                    <div className="divider-v"></div>
+                                    <div className="order-history-list__card__expansion-section__flex-right-section">
+                                        <div>
+                                            <h3><b>City:</b> {prop.location} </h3>
+                                            <h3><b>Payment:</b> {prop.paymentMethod}</h3>
+                                            <h3><b>Provision date:</b> {prop.provisionDate}</h3>
+                                            <h3><b>Time:</b> {prop.responseTime}</h3>
+                                        </div>
+                                        <div className="divider-h"></div>
+                                        <div>
+                                            <h3><b>Diagnosing fees:</b> {prop.serviceProvider.diagnosingfees}</h3>
+                                            <h3><b>Service fees:</b> {prop.serviceFees}</h3>
+                                            <h3><b>Total payment:</b> {prop.serviceFees + prop.serviceProvider.diagnosingfees}</h3>
                                         </div>
                                     </div>
-                                    <div className="toggle_card">
-                                        <h3>Type: Mechanical / Name: Motors / Time: 12:00 - 15:00</h3>
-                                        <h3>City: Makkah / Day: Sunday / Date: 15/12/1999</h3>
-                                        <h3>Diagnosing fees: 15.00 $ / Total fees: 50.00 $</h3>
-                                        <h3>Payment: Cash</h3>
-                                        <h3>Feedback: Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse mollitia officiis ipsum. Praesentium, consequuntur. Mollitia aspernatur quibusdam cupiditate laboriosam quis?</h3>
-                                        <h3>Rate: 3</h3>
-                                    </div>
-                                </Card>,
-                                <br />
-                            ]))
+                                </div>
+                            </Card>
+                        ) : null
+                        )
                     }
-                </div>
 
+                </div>
 
             </DashboardCard>)
     }

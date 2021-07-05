@@ -10,10 +10,12 @@ import icon_4 from "../../icons/technical-support 1.svg"
 import icon_5 from "../../icons/wrench 1.svg"
 import CurrentOrder from "./current_order/current_order"
 import OrdersHistory from "./orders_history/orders_history"
+import { connect } from "react-redux";
+import { loadDashboardData, setStatus } from "../../redux/orders/orders_action";
 
 class DashboardManageOrders extends Component {
 
-    constructor ({ props }) {
+    constructor({ props }) {
         super(props);
         this.props = props
     }
@@ -34,13 +36,15 @@ class DashboardManageOrders extends Component {
         this.setState({})
     }
 
-    orderStatus = [
-        { name: "On the way", icon: icon_1, status: true },
-        { name: "Payment done", icon: icon_2, status: false },
-        { name: "Fixing", icon: icon_5, status: false },
-        { name: "Diagnosing", icon: icon_4, status: false },
-        { name: "Done", icon: icon_3, status: false },
-    ]
+    componentWillMount() {
+
+        const data = JSON.parse(localStorage.getItem("user"));
+
+        const { loadDashboardData } = this.props
+
+        loadDashboardData(data._id)
+    }
+
     onOrderCardClicked = (event) => {
 
         const target = event.target.parentElement.classList.value.split(" ").filter(e => e === "active_card")
@@ -53,22 +57,48 @@ class DashboardManageOrders extends Component {
         }
         this.setState({})
     }
+
     render() {
+        const { ordersList, loading } = this.props
+
         return (
-            <div className="orders_m_body">
-                <DashboardTopBar route={"manage orders"} />
-
-                <div className="tabs_m">
-                    <ScreenTabs tabs={this.tabs} callback={this.onclickFun} />
+            loading ? (
+                <div className="loading-div">
+                    <div className="loader">Loading...</div>
                 </div>
+            ) :
+                <div className="orders_m_body">
+                    <DashboardTopBar route={"manage orders"} />
+
+                    <div className="tabs_m">
+                        <ScreenTabs tabs={this.tabs} callback={this.onclickFun} />
+                    </div>
 
 
-                {this.tabs[0].status ? <CurrentOrder orderStatus={this.orderStatus} callback={this.onOrderCardClicked} /> : <OrdersHistory />}
+                    {this.tabs[0].status ? <CurrentOrder ordersList={ordersList} callback={this.onOrderCardClicked} /> : <OrdersHistory ordersList={ordersList} />}
 
 
-            </div>
+                </div>
         )
     }
 }
-export default DashboardManageOrders
+
+const mapStateToProps = ({ ordersReducer, usersReducer }) => {
+    return {
+        ordersList: ordersReducer.ordersList,
+        loading: ordersReducer.loading
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        loadDashboardData: (id) => { dispatch(loadDashboardData(id)) },
+        setStatus: (id, status) => { dispatch(setStatus(id, status)) },
+    };
+};
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(DashboardManageOrders);
+
 
