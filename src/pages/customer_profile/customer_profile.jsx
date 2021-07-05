@@ -24,7 +24,7 @@ import cancel from "../../icons/outline_add_white_24dp 1.svg"
 
 class CustomerProfile extends Component {
 
-    constructor (props) {
+    constructor(props) {
         super(props)
         this.state = {
             city: null,
@@ -205,20 +205,25 @@ class CustomerProfile extends Component {
                                                 <LabeledInputField tag="input" className={this.state.class} name="city" type="text" handleInputChange={this.handleInputChange.bind(this)}
                                                     value={this.state.city === null ? user.city : this.state.city} />
                                             </div>
-                                            <div className={this.state.classH}>
-                                                <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={icon_4} backgroundColor="#57C4E5" />
-                                                <LabeledInputField tag="input" className={this.state.class} name="rate" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                                    value={this.state.rate === null ? user.rate : this.state.rate} />
-                                            </div>
-                                            <div className={this.state.classH}>
-                                                <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={paymentIcon} backgroundColor="#57C4E5" />
-                                                <LabeledInputField tag="input" className={this.state.class} name="diagnosingFees" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                                    value={this.state.diagnosingFees === null ? user.diagnosingFees : this.state.diagnosingFees} />
-                                            </div>
+                                            {
+                                                user.isServiceProvider ?
+                                                    [<div className={this.state.classH}>
+                                                        <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={icon_4} backgroundColor="#57C4E5" />
+                                                        <h3>{user.rate}</h3>
+                                                    </div>,
+                                                    <div className={this.state.classH}>
+                                                        <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={paymentIcon} backgroundColor="#57C4E5" />
+                                                        <LabeledInputField tag="input" className={this.state.class} name="diagnosingFees" type="text" handleInputChange={this.handleInputChange.bind(this)}
+                                                            value={this.state.diagnosingFees === null ? user.diagnosingFees : this.state.diagnosingFees} />
+                                                    </div>] : null
+                                            }
                                             <div className={this.state.classH}>
                                                 <Icon height="5rem" width="5rem" heightDiv="12rem" widthDiv="12rem" borderRadius="50%" src={cashIcon} backgroundColor="#57C4E5" />
-                                                <LabeledInputField tag="input" className={this.state.class} name="isCashPaymentActive" type="checkbox" handleInputChange={this.handleInputChange.bind(this)}
-                                                    value={this.state.isCashPaymentActive === null ? user.isCashPaymentActive : this.state.isCashPaymentActive} />
+                                                {/* <LabeledInputField tag="input" className={this.state.class} name="isCashPaymentActive" type="checkbox" handleInputChange={this.handleInputChange.bind(this)}
+                                                    value={this.state.isCashPaymentActive === null ? user.isCashPaymentActive : this.state.isCashPaymentActive} /> */}
+                                                <br />
+                                                <br />
+                                                <h3>{user.isCashPaymentActive ? "Cash" : "Credit card"}</h3>
                                             </div>
                                         </div>
                                     </form>
@@ -232,7 +237,6 @@ class CustomerProfile extends Component {
                                                 value={this.state.jobDescription === null ? user.jobDescription : this.state.jobDescription} />
                                         </div> : null
                                 }
-
                                 <div className="profile_body_content_2">
                                     <div className="info_card">
                                         <h2>First Name</h2>
@@ -245,6 +249,8 @@ class CustomerProfile extends Component {
                                         <LabeledInputField tag="input" className={this.state.class} name="lastName" type="text" handleInputChange={this.handleInputChange.bind(this)}
                                             value={this.state.lastName === null ? user.lastName : this.state.lastName} />
                                     </div>
+                                </div>
+                                <div className="profile_body_content_2">
                                     <div className="info_card">
                                         <h2>Gender</h2>
                                         <LabeledInputField tag="input" className={this.state.class} name="gender" type="text" handleInputChange={this.handleInputChange.bind(this)}
@@ -263,14 +269,14 @@ class CustomerProfile extends Component {
                                             value={this.state.email === null ? user.email : this.state.email} />
                                     </div>
                                     <div className="info_card">
-                                        <h2>Country</h2>
-                                        <LabeledInputField tag="input" className={this.state.class} name="country" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                            value={this.state.country === null ? user.country : this.state.country} />
-                                    </div>
-                                    <div className="info_card">
                                         <h2>Phone Number</h2>
                                         <LabeledInputField tag="input" className={this.state.class} name="phoneNumber" type="text" handleInputChange={this.handleInputChange.bind(this)}
                                             value={this.state.phoneNumber === null ? user.phoneNumber : this.state.phoneNumber} />
+                                    </div>
+                                    <div className="info_card">
+                                        <h2>Country</h2>
+                                        <LabeledInputField tag="input" className={this.state.class} name="country" type="text" handleInputChange={this.handleInputChange.bind(this)}
+                                            value={this.state.country === null ? user.country : this.state.country} />
                                     </div>
                                     <div className="info_card">
                                         <h2>Postal Code</h2>
@@ -289,26 +295,28 @@ class CustomerProfile extends Component {
                                         <LabeledInputField tag="input" className={this.state.class} name="repeatedPassword" type="text" handleInputChange={this.handleInputChange.bind(this)}
                                             value={this.state.repeatedPassword === null ? user.password : this.state.repeatedPassword} />
                                     </div>
-                                    <div className="info_card">
-                                        <h2>Display Language</h2>
-                                        <LabeledInputField tag="input" className={this.state.class} name="displayLanguage" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                            value={this.state.displayLanguage === null ? user.displayLanguage : this.state.displayLanguage} />
-                                    </div>
-                                    {
-                                        user.isServiceProvider ?
-                                            <div className="info_card">
-                                                <h2>Job Title</h2>
-                                                <LabeledInputField tag="input" className={this.state.class} name="jobName" type="text" handleInputChange={this.handleInputChange.bind(this)}
-                                                    value={this.state.jobName === null ? user.jobName : this.state.jobName} />
-                                            </div> : null
-                                    }
                                 </div>
-
-                                <Review />
-
-
+                                <div className="info_card">
+                                    <h2>Display Language</h2>
+                                    <LabeledInputField tag="input" className={this.state.class} name="displayLanguage" type="text" handleInputChange={this.handleInputChange.bind(this)}
+                                        value={this.state.displayLanguage === null ? user.displayLanguage : this.state.displayLanguage} />
+                                </div>
+                                {
+                                    user.isServiceProvider ?
+                                        <div className="info_card">
+                                            <h2>Job Title</h2>
+                                            <LabeledInputField tag="input" className={this.state.class} name="jobName" type="text" handleInputChange={this.handleInputChange.bind(this)}
+                                                value={this.state.jobName === null ? user.jobName : this.state.jobName} />
+                                        </div> : null
+                                }
                             </div>
                         </div>
+
+                        {user.isServiceProvider ?
+                            <Review /> : null
+                        }
+
+
                     </Template >
                     : <div className="loading-div">
                         < div className="loader" > Loading...</div >

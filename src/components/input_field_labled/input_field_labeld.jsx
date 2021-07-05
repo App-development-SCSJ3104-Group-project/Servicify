@@ -12,7 +12,7 @@ class LabeledInputField extends Component {
                 {
                     this.props.tag === "textarea" ?
                         <textarea className={this.props.className}
-                            name={this.props.name}
+                            name={this.props.name}  
                             // @ts-ignore
                             type={this.props.type}
                             value={this.props.value}
