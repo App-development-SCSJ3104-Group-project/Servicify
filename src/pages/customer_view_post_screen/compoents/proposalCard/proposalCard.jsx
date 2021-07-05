@@ -6,6 +6,7 @@ import Zoom from "react-reveal/Zoom";
 import { useDispatch } from "react-redux";
 import { acceptAProposal } from "../../../../redux/proposals/proposals_action";
 import { rejectAProposal } from "./../../../../redux/proposals/proposals_action";
+import { Link } from "react-router-dom";
 
 const ProposalCard = ({
   serviceProvider,
@@ -76,6 +77,23 @@ const ProposalCard = ({
       );
     } else if (status === "Accepted") {
       return (
+        <Link to={"/customer_orders_screen"}>
+          <button
+            className={"proposal__card_button"}
+            style={{
+              marginBottom: "1rem",
+              border: "none",
+              fontSize: "1.6rem",
+              fontFamily: "Mulish",
+              backgroundColor: "#3f51b5",
+            }}
+          >
+            check orders
+          </button>
+        </Link>
+      );
+    } else if (status === "canceled") {
+      return (
         <button
           className={"proposal__card_button"}
           style={{
@@ -86,7 +104,7 @@ const ProposalCard = ({
             backgroundColor: "#3f51b5",
           }}
         >
-          check orders
+          Canceled
         </button>
       );
     }

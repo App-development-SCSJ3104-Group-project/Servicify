@@ -7,6 +7,7 @@ import star from "../../../icons/outline_star_black_24dp 1.svg";
 
 import "./manage_proposals.scss";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 class ManageProposals extends Component {
   constructor({ props }) {
@@ -14,28 +15,97 @@ class ManageProposals extends Component {
     this.props = props;
   }
 
-  data = [
-    { name: "husam Mousa", status: false },
-    { name: "Ahmad Mousa", status: false },
-    { name: "husam Mousa", status: false },
-    { name: "Ahmad Mousa", status: false },
-    { name: "husam Mousa", status: false },
-    { name: "Ahmad Mousa", status: false },
-    { name: "husam Mousa", status: false },
-    { name: "Ahmad Mousa", status: false },
-    { name: "husam Mousa", status: false },
-    { name: "Ahmad Mousa", status: false },
-  ];
-
   onClickCard = (event) => {
     const target = event.target.closest(".profile_card").lastChild;
     target.classList.toggle("show_card");
   };
+
+  statusButton = (status, id, serviceProviderId, cancelProposal) => {
+    if (status === "Accepted") {
+      return (
+        <React.Fragment>
+          <Link to={"/dashboard_manage_orders"}>
+            <IconButton
+              innerText={"check orders"}
+              heightDiv="4.0rem"
+              widthDiv="18.0rem"
+              borderRadius="5rem"
+              backgroundColor="#7fe1e3"
+              src={null}
+            />
+          </Link>
+          <div
+            className="proposal_status"
+            style={{
+              cursor: `pointer`,
+              width: "18.0rem",
+            }}
+          >
+            <h4>Accepted</h4>
+          </div>
+        </React.Fragment>
+      );
+    } else if (status === "Pending") {
+      return (
+        <React.Fragment>
+          <div onClick={() => cancelProposal(id, serviceProviderId)}>
+            <IconButton
+              innerText={"Cancel"}
+              heightDiv="4.0rem"
+              widthDiv="18.0rem"
+              borderRadius="5rem"
+              backgroundColor="#1E2833"
+              src={null}
+            />
+          </div>
+          <div
+            className="proposal_status"
+            style={{
+              cursor: `pointer`,
+              width: "18.0rem",
+            }}
+          >
+            <h4>Pending</h4>
+          </div>
+        </React.Fragment>
+      );
+    } else if (status === "rejected") {
+      return (
+        <React.Fragment>
+          <IconButton
+            innerText={"Rejected"}
+            heightDiv="4.0rem"
+            widthDiv="18.0rem"
+            borderRadius="5rem"
+            backgroundColor="#e32e12"
+            src={null}
+          />
+        </React.Fragment>
+      );
+    } else {
+      return (
+        <React.Fragment>
+          <IconButton
+            innerText={"canceled"}
+            heightDiv="4.0rem"
+            widthDiv="18.0rem"
+            borderRadius="5rem"
+            backgroundColor="#e32e12"
+            src={null}
+          />
+        </React.Fragment>
+      );
+    }
+  };
+
   render() {
+    const { cancelProposal } = this.props;
     return (
       <DashboardCard label={"Proposals"}>
         <div className="list_of_cards">
-          {this.props.proposals.length === 0 ? (
+          {this.props.proposals.message === "No proposal was found" ? (
+            <h3>No proposal found</h3>
+          ) : (
             this.props.proposals.map((prop) => [
               <Card
                 key={prop._id}
@@ -53,7 +123,9 @@ class ManageProposals extends Component {
                   <div className="order_header_card_left">
                     <div className="part_one">
                       <h3>
-                        {prop.customer.firstName + prop.customer.lastName}
+                        {prop.customer.firstName +
+                          "  " +
+                          prop.customer.lastName}
                       </h3>
                       <div className="rate_div"></div>
                     </div>
@@ -63,48 +135,29 @@ class ManageProposals extends Component {
                     </h3>
                   </div>
                   <div className="right_float_button">
-                    {prop.status === "Accepted" ? (
-                      <div
-                        className="proposal_status"
-                        style={{
-                          cursor: `pointer`,
-                          width: "18.0rem",
-                          marginBottom: "18px",
-                        }}
-                      >
-                        <h4>Accepted</h4>
-                      </div>
-                    ) : (
-                      <div
-                        className="proposal_status"
-                        style={{
-                          cursor: `pointer`,
-                          width: "18.0rem",
-                          marginBottom: "18px",
-                        }}
-                      >
-                        <h4>Pending</h4>
-                      </div>
+                    {this.statusButton(
+                      prop.status,
+                      prop._id,
+                      prop.serviceProviderId,
+                      cancelProposal
                     )}
                   </div>
                 </div>
                 <div className="toggle_card">
                   <h3>{moment(prop.timestamp).fromNow()} </h3>
                   <h3>
-                    City: {prop.post.location} / Day:
-                    {moment(prop.timestamp).format("dddd")} / Date:
-                    {prop.provisionDate}
+                    City: {"   " + prop.post.location} / Day:
+                    {"  " + moment(prop.timestamp).format("dddd")} / Date:
+                    {"   " + prop.provisionDate}
                   </h3>
                   <h3>Diagnosing fees: {prop.diagnosisFee}</h3>
-                  <h3>Payment: {prop.paymentMethod}</h3>
+                  <h3>Payment: {prop.post.paymentMethod}</h3>
                   <h3>{prop.post.description}</h3>
                   <h3>Rate: {Math.floor(Math.random() * 5)}</h3>
                 </div>
               </Card>,
               <br />,
             ])
-          ) : (
-            <h3>No proposal found</h3>
           )}
         </div>
       </DashboardCard>

@@ -7,7 +7,10 @@ import "../../components/screen_tabs/screen_tabs.scss";
 import Proposals from "./manage_proposals/manage_proposals";
 import Requests from "./manage_request/manage_request";
 
-import { getServiceProviderProposals } from "./../../redux/requests/requests_action";
+import {
+  getServiceProviderProposals,
+  cancelProposal,
+} from "./../../redux/requests/requests_action";
 import {
   acceptRequest,
   getServiceProviderRequest,
@@ -47,7 +50,8 @@ class DashboardManageRequests extends Component {
     getServiceProviderProposals(data._id);
   }
   render() {
-    const { acceptRequest, requests, proposals, loading } = this.props;
+    const { acceptRequest, cancelProposal, requests, proposals, loading } =
+      this.props;
     return (
       <div className="orders_m_body">
         <DashboardTopBar route={"manage requests"} />
@@ -56,7 +60,7 @@ class DashboardManageRequests extends Component {
         </div>
 
         {this.tabs[0].status ? (
-          <Proposals proposals={proposals} />
+          <Proposals proposals={proposals} cancelProposal={cancelProposal} />
         ) : (
           <Requests
             acceptRequest={acceptRequest}
@@ -87,6 +91,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     acceptRequest: (id, customerId, status) => {
       dispatch(acceptRequest(id, customerId, status));
+    },
+    cancelProposal: (id, serviceProviderId) => {
+      dispatch(cancelProposal(id, serviceProviderId));
     },
   };
 };
