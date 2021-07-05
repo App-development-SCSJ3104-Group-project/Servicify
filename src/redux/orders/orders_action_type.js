@@ -1,4 +1,3 @@
 export const ordersActionType = {
-
-    loadOrders: "loadOrders",
-}
+  loadOrders: "loadOrders",
+};
