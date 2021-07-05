@@ -14,7 +14,7 @@ import profileIcon from "../../icons/Ellipse (3).svg";
 import Card from "../../components/card/card";
 import { profileBody } from "./inner_profile/profile_body";
 class CustomerProfile extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       city: null,

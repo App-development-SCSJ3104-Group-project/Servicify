@@ -17,7 +17,7 @@ import {
 } from "../../redux/requests/requests_action";
 
 class DashboardManageRequests extends Component {
-  constructor({ props }) {
+  constructor ({ props }) {
     super(props);
     this.props = props;
   }
@@ -73,7 +73,7 @@ class DashboardManageRequests extends Component {
   }
 }
 
-const mapStateToProps = ({ requestsReducer, usersReducer }) => {
+const mapStateToProps = ({ requestsReducer }) => {
   return {
     loading: requestsReducer.loading,
     requests: requestsReducer.requests,
@@ -100,4 +100,5 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
+// @ts-ignore
 )(DashboardManageRequests);

@@ -8,15 +8,16 @@
 }
 
 .order_header_card {
-  width: 90%;
   justify-self: flex-end;
   align-self: flex-end;
   display: flex;
-  padding: 2rem 3rem 2rem 5rem;
   flex-direction: row;
   flex-wrap: wrap;
-  z-index: 1;
   justify-content: space-between;
+  width: 50%;
+  padding: 2rem 3rem 2rem 5rem;
+  z-index: 1;
+  margin-left: 10rem;
 }
 
 .order_header_card_left {

@@ -2,7 +2,7 @@ import "./card.scss"
 
 const card = (props) => {
 
-    const { scaleUp, mainColor, verticalCard, hideImg } = props;
+    const { scaleUp, mainColor, verticalCard, hideImg,width } = props;
 
 
     const style = {
@@ -11,7 +11,7 @@ const card = (props) => {
     }
 
     return (
-        <div className={`profile_card ${verticalCard ? "profile_card__vertical" : null}`} style={scaleUp === true ? style : mainColor ? { backgroundColor: mainColor } : null} onClick={props.callback} data-name={props.data}>
+        <div className={`profile_card ${verticalCard ? "profile_card__vertical" : null}`} style={scaleUp === true ? style : mainColor ? { backgroundColor: mainColor } : {width:width}} onClick={props.callback} data-name={props.data}>
 
 
             {hideImg !== true ? <div className={`profile_card__image ${verticalCard ? "profile_card__vertical__img" : null}`} >

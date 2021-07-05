@@ -10,7 +10,7 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 
 class ManageProposals extends Component {
-  constructor({ props }) {
+  constructor ({ props }) {
     super(props);
     this.props = props;
   }
@@ -109,13 +109,8 @@ class ManageProposals extends Component {
             this.props.proposals.map((prop) => [
               <Card
                 key={prop._id}
-                imgHeight="15.0rem"
                 scaleUp={true}
-                imgWidth="15.0rem"
-                width="50%"
                 image_src={prop.customer.imgSrc}
-                imgHsize="8rem"
-                imgWsize="8rem"
                 data={prop.name}
                 callback={this.onClickCard}
               >
