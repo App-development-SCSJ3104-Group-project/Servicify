@@ -8,7 +8,7 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 
 class ManageProposals extends Component {
-  constructor ({ props }) {
+  constructor({ props }) {
     super(props);
     this.props = props;
   }
@@ -46,7 +46,14 @@ class ManageProposals extends Component {
     } else if (status === "Pending") {
       return (
         <React.Fragment>
-          <div onClick={() => cancelProposal(id, serviceProviderId)}>
+          <div
+            onClick={() => {
+              cancelProposal(id, serviceProviderId);
+              setTimeout(() => {
+                window.location.reload();
+              }, 500);
+            }}
+          >
             <IconButton
               innerText={"Cancel"}
               heightDiv="4.0rem"
