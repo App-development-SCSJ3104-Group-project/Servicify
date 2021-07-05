@@ -40,7 +40,7 @@ class CurrentOrder extends Component {
                             <div className="loading-div">
                                 <div className="loader">Loading...</div>
                             </div>
-                        ) : ordersList.map((prop) => prop.status !== "Done" ? [this.setState({ found: true }), (
+                        ) : ordersList.map((prop) => prop.status !== "Done" ? [!this.state.found ? this.setState({ found: true }) : null, (
                             <Card
                                 imgHeight="15.0rem"
                                 scaleUp={true}
