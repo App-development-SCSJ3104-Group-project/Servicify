@@ -32,7 +32,7 @@ class Order extends React.Component {
 
         this.setState({
             cardStyle: {
-                height: "35rem"
+                height: "38rem",
             },
             toggled: true
         })
@@ -42,7 +42,8 @@ class Order extends React.Component {
 
         this.setState({
             cardStyle: {
-                height: "12rem"
+                height: "12rem",
+
             },
             toggled: false
         })
@@ -63,7 +64,7 @@ class Order extends React.Component {
     render() {
 
 
-        const { giveFeedBackOnClick, cancelOnClick, order, orderType, id } = this.props;
+        const { giveFeedBackOnClick, cancelOnClick, order, orderType } = this.props;
         const { serviceProvider } = order
         const style = {
             backgroundImage: `url(${order.serviceProvider.imgSrc ? order.serviceProvider.imgSrc : defaultUserImg})`,
@@ -92,7 +93,7 @@ class Order extends React.Component {
                                 <div className="order__extra-info__type__details"><span>City: {order.location}</span>  <span>/</span> <span>Date: {order.provisionDate.split(" ")}</span> </div>
                                 <div className="order__extra-info__type__details"><span>Diagonsing fees: {serviceProvider.diagnosingFees}$</span> <span>/</span> <span>Total fees: {order.serviceFees}$</span></div>
                                 <div>Payment: {order.paymentType}</div>
-                                <div>Feedback: {order.feedback}. </div>
+                                <div >Feedback: {order.feedback}. </div>
                                 <div className="rate">
                                     <span className="rate__text">Rate: </span>
                                     {this.getStars(order.rate)}

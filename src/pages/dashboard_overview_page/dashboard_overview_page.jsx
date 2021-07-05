@@ -35,7 +35,8 @@ class DashboardOverviewPage extends Component {
 
                         {this.overviewData.map((e) => (
 
-                            <Card imgHeight={"6rem"} imgWidth={"6rem"} mainColor="#303036">
+
+                            <Card hideImg={true} mainColor="#303036">
                                 <div className="dashboard_overview_cards_container">
                                     <h1>{e.value}</h1>
                                     <h4>{e.name}</h4>

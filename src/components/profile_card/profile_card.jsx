@@ -28,44 +28,36 @@ class ProfileCard extends Component {
     }
 
     render() {
-        const { data } = this.props;
-        return (
+        
 
-            <Zoom>
-                <Link to={"/customer_service_provider_page?id=" + data._id + "&type=" + data.jobName} style={{ textDecoration: "none", color: "black" }}>
-                    <div>
+            const { data } = this.props;
+            return (
 
-                        <Card image_src={data.imgSrc} verticalCard={true}>
+                <Zoom>
+                    <Link to={{ pathname: "/customer_service_provider_page", state: { data: data } }} style={{ textDecoration: "none", color: "black" }}>
+                        <div>
 
-                            <div className="header">
-                                <div className="card_header">
-                                    <h5>{data.firstName + " " + data.lastName}</h5>
-                                    <div className="rate">
+                            <Card image_src={data.imgSrc} verticalCard={true}>
 
-                                        {
-                                            this.getStar(data.rate)
-                                        }
+                                <div className="header">
+                                    <div className="card_header">
+                                        <h5>{data.firstName + " " + data.lastName}</h5>
+                                        <div className="rate">
 
+                                            {
+                                                this.getStar(data.rate)
+                                            }
+
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="card_title">
-                                <h5>{data.diagnosingFees}$</h5>
-                            </div>
-                            <div className="card_description">
-                                {data.jobDescription}
-                            </div>
-                            <div className="action_buttons">
-                                <Button innerText={null}
-                                    margin="0.3rem"
-                                    color="black"
-                                    iconPosition='false'
-                                    backGroundColor="#1E2833"
-                                    width="4rem"
-                                    height="4rem"
-                                    icon={favourite}
-                                    borderRadius="50%" />
-                                <Link to={"/customer_request_page?id=" + data._id + "&name=" + data.firstName + " " + data.lastName}>
+                                <div className="card_title">
+                                    <h5>{data.diagnosingFees}$</h5>
+                                </div>
+                                <div className="card_description">
+                                    {data.jobDescription}
+                                </div>
+                                <div className="action_buttons">
                                     <Button innerText={null}
                                         margin="0.3rem"
                                         color="black"
@@ -73,19 +65,29 @@ class ProfileCard extends Component {
                                         backGroundColor="#1E2833"
                                         width="4rem"
                                         height="4rem"
-                                        icon={order}
+                                        icon={favourite}
                                         borderRadius="50%" />
-                                </Link>
+                                    <Link to={"/customer_request_page?id=" + data._id + "&name=" + data.firstName + " " + data.lastName}>
+                                        <Button innerText={null}
+                                            margin="0.3rem"
+                                            color="black"
+                                            iconPosition='false'
+                                            backGroundColor="#1E2833"
+                                            width="4rem"
+                                            height="4rem"
+                                            icon={order}
+                                            borderRadius="50%" />
+                                    </Link>
 
-                            </div>
+                                </div>
 
-                        </Card>
-                    </div >
-                </Link>
-            </Zoom>
-        )
+                            </Card>
+                        </div >
+                    </Link>
+                </Zoom>
+            )
 
+        }
     }
-}
 
-export default ProfileCard;
+    export default ProfileCard;
