@@ -5,6 +5,7 @@ import Button from "../../../components/button/button"
 import Card from "../../../components/card/card"
 import star from "../../../icons/filledStar.svg"
 import Zoom from 'react-reveal/Fade'
+import IconButton from "../../../components/icon/icon_component"
 
 import "./current_order.scss"
 
@@ -19,6 +20,11 @@ class CurrentOrder extends Component {
         // console.log(target.style);
         target.classList.toggle("current_order_show_card");
     };
+    onChange = (event) => {
+
+        console.log(event.target);
+    }
+
     render() {
 
         const { ordersList } = this.props
@@ -55,8 +61,7 @@ class CurrentOrder extends Component {
                                         </h3>
                                     </div>
                                     <div className="current-order-list__card__buttons-container">
-                                        {prop.status === "Pending" ? (
-                                            <div
+                                        {
                                             // onClick={() => {
                                             //     const data = JSON.parse(localStorage.getItem("user"));
                                             //     cancelRequest(prop._id, data._id);
@@ -64,17 +69,12 @@ class CurrentOrder extends Component {
                                             //         window.location.reload();
                                             //     }, 500);
                                             // }}
-                                            >
-                                                {/* <IconButton
-                                                    innerText={"Cancel"}
-                                                    heightDiv="4.0rem"
-                                                    widthDiv="15.0rem"
-                                                    borderRadius="5rem"
-                                                    backgroundColor="#1E2833"
-                                                    src={null}
-                                                /> */}
+
+                                            <div>
+
+                                                {DropDown(this.onChange)}
                                             </div>
-                                        ) : null}
+                                        }
                                         <div
                                             className="proposal_status"
                                             style={{ cursor: `pointer`, width: "15rem" }}
@@ -124,9 +124,24 @@ class CurrentOrder extends Component {
                     }
 
                 </div>
-            </DashboardCard>
+            </DashboardCard >
 
         )
     }
+
+
+}
+const DropDown = (props) => {
+
+    const handleClick = (event) => {
+        const { callback } = props
+        event.stopPropogation()
+        callback(event)
+    }
+
+    return (<select className="current-order-list__card__buttons-container__status-selector" name="" id="selector" onChange={(event) => handleClick(event)}>
+        <option value="1">1</option>
+    </select>)
 }
 export default CurrentOrder
+

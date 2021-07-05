@@ -56,6 +56,18 @@
             top: 1rem;
             right: 1rem;
             height: 10rem;
+
+            &__status-selector {
+                width: 15rem;
+                padding: 1rem;
+                border-radius: 30px;
+                font-size: 16px;
+                color: white;
+                background-color: #212738;
+                text-align: center;
+                position: relative;
+                z-index: 50;
+            }
         }
 
         &__expansion-section {
