@@ -1,5 +1,5 @@
 import Icon from "../icon_component/icon"
-import Star from "../../icons/star.svg"
+import Star from "../../icons/filledStar.svg"
 import "./rate_ratio.scss"
 
 const rate_ratio = ({ index, width }) => {
@@ -19,7 +19,7 @@ const rate_ratio = ({ index, width }) => {
     return (
         <div className="review_rate_card">
             <h3>{index}</h3>
-            <Icon height="4rem" width="4rem" src={Star} />
+            <Icon height="4rem" width="4rem" src={Star} fill="gold" />
             <div className="review_rate_card__ratio">
                 <div className="active" style={active_Style}></div>
                 <div className="inActive" style={in_active_Style}></div>
