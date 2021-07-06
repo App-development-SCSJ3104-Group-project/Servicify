@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import NavigationTab from "../search_area/components/tab/tab";
 // @ts-ignore
 import CircularAvatar from "../icon/icon_component";
+import defaultImg from "../../icons/defaultUser.svg";
 
 import "./dashboard_top_bar.scss";
 
 class DashboardTopBar extends Component {
-  constructor ({ props }) {
+  constructor({ props }) {
     super(props);
     this.state = { user: "" };
   }
@@ -41,7 +42,7 @@ class DashboardTopBar extends Component {
             <img
               className="dashboard-top-bar__info__left__img"
               // @ts-ignore
-              src={this.state.user.imgSrc}
+              src={this.state.user.imgSrc ? this.state.user.imgSrc : defaultImg}
               alt=""
             />
             <div className="dashboard-top-bar__info__details">
