@@ -8,7 +8,7 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 
 class ManageProposals extends Component {
-  constructor({ props }) {
+  constructor ({ props }) {
     super(props);
     this.props = props;
   }
@@ -22,7 +22,7 @@ class ManageProposals extends Component {
     if (status === "Accepted") {
       return (
         <React.Fragment>
-          <Link to={"/dashboard_manage_orders"}>
+          <Link to={"/dashboard_manage_orders"} style={{ textDecoration: "none", color: "black" }}>
             <IconButton
               innerText={"check orders"}
               heightDiv="4.0rem"
