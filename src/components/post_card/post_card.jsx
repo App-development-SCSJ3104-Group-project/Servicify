@@ -12,7 +12,7 @@ import OptionIcon from "./icons/option_icon";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteAPost } from "../../redux/posts/posts_action";
-import defaultUserImg from "../../icons/defaultUser.svg"
+import defaultUserImg from "../../icons/defaultUser.svg";
 const moment = require("moment");
 
 const PostCard = (props) => {
@@ -35,7 +35,6 @@ const PostHeader = ({
 }) => {
   const deletePost = (id) => {
     dispatch(deleteAPost(id));
-    window.location.replace("/customer_post_screen");
   };
 
   // getting userDate whether it is service provider or customer
@@ -47,11 +46,7 @@ const PostHeader = ({
     <div className="post">
       <div className="post__header">
         <Avatar
-          source={
-            imgSrc
-              ? imgSrc
-              : defaultUserImg
-          }
+          source={imgSrc ? imgSrc : defaultUserImg}
           width={"100px"}
           height={"100px"}
         />
