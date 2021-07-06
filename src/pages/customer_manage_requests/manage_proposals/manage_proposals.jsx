@@ -8,7 +8,7 @@ import star from "../../../icons/outline_star_black_24dp 1.svg";
 import "./manage_proposals.scss";
 
 class ManageProposals extends Component {
-  constructor ({ props }) {
+  constructor({ props }) {
     super(props);
     this.props = props;
   }
@@ -35,9 +35,7 @@ class ManageProposals extends Component {
     return (
       <DashboardCard label={"Proposals"}>
         <div className="proposal-cards-list">
-
-          {this.data.map((prop) => [
-
+          {/* {this.data.map((prop) => [
             <Card
               imgHeight="15.0rem"
               scaleUp={true}
@@ -49,14 +47,17 @@ class ManageProposals extends Component {
               data={prop.name}
               callback={this.onClickCard}
             >
-
               <div className="proposal-cards-list__card">
                 <div className="proposal-cards-list__card__text">
                   <div className="proposal-cards-list__card__text__upper-section">
                     <h3>{prop.name}</h3>
                     <div className="proposal-cards-list__card__text__upper-section__rate">
                       <h3>4.5</h3>
-                      <img className="proposal-cards-list__card__text__upper-section__rate__star" src={star} alt="" />
+                      <img
+                        className="proposal-cards-list__card__text__upper-section__rate__star"
+                        src={star}
+                        alt=""
+                      />
                     </div>
                   </div>
                   <h3>27 minutes ago / Johor Bahru / Cash</h3>
@@ -79,7 +80,6 @@ class ManageProposals extends Component {
                     backgroundColor="#1E2833"
                     src={null}
                   />
-
                 </div>
               </div>
               <div className="proposal-cards-list__card__expansion-section">
@@ -94,11 +94,9 @@ class ManageProposals extends Component {
                 </h3>
                 <h3>Rate: 3</h3>
               </div>
-
-            </Card>
-            ,
+            </Card>,
             <br />,
-          ])}
+          ])} */}
         </div>
       </DashboardCard>
     );
