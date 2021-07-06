@@ -12,6 +12,7 @@ import OptionIcon from "./icons/option_icon";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteAPost } from "../../redux/posts/posts_action";
+import defaultUserImg from "../../icons/defaultUser.svg"
 const moment = require("moment");
 
 const PostCard = (props) => {
@@ -49,7 +50,7 @@ const PostHeader = ({
           source={
             imgSrc
               ? imgSrc
-              : "https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg"
+              : defaultUserImg
           }
           width={"100px"}
           height={"100px"}

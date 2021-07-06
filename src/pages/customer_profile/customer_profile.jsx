@@ -13,6 +13,7 @@ import cancel from "../../icons/outline_add_white_24dp 1.svg";
 import profileIcon from "../../icons/Ellipse (3).svg";
 import Card from "../../components/card/card";
 import { profileBody } from "./inner_profile/profile_body";
+import defaultUserImg from "../../icons/defaultUser.svg"
 class CustomerProfile extends Component {
   constructor (props) {
     super(props);
@@ -305,7 +306,7 @@ class CustomerProfile extends Component {
         </div>
         <Zoom>
           <div className="profile_image">
-            <img src={user.imgSrc} alt="" style={{ borderRadius: "50%" }} />
+            <img src={user.imgSrc ? user.imgSrc:defaultUserImg} alt="" style={{ borderRadius: "50%" }} />
             <h3>{user.firstName + " " + user.lastName}</h3>
           </div>
         </Zoom>

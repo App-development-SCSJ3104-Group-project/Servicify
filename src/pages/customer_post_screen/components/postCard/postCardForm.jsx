@@ -5,11 +5,12 @@ import { useDispatch } from "react-redux";
 import { createNewPost } from "../../../../redux/posts/posts_action";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import defaultUserImg from "../../../../icons/defaultUser.svg"
 const PostCardForm = ({ useState }) => {
   //
   const currentUser = JSON.parse(localStorage.getItem("user"));
   //
+  console.log(currentUser)
   const [tags, setTags] = useState([]);
   const [location, setLocation] = useState("");
   const [paymentMethod, setPayementMethod] = useState("");
@@ -83,7 +84,7 @@ const PostCardForm = ({ useState }) => {
         <div className="post__form_card___header-section">
           <div className="post_form_card__header__avatar_styles">
             <Avatar
-              source={currentUser.imgSrc}
+              source={currentUser.imgSrc ? currentUser.imgSrc : defaultUserImg}
               width={"100px"}
               height={"100px"}
             />

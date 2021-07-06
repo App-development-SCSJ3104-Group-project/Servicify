@@ -2,6 +2,7 @@ import React from "react";
 import Avatar from "./avatar";
 import StarIcon from "./star";
 import Tag from "./tag";
+import defaultUserImg from "../../../icons/defaultUser.svg"
 const UserResultCard = (props) => {
   const getStar = (data) => {
     let element = [];
@@ -16,7 +17,7 @@ const UserResultCard = (props) => {
     <div className="search__result_card_container">
       <div className="search__result_card_header">
         <div className="search__result_card_header-left-section">
-          <Avatar source={props.data.imgSrc} width={"80px"} height={"80px"} />
+          <Avatar source={props.data.imgSrc ? props.data.imgSrc : defaultUserImg} width={"80px"} height={"80px"} />
           <div className="search__result_card_header-sub-section">
             <span>
               {props.data.country}, {props.data.city} @
