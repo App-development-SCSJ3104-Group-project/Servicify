@@ -8,6 +8,8 @@
     justify-content: flex-start;
     align-items: center;
     font-family: 'Mulish', sans-serif;
+    position: relative;
+    z-index: 2000;
 
     &__img {
         width: 8.5rem;
@@ -38,6 +40,8 @@
     }
 
     &__buttons-group {
+        display: flex;
+
         &__button {
             background-color: #1E2833;
             width: 5rem;

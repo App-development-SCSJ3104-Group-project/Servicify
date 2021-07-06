@@ -9,6 +9,7 @@ import Template from "../../components/template/template"
 import Zoom from 'react-reveal/Zoom'
 import { connect } from "react-redux";
 import "./customer_service_main_page.scss";
+import defaultUserImg from "../.."
 
 
 class CustomerServiceMainPage extends Component {
@@ -76,6 +77,7 @@ class CustomerServiceMainPage extends Component {
             />
 
             {data.length != 0 ? (
+
               data.map((e) => [
 
                 this.state.active === null ?

@@ -22,17 +22,25 @@ const review = ({ rate }) => {
     const getRatingRatio = () => {
 
         let ratingRatio = []
-        for (let i = 0; i < 5; i++) {
-            if (i === (rate - 1)) {
-                ratingRatio.push(<RateRatio width="60" index={`${i + 1}`} />)
 
+
+        for (let i = 0; i < 5; i++) {
+
+            if (rate != null) {
+                if (i === (rate - 1)) {
+                    ratingRatio.push(<RateRatio width="60" index={`${i + 1}`} />)
+                }
+                else {
+                    ratingRatio.push(<RateRatio width="10" index={`${i + 1}`} />)
+                }
             }
             else {
 
-                ratingRatio.push(<RateRatio width="10" index={`${i + 1}`} />)
-
+                ratingRatio.push(<RateRatio width="0" index={`${i + 1}`} />)
             }
+
         }
+
 
         return ratingRatio.reverse()
     }

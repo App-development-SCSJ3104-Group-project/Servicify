@@ -20,6 +20,15 @@
         border-bottom: 3px solid black;
     }
 
+    &__search-failure {
+        font-size: 2rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: bold;
+    }
+
     &__results {
         margin-top: 2rem;
         width: 100%;

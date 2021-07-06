@@ -1,6 +1,8 @@
 .template {
     width: 100%;
-    font-family: "Mulish"
+    font-family: "Mulish";
+    position: relative;
+    z-index: 100;
 }
 
 .spec_div {

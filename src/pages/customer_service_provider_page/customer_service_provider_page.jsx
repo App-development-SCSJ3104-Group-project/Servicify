@@ -18,6 +18,8 @@ import { connect } from "react-redux";
 import { getUser } from "../../redux/categories/categories_action";
 import { Link } from "react-router-dom";
 
+import defaultIcon from "../../icons/defaultUser.svg"
+
 class CustomerServiceProviderPage extends Component {
 
     constructor (props) {
@@ -74,7 +76,7 @@ class CustomerServiceProviderPage extends Component {
 
     componentDidMount() {
 
-
+        
     }
     render() {
 
@@ -123,7 +125,7 @@ class CustomerServiceProviderPage extends Component {
 
                             <Zoom>
                                 <div className="profile_info">
-                                    <img className="profile_info__img" src={user.imgSrc} alt="" />
+                                    <img className="profile_info__img" src={user.imgSrc ? user.imgSrc : defaultIcon} alt="" />
                                     <h3 className="profile_info__text">{user.firstName + " " + user.lastName}</h3>
                                 </div>
                             </Zoom>

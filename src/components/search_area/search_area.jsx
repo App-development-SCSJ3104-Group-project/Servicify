@@ -3,14 +3,35 @@ import "./search_area.scss";
 import NavigationTab from "./components/tab/tab";
 import SearchPopUp from "./components/popup/PopUp";
 import { connect } from "react-redux";
+import searchIcon from "../../icons/search.svg"
+
+import axios from "axios";
 
 class SearchArea extends Component {
   constructor (props) {
     super(props);
     this.state = {
       popUpToggle: false,
+      searchValue: null,
+      serviceProviderArray: null
     };
   }
+
+  handleSearchInput = (e) => {
+    this.setState({ searchValue: e.target.value })
+
+  }
+
+  fetchSearchResult = async () => {
+    const { searchValue } = this.state;
+    let url = `https://service-backend-web.herokuapp.com/users/serviceprovider?fullName=${searchValue}`
+
+    const serviceProviderArray = await axios.get(url);
+    this.setState({ serviceProviderArray, popUpToggle: true }, () => console.log(this.state))
+
+  };
+
+
   tabs = [
     { name: "overview", isActive: false, linkTo: "", needsAuth: false },
     {
@@ -68,20 +89,19 @@ class SearchArea extends Component {
       this.tabs.find((e) => e.name === this.props.route).isActive = true;
 
     return (
-      <div className={`browse-area } `}>
-        {popUpToggle ? <SearchPopUp></SearchPopUp> : null}
+      <div className={`browse-area } `} onClick={(e) => this.setState({ popUpToggle: false })}>
+        {popUpToggle ? <SearchPopUp response={this.state.serviceProviderArray}></SearchPopUp> : null}
         <div className="browse-area__title-search"></div>
         <div className="browse-area__user-search">
+          <img src={searchIcon} className="browse-area__icon" onClick={this.fetchSearchResult}></img>
+
           <p className="browse-area__title">Browse</p>
           <input
             type="text"
             className="browse-area__search-input"
             placeholder="search for a service provider now"
-            onClick={() => {
-              this.setState({
-                popUpToggle: !popUpToggle,
-              });
-            }}
+            onChange={(e) => this.handleSearchInput(e)}
+
           />
         </div>
         <div className="browse-area__tabs ">

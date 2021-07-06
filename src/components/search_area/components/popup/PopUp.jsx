@@ -2,9 +2,11 @@ import React from "react";
 import "./PopUp.scss";
 import SearchCard from "../innerPopUp/components/searchCard/SearchCard"
 
-const SearchPopUp = () => {
+const SearchPopUp = (props) => {
 
 
+    const { response } = props;
+    console.log(response)
     return (
 
         <div className="SearchPopUp">
@@ -14,12 +16,16 @@ const SearchPopUp = () => {
 
             <div className="SearchPopUp__results">
 
-                <SearchCard></SearchCard>
-                <SearchCard></SearchCard>
-                <SearchCard></SearchCard>
-                <SearchCard></SearchCard>
-                <SearchCard></SearchCard>
-                <SearchCard></SearchCard>
+                {
+                    response.data.length != 0 ? response.data.map((item) => {
+
+
+                        return <SearchCard data={item}></SearchCard>
+
+
+                    }) : <div className="SearchPopUp__search-failure"> No Results Found</div>
+                }
+
 
 
             </div>
