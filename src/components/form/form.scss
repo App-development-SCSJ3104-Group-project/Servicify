@@ -10,6 +10,7 @@
     font-family: "Inter", sans-serif;
     z-index: 1;
     font-size: 1.7rem;
+    position: relative;
 
     &__left-side,
     &__right-side {
@@ -18,12 +19,14 @@
     }
 
     &__left-side {
-        position: relative;
+        position: fixed;
         background-position: center;
         background-size: cover;
         image-rendering: pixelated;
         overflow: visible;
         background-color: #1E2833;
+        left: 0;
+        top: 0;
 
         &__orange-dots {
             position: absolute;
@@ -73,6 +76,9 @@
     &__right-side {
         position: relative;
         background-color: white;
+
+        left: 26%;
+        top: 0%;
 
         &__back-btn {
             color: black;

@@ -126,7 +126,7 @@ class Form extends React.Component {
 
     const { formInputs, formButtons, type, leftSideBackgroundHeight, SubmitFormCallback, goBackCallBack } = this.props;
     const style = {
-      height: leftSideBackgroundHeight
+      height: "100vh"
     };
 
     return (

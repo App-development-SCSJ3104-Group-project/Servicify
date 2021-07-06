@@ -124,7 +124,7 @@ const SignUpFrom = ({ checkEmailAvailability, duplicateUserEmail, loading, reset
             }
             {handleAuthState(duplicateUserEmail, resetSignupState)}
             <Form
-                type="signup" leftSideBackgroundHeight="130%" goBackCallBack={() => history.goBack()} formInputs={formInputs} formButtons={formButtons} SubmitFormCallback={(userInfo) => {
+                type="signup"  leftSideBackgroundHeight="130%" goBackCallBack={() => history.goBack()} formInputs={formInputs} formButtons={formButtons} SubmitFormCallback={(userInfo) => {
                     checkEmailAvailability(userInfo)
                 }}></Form>
 
