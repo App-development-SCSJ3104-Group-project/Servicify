@@ -13,7 +13,7 @@ export const makeRequest = (data) => {
     };
 
     axios
-      .post("https://service-backend-web.herokuapp.com/requests/create", req)
+      .post("https://servicify-service-web.onrender.com/requests/create", req)
       .then((res) => {
         dispatch(setLoading(false));
       });
@@ -40,7 +40,7 @@ export const getRequest = (id) => {
 
     axios
       .get(
-        "https://service-backend-web.herokuapp.com/requests/?id=" +
+        "https://servicify-service-web.onrender.com/requests/?id=" +
         id +
         "&type=false"
       )
@@ -56,7 +56,7 @@ export const getServiceProviderRequest = (id) => {
 
     axios
       .get(
-        "https://service-backend-web.herokuapp.com/requests/?id=" +
+        "https://servicify-service-web.onrender.com/requests/?id=" +
         id +
         "&type=true"
       )
@@ -73,7 +73,7 @@ export const getServiceProviderProposals = (id) => {
 
     axios
       .get(
-        "https://service-backend-web.herokuapp.com/proposals/" + id + "/true"
+        "https://servicify-service-web.onrender.com/proposals/" + id + "/true"
       )
       .then((res) => {
         dispatch(setProposal(res.data));
@@ -86,7 +86,7 @@ export const cancelRequest = (id, customerId) => {
     dispatch(setLoading(true));
 
     axios
-      .patch("https://service-backend-web.herokuapp.com/requests/" + id, {
+      .patch("https://servicify-service-web.onrender.com/requests/" + id, {
         status: "Canceled",
       })
       .then((res) => {
@@ -102,7 +102,7 @@ export const acceptRequest = (id, customerId, status) => {
     // axios
     //   .patch("http://localhost:5000/requests/" + id, { status: status })
     //   .then((res) => {
-    axios.patch("https://service-backend-web.herokuapp.com/requests/" + id, { status: status }).then(res => {
+    axios.patch("https://servicify-service-web.onrender.com/requests/" + id, { status: status }).then(res => {
       getServiceProviderRequest(customerId);
       dispatch(setLoading(false));
     });
@@ -115,7 +115,7 @@ export const cancelProposal = (id, customerId) => {
     // axios
     //   .patch("http://localhost:5000/proposals/" + id + "/cancel")
     //   .then((res) => {
-    axios.patch("https://service-backend-web.herokuapp.com/proposals/" + id + "/cancel").then(res => {
+    axios.patch("https://servicify-service-web.onrender.com/proposals/" + id + "/cancel").then(res => {
       getServiceProviderProposals(customerId);
     });
   };

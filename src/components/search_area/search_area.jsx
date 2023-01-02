@@ -24,7 +24,7 @@ class SearchArea extends Component {
 
   fetchSearchResult = async () => {
     const { searchValue } = this.state;
-    let url = `https://service-backend-web.herokuapp.com/users/serviceprovider?fullName=${searchValue}`
+    let url = `https://servicify-service-web.onrender.com/users/serviceprovider?fullName=${searchValue}`
 
     const serviceProviderArray = await axios.get(url);
     this.setState({ serviceProviderArray, popUpToggle: true }, () => console.log(this.state))

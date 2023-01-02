@@ -23,7 +23,7 @@ export const setStatus = (id) => {
     return (dispatch) => {
 
         setLoading(true)
-        axios.patch("https://service-backend-web.herokuapp.com/orders/" + id, { status: "Done" }).then(res => {
+        axios.patch("https://servicify-service-web.onrender.com/orders/" + id, { status: "Done" }).then(res => {
             // axios.patch("http://localhost:5000/orders/" + id, { status: "Done" }).then(res => {
 
             setLoading(false)
@@ -42,7 +42,7 @@ export const loadData = (id) => {
     return (dispatch) => {
 
 
-        axios.get("https://service-backend-web.herokuapp.com/orders/?id=" + id, +"&type=false").then(res => {
+        axios.get("https://servicify-service-web.onrender.com/orders/?id=" + id, +"&type=false").then(res => {
 
             const data = res.data;
             return dispatch(storeData(data))
@@ -62,7 +62,7 @@ export const loadDashboardData = (id) => {
     return (dispatch) => {
 
 
-        axios.get("https://service-backend-web.herokuapp.com/orders/?id=" + id + "&type=true").then(res => {
+        axios.get("https://servicify-service-web.onrender.com/orders/?id=" + id + "&type=true").then(res => {
 
             const data = res.data;
             return dispatch(storeData(data))
@@ -80,7 +80,7 @@ export const giveFeedback = (id, description, rate) => {
 
     return (dispatch) => {
 
-        axios.patch("https://service-backend-web.herokuapp.com/orders/add_feedback/" + id, { feedback: description, rate: rate }).then(res => {
+        axios.patch("https://servicify-service-web.onrender.com/orders/add_feedback/" + id, { feedback: description, rate: rate }).then(res => {
             // axios.patch("http://localhost:5000/orders/add_feedback/" + id, { feedback: description, rate: rate }).then(res => {
 
             const currentUser = JSON.parse(localStorage.getItem("user"));

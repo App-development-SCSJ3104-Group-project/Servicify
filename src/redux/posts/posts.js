@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "https://service-backend-web.herokuapp.com/posts";
+const url = "https://servicify-service-web.onrender.com/posts";
 
 export const fetchPosts = () =>
   axios({

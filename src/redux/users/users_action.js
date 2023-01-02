@@ -37,7 +37,7 @@ export const checkEmailAvailability = (userInfo) => {
 
     return (dispatch) => {
 
-        const url = `https://service-backend-web.herokuapp.com/users/signup/auth`;
+        const url = `https://servicify-service-web.onrender.com/users/signup/auth`;
         dispatch(fetchUsers(url, "checkDuplication", userInfo))
     }
 
@@ -61,7 +61,7 @@ export const resetSignupState = () => ({
 export const validateUser = (userInfo) => {
 
     return (dispatch) => {
-        const url = `https://service-backend-web.herokuapp.com/users/login/auth`;
+        const url = `https://servicify-service-web.onrender.com/users/login/auth`;
         dispatch(fetchUsers(url, "validateUser", userInfo))
     }
 }
@@ -136,7 +136,7 @@ export const getUser = (id) => {
 
         dispatch(setLoading(true))
 
-        axios.get("https://service-backend-web.herokuapp.com/users/" + id).then((res) => {
+        axios.get("https://servicify-service-web.onrender.com/users/" + id).then((res) => {
 
             dispatch(setUser(res.data))
             dispatch(setLoading(false))
@@ -150,7 +150,7 @@ export const updateUser = (user) => {
 
         dispatch(setLoading(true))
 
-        axios.patch("https://service-backend-web.herokuapp.com/users/" + user._id, user).then((res) => {
+        axios.patch("https://servicify-service-web.onrender.com/users/" + user._id, user).then((res) => {
 
             dispatch(setUser(res.data))
             dispatch(setLoading(false))
