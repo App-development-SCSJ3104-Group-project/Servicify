@@ -31,7 +31,7 @@ export const emailAvailabilityFailure = () => ({
 });
 export const checkEmailAvailability = (userInfo) => {
   return (dispatch) => {
-    const url = `https://servicify-service-web.onrender.com/users/signup/auth`;
+    const url = `${process.env.REACT_APP_SERVICIFY_API_ENDPOINT}/users/signup/auth`;
     dispatch(fetchUsers(url, "checkDuplication", userInfo));
   };
 };
@@ -47,7 +47,7 @@ export const resetSignupState = () => ({
 });
 export const validateUser = (userInfo) => {
   return (dispatch) => {
-    const url = `https://servicify-service-web.onrender.com/users/login/auth`;
+    const url = `${process.env.REACT_APP_SERVICIFY_API_ENDPOINT}/users/login/auth`;
     dispatch(fetchUsers(url, "validateUser", userInfo));
   };
 };
@@ -113,7 +113,7 @@ export const getUser = (id) => {
     dispatch(setLoading(true));
 
     axios
-      .get("https://servicify-service-web.onrender.com/users/" + id)
+      .get(`${process.env.REACT_APP_SERVICIFY_API_ENDPOINT}/users/` + id)
       .then((res) => {
         dispatch(setUser(res.data));
         dispatch(setLoading(false));
@@ -126,7 +126,7 @@ export const updateUser = (user) => {
 
     axios
       .patch(
-        "https://servicify-service-web.onrender.com/users/" + user._id,
+        `${process.env.REACT_APP_SERVICIFY_API_ENDPOINT}/users/` + user._id,
         user
       )
       .then((res) => {
