@@ -1,10 +1,10 @@
 {
     "name": "servicify",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "private": true,
     "dependencies": {
         "@testing-library/jest-dom": "^5.11.4",
-        "@testing-library/react": "^11.1.0",
+        "@testing-library/react": "^12.1.4",
         "@testing-library/user-event": "^12.1.10",
         "animate.css": "^4.1.1",
         "axios": "^0.21.1",
@@ -12,7 +12,7 @@
         "firebase": "^8.2.0",
         "history": "^5.0.0",
         "moment": "^2.29.1",
-        "node-sass": "^5.0.0",
+        "node-sass": "^8.0.0",
         "react": "^17.0.2",
         "react-animate-on-scroll": "^2.1.5",
         "react-bootstrap": "^1.5.2",
@@ -54,8 +54,8 @@
             "last 1 safari version"
         ]
     },
-    "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+    "description": "servicify is web-based platform to connect service providers (anyone who is self-employed) and customers who's looking for service such plumping, Cleaning, gardening, AC service...etc.",
     "main": "index.js",
-    "author": "",
+    "author": "Servicify Team",
     "license": "ISC"
 }
