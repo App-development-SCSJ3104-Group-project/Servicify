@@ -5,9 +5,6 @@
 /.pnp
 .pnp.js
 
-# env files
-.env.production
-.env.development
 
 
 # testing
