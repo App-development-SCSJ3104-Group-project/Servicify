@@ -13,7 +13,10 @@ export const makeRequest = (data) => {
     };
 
     axios
-      .post("https://servicify-service-web.onrender.com/requests/create", req)
+      .post(
+        `${process.env.REACT_APP_SERVICIFY_API_ENDPOINT}/requests/create`,
+        req
+      )
       .then((res) => {
         dispatch(setLoading(false));
       });
@@ -40,9 +43,9 @@ export const getRequest = (id) => {
 
     axios
       .get(
-        "https://servicify-service-web.onrender.com/requests/?id=" +
-        id +
-        "&type=false"
+        `${process.env.REACT_APP_SERVICIFY_API_ENDPOINT}/requests/?id=` +
+          id +
+          "&type=false"
       )
       .then((res) => {
         dispatch(setLoading(false));
@@ -56,9 +59,9 @@ export const getServiceProviderRequest = (id) => {
 
     axios
       .get(
-        "https://servicify-service-web.onrender.com/requests/?id=" +
-        id +
-        "&type=true"
+        `${process.env.REACT_APP_SERVICIFY_API_ENDPOINT}/requests/?id=` +
+          id +
+          "&type=true"
       )
       .then((res) => {
         dispatch(setLoading(false));
@@ -73,7 +76,9 @@ export const getServiceProviderProposals = (id) => {
 
     axios
       .get(
-        "https://servicify-service-web.onrender.com/proposals/" + id + "/true"
+        `${process.env.REACT_APP_SERVICIFY_API_ENDPOINT}/proposals/` +
+          id +
+          "/true"
       )
       .then((res) => {
         dispatch(setProposal(res.data));
@@ -86,7 +91,7 @@ export const cancelRequest = (id, customerId) => {
     dispatch(setLoading(true));
 
     axios
-      .patch("https://servicify-service-web.onrender.com/requests/" + id, {
+      .patch(`${process.env.REACT_APP_SERVICIFY_API_ENDPOINT}/requests/` + id, {
         status: "Canceled",
       })
       .then((res) => {
@@ -102,21 +107,27 @@ export const acceptRequest = (id, customerId, status) => {
     // axios
     //   .patch("http://localhost:5000/requests/" + id, { status: status })
     //   .then((res) => {
-    axios.patch("https://servicify-service-web.onrender.com/requests/" + id, { status: status }).then(res => {
-      getServiceProviderRequest(customerId);
-      dispatch(setLoading(false));
-    });
+    axios
+      .patch(`${process.env.REACT_APP_SERVICIFY_API_ENDPOINT}/requests/` + id, {
+        status: status,
+      })
+      .then((res) => {
+        getServiceProviderRequest(customerId);
+        dispatch(setLoading(false));
+      });
   };
 };
 export const cancelProposal = (id, customerId) => {
   return (dispatch) => {
     dispatch(setLoading(true));
-
-    // axios
-    //   .patch("http://localhost:5000/proposals/" + id + "/cancel")
-    //   .then((res) => {
-    axios.patch("https://servicify-service-web.onrender.com/proposals/" + id + "/cancel").then(res => {
-      getServiceProviderProposals(customerId);
-    });
+    axios
+      .patch(
+        `${process.env.REACT_APP_SERVICIFY_API_ENDPOINT}/proposals/` +
+          id +
+          "/cancel"
+      )
+      .then((res) => {
+        getServiceProviderProposals(customerId);
+      });
   };
 };

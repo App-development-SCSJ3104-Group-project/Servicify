@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "https://servicify-service-web.onrender.com/proposals/";
+const url = `${process.env.REACT_APP_SERVICIFY_API_ENDPOINT}/proposals/`;
 
 export const fetchProposals = (id) =>
   axios({
